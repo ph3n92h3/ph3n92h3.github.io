@@ -1,0 +1,2797 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>附錄G“李群和李代數”習題解答 - Mein kleines Herz</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-27F91GZFBZ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-27F91GZFBZ",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-27F91GZFBZ"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#g" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Mein kleines Herz" class="md-header__button md-logo" aria-label="Mein kleines Herz" data-md-component="logo">
+      
+  <img src="../../../fig/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mein kleines Herz
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              附錄G“李群和李代數”習題解答
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../CS%2B%2B/CSgeneral/" class="md-tabs__link">
+        CS++
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Diary/2022.04.22%E8%8D%92%E7%A5%9E%E8%88%87%E9%87%8D%E7%94%9F/" class="md-tabs__link">
+        Diary
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Life/bilibili/" class="md-tabs__link">
+        Life
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../SP%20of%20particles%20by%20Kardar_1.%20%E7%83%AD%E5%8A%9B%E5%AD%A6/" class="md-tabs__link md-tabs__link--active">
+        Math&phy
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Mein kleines Herz" class="md-nav__button md-logo" aria-label="Mein kleines Herz" data-md-component="logo">
+      
+  <img src="../../../fig/logo.png" alt="logo">
+
+    </a>
+    Mein kleines Herz
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          CS++
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CS++" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          CS++
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/CSgeneral/" class="md-nav__link">
+        CSgeneral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/Hexo%26NexT/" class="md-nav__link">
+        Hexo&NexT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/LaTeX%20project/" class="md-nav__link">
+        LaTeX project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/LaTex%26minted/" class="md-nav__link">
+        LaTex&minted
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/MIUI%E5%88%B7%E6%A9%9F/" class="md-nav__link">
+        MIUI刷機
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/PowerShell%26winget/" class="md-nav__link">
+        PowerShell&winget
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/Windows%26font/" class="md-nav__link">
+        Windows&font
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          xTensorDoc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="xTensorDoc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          xTensorDoc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/xTensorDoc/xTensorDoc_0.%20Basic_zh/" class="md-nav__link">
+        基礎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/xTensorDoc/xTensorDoc_1.%20Manifolds%2C%20vector%20bundles%20and%20parameters_zh/" class="md-nav__link">
+        流形、切叢和參數
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/xTensorDoc/xTensorDoc_2.%20Indices_zh/" class="md-nav__link">
+        指標
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/xTensorDoc/xTensorDoc_3.%20Tensors%20and%20tensor%20slots_zh/" class="md-nav__link">
+        張量和張量的槽
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/xTensorDoc/xTensorDoc_4.%20Canonicalization_zh/" class="md-nav__link">
+        標準化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/xTensorDoc/xTensorDoc_5.%20Rules%20and%20paterns_zh/" class="md-nav__link">
+        規則（rule）與模式（pattern）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS%2B%2B/xTensorDoc/xTensorDoc_foreword_zh/" class="md-nav__link">
+        前言
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Diary
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Diary" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Diary
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Diary/2022.04.22%E8%8D%92%E7%A5%9E%E8%88%87%E9%87%8D%E7%94%9F/" class="md-nav__link">
+        2022.04.22荒神與重生
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Diary/2022.04.25%E8%B7%B3%E7%B9%A9/" class="md-nav__link">
+        2022.04.25跳繩
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Life
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Life" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Life
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Life/bilibili/" class="md-nav__link">
+        Bilibili
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Life/%E7%94%B7%E5%AD%A9%E5%AD%90%E5%A6%82%E4%BD%95%E7%95%99%E9%95%B7%E9%A0%AD%E9%AB%AE/" class="md-nav__link">
+        男孩子如何留長頭髮
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Math&phy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Math&phy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Math&phy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SP%20of%20particles%20by%20Kardar_1.%20%E7%83%AD%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        SP of particles 1. 熱力學
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          QFT by David Tong
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="QFT by David Tong" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          QFT by David Tong
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_0.%20%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        前言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_1.%20%E7%B6%93%E5%85%B8%E5%A0%B4%E8%AB%96/" class="md-nav__link">
+        經典場論
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_2.%20%E8%87%AA%E7%94%B1%E5%A0%B4/" class="md-nav__link">
+        自由場
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_3.%20%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8%E5%A0%B4/" class="md-nav__link">
+        相互作用場
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_4.%20Dirac%20%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        Dirac 方程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_5.%20%E9%87%8F%E5%AD%90%E5%8C%96%20Dirac%20%E5%A0%B4/" class="md-nav__link">
+        量子化 Dirac 場
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_6.%20%E9%87%8F%E5%AD%90%E9%9B%BB%E5%8B%95%E5%8A%9B%E5%AD%B8/" class="md-nav__link">
+        量子電動力學
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          微广
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微广" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          微广
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%20in%20mma/" class="md-nav__link">
+        廣義相對論 in mma
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          附錄G“李群和李代數”習題解答
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        附錄G“李群和李代數”習題解答
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-g-1-1" class="md-nav__link">
+    0.（補）證明定理 G-1-1。
+  </a>
+  
+    <nav class="md-nav" aria-label="0.（補）證明定理 G-1-1。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    (a)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    (b)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    (c)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-g-1-1-i_ggto-g" class="md-nav__link">
+    1. 驗證由式(G-1-1)定義的 \(I_g:G\to G\) 確爲自同構映射。
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 驗證由式(G-1-1)定義的 \(I_g:G\to G\) 確爲自同構映射。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-i_gh_1h_2i_gh_1i_gh_2" class="md-nav__link">
+    (A) 證明是同態，即證 \(I_g(h_1h_2)=I_g(h_1)I_g(h_2)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-h_1neq-h_2rightarrow-i_gh_1neq-i_gh2" class="md-nav__link">
+    (B) 證明一一性，即證 \(h_1\neq h_2\Rightarrow I_g(h_1)\neq I_g(h)2)\)，反證：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-forall-hin-gexist-hin-gst-i_ghh" class="md-nav__link">
+    (C) 證明到上性，即證 \(\forall h'\in G\)，\(\exist h\in G\)，s.t. \(I_g(h)=h'\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-g-1-2" class="md-nav__link">
+    ~2. 驗證由式(G-1-2)定義的乘法滿足群乘法的要求。
+  </a>
+  
+    <nav class="md-nav" aria-label="~2. 驗證由式(G-1-2)定義的乘法滿足群乘法的要求。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_1" class="md-nav__link">
+    (A)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-gtimes-g-ee" class="md-nav__link">
+    (B) \(G\times G'\) 的恆等元為 \((e,e')\)，它是恆等元，因爲：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-gg-g-1g-1" class="md-nav__link">
+    (C) \((g,g')\) 的逆元為 \((g^{-1},g'^{-1})\)，它是逆元，因爲：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-g1-8-ag" class="md-nav__link">
+    3. 驗證由 G.1 節定義 8 所定義的 \(A(G)\) 是群。
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 驗證由 G.1 節定義 8 所定義的 \(A(G)\) 是群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_2" class="md-nav__link">
+    (A)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-e-egg-forall-gin-g" class="md-nav__link">
+    (B) 恆等元 \(e:\ e(g)=g,\ \forall g\in G\)，它是恆等元，因爲：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-mu" class="md-nav__link">
+    (C) \(\mu\) 的逆元即其逆映射（縂存在，因爲同構映射一一到上），它是逆元，因爲：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-g-1-2-a_ig-ag" class="md-nav__link">
+    ~4. 試證定理 G-1-2，即 \(A_I(G)\) 是群 \(A(G)\) 的正規子群。
+  </a>
+  
+    <nav class="md-nav" aria-label="~4. 試證定理 G-1-2，即 \(A_I(G)\) 是群 \(A(G)\) 的正規子群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-a_ig-ag" class="md-nav__link">
+    (A) 證明是子群，即證 \(A_I(G)\) 在 \(A(G)\) 的群乘法（複合映射）下構成群。
+  </a>
+  
+    <nav class="md-nav" aria-label="(A) 證明是子群，即證 \(A_I(G)\) 在 \(A(G)\) 的群乘法（複合映射）下構成群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_3" class="md-nav__link">
+    (a)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-i_e" class="md-nav__link">
+    (b) 恆等元：\(I_e\)，它是恆等元，因爲：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-i_g-i_g-1" class="md-nav__link">
+    (c) \(I_g\) 的逆元：\(I_{g^{-1}}\)，它是逆元，因爲：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-mu-i_gmu-1in-a_ig-forall-gin-gmuin-ag" class="md-nav__link">
+    (B) 證明是正規子群，即證 \(\mu I_g\mu^{-1}\in A_I(G),\ \forall g\in G,\mu\in A(G)\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-g1-9-hotimes_sk" class="md-nav__link">
+    5. 驗證由 G.1 節定義 9 所定義的 \(H\otimes_SK\) 是群。
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 驗證由 G.1 節定義 9 所定義的 \(H\otimes_SK\) 是群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_4" class="md-nav__link">
+    (A)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#left-e_he_k-right" class="md-nav__link">
+    恆等元即  \(\left( {{e_H},{e_K}} \right)\)，它是恆等元，因爲：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#left-hk-right-left-barhbark-right" class="md-nav__link">
+    設 \(\left( {h,k} \right)\) 的逆元為 \(\left( {\bar{h},\bar{k}} \right)\)，則：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-l_ggto-g-gin-g-l_g-1-l_g-l_g-1l_g-1forall-gin-g" class="md-nav__link">
+    6. 設 \(L_g:G\to G\) 是由 \(g\in G\) 生成的左平移，\(L_g^{-1}\) 是 \(L_g\) 的逆映射，試證 \(L_{g^{-1}}=L_g^{-1},\forall g\in G\)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-forall-gin-g-r_ghmapsto-hgforall-hin-g-r_ghr_hcirc-r_g" class="md-nav__link">
+    ~7. \(\forall g\in G\) 定義右平移 \(R_g:h\mapsto hg\)，\(\forall h\in G\)，試證 \(R_{gh}=R_{h}\circ R_{g}\)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-vecvvecuvecvtimesvecuforall-vecvvecuinmathbbr3-g3-1" class="md-nav__link">
+    ~8. 試證 \([\vec{v},\vec{u}]:=\vec{v}\times\vec{u}\)，\(\forall \vec{v},\vec{u}\in\mathbb{R}^3\) 滿足李括號的條件（見 G.3 節例 1）。
+  </a>
+  
+    <nav class="md-nav" aria-label="~8. 試證 \([\vec{v},\vec{u}]:=\vec{v}\times\vec{u}\)，\(\forall \vec{v},\vec{u}\in\mathbb{R}^3\) 滿足李括號的條件（見 G.3 節例 1）。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_5" class="md-nav__link">
+    (A) 雙綫性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_1" class="md-nav__link">
+    (B) 反稱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-jacobi" class="md-nav__link">
+    (C) Jacobi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-abab-ba-g3-2" class="md-nav__link">
+    ~9. 試證 \([A,B]=AB-BA\) 滿足李括號的條件（見 G.3 節例 2）。
+  </a>
+  
+    <nav class="md-nav" aria-label="~9. 試證 \([A,B]=AB-BA\) 滿足李括號的條件（見 G.3 節例 2）。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_6" class="md-nav__link">
+    (A) 雙綫性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_2" class="md-nav__link">
+    (B) 反稱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-jacobi_1" class="md-nav__link">
+    (C) Jacobi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-mathscrg-hatmathscrg-g-hatg-rho_mathscrgtohatmathscrg-rhogto-hat-g-ein-g-rhoexp-aexprho_a-forall-ainmathscrg-rhoexp-ta" class="md-nav__link">
+    ~10. 設 \(\mathscr{G}\) 和 \(\hat{\mathscr{G}}\) 依次是李群 \(G\) 和 \(\hat{G}\) 的李代數，\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\) 是同態映射 \(\rho:G\to \hat G\) 在 \(e\in G\) 誘導的推前映射，試證 \(\rho(\exp A)=\exp(\rho_*A)\ \forall A\in\mathscr{G}\)。提示：先用同態性證明 \(\rho(\exp tA)\) 是單參子群。
+  </a>
+  
+    <nav class="md-nav" aria-label="~10. 設 \(\mathscr{G}\) 和 \(\hat{\mathscr{G}}\) 依次是李群 \(G\) 和 \(\hat{G}\) 的李代數，\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\) 是同態映射 \(\rho:G\to \hat G\) 在 \(e\in G\) 誘導的推前映射，試證 \(\rho(\exp A)=\exp(\rho_*A)\ \forall A\in\mathscr{G}\)。提示：先用同態性證明 \(\rho(\exp tA)\) 是單參子群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-rhoexp-ta-rhoexptsarhoexptarhoexpsa" class="md-nav__link">
+    (A) 先證明 \(\rho(\exp tA)\) 是單參子群，即證 \(\rho\exp[(t+s)A]=[\rho\exp(tA)][\rho\exp(sA)]\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_3" class="md-nav__link">
+    (B)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-g-5-10-g-5-10-g-5-10-va-ua-g-5-10-va" class="md-nav__link">
+    ~11. 試證式 (G-5-10) 可由式 (G-5-10') 推出。提示：把式 (G-5-10) 的 \(v^a,\ u^a\) 之和作爲式 (G-5-10') 的 \(v^a\)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-so2-o2" class="md-nav__link">
+    ~12. SO(2) 是阿貝爾群嗎？O(2) 是阿貝爾群嗎？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-mathrmslmmathrmglm-det-t1-mathscrslm" class="md-nav__link">
+    ~13. 李群 \(\mathrm{SL}(m)\)[\(\mathrm{GL}(m)\) 滿足 \(\det T=+1\) 的子群]的李代數記作 \(\mathscr{SL}(m)\)，試證：
+  </a>
+  
+    <nav class="md-nav" aria-label="~13. 李群 \(\mathrm{SL}(m)\)[\(\mathrm{GL}(m)\) 滿足 \(\det T=+1\) 的子群]的李代數記作 \(\mathscr{SL}(m)\)，試證：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_7" class="md-nav__link">
+    (a)
+  </a>
+  
+    <nav class="md-nav" aria-label="(a)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-rightarrow" class="md-nav__link">
+    (A, \(\Rightarrow\))
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-leftarrow" class="md-nav__link">
+    (B, \(\Leftarrow\))
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_4" class="md-nav__link">
+    (B)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    14.
+  </a>
+  
+    <nav class="md-nav" aria-label="14.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    (1) 直接找出來一條即證畢。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-t-mathrmgl2-exist-abeginbmatrix-a-b-c-d-endbmatrixst-texpa" class="md-nav__link">
+    (2) 反證，設 \(T\) 屬於 \(\mathrm{GL}(2)\) 的某一單參子群，則 \(\exist A=\begin{bmatrix}  a &amp;b \\  c&amp; d \end{bmatrix}\)，s.t. \(T=\exp(A)\)
+  </a>
+  
+    <nav class="md-nav" aria-label="(2) 反證，設 \(T\) 屬於 \(\mathrm{GL}(2)\) 的某一單參子群，則 \(\exist A=\begin{bmatrix}  a &amp;b \\  c&amp; d \end{bmatrix}\)，s.t. \(T=\exp(A)\)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_8" class="md-nav__link">
+    (a) 反證
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_5" class="md-nav__link">
+    (b) 數學歸納法
+  </a>
+  
+    <nav class="md-nav" aria-label="(b) 數學歸納法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b1" class="md-nav__link">
+    (b.1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b2" class="md-nav__link">
+    (b.2) 再次數學歸納法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b3" class="md-nav__link">
+    (b.3)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    (c)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-g-5-11-dmathrmexpmathrmivarphi" class="md-nav__link">
+    15. 補証定理 G-5-11 證明中的等式 \(D=\mathrm{Exp}(\mathrm{i}\varPhi)\)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-jacobi-g-6-1-b" class="md-nav__link">
+    16. 試用李括號所滿足的 Jacobi 恆等式證明定理 G-6-1 的(b)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-g6-1-1-2" class="md-nav__link">
+    17. 試證 G.6 節例 1 的中的 ① 和 ②。
+  </a>
+  
+    <nav class="md-nav" aria-label="17. 試證 G.6 節例 1 的中的 ① 和 ②。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    ①
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    ②
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-g7-4-barxi-bara" class="md-nav__link">
+    18. 試證 G.7 節例 4 的結論，即 \(\bar{\xi}=-\bar{A}\)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-g-forall-ainmathscrg-gin-g-mathscrad_gagag-1-3-g-gag-1-g-b" class="md-nav__link">
+    19. 設 \(G\) 是矩陣李群，試證 \(\forall A\in\mathscr{G},\ g\in G\) 有 \(\mathscr{Ad}_{g}A=gAg^{-1}\)。（右邊是 3 個矩陣的連乘積。黨 \(G\) 不是矩陣群時 \(gAg^{-1}\) 無意義，因爲李群元 \(g\) 與李代數元 \(B\) 之積沒有定義）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-mathscrg-hatmathscrg-g-g-rho_mathscrgtohatmathscrg-rhogtohatg-ein-g" class="md-nav__link">
+    20. 設 \(\mathscr{G}\) 和 \(\hat{\mathscr{G}}\) 依次是李群 \(G\) 和 \(G'\) 的李代數，\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\) 是同態映射 \(\rho:G\to\hat{G}\) 在 \(e\in G\) 誘導的推前映射，試證
+  </a>
+  
+    <nav class="md-nav" aria-label="20. 設 \(\mathscr{G}\) 和 \(\hat{\mathscr{G}}\) 依次是李群 \(G\) 和 \(G'\) 的李代數，\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\) 是同態映射 \(\rho:G\to\hat{G}\) 在 \(e\in G\) 誘導的推前映射，試證">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_9" class="md-nav__link">
+    (a)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_6" class="md-nav__link">
+    (b)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-g-8-14-g-8-16" class="md-nav__link">
+    21. 試證式 (G-8-14) 和 (G-8-16)。
+  </a>
+  
+    <nav class="md-nav" aria-label="21. 試證式 (G-8-14) 和 (G-8-16)。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#g-8-14" class="md-nav__link">
+    (G-8-14)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-8-16" class="md-nav__link">
+    (G-8-16)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-e-g-gin-g-mathscradv_eto-v_e" class="md-nav__link">
+    *22. 設 \(e\) 是李群 \(G\) 的恆等元，\(g\in G\)，則映射 \(\mathscr{Ad}:V_e\to V_e\) 可延拓為
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-mathscrg-g-gin-g-mathscrad_gmathscrgtomathscrg-i_ggto-g-mathscrad_gmathscrgtomathscrg-4-4-mathscrad_gmathscrgtomathscrg-mathscrad_gabmathscrad_gamathscrad_gb-4-6-mathscrad_gbarabarbmathscrad_gbaramathscrad_gbarb-22-barabarbinmathscrlrightarrowbarabarbinmathscrl" class="md-nav__link">
+    23. 設 \(\mathscr{G}\) 是李群 \(G\) 的李代數，\(g\in G\)，試證 \(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\) 是李代數同構。提示：\(I_g:G\to G\) 是微分同胚保證 \(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\) 是矢量空間同構（見第 4 章習題 4），故只需補證 \(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\) 保李括號，即 \(\mathscr{Ad}_g[A,B]=[\mathscr{Ad}_gA,\mathscr{Ad}_gB]\)。由第 4 章習題 6 可知 \(\mathscr{Ad}_g[\bar{A},\bar{B}]=[\mathscr{Ad}_g\bar{A},\mathscr{Ad}_g\bar{B}]\)，再用習題 22 的結論以及 \(\bar{A},\bar{B}\in\mathscr{L}\Rightarrow[\bar{A},\bar{B}]\in\mathscr{L}\) 便可。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    24. 純計算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    25. 純計算
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%97%B6%E7%A9%BA%E7%9A%84%E6%95%B4%E4%BD%93%E5%9B%A0%E6%9E%9C%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        时空的整体因果结构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%90%E8%BF%9B%E5%B9%B3%E7%9B%B4%E6%97%B6%E7%A9%BA/" class="md-nav__link">
+        渐进平直时空
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          课程复习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="课程复习" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          课程复习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%BE%E7%A8%8B%E5%A4%8D%E4%B9%A0/Review_Electrodynamics/" class="md-nav__link">
+        Review Electrodynamics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%BE%E7%A8%8B%E5%A4%8D%E4%B9%A0/Review_Method_of_Mathematical_Physics/" class="md-nav__link">
+        Review Method of Mathematical Physics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-g-1-1" class="md-nav__link">
+    0.（補）證明定理 G-1-1。
+  </a>
+  
+    <nav class="md-nav" aria-label="0.（補）證明定理 G-1-1。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    (a)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    (b)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    (c)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-g-1-1-i_ggto-g" class="md-nav__link">
+    1. 驗證由式(G-1-1)定義的 \(I_g:G\to G\) 確爲自同構映射。
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 驗證由式(G-1-1)定義的 \(I_g:G\to G\) 確爲自同構映射。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-i_gh_1h_2i_gh_1i_gh_2" class="md-nav__link">
+    (A) 證明是同態，即證 \(I_g(h_1h_2)=I_g(h_1)I_g(h_2)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-h_1neq-h_2rightarrow-i_gh_1neq-i_gh2" class="md-nav__link">
+    (B) 證明一一性，即證 \(h_1\neq h_2\Rightarrow I_g(h_1)\neq I_g(h)2)\)，反證：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-forall-hin-gexist-hin-gst-i_ghh" class="md-nav__link">
+    (C) 證明到上性，即證 \(\forall h'\in G\)，\(\exist h\in G\)，s.t. \(I_g(h)=h'\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-g-1-2" class="md-nav__link">
+    ~2. 驗證由式(G-1-2)定義的乘法滿足群乘法的要求。
+  </a>
+  
+    <nav class="md-nav" aria-label="~2. 驗證由式(G-1-2)定義的乘法滿足群乘法的要求。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_1" class="md-nav__link">
+    (A)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-gtimes-g-ee" class="md-nav__link">
+    (B) \(G\times G'\) 的恆等元為 \((e,e')\)，它是恆等元，因爲：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-gg-g-1g-1" class="md-nav__link">
+    (C) \((g,g')\) 的逆元為 \((g^{-1},g'^{-1})\)，它是逆元，因爲：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-g1-8-ag" class="md-nav__link">
+    3. 驗證由 G.1 節定義 8 所定義的 \(A(G)\) 是群。
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 驗證由 G.1 節定義 8 所定義的 \(A(G)\) 是群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_2" class="md-nav__link">
+    (A)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-e-egg-forall-gin-g" class="md-nav__link">
+    (B) 恆等元 \(e:\ e(g)=g,\ \forall g\in G\)，它是恆等元，因爲：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-mu" class="md-nav__link">
+    (C) \(\mu\) 的逆元即其逆映射（縂存在，因爲同構映射一一到上），它是逆元，因爲：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-g-1-2-a_ig-ag" class="md-nav__link">
+    ~4. 試證定理 G-1-2，即 \(A_I(G)\) 是群 \(A(G)\) 的正規子群。
+  </a>
+  
+    <nav class="md-nav" aria-label="~4. 試證定理 G-1-2，即 \(A_I(G)\) 是群 \(A(G)\) 的正規子群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-a_ig-ag" class="md-nav__link">
+    (A) 證明是子群，即證 \(A_I(G)\) 在 \(A(G)\) 的群乘法（複合映射）下構成群。
+  </a>
+  
+    <nav class="md-nav" aria-label="(A) 證明是子群，即證 \(A_I(G)\) 在 \(A(G)\) 的群乘法（複合映射）下構成群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_3" class="md-nav__link">
+    (a)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-i_e" class="md-nav__link">
+    (b) 恆等元：\(I_e\)，它是恆等元，因爲：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-i_g-i_g-1" class="md-nav__link">
+    (c) \(I_g\) 的逆元：\(I_{g^{-1}}\)，它是逆元，因爲：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-mu-i_gmu-1in-a_ig-forall-gin-gmuin-ag" class="md-nav__link">
+    (B) 證明是正規子群，即證 \(\mu I_g\mu^{-1}\in A_I(G),\ \forall g\in G,\mu\in A(G)\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-g1-9-hotimes_sk" class="md-nav__link">
+    5. 驗證由 G.1 節定義 9 所定義的 \(H\otimes_SK\) 是群。
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 驗證由 G.1 節定義 9 所定義的 \(H\otimes_SK\) 是群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_4" class="md-nav__link">
+    (A)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#left-e_he_k-right" class="md-nav__link">
+    恆等元即  \(\left( {{e_H},{e_K}} \right)\)，它是恆等元，因爲：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#left-hk-right-left-barhbark-right" class="md-nav__link">
+    設 \(\left( {h,k} \right)\) 的逆元為 \(\left( {\bar{h},\bar{k}} \right)\)，則：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-l_ggto-g-gin-g-l_g-1-l_g-l_g-1l_g-1forall-gin-g" class="md-nav__link">
+    6. 設 \(L_g:G\to G\) 是由 \(g\in G\) 生成的左平移，\(L_g^{-1}\) 是 \(L_g\) 的逆映射，試證 \(L_{g^{-1}}=L_g^{-1},\forall g\in G\)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-forall-gin-g-r_ghmapsto-hgforall-hin-g-r_ghr_hcirc-r_g" class="md-nav__link">
+    ~7. \(\forall g\in G\) 定義右平移 \(R_g:h\mapsto hg\)，\(\forall h\in G\)，試證 \(R_{gh}=R_{h}\circ R_{g}\)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-vecvvecuvecvtimesvecuforall-vecvvecuinmathbbr3-g3-1" class="md-nav__link">
+    ~8. 試證 \([\vec{v},\vec{u}]:=\vec{v}\times\vec{u}\)，\(\forall \vec{v},\vec{u}\in\mathbb{R}^3\) 滿足李括號的條件（見 G.3 節例 1）。
+  </a>
+  
+    <nav class="md-nav" aria-label="~8. 試證 \([\vec{v},\vec{u}]:=\vec{v}\times\vec{u}\)，\(\forall \vec{v},\vec{u}\in\mathbb{R}^3\) 滿足李括號的條件（見 G.3 節例 1）。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_5" class="md-nav__link">
+    (A) 雙綫性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_1" class="md-nav__link">
+    (B) 反稱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-jacobi" class="md-nav__link">
+    (C) Jacobi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-abab-ba-g3-2" class="md-nav__link">
+    ~9. 試證 \([A,B]=AB-BA\) 滿足李括號的條件（見 G.3 節例 2）。
+  </a>
+  
+    <nav class="md-nav" aria-label="~9. 試證 \([A,B]=AB-BA\) 滿足李括號的條件（見 G.3 節例 2）。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_6" class="md-nav__link">
+    (A) 雙綫性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_2" class="md-nav__link">
+    (B) 反稱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-jacobi_1" class="md-nav__link">
+    (C) Jacobi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-mathscrg-hatmathscrg-g-hatg-rho_mathscrgtohatmathscrg-rhogto-hat-g-ein-g-rhoexp-aexprho_a-forall-ainmathscrg-rhoexp-ta" class="md-nav__link">
+    ~10. 設 \(\mathscr{G}\) 和 \(\hat{\mathscr{G}}\) 依次是李群 \(G\) 和 \(\hat{G}\) 的李代數，\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\) 是同態映射 \(\rho:G\to \hat G\) 在 \(e\in G\) 誘導的推前映射，試證 \(\rho(\exp A)=\exp(\rho_*A)\ \forall A\in\mathscr{G}\)。提示：先用同態性證明 \(\rho(\exp tA)\) 是單參子群。
+  </a>
+  
+    <nav class="md-nav" aria-label="~10. 設 \(\mathscr{G}\) 和 \(\hat{\mathscr{G}}\) 依次是李群 \(G\) 和 \(\hat{G}\) 的李代數，\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\) 是同態映射 \(\rho:G\to \hat G\) 在 \(e\in G\) 誘導的推前映射，試證 \(\rho(\exp A)=\exp(\rho_*A)\ \forall A\in\mathscr{G}\)。提示：先用同態性證明 \(\rho(\exp tA)\) 是單參子群。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-rhoexp-ta-rhoexptsarhoexptarhoexpsa" class="md-nav__link">
+    (A) 先證明 \(\rho(\exp tA)\) 是單參子群，即證 \(\rho\exp[(t+s)A]=[\rho\exp(tA)][\rho\exp(sA)]\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_3" class="md-nav__link">
+    (B)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-g-5-10-g-5-10-g-5-10-va-ua-g-5-10-va" class="md-nav__link">
+    ~11. 試證式 (G-5-10) 可由式 (G-5-10') 推出。提示：把式 (G-5-10) 的 \(v^a,\ u^a\) 之和作爲式 (G-5-10') 的 \(v^a\)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-so2-o2" class="md-nav__link">
+    ~12. SO(2) 是阿貝爾群嗎？O(2) 是阿貝爾群嗎？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-mathrmslmmathrmglm-det-t1-mathscrslm" class="md-nav__link">
+    ~13. 李群 \(\mathrm{SL}(m)\)[\(\mathrm{GL}(m)\) 滿足 \(\det T=+1\) 的子群]的李代數記作 \(\mathscr{SL}(m)\)，試證：
+  </a>
+  
+    <nav class="md-nav" aria-label="~13. 李群 \(\mathrm{SL}(m)\)[\(\mathrm{GL}(m)\) 滿足 \(\det T=+1\) 的子群]的李代數記作 \(\mathscr{SL}(m)\)，試證：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_7" class="md-nav__link">
+    (a)
+  </a>
+  
+    <nav class="md-nav" aria-label="(a)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-rightarrow" class="md-nav__link">
+    (A, \(\Rightarrow\))
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-leftarrow" class="md-nav__link">
+    (B, \(\Leftarrow\))
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_4" class="md-nav__link">
+    (B)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    14.
+  </a>
+  
+    <nav class="md-nav" aria-label="14.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    (1) 直接找出來一條即證畢。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-t-mathrmgl2-exist-abeginbmatrix-a-b-c-d-endbmatrixst-texpa" class="md-nav__link">
+    (2) 反證，設 \(T\) 屬於 \(\mathrm{GL}(2)\) 的某一單參子群，則 \(\exist A=\begin{bmatrix}  a &amp;b \\  c&amp; d \end{bmatrix}\)，s.t. \(T=\exp(A)\)
+  </a>
+  
+    <nav class="md-nav" aria-label="(2) 反證，設 \(T\) 屬於 \(\mathrm{GL}(2)\) 的某一單參子群，則 \(\exist A=\begin{bmatrix}  a &amp;b \\  c&amp; d \end{bmatrix}\)，s.t. \(T=\exp(A)\)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_8" class="md-nav__link">
+    (a) 反證
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_5" class="md-nav__link">
+    (b) 數學歸納法
+  </a>
+  
+    <nav class="md-nav" aria-label="(b) 數學歸納法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b1" class="md-nav__link">
+    (b.1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b2" class="md-nav__link">
+    (b.2) 再次數學歸納法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b3" class="md-nav__link">
+    (b.3)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    (c)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-g-5-11-dmathrmexpmathrmivarphi" class="md-nav__link">
+    15. 補証定理 G-5-11 證明中的等式 \(D=\mathrm{Exp}(\mathrm{i}\varPhi)\)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-jacobi-g-6-1-b" class="md-nav__link">
+    16. 試用李括號所滿足的 Jacobi 恆等式證明定理 G-6-1 的(b)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-g6-1-1-2" class="md-nav__link">
+    17. 試證 G.6 節例 1 的中的 ① 和 ②。
+  </a>
+  
+    <nav class="md-nav" aria-label="17. 試證 G.6 節例 1 的中的 ① 和 ②。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    ①
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    ②
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-g7-4-barxi-bara" class="md-nav__link">
+    18. 試證 G.7 節例 4 的結論，即 \(\bar{\xi}=-\bar{A}\)。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-g-forall-ainmathscrg-gin-g-mathscrad_gagag-1-3-g-gag-1-g-b" class="md-nav__link">
+    19. 設 \(G\) 是矩陣李群，試證 \(\forall A\in\mathscr{G},\ g\in G\) 有 \(\mathscr{Ad}_{g}A=gAg^{-1}\)。（右邊是 3 個矩陣的連乘積。黨 \(G\) 不是矩陣群時 \(gAg^{-1}\) 無意義，因爲李群元 \(g\) 與李代數元 \(B\) 之積沒有定義）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-mathscrg-hatmathscrg-g-g-rho_mathscrgtohatmathscrg-rhogtohatg-ein-g" class="md-nav__link">
+    20. 設 \(\mathscr{G}\) 和 \(\hat{\mathscr{G}}\) 依次是李群 \(G\) 和 \(G'\) 的李代數，\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\) 是同態映射 \(\rho:G\to\hat{G}\) 在 \(e\in G\) 誘導的推前映射，試證
+  </a>
+  
+    <nav class="md-nav" aria-label="20. 設 \(\mathscr{G}\) 和 \(\hat{\mathscr{G}}\) 依次是李群 \(G\) 和 \(G'\) 的李代數，\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\) 是同態映射 \(\rho:G\to\hat{G}\) 在 \(e\in G\) 誘導的推前映射，試證">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_9" class="md-nav__link">
+    (a)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_6" class="md-nav__link">
+    (b)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-g-8-14-g-8-16" class="md-nav__link">
+    21. 試證式 (G-8-14) 和 (G-8-16)。
+  </a>
+  
+    <nav class="md-nav" aria-label="21. 試證式 (G-8-14) 和 (G-8-16)。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#g-8-14" class="md-nav__link">
+    (G-8-14)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-8-16" class="md-nav__link">
+    (G-8-16)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-e-g-gin-g-mathscradv_eto-v_e" class="md-nav__link">
+    *22. 設 \(e\) 是李群 \(G\) 的恆等元，\(g\in G\)，則映射 \(\mathscr{Ad}:V_e\to V_e\) 可延拓為
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-mathscrg-g-gin-g-mathscrad_gmathscrgtomathscrg-i_ggto-g-mathscrad_gmathscrgtomathscrg-4-4-mathscrad_gmathscrgtomathscrg-mathscrad_gabmathscrad_gamathscrad_gb-4-6-mathscrad_gbarabarbmathscrad_gbaramathscrad_gbarb-22-barabarbinmathscrlrightarrowbarabarbinmathscrl" class="md-nav__link">
+    23. 設 \(\mathscr{G}\) 是李群 \(G\) 的李代數，\(g\in G\)，試證 \(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\) 是李代數同構。提示：\(I_g:G\to G\) 是微分同胚保證 \(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\) 是矢量空間同構（見第 4 章習題 4），故只需補證 \(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\) 保李括號，即 \(\mathscr{Ad}_g[A,B]=[\mathscr{Ad}_gA,\mathscr{Ad}_gB]\)。由第 4 章習題 6 可知 \(\mathscr{Ad}_g[\bar{A},\bar{B}]=[\mathscr{Ad}_g\bar{A},\mathscr{Ad}_g\bar{B}]\)，再用習題 22 的結論以及 \(\bar{A},\bar{B}\in\mathscr{L}\Rightarrow[\bar{A},\bar{B}]\in\mathscr{L}\) 便可。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    24. 純計算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    25. 純計算
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="g">附錄G“李群和李代數”習題解答</h1>
+<p>注 🐖：我開始使用 <code>mathtype</code> 進行公式的輸入，但是複製粘貼過來時，必須在公式前後加上 <code>...</code>，否則相關的引擎不能正確排版——這不得不説是一個很大的遺憾。</p>
+<h2 id="0-g-1-1">0.（補）證明定理 G-1-1。</h2>
+<p>注 🐖：這道題是我自己加的，書中只説它是練習而沒有説是習題，但是考慮到它的“非常重要性”（是不是像梁老爺子的語氣了:），這裏做一個簡單的證明。</p>
+<h3 id="a">(a)</h3>
+<p>$$
+\mu(eg)=\mu(e)\mu(g)=\mu(g),\ \mu(ge)=\mu(g)\mu(e)=\mu(g),\ \forall g\in G
+$$
+故 <span class="arithmatex">\(\mu(e)=e'\)</span></p>
+<h3 id="b">(b)</h3>
+<p>$$
+\mu(gg^{-1})=\mu(e)=e'=\mu(g)\mu(g^{-1}),\ \mu(g^{-1}g)=\mu(e)=e'=\mu(g^{-1})\mu(g),\ \forall g\in G
+$$
+故 <span class="arithmatex">\(\mu(g^{-1})=\mu(g)^{-1}\)</span></p>
+<h3 id="c">(c)</h3>
+<p>$$
+\mu(g_1g_2)=\mu(g_1g_2)=\mu(g_1)\mu(g_2)=\mu(g_2)\mu(g_1)
+$$
+故當 <span class="arithmatex">\(G\)</span> 是阿貝爾群時 <span class="arithmatex">\(\mu[G]\)</span> 是 <span class="arithmatex">\(G'\)</span> 的阿貝爾子群。</p>
+<h2 id="1-g-1-1-i_ggto-g">1. 驗證由式(G-1-1)定義的 <span class="arithmatex">\(I_g:G\to G\)</span> 確爲自同構映射。</h2>
+<h3 id="a-i_gh_1h_2i_gh_1i_gh_2">(A) 證明是同態，即證 <span class="arithmatex">\(I_g(h_1h_2)=I_g(h_1)I_g(h_2)\)</span></h3>
+<div class="arithmatex">\[
+I_g(h_1h_2)=g(h_1h_2)g^{-1}=(gh_1g^{-1})(gh_2g^{-2})=I_g(h_1)I_g(h_2)
+\]</div>
+<h3 id="b-h_1neq-h_2rightarrow-i_gh_1neq-i_gh2">(B) 證明一一性，即證 <span class="arithmatex">\(h_1\neq h_2\Rightarrow I_g(h_1)\neq I_g(h)2)\)</span>，反證：</h3>
+<p>若 <span class="arithmatex">\(I_g(h_1)=I_g(h_2)\)</span>，則：<span class="arithmatex">\(gh_1g^{-1}=gh_2g^{-1}\)</span>，<span class="arithmatex">\(g^{-1}(gh_1g^{-1})g=g^{-1}(gh_2g^{-1})g\)</span>，i.e. <span class="arithmatex">\(h_1=h_2\)</span>，矛盾。</p>
+<h3 id="c-forall-hin-gexist-hin-gst-i_ghh">(C) 證明到上性，即證 <span class="arithmatex">\(\forall h'\in G\)</span>，<span class="arithmatex">\(\exist h\in G\)</span>，s.t. <span class="arithmatex">\(I_g(h)=h'\)</span></h3>
+<p>令 <span class="arithmatex">\(h=g^{-1}h'g\)</span>，則有 <span class="arithmatex">\(I_g(h)=h'\)</span>。</p>
+<p>故 <span class="arithmatex">\(I_g\)</span> 是同構，又 <span class="arithmatex">\(I_g:G\to G\)</span>，故 <span class="arithmatex">\(I_g\)</span> 是自同構。</p>
+<h2 id="2-g-1-2">~2. 驗證由式(G-1-2)定義的乘法滿足群乘法的要求。</h2>
+<h3 id="a_1">(A)</h3>
+<div class="arithmatex">\[
+[(g_1,g_1')(g_2,g_2')](g_3,g_3')=(g_1,g_1')[(g_2,g_2')(g_3,g_3')]=(g_1g_2g_3,g_1'g_2'g_3')
+\]</div>
+<h3 id="b-gtimes-g-ee">(B) <span class="arithmatex">\(G\times G'\)</span> 的恆等元為 <span class="arithmatex">\((e,e')\)</span>，它是恆等元，因爲：</h3>
+<div class="arithmatex">\[
+(e,e')(g,g')=(g,g')(e,e')=(g,g')
+\]</div>
+<h3 id="c-gg-g-1g-1">(C) <span class="arithmatex">\((g,g')\)</span> 的逆元為 <span class="arithmatex">\((g^{-1},g'^{-1})\)</span>，它是逆元，因爲：</h3>
+<div class="arithmatex">\[
+(g^{-1},g'^{-1})(g,g')=(g,g')(g^{-1},g'^{-1})=(e,e')
+\]</div>
+<h2 id="3-g1-8-ag">3. 驗證由 G.1 節定義 8 所定義的 <span class="arithmatex">\(A(G)\)</span> 是群。</h2>
+<h3 id="a_2">(A)</h3>
+<div class="arithmatex">\[
+[(\mu\nu)\sigma](g)=[\mu(\nu\sigma)](g)=\mu\{\nu[\sigma(g)]\},\ \forall g\in G,\ \mu,\nu,\sigma\in A(G)
+\]</div>
+<h3 id="b-e-egg-forall-gin-g">(B) 恆等元 <span class="arithmatex">\(e:\ e(g)=g,\ \forall g\in G\)</span>，它是恆等元，因爲：</h3>
+<div class="arithmatex">\[
+(e\mu)(g)=e[\mu(g)]=\mu(h),\ (\mu e)(g)=\mu[e(g)]=\mu(g),\ \forall g\in G,\ \mu\in A(G)
+\]</div>
+<h3 id="c-mu">(C) <span class="arithmatex">\(\mu\)</span> 的逆元即其逆映射（縂存在，因爲同構映射一一到上），它是逆元，因爲：</h3>
+<div class="arithmatex">\[
+(\mu^{-1}\mu)(g)=(\mu\mu^{-1})(g)=e(g)=g,\ \forall g\in G,\ \mu\in A(G)
+\]</div>
+<h2 id="4-g-1-2-a_ig-ag">~4. 試證定理 G-1-2，即 <span class="arithmatex">\(A_I(G)\)</span> 是群 <span class="arithmatex">\(A(G)\)</span> 的正規子群。</h2>
+<h3 id="a-a_ig-ag">(A) 證明是子群，即證 <span class="arithmatex">\(A_I(G)\)</span> 在 <span class="arithmatex">\(A(G)\)</span> 的群乘法（複合映射）下構成群。</h3>
+<h4 id="a_3">(a)</h4>
+<div class="arithmatex">\[
+[(I_{g_1}I_{g_2})I_{g_3}](h)=[I_{g_1}(I_{g_2}I_{g_3})](h),\ \forall h,g_1,g_2,g_3\in G
+\]</div>
+<h4 id="b-i_e">(b) 恆等元：<span class="arithmatex">\(I_e\)</span>，它是恆等元，因爲：</h4>
+<div class="arithmatex">\[\begin{aligned}
+  (I_eI_g)(h)=I_e[I_g(h)]=e(ghg^{-1})e^{-1}=ghg^{-1}=I_g(h)\\
+  (I_gI_e)(h)=I_g[I_e(h)]=g(ehe^{-1})g^{-1}=ghg^{-1}=I_g(h)
+\end{aligned}
+\]</div>
+<h4 id="c-i_g-i_g-1">(c) <span class="arithmatex">\(I_g\)</span> 的逆元：<span class="arithmatex">\(I_{g^{-1}}\)</span>，它是逆元，因爲：</h4>
+<div class="arithmatex">\[\begin{aligned}
+  (I_g^{-1}I_g)(h)=I_{g^{-1}}[I_g(h)]=g^{-1}(ghg^{-1})(g^{-1})^{-1}=h\\
+  (I_gI_{g^{-1}})(h)=I_{g}[I_{g^{-1}}(h)]=g(g^{-1}hg)g^{-1}=h
+\end{aligned}
+\]</div>
+<h3 id="b-mu-i_gmu-1in-a_ig-forall-gin-gmuin-ag">(B) 證明是正規子群，即證 <span class="arithmatex">\(\mu I_g\mu^{-1}\in A_I(G),\ \forall g\in G,\mu\in A(G)\)</span></h3>
+<div class="arithmatex">\[\begin{aligned}
+  &amp; \forall g,h\in G,\mu\in A(G)\\
+  \left( {\mu {I_g}{\mu ^{ - 1}}} \right)\left( h \right) =&amp;\mu \left\{ {{I_g}\left[ {{\mu ^{ - 1}}\left( h \right)} \right]} \right\} = \mu \left[ {g{\mu ^{ - 1}}\left( h \right){g^{ - 1}}} \right] \\ 
+  =&amp;\mu \left( g \right)\mu \left[ {{\mu ^{ - 1}}\left( h \right)} \right]\mu \left( {{g^{ - 1}}} \right) = \mu \left( g \right)h\mu \left( {{g^{ - 1}}} \right) \\ 
+  =&amp; \mu \left( g \right)h\mu {\left( g \right)^{ - 1}} = {I_{\mu \left( g \right)}}\left( h \right) \\ 
+\end{aligned} \]</div>
+<p>i.e. <span class="arithmatex">\(\mu I_g\mu^{-1}=I_{\mu(g)}\in A_I(G)\)</span></p>
+<h2 id="5-g1-9-hotimes_sk">5. 驗證由 G.1 節定義 9 所定義的 <span class="arithmatex">\(H\otimes_SK\)</span> 是群。</h2>
+<h3 id="a_4">(A)</h3>
+<div class="arithmatex">\[\begin{aligned}
+  \left[ {\left( {h,k} \right)\left( {h',k'} \right)} \right]\left( {h'',k''} \right) =&amp; \left( {h{\mu _k}\left( {h'} \right),kk'} \right)\left( {h'',k''} \right) = \left( {h{\mu _k}\left( {h'} \right){\mu _{kk'}}\left( {h''} \right),kk'k''} \right) \\ 
+  \left( {h,k} \right)\left[ {\left( {h',k'} \right)\left( {h'',k''} \right)} \right] =&amp; \left( {h,k} \right)\left( {h'{\mu _{k'}}\left( {h''} \right),k'k''} \right) = \left( {h{\mu _k}\left( {h'{\mu _{k'}}\left( {h''} \right)} \right),kk'k''} \right) \\ 
+\end{aligned} \]</div>
+<p>而：</p>
+<div class="arithmatex">\[h{\mu _k}\left( {h'} \right){\mu _{kk'}}\left( {h''} \right) = h{\mu _k}\left( {h'} \right)\mu _{ {kk'}}\left( {h''} \right) = h{\mu _k}\left( {h'} \right)\mu _{k}{\mu _{k'}}\left( {h''} \right) = h{\mu _k}\left( {h'{\mu _{k'}}\left( {h''} \right)} \right)\]</div>
+<p>i.e.  <span class="arithmatex">\(\left[ {\left( {h,k} \right)\left( {h',k'} \right)} \right]\left( {h'',k''} \right)=\left( {h,k} \right)\left[ {\left( {h',k'} \right)\left( {h'',k''} \right)} \right]\)</span> </p>
+<h3 id="left-e_he_k-right">恆等元即  <span class="arithmatex">\(\left( {{e_H},{e_K}} \right)\)</span>，它是恆等元，因爲：</h3>
+<div class="arithmatex">\[\begin{aligned}
+  \left( {{e_H},{e_K}} \right)\left( {h,k} \right) = &amp;\left( {{e_H}{\mu _{{e_K}}}\left( h \right),{e_K}k} \right) = \left( {{\mu _{{e_K}}}\left( h \right),k} \right) = \left( {{e_{A\left( H \right)}}\left( h \right),k} \right) = \left( {h,k} \right) \\ 
+  \left( {h,k} \right)\left( {{e_H},{e_K}} \right) = &amp;\left( {h{\mu _k}\left( {{e_H}} \right),k{e_K}} \right) = \left( {h{e_H},k} \right) = \left( {h,k} \right) \\ 
+\end{aligned} \]</div>
+<h3 id="left-hk-right-left-barhbark-right">設 <span class="arithmatex">\(\left( {h,k} \right)\)</span> 的逆元為 <span class="arithmatex">\(\left( {\bar{h},\bar{k}} \right)\)</span>，則：</h3>
+<div class="arithmatex">\[\begin{aligned}
+  \left( {{e_H},{e_K}} \right) = \left( {\bar h,\bar k} \right)\left( {h,k} \right) =&amp; \left( {\bar h,{\mu _{\bar k}}\left( h \right),\bar kk} \right) \\ 
+   = \left( {h,k} \right)\left( {\bar h,\bar k} \right) =&amp; \left( {h{\mu _k}\left( {\bar h} \right),k\bar k} \right) \\ 
+\end{aligned} \]</div>
+<p>i.e.</p>
+<div class="arithmatex">\[\left\{ \begin{aligned}
+  {e_H} &amp;= \bar h{\mu _{\bar k}}\left( h \right) = h{\mu _k}\left( h \right) \\
+  {e_K} &amp;= \bar kk = k\bar k \\ 
+\end{aligned}  \right. \Rightarrow \left\{ \begin{aligned}
+  \bar h &amp;= {\mu _{\bar k}}{\left( h \right)^{ - 1}} = {\mu _{{k^{ - 1}}}}\left( {{h^{ - 1}}} \right) \\
+  \bar k &amp;= {k^{ - 1}} \\ 
+\end{aligned}  \right.\]</div>
+<p>即  <span class="arithmatex">\(\left( {h,k} \right)\)</span> 的逆元為 <span class="arithmatex">\(\left( {{\mu _{{k^{ - 1}}}}\left( {{h^{ - 1}}} \right),{k^{ - 1}}} \right)\)</span> </p>
+<h2 id="6-l_ggto-g-gin-g-l_g-1-l_g-l_g-1l_g-1forall-gin-g">6. 設 <span class="arithmatex">\(L_g:G\to G\)</span> 是由 <span class="arithmatex">\(g\in G\)</span> 生成的左平移，<span class="arithmatex">\(L_g^{-1}\)</span> 是 <span class="arithmatex">\(L_g\)</span> 的逆映射，試證 <span class="arithmatex">\(L_{g^{-1}}=L_g^{-1},\forall g\in G\)</span>。</h2>
+<div class="arithmatex">\[\begin{aligned}
+  \forall g,h \in G,\left( {{L_{{g^{ - 1}}}}{L_g}} \right)\left( h \right) =&amp; {g^{ - 1}}\left( {gh} \right) = h = {L_e}\left( h \right) \\ 
+  \left( {{L_g}{L_{{g^{ - 1}}}}} \right)\left( h \right) =&amp; g\left( {{g^{ - 1}}h} \right) = h = {L_e}\left( h \right) \\ 
+\end{aligned} \]</div>
+<p>故  <span class="arithmatex">\({L_{{g^{ - 1}}}}{L_g} = {L_g}{L_{{g^{ - 1}}}} = {L_e}\)</span>，i.e. <span class="arithmatex">\({L_{{g^{ - 1}}}}={L_g}\)</span> </p>
+<h2 id="7-forall-gin-g-r_ghmapsto-hgforall-hin-g-r_ghr_hcirc-r_g">~7. <span class="arithmatex">\(\forall g\in G\)</span> 定義右平移 <span class="arithmatex">\(R_g:h\mapsto hg\)</span>，<span class="arithmatex">\(\forall h\in G\)</span>，試證 <span class="arithmatex">\(R_{gh}=R_{h}\circ R_{g}\)</span></h2>
+<div class="arithmatex">\[\begin{aligned}
+  \forall i \in G,{R_{gh}}\left( i \right) &amp;= igh \\
+  \left( {{R_h} \circ {R_g}} \right)\left( i \right) &amp;= {R_h}\left( {{R_g}\left( i \right)} \right) = {R_h}\left( {ig} \right) = igh \\ 
+\end{aligned} \]</div>
+<p>故 <span class="arithmatex">\({R_{gh}} = {R_h} \circ {R_g}\)</span>。</p>
+<h2 id="8-vecvvecuvecvtimesvecuforall-vecvvecuinmathbbr3-g3-1">~8. 試證 <span class="arithmatex">\([\vec{v},\vec{u}]:=\vec{v}\times\vec{u}\)</span>，<span class="arithmatex">\(\forall \vec{v},\vec{u}\in\mathbb{R}^3\)</span> 滿足李括號的條件（見 G.3 節例 1）。</h2>
+<h3 id="a_5">(A) 雙綫性</h3>
+<div class="arithmatex">\[\begin{aligned}
+  \left[ {a\vec w + b\vec x,c\vec y + d\vec z} \right] =&amp; \left( {a\vec w + b\vec x} \right) \times \left( {c\vec y + d\vec z} \right) \\ 
+  =&amp; ac\left( {\vec w \times \vec y} \right) + ad\left( {\vec w \times \vec z} \right) + bc\left( {\vec x \times \vec y} \right) + bd\left( {\vec x \times \vec z} \right) \\ 
+  =&amp; ac\left[ {\vec w,\vec y} \right] + ad\left[ {\vec w,\vec z} \right] + bc\left[ {\vec x,\vec y} \right] + bd\left[ {\vec x,\vec z} \right] \\ 
+\end{aligned} \]</div>
+<h3 id="b_1">(B) 反稱</h3>
+<div class="arithmatex">\[\left[ {\vec v,\vec u} \right] = \vec v \times \vec u =  - \vec u \times \vec v =  - \left[ {\vec u,\vec v} \right]\]</div>
+<h3 id="c-jacobi">(C) Jacobi</h3>
+<div class="arithmatex">\[\begin{aligned}
+  \left[ {\vec x,\left[ {\vec y,\vec z} \right]} \right] + \left[ {\vec z,\left[ {\vec x,\vec y} \right]} \right] + \left[ {\vec y,\left[ {\vec z,\vec x} \right]} \right] = &amp;\vec x \times \left( {\vec y \times \vec z} \right) + \vec z \times \left( {\vec x \times \vec y} \right) + \vec y \times \left( {\vec z \times \vec x} \right) \\ 
+   = &amp;\left( {\left( {\vec x \cdot \vec z} \right)\vec y - \left( {\vec x \cdot \vec y} \right)\vec z} \right) + \left( {\left( {\vec z \cdot \vec y} \right)\vec x - \left( {\vec z \cdot \vec x} \right)\vec y} \right) + \left( {\left( {\vec y \cdot \vec x} \right)\vec z - \left( {\vec y \cdot \vec z} \right)\vec x} \right) \\ 
+   = &amp;0 \\ 
+\end{aligned} \]</div>
+<h2 id="9-abab-ba-g3-2">~9. 試證 <span class="arithmatex">\([A,B]=AB-BA\)</span> 滿足李括號的條件（見 G.3 節例 2）。</h2>
+<h3 id="a_6">(A) 雙綫性</h3>
+<div class="arithmatex">\[\begin{aligned}
+  \left[ {aA + bB,cC + dD} \right] =&amp; \left( {aA + bB} \right)\left( {cC + dD} \right) - \left( {cC + dD} \right)\left( {aA + bB} \right) \\ 
+   =&amp; ac\left( {AC - CA} \right) + ad\left( {AD - DA} \right) + bc\left( {BC - CB} \right) + bd\left( {BD - DB} \right) \\ 
+   =&amp; ac\left[ {A,C} \right] + ad\left[ {A,D} \right] + bc\left[ {B,C} \right] + bd\left[ {B,D} \right] \\ 
+\end{aligned} \]</div>
+<h3 id="b_2">(B) 反稱</h3>
+<div class="arithmatex">\[\left[ {A,B} \right] = AB - BA =  - \left( {BA - AB} \right) =  - \left[ {B,A} \right]\]</div>
+<h3 id="c-jacobi_1">(C) Jacobi</h3>
+<div class="arithmatex">\[\begin{aligned}
+  &amp; \left[ {A,\left[ {B,C} \right]} \right] + \left[ {C,\left[ {A,B} \right]} \right] + \left[ {B,\left[ {C,A} \right]} \right] = \left[ {A,BC - CB} \right] + \left[ {C,AB - BA} \right] + \left[ {B,CA - AC} \right] \\ 
+   = &amp; \left( {A\left( {BC - CB} \right) - \left( {BC - CB} \right)A} \right) + \left( {C\left( {AB - BA} \right) - \left( {AB - BA} \right)C} \right) + \left( {B\left( {CA - AC} \right) - \left( {CA - AC} \right)B} \right) \\ 
+   = &amp; 0 \\ 
+\end{aligned}\]</div>
+<h2 id="10-mathscrg-hatmathscrg-g-hatg-rho_mathscrgtohatmathscrg-rhogto-hat-g-ein-g-rhoexp-aexprho_a-forall-ainmathscrg-rhoexp-ta">~10. 設 <span class="arithmatex">\(\mathscr{G}\)</span> 和 <span class="arithmatex">\(\hat{\mathscr{G}}\)</span> 依次是李群 <span class="arithmatex">\(G\)</span> 和 <span class="arithmatex">\(\hat{G}\)</span> 的李代數，<span class="arithmatex">\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\)</span> 是同態映射 <span class="arithmatex">\(\rho:G\to \hat G\)</span> 在 <span class="arithmatex">\(e\in G\)</span> 誘導的推前映射，試證 <span class="arithmatex">\(\rho(\exp A)=\exp(\rho_*A)\ \forall A\in\mathscr{G}\)</span>。提示：先用同態性證明 <span class="arithmatex">\(\rho(\exp tA)\)</span> 是單參子群。</h2>
+<h3 id="a-rhoexp-ta-rhoexptsarhoexptarhoexpsa">(A) 先證明 <span class="arithmatex">\(\rho(\exp tA)\)</span> 是單參子群，即證 <span class="arithmatex">\(\rho\exp[(t+s)A]=[\rho\exp(tA)][\rho\exp(sA)]\)</span></h3>
+<p><span class="arithmatex">\(\exp(tA),\ \forall A\in\mathscr{G}\)</span> 是單參子群，故 <span class="arithmatex">\(\exp[(t+s)A]=\exp(tA)\exp(sA)\)</span>。
+由 <span class="arithmatex">\(\rho\)</span> 的同態性，<span class="arithmatex">\(\rho\{\exp[(t+s)A]\}=\rho[\exp(tA)\exp(sA)]=\rho[\exp(tA)]\rho[\exp(sA)]\)</span>，故 <span class="arithmatex">\(\rho(\exp tA)\)</span> 是單參子群。</p>
+<h3 id="b_3">(B)</h3>
+<div class="arithmatex">\[\rho\exp(tA)|_{t=0}=\rho\exp(0)=\rho(e_G)=e_{\hat{G}}\]</div>
+<div class="arithmatex">\[\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\rho\exp(tA)=\rho_*\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\exp(tA)=\rho_*A\Rightarrow\rho\exp(tA)=\exp(t\rho_*A)\]</div>
+<p>令 <span class="arithmatex">\(t=1\)</span>，有 <span class="arithmatex">\(\rho\exp(A)=\exp(\rho_*A)\)</span>。</p>
+<h2 id="11-g-5-10-g-5-10-g-5-10-va-ua-g-5-10-va">~11. 試證式 (G-5-10) 可由式 (G-5-10') 推出。提示：把式 (G-5-10) 的 <span class="arithmatex">\(v^a,\ u^a\)</span> 之和作爲式 (G-5-10') 的 <span class="arithmatex">\(v^a\)</span>。</h2>
+<p>注 🐖：這種操作似乎在 Griffith 的《量子力學概論》的一道習題中也用到了，對於證明某些向量的關係，算是比較常見的~</p>
+<p><span class="arithmatex">\(\forall v^a,u^a\in V\)</span>，令 <span class="arithmatex">\(w^a=v^a+u^a\)</span>，則:</p>
+<div class="arithmatex">\[\begin{gathered}
+  {g_{ab}}\left( {{Z^a}_c{w^c}} \right)\left( {{Z^b}_d{w^d}} \right) = {g_{cd}}{w^c}{w^d} \\
+  {g_{ab}}\left[ {{Z^a}_c\left( {{v^c} + {u^c}} \right)} \right]\left[ {{Z^b}_d\left( {{v^d} + {u^d}} \right)} \right] = {g_{cd}}\left( {{v^c} + {u^c}} \right)\left( {{v^d} + {u^d}} \right) \\ 
+\end{gathered}\]</div>
+<p>展開，將 <span class="arithmatex">\({g_{ab}}\left( {{Z^a}_c{v^c}} \right)\left( {{Z^b}_d{v^d}} \right) = {g_{cd}}{v^c}{v^d},{g_{ab}}\left( {{Z^a}_c{u^c}} \right)\left( {{Z^b}_d{u^d}} \right) = {g_{cd}}{u^c}{u^d}\)</span> 代入，得：</p>
+<div class="arithmatex">\[{g_{ab}}{Z^a}_c{Z^b}_d\left( {{v^c}{u^d} + {u^c}{v^d}} \right) = {g_{cd}}\left( {{v^c}{u^d} + {u^c}{v^d}} \right)\]</div>
+<p>注意到：<span class="arithmatex">\({g_{ab}}\left( {{v^a}{u^b} + {u^a}{v^b}} \right) = 2{g_{ab}}{v^{(a}}{u^{b)}} = 2{g_{\left( {ab} \right)}}{v^a}{u^b} = 2{g_{ab}}{v^a}{u^b}\)</span>，故上式可化爲：</p>
+<div class="arithmatex">\[{g_{ab}}{Z^a}_c{Z^b}_d{v^c}{u^d} = {g_{cd}}{v^c}{v^d}\]</div>
+<p>i.e. <span class="arithmatex">\({g_{ab}}\left( {{Z^a}_c{v^c}} \right)\left( {{Z^b}_d{u^d}} \right) = {g_{cd}}{v^c}{v^d}\)</span>。</p>
+<h2 id="12-so2-o2">~12. SO(2) 是阿貝爾群嗎？O(2) 是阿貝爾群嗎？</h2>
+<div class="arithmatex">\[Z\left( \alpha  \right) = \left[ {\begin{array}{*{20}{c}}
+  {\cos \alpha }&amp;{ - \sin \alpha } \\ 
+  {\sin \alpha }&amp;{\cos \alpha } 
+\end{array}} \right],Z'\left( \alpha  \right) = \left[ {\begin{array}{*{20}{c}}
+  {\cos \alpha }&amp;{\sin \alpha } \\ 
+  {\sin \alpha }&amp;{ - \cos \alpha } 
+\end{array}} \right]\]</div>
+<p><span class="arithmatex">\(Z\left( \alpha  \right)\)</span> 是 SO(2) 的群元，而 <span class="arithmatex">\(Z\left( \alpha  \right)\)</span> 和 <span class="arithmatex">\(Z'\left( \alpha  \right)\)</span> 是 O(2) 的群元。發現有：</p>
+<div class="arithmatex">\[\begin{aligned}
+  Z\left( \alpha  \right)Z\left( \beta  \right) = Z\left( \beta  \right)Z\left( \alpha  \right),&amp;Z'\left( \alpha  \right)Z'\left( \beta  \right) \ne Z'\left( \beta  \right)Z'\left( \alpha  \right) \\
+  Z\left( \alpha  \right)Z'\left( \beta  \right) \ne Z'\left( \beta  \right)Z\left( \alpha  \right),&amp;Z'\left( \alpha  \right)Z\left( \beta  \right) \ne Z\left( \beta  \right)Z'\left( \alpha  \right) \\ 
+\end{aligned} \]</div>
+<p>故 SO(2) 是阿貝爾群，而 O(2) 非。</p>
+<h2 id="13-mathrmslmmathrmglm-det-t1-mathscrslm">~13. 李群 <span class="arithmatex">\(\mathrm{SL}(m)\)</span>[<span class="arithmatex">\(\mathrm{GL}(m)\)</span> 滿足 <span class="arithmatex">\(\det T=+1\)</span> 的子群]的李代數記作 <span class="arithmatex">\(\mathscr{SL}(m)\)</span>，試證：</h2>
+<ul>
+<li>(a) <span class="arithmatex">\(\mathscr{SL}(m)=\{m\times m無跡實矩陣\}\)</span></li>
+<li>(b) <span class="arithmatex">\(\dim \mathrm{SL}(m)=m^2-1\)</span></li>
+</ul>
+<p>仿照定理 G-5-13 證出。</p>
+<p>由引理 G-5-12：<span class="arithmatex">\(\forall m\times m\)</span> 矩陣 <span class="arithmatex">\(A\)</span>，<span class="arithmatex">\(\det[\mathrm{Exp}(tA)]=\mathrm{e}^{(\mathrm{tr}A)t}\)</span>。</p>
+<h3 id="a_7">(a)</h3>
+<h4 id="a-rightarrow">(A, <span class="arithmatex">\(\Rightarrow\)</span>)</h4>
+<p>設 <span class="arithmatex">\(A\in\mathscr{SL}(m)\)</span>，則 <span class="arithmatex">\(\forall t \in\mathbb{R}\)</span> 有 <span class="arithmatex">\(\mathrm{Exp}(tA)\in\mathrm{SL}(m)\)</span>，故 <span class="arithmatex">\(\mathrm{e}^{(\mathrm{tr}A)t}=\det[\mathrm{Exp}(tA)]=1,\ (\mathrm{tr}A)t=\mathrm{i}2k\pi,\ k\in\mathbb{Z}\)</span>，而 <span class="arithmatex">\(t\)</span> 任意，故 <span class="arithmatex">\(\mathrm{tr}A=0\)</span>，i.e. <span class="arithmatex">\(A\)</span> 是無跡矩陣。又 <span class="arithmatex">\(A\in\mathscr{SL}(m)\Rightarrow A\in\mathscr{GL}(m)\)</span>，故 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(m\times m\)</span> 無跡實矩陣。</p>
+<h4 id="b-leftarrow">(B, <span class="arithmatex">\(\Leftarrow\)</span>)</h4>
+<p>設 <span class="arithmatex">\(A\)</span> 為 <span class="arithmatex">\(m\times m\)</span> 無跡實矩陣，則 <span class="arithmatex">\(\forall t\in \mathbb{R}\)</span>，<span class="arithmatex">\(tA\)</span> 也是 <span class="arithmatex">\(m\times m\)</span> 無跡實矩陣，有 <span class="arithmatex">\(tA\in\mathscr{GL}(m),\ \mathrm{Exp}(tA)\in\mathrm{GL}(m)\)</span>，而又 <span class="arithmatex">\(\mathrm{tr}(tA)=0\Rightarrow \det(\mathrm{Exp}\ tA)=1\)</span>，故 <span class="arithmatex">\(\mathrm{Exp}(tA)\in\mathrm{SL}(m)\)</span>，因此 <span class="arithmatex">\(\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\mathrm{Exp}(tA)=A\in\mathscr{SL}(m)\)</span></p>
+<h3 id="b_4">(B)</h3>
+<p><span class="arithmatex">\(A\in\mathscr{SL}(m)\)</span> 對 <span class="arithmatex">\(A\)</span> 的約束為 <span class="arithmatex">\(A_{\mu\nu}\in\mathbb{R},\ \mathrm{tr}(A)=0\)</span>，故</p>
+<div class="arithmatex">\[
+\dim\mathrm{SL}(m)=\dim\mathscr{SL}(m)=m^2-1
+\]</div>
+<h2 id="14">14.</h2>
+<ul>
+<li>(1) 試證存在連續曲綫 <span class="arithmatex">\(\mu:[0,1]\to\mathrm{GL}(2)\)</span> 使 <span class="arithmatex">\(\mu(0)=I,\ \mu(1)=\begin{bmatrix}  -1 &amp;1 \\  0&amp; -1 \end{bmatrix}\)</span></li>
+<li>*(2) 試證 <span class="arithmatex">\(T\equiv\begin{bmatrix}  -1 &amp;1 \\  0&amp; -1 \end{bmatrix}\in\mathrm{GL}(2)\)</span> 不屬於李群 <span class="arithmatex">\(\mathrm{GL}(2)\)</span> 的任一單參子群。提示：假定存在矩陣 <span class="arithmatex">\(A=\begin{bmatrix}  a &amp;b \\  c&amp; d \end{bmatrix}\)</span> 使 <span class="arithmatex">\(T=\mathrm{Exp}(A)\)</span>，</li>
+<li>(a) 證明 <span class="arithmatex">\(c\neq 0\)</span>，</li>
+<li>(b) 把 <span class="arithmatex">\(A^n\equiv\begin{bmatrix}  a_n &amp;b_n \\  c_n&amp; d_n \end{bmatrix}\)</span>，證明 <span class="arithmatex">\(\exist r_n\in\mathbb{R}\)</span> 使 <span class="arithmatex">\(b_n=br_n,\ c_n=cr_n\)</span>。</li>
+<li>(c) 由 (b) 推出矛盾。</li>
+</ul>
+<h3 id="1">(1) 直接找出來一條即證畢。</h3>
+<p>對於 <span class="arithmatex">\(\mu_{11}(0)=1,\mu_{11}(1)=-1\)</span>，由連續函數的介值定理，<span class="arithmatex">\(\exist x_0\in(0,1)\)</span>，s.t. <span class="arithmatex">\(\mu_{11}(x_0)=0\)</span>，<span class="arithmatex">\(\mu_{22}\)</span>同理，故 <span class="arithmatex">\(\mu_{12},\mu_{21}\)</span> 須隨 <span class="arithmatex">\(t\)</span> 做某種變化以使得 <span class="arithmatex">\(\det\neq 0\)</span>。取 <span class="arithmatex">\(\mu_{12}(t)=t,\ \mu_{21}=-\sqrt{(1/2)^2-(t-1/2)^2}=-\sqrt{t-t^2}\)</span>。此時，取 <span class="arithmatex">\(\mu_{11}\)</span> 與 <span class="arithmatex">\(\mu_{22}\)</span> 的綫性解 <span class="arithmatex">\(1-2t\)</span> 即可，故</p>
+<div class="arithmatex">\[\mu(t)=\begin{bmatrix}
+  1-2t &amp; t\\
+  -\sqrt{t-t^2} &amp; 1-2t
+\end{bmatrix}\]</div>
+<h3 id="2-t-mathrmgl2-exist-abeginbmatrix-a-b-c-d-endbmatrixst-texpa">(2) 反證，設 <span class="arithmatex">\(T\)</span> 屬於 <span class="arithmatex">\(\mathrm{GL}(2)\)</span> 的某一單參子群，則 <span class="arithmatex">\(\exist A=\begin{bmatrix}  a &amp;b \\  c&amp; d \end{bmatrix}\)</span>，s.t. <span class="arithmatex">\(T=\exp(A)\)</span></h3>
+<h4 id="a_8">(a) 反證</h4>
+<p>設 <span class="arithmatex">\(c=0\)</span>，則 <span class="arithmatex">\((A^n)_{11}=a^n,\ (A^n)_{22}=b^n\)</span>，</p>
+<div class="arithmatex">\[{\left( T \right)_{11}} = {\left[ {\exp \left( A \right)} \right]_{11}} = {\left( {\sum\limits_{n = 1}^\infty  {\frac{{{A^n}}}{{n!}}} } \right)_{11}} = \sum\limits_{n = 1}^\infty  {\frac{{{{\left( {{A^n}} \right)}_{11}}}}{{n!}} = } \sum\limits_{n = 1}^\infty  {\frac{{{a^n}}}{{n!}} = } {{\text{e}}^a}\]</div>
+<p>不存在 <span class="arithmatex">\(a\in\mathbb{R}\)</span>，s.t. <span class="arithmatex">\(\mathrm{e}^a=-1\)</span>，矛盾。故 <span class="arithmatex">\(c\neq 0\)</span>。</p>
+<h4 id="b_5">(b) 數學歸納法</h4>
+<h5 id="b1">(b.1)</h5>
+<p>對 <span class="arithmatex">\(n=1\)</span>，<span class="arithmatex">\(b_1/c_1=b/c\)</span>；若 <span class="arithmatex">\(b_n/c_n=b/c\)</span>，則慾證 <span class="arithmatex">\(b_{n+1}/c_{n+1}=b/c\)</span>。</p>
+<div class="arithmatex">\[\begin{aligned}
+  {a_{n + 1}} =&amp; a \cdot {a_n} + b \cdot {c_n} = a \cdot {a_n} + bc \cdot {r_n} \\
+  {b_{n + 1}} =&amp; a \cdot {b_n} + b \cdot {d_n} = ab \cdot {r_n} + b \cdot {d_n} \\
+  {c_{n + 1}} =&amp; c \cdot {a_n} + d \cdot {c_n} = c \cdot {a_n} + cd \cdot {r_n} \\
+  {d_{n + 1}} =&amp; c \cdot {b_n} + d \cdot {d_n} = bc \cdot {r_n} + d \cdot {d_n} \\ 
+\end{aligned}\]</div>
+<p>慾 <span class="arithmatex">\(b_{n+1}/c_{n+1}=b/c\)</span>，需 <span class="arithmatex">\(a \cdot {r_n} + {d_n} = {a_n} + d \cdot {r_n} = {r_{n + 1}}(*)\)</span></p>
+<h5 id="b2">(b.2) 再次數學歸納法</h5>
+<p><span class="arithmatex">\(n=1,\ a_1=a,\ d_1=d,\ r_1\)</span>，得 <span class="arithmatex">\(r_2=a+d\)</span>；</p>
+<p><span class="arithmatex">\(n=2,\ b_2=ab+bd=b(a+d)\)</span>，確有 <span class="arithmatex">\(r_2=a+d\)</span>。</p>
+<p>設對 <span class="arithmatex">\(n\)</span> 成立 <span class="arithmatex">\(a \cdot {r_n} + {d_n} = {a_n} + d \cdot {r_n} = {r_{n + 1}}\)</span>，則：</p>
+<div class="arithmatex">\[\begin{aligned}
+  a \cdot {r_{n + 1}} + {d_{n + 1}} =&amp; a \cdot \left( {{a_n} + d \cdot {r_n}} \right) + \left( {bc \cdot {r_n} + d \cdot {d_n}} \right) \\
+  {a_{n + 1}} + d \cdot {r_{n + 1}} =&amp; \left( {a \cdot {a_n} + bc \cdot {r_n}} \right) + d \cdot \left( {a \cdot {r_n} + {d_n}} \right) \\ 
+\end{aligned}\]</div>
+<p>即 <span class="arithmatex">\(a \cdot {r_{n + 1}} + {d_{n + 1}}={a_{n + 1}} + d \cdot {r_{n + 1}}\)</span> 成立。</p>
+<p>故 <span class="arithmatex">\((*)\)</span> 成立。</p>
+<h5 id="b3">(b.3)</h5>
+<p>故確有 <span class="arithmatex">\(b_n/c_n=b/c\)</span>，i.e. <span class="arithmatex">\(\exist r_n\in\mathbb{R}\)</span>，s.t. <span class="arithmatex">\(b_n=b\cdot r_n,\ c_n=c\cdot r_n\)</span></p>
+<h4 id="c_1">(c)</h4>
+<p>而 <span class="arithmatex">\(T=\exp(A)=\sum^{+\infty}_{n=0}A^n/n!\)</span> 要求 <span class="arithmatex">\(T_{12}/T_{21}=b/c=1/0\)</span>，又 <span class="arithmatex">\(c\neq 0\)</span>，矛盾。因此不存在 <span class="arithmatex">\(A\)</span>，s.t. <span class="arithmatex">\(T=\mathrm{Exp}(A)\)</span>，i.e. <span class="arithmatex">\(T\)</span> 不屬於 <span class="arithmatex">\(\mathrm{GL}(2)\)</span> 的某一單參子群。</p>
+<h2 id="15-g-5-11-dmathrmexpmathrmivarphi">15. 補証定理 G-5-11 證明中的等式 <span class="arithmatex">\(D=\mathrm{Exp}(\mathrm{i}\varPhi)\)</span>。</h2>
+<div class="arithmatex">\[D=\mathrm{diag}\left(\mathrm{e}^{\mathrm{i}\varphi_1},\dots,\mathrm{e}^{\mathrm{i}\varphi_m}\right),\ \varPhi=\mathrm{diag}\left(\varphi_1,\dots,\varphi_m\right)\]</div>
+<div class="arithmatex">\[\begin{aligned}
+  {\text{Exp}}\left( {{\text{i}}\varPhi } \right) =&amp; \sum\limits_{n = 0}^\infty  {{\varPhi ^n}/n!}  \\ 
+  =&amp; \sum\limits_{n = 0}^\infty  {{\text{diag}}\left( {{\varphi _1}^n, \dots ,{\varphi _m}^n} \right)/n!}  \\ 
+  =&amp; {\text{diag}}\left( {\sum\limits_{n = 0}^\infty {{\varphi _1}^n/n!, \dots ,} \sum\limits_{n = 0}^\infty {{\varphi _m}^n/n!} } \right) \\ 
+  =&amp; {\text{diag}}\left( {{{\text{e}}^{{\text{i}}{\varphi _1}}}, \dots ,{{\text{e}}^{{\text{i}}{\varphi _m}}}} \right) = D \\ 
+\end{aligned}\]</div>
+<h2 id="16-jacobi-g-6-1-b">16. 試用李括號所滿足的 Jacobi 恆等式證明定理 G-6-1 的(b)。</h2>
+<p>慾證 <span class="arithmatex">\(<span class="arithmatex">\(0 = {C^c}_{a[b}{C^a}_{de]}\)</span>\)</span>，即證：</p>
+<div class="arithmatex">\[\begin{aligned}
+  0 =&amp; {C^c}_{ab}{C^a}_{de} + {C^c}_{ae}{C^a}_{bd} + {C^c}_{ad}{C^a}_{eb} - {C^c}_{ab}{C^a}_{ed} - {C^c}_{ad}{C^a}_{be} - {C^c}_{ae}{C^a}_{db} \\
+  0 =&amp; {C^c}_{ab}{C^a}_{de} + {C^c}_{ae}{C^a}_{bd} + {C^c}_{ad}{C^a}_{eb} \\ 
+\end{aligned} \]</div>
+<p>得到此式應該有更簡便的辦法，即利用關於對稱和反稱的其他性質，可惜我現在還沒有想出來。</p>
+<div class="arithmatex">\[\begin{aligned}
+  0 =&amp; {\left[ {u,\left[ {v,w} \right]} \right]^e} + {\left[ {w,\left[ {u,v} \right]} \right]^e} + {\left[ {v,\left[ {w,u} \right]} \right]^e} \\ 
+   =&amp; {C^e}_{cd}{u^c}\left( {{C^d}_{ab}{v^a}{w^b}} \right) + {C^e}_{cd}{w^c}\left( {{C^d}_{ab}{u^a}{v^b}} \right) + {C^e}_{cd}{v^c}\left( {{C^d}_{ab}{w^a}{u^b}} \right) \\ 
+   =&amp; {C^e}_{ad}{C^d}_{bc}{u^a}{v^b}{w^c} + {C^e}_{cd}{C^d}_{ab}{u^a}{v^b}{w^c} + {C^e}_{bd}{C^d}_{ca}{u^a}{v^b}{w^c} \\ 
+   =&amp; \left( {{C^e}_{ad}{C^d}_{bc} + {C^e}_{cd}{C^d}_{ab} + {C^e}_{bd}{C^d}_{ca}} \right){u^a}{v^b}{w^c} \\ 
+  0 =&amp; {C^e}_{ad}{C^d}_{bc} + {C^e}_{cd}{C^d}_{ab} + {C^e}_{bd}{C^d}_{ca} \\ 
+\end{aligned} \]</div>
+<p>該式變換指標（並加一負號），此式即爲慾證式。</p>
+<h2 id="17-g6-1-1-2">17. 試證 G.6 節例 1 的中的 ① 和 ②。</h2>
+<h3 id="1_1">①</h3>
+<p>過原點直綫：<span class="arithmatex">\(\forall r\in\mathbb{R},\ \gamma(t)=(x(t),y(t))=(at,bt)\)</span></p>
+<p><span class="arithmatex">\(\gamma(t+s)=\gamma(t)\gamma(s)\)</span>，故 <span class="arithmatex">\(\gamma(t)\)</span> 是單參子群。</p>
+<h3 id="2">②</h3>
+<div class="arithmatex">\[
+A=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\gamma(t)=(a,b)
+\]</div>
+<div class="arithmatex">\[
+\bar{A}_{(x,y)}=L_{(x,y)*}A=L_{(x,y)*}\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\gamma(t)=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}L_{(x,y)}\gamma(t)=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}(x,y)(at,bt)\equiv A
+\]</div>
+<div class="arithmatex">\[
+\partial_a\bar{A}^b=0
+\]</div>
+<h2 id="18-g7-4-barxi-bara">18. 試證 G.7 節例 4 的結論，即 <span class="arithmatex">\(\bar{\xi}=-\bar{A}\)</span>。</h2>
+<p>我不知道我現在該説什麽，因爲有下面幾樣東西擺在我的腦子 🧠 裏：</p>
+<ul>
+<li>我自己的想法整不出來這個結果；</li>
+<li>某一個成文的參考答案裏證明出 <span class="arithmatex">\(\bar{\xi}=\bar{A}\)</span>，我認爲這個證明沒有什么大問題；</li>
+<li>在 bilibili 上有位 up 主發佈了自己站在黑板前一道一道把梁先生講李群李代數和纖維叢的兩個附錄中所有習題寫了出來。但是我認爲他對這道題的處理是有漏洞的，有對式子 <span class="arithmatex">\(\sigma_p(g)=\sigma(g,p)=\sigma_g(p)\)</span> 濫用的嫌疑；</li>
+<li>我又實在不相信梁先生竟然會在書 📕 中出現筆誤。</li>
+</ul>
+<p>我只好把這道題放在這裏……</p>
+<h2 id="19-g-forall-ainmathscrg-gin-g-mathscrad_gagag-1-3-g-gag-1-g-b">19. 設 <span class="arithmatex">\(G\)</span> 是矩陣李群，試證 <span class="arithmatex">\(\forall A\in\mathscr{G},\ g\in G\)</span> 有 <span class="arithmatex">\(\mathscr{Ad}_{g}A=gAg^{-1}\)</span>。（右邊是 3 個矩陣的連乘積。黨 <span class="arithmatex">\(G\)</span> 不是矩陣群時 <span class="arithmatex">\(gAg^{-1}\)</span> 無意義，因爲李群元 <span class="arithmatex">\(g\)</span> 與李代數元 <span class="arithmatex">\(B\)</span> 之積沒有定義）</h2>
+<p>？？？小寫的字母怎麽打成圓體呢？<code>\mathscr{}</code>只能改變大寫，唉~</p>
+<div class="arithmatex">\[\begin{aligned}
+  \mathscr{Ad}_{g}A= &amp; I_{g*}\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\exp(tA)=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}I_g\left(\exp(tA)\right)\\
+  = &amp; \left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}g\left(\exp(tA)\right)g^{-1}\\
+  = &amp; \left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\mathrm{Exp}\left(tgAg^{-1}\right)=gAg^{-1}
+\end{aligned}
+\]</div>
+<h2 id="20-mathscrg-hatmathscrg-g-g-rho_mathscrgtohatmathscrg-rhogtohatg-ein-g">20. 設 <span class="arithmatex">\(\mathscr{G}\)</span> 和 <span class="arithmatex">\(\hat{\mathscr{G}}\)</span> 依次是李群 <span class="arithmatex">\(G\)</span> 和 <span class="arithmatex">\(G'\)</span> 的李代數，<span class="arithmatex">\(\rho_*:\mathscr{G}\to\hat{\mathscr{G}}\)</span> 是同態映射 <span class="arithmatex">\(\rho:G\to\hat{G}\)</span> 在 <span class="arithmatex">\(e\in G\)</span> 誘導的推前映射，試證</h2>
+<ul>
+<li>(a) <span class="arithmatex">\(<span class="arithmatex">\(\rho_*\mathscr{Ad}_gA=\mathscr{Ad}_{\rho(g)}\rho_*A,\ \forall g\in G,\ A\in\mathscr{G}\)</span>\)</span>。</li>
+<li>(b) <span class="arithmatex">\(<span class="arithmatex">\(\rho_*(L_{g^{-1}*}X)=L_{\rho(g)^{-1}*}\rho_*X,\ \forall g\in G,\ X\in V_g(g 點的切空間),\ L 代表左平移\)</span>\)</span>。</li>
+</ul>
+<h3 id="a_9">(a)</h3>
+<div class="arithmatex">\[\begin{aligned}
+  \rho_*\mathscr{Ad}_gA= &amp; \rho_*I_{g*}\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\exp(tA)=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\rho\left[g\exp(tA)g^{-1}\right]\\
+  = &amp; \left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\rho(g)\rho\left[\exp(tA)\right]\rho(g^{\cancel{-1}})^{-1}\\
+  = &amp; \left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}I_{\rho(g)}\rho\exp(tA)\\
+  = &amp; I_{\rho(g)*}\rho_{*}\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\exp(tA)=\mathscr{Ad}_{\rho(g)}\rho_*A
+\end{aligned}
+\]</div>
+<h3 id="b_6">(b)</h3>
+<p>過 <span class="arithmatex">\(g\)</span> 的單參微分同胚群：<span class="arithmatex">\(\beta(t)=g\gamma(t)=g\exp(tA)\)</span></p>
+<div class="arithmatex">\[
+X=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\beta(t)=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}L_g\exp(tA)=L_{g*}\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\exp(tA)=L_{g*}A
+\]</div>
+<div class="arithmatex">\[\begin{aligned}
+  \rho_*(L_{g^{-1}*}X)= &amp; \rho_*\left(L_{g^{-1}*}L_{g*}\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\exp(tA)\right)\\
+  = &amp; \left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\rho\left(L_{g^{-1}}L_{g}\exp(tA)\right)\\
+  = &amp; \left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\rho\left(\exp(tA)\right)
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[\begin{aligned}
+  L_{\rho(g)^{-1}*}\rho_*X= &amp; L_{\rho(g)^{-1}*}\rho_*L_{g*}\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\exp(tA)\\
+  = &amp; \left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\rho(g)^{-1}\left[\rho(g\exp(tA))\right]\\
+  = &amp; \left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\rho(g)^{-1}\rho(g)\rho(\exp(tA))=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}\rho\left(\exp(tA)\right)
+\end{aligned}
+\]</div>
+<p>證畢。</p>
+<h2 id="21-g-8-14-g-8-16">21. 試證式 (G-8-14) 和 (G-8-16)。</h2>
+<h3 id="g-8-14">(G-8-14)</h3>
+<div class="arithmatex">\[\begin{aligned}
+  &amp; \forall c\in G\\
+  \mathrm{ad}_{[A,B]}(C)= &amp; [[A,B],C]=-[[C,A],B]-[[B,C],A]\\
+  = &amp; [A,[B,C]]-[B,[A,C]]\\
+  = &amp; \mathrm{ad}_A(\mathrm{ad}_B(C))-\mathrm{ad}_B(\mathrm{ad}_A(C))\\
+  = &amp; (\mathrm{ad}_A\mathrm{ad}_B-\mathrm{ad}_B\mathrm{ad}_A)(C)
+\end{aligned}
+\]</div>
+<p>i.e. <span class="arithmatex">\(\mathrm{ad}_{[A,B]}=\mathrm{ad}_A\mathrm{ad}_B-\mathrm{ad}_B\mathrm{ad}_A\)</span></p>
+<h3 id="g-8-16">(G-8-16)</h3>
+<div class="arithmatex">\[
+K([A,B],C)=\mathrm{tr}(\mathrm{ad}_{[A,B]}\mathrm{ad}_C)=\mathrm{tr}((\mathrm{ad}_A\mathrm{ad}_B-\mathrm{ad}_B\mathrm{ad}_A)\mathrm{ad}_C)
+\]</div>
+<div class="arithmatex">\[
+K(A,[B,C])=\mathrm{tr}(\mathrm{ad}_{A}\mathrm{ad}_{[B,C]})=\mathrm{tr}(\mathrm{ad}_A(\mathrm{ad}_B\mathrm{ad}_C-\mathrm{ad}_C\mathrm{ad}_B))
+\]</div>
+<p>又 <span class="arithmatex">\(\mathrm{tr}(ABC)=\mathrm{tr}(BCA)=\mathrm{tr}(CAB)\)</span>，故 <span class="arithmatex">\(K([A,B],C)=K(A,[B,C])\)</span></p>
+<h2 id="22-e-g-gin-g-mathscradv_eto-v_e">*22. 設 <span class="arithmatex">\(e\)</span> 是李群 <span class="arithmatex">\(G\)</span> 的恆等元，<span class="arithmatex">\(g\in G\)</span>，則映射 <span class="arithmatex">\(\mathscr{Ad}:V_e\to V_e\)</span> 可延拓為</h2>
+<div class="arithmatex">\[
+\mathscr{Ad}_g:\mathscr{F}_G(1,0)\to\mathscr{F}_G(1,0)\quad[\mathscr{F}_G(1,0)代表 G 上光滑矢量場的集合],
+\]</div>
+<p>定義爲 <span class="arithmatex">\(<span class="arithmatex">\((\mathscr{Ad}_g\bar{A})_h:=I_{g*}(\bar{A}_{h'})\ \forall\bar{A}\in\mathscr{F}_G(1,0),h\in G\)</span>\)</span>，其中 <span class="arithmatex">\(<span class="arithmatex">\(h'=g^{-1}hg\)</span>\)</span>。試證：若 <span class="arithmatex">\(<span class="arithmatex">\(\bar{A}\)</span>\)</span> 是相應于 <span class="arithmatex">\(<span class="arithmatex">\(A\in V_e\)</span>\)</span> 的左不變矢量場，則 <span class="arithmatex">\(<span class="arithmatex">\(\mathscr{Ad}_g(\bar{A})\)</span>\)</span> 是相應于 <span class="arithmatex">\(<span class="arithmatex">\(\mathscr{Ad}_g(A)\in V_e\)</span>\)</span> 的左不變矢量場。提示：只須証明  <span class="arithmatex">\(<span class="arithmatex">\((\mathscr{Ad}_g\bar{A})_h=L_{h*}(\mathscr{Ad}_gA),\ \forall h\in G\)</span>\)</span>，爲此可利用 <span class="arithmatex">\(<span class="arithmatex">\(I_g=L_g\circ R_{g^{-1}}\)</span>\)</span>，其中 <span class="arithmatex">\(R\)</span> 代表右平移（見習題 7）。</p>
+<p>注 🐖：這道題有那種數學專業代數書課後習題的感覺，不難，就是玩定義。</p>
+<p>慾證 <span class="arithmatex">\(<span class="arithmatex">\(\mathscr{Ad}_g\bar{A}\)</span>\)</span> 左不變，只需證 <span class="arithmatex">\(<span class="arithmatex">\((\mathscr{Ad}_g\bar{A})_h=L_{h*}(\mathscr{Ad}_gA)\)</span>\)</span>。</p>
+<div class="arithmatex">\[\begin{aligned}
+  (\mathscr{Ad}_g\bar{A})_h&amp;=I_{g*}(\bar{A}_{h'})=I_{g*}(L_{h'*}A)=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}I_g(h'\exp(tA))=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}[gh'\exp(tA)g^{-1}]=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}[hg\exp(tA)g^{-1}]\\
+  L_{h*}(\mathscr{Ad}_gA)&amp;=L_{h*}(I_{g*}A)=\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}[hg\exp(tA)g^{-1}]
+\end{aligned}
+\]</div>
+<p>證畢。</p>
+<h2 id="23-mathscrg-g-gin-g-mathscrad_gmathscrgtomathscrg-i_ggto-g-mathscrad_gmathscrgtomathscrg-4-4-mathscrad_gmathscrgtomathscrg-mathscrad_gabmathscrad_gamathscrad_gb-4-6-mathscrad_gbarabarbmathscrad_gbaramathscrad_gbarb-22-barabarbinmathscrlrightarrowbarabarbinmathscrl">23. 設 <span class="arithmatex">\(\mathscr{G}\)</span> 是李群 <span class="arithmatex">\(G\)</span> 的李代數，<span class="arithmatex">\(g\in G\)</span>，試證 <span class="arithmatex">\(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\)</span> 是李代數同構。提示：<span class="arithmatex">\(I_g:G\to G\)</span> 是微分同胚保證 <span class="arithmatex">\(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\)</span> 是矢量空間同構（見第 4 章習題 4），故只需補證 <span class="arithmatex">\(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\)</span> 保李括號，即 <span class="arithmatex">\(\mathscr{Ad}_g[A,B]=[\mathscr{Ad}_gA,\mathscr{Ad}_gB]\)</span>。由第 4 章習題 6 可知 <span class="arithmatex">\(\mathscr{Ad}_g[\bar{A},\bar{B}]=[\mathscr{Ad}_g\bar{A},\mathscr{Ad}_g\bar{B}]\)</span>，再用習題 22 的結論以及 <span class="arithmatex">\(\bar{A},\bar{B}\in\mathscr{L}\Rightarrow[\bar{A},\bar{B}]\in\mathscr{L}\)</span> 便可。</h2>
+<p><span class="arithmatex">\(I_g:G\to G\)</span> 是微分同胚 <span class="arithmatex">\(\Rightarrow\)</span> <span class="arithmatex">\(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\)</span> 是矢量空間同構，故只需證 <span class="arithmatex">\(\mathscr{Ad}_g:\mathscr{G}\to\mathscr{G}\)</span> 保李括號，即 <span class="arithmatex">\(\mathscr{Ad}_g[A,B]=[\mathscr{Ad}_gA,\mathscr{Ad}_gB]\)</span>。</p>
+<p><span class="arithmatex">\(\forall A,B\in \mathscr{G}\)</span>，由上題，取 <span class="arithmatex">\(h=e\)</span>，則 <span class="arithmatex">\((\mathscr{Ad}_g\bar{A})_e=\mathscr{Ad}_g\bar{A}_e=\mathscr{Ad}_gA\)</span></p>
+<div class="arithmatex">\[\begin{aligned}
+  \mathscr{Ad}_g[A,B]=\mathscr{Ad}_g[\bar{A},\bar{B}]_e=(\mathscr{Ad}_g[\bar{A},\bar{B}])_e=([\mathscr{Ad}_g\bar{A},\mathscr{Ad}_g\bar{B}])_e=[(\mathscr{Ad}_g\bar{A})_e,(\mathscr{Ad}_g\bar{B})_e]=[\mathscr{Ad}_gA,\mathscr{Ad}_gB]
+\end{aligned}
+\]</div>
+<h2 id="24">24. 純計算</h2>
+<h2 id="25">25. 純計算</h2>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%20in%20mma/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 廣義相對論 in mma" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              廣義相對論 in mma
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E6%97%B6%E7%A9%BA%E7%9A%84%E6%95%B4%E4%BD%93%E5%9B%A0%E6%9E%9C%E7%BB%93%E6%9E%84/" class="md-footer__link md-footer__link--next" aria-label="下一页: 时空的整体因果结构" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              时空的整体因果结构
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/ph3n92h3" target="_blank" rel="noopener" title="github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:ph3n92h3@gmail.com" target="_blank" rel="noopener" title="E-Mail" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 128c0-35.35 28.65-64 64-64h384c35.3 0 64 28.65 64 64v256c0 35.3-28.7 64-64 64H64c-35.35 0-64-28.7-64-64V128zm48 0v22.1l172.5 141.6c20.6 17 50.4 17 71 0L464 150.1v-23c0-7.9-7.2-16-16-16H64c-8.84 0-16 8.1-16 16v.9zm0 84.2V384c0 8.8 7.16 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9 0L48 212.2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://space.bilibili.com/38969888" target="_blank" rel="noopener" title="BiliBili" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.acfun.cn/u/50472639" target="_blank" rel="noopener" title="Acfun" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M240.1 32c-61.9 0-131.5 16.9-184.2 55.4-5.1 3.1-9.1 9.2-7.2 19.4 1.1 5.1 5.1 27.4 10.2 39.6 4.1 10.2 14.2 10.2 20.3 6.1 32.5-22.3 96.5-47.7 152.3-47.7 57.9 0 58.9 28.4 58.9 73.1v38.5C203 227.7 78.2 251 46.7 264.2 11.2 280.5 16.3 357.7 16.3 376s15.2 104 124.9 104c47.8 0 113.7-20.7 153.3-42.1v25.4c0 3 2.1 8.2 6.1 9.1 3.1 1 50.7 2 59.9 2s62.5.3 66.5-.7c4.1-1 5.1-6.1 5.1-9.1V168c-.1-80.3-57.9-136-192-136zm50.2 348c-21.4 13.2-48.7 24.4-79.1 24.4-52.8 0-58.9-33.5-59-44.7 0-12.2-3-42.7 18.3-52.9 24.3-13.2 75.1-29.4 119.8-33.5z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://music.163.com/#/user/home?id=534851842" target="_blank" rel="noopener" title="网易云音乐" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M511.1 367.1c0 44.18-42.98 80-95.1 80s-95.1-35.82-95.1-79.1c0-44.18 42.98-79.1 95.1-79.1 11.28 0 21.95 1.92 32.01 4.898V148.1L192 224l-.002 208.1C191.1 476.2 149 512 95.1 512S0 476.2 0 432c0-44.18 42.98-79.1 95.1-79.1 11.28 0 21.95 1.92 32 4.898V126.5c0-12.97 10.06-26.63 22.41-30.52l319.1-94.49C472.1.661 477.3 0 480 0c17.66 0 31.97 14.34 32 31.99l-.9 335.11z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.zhihu.com/people/feng-zhe-51-84" target="_blank" rel="noopener" title="知乎" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M170.54 148.13v217.54l23.43.01 7.71 26.37 42.01-26.37h49.53V148.13H170.54zm97.75 193.93h-27.94l-27.9 17.51-5.08-17.47-11.9-.04V171.75h72.82v170.31zm-118.46-94.39H97.5c1.74-27.1 2.2-51.59 2.2-73.46h51.16s1.97-22.56-8.58-22.31h-88.5c3.49-13.12 7.87-26.66 13.12-40.67 0 0-24.07 0-32.27 21.57-3.39 8.9-13.21 43.14-30.7 78.12 5.89-.64 25.37-1.18 36.84-22.21 2.11-5.89 2.51-6.66 5.14-14.53h28.87c0 10.5-1.2 66.88-1.68 73.44H20.83c-11.74 0-15.56 23.62-15.56 23.62h65.58C66.45 321.1 42.83 363.12 0 396.34c20.49 5.85 40.91-.93 51-9.9 0 0 22.98-20.9 35.59-69.25l53.96 64.94s7.91-26.89-1.24-39.99c-7.58-8.92-28.06-33.06-36.79-41.81L87.9 311.95c4.36-13.98 6.99-27.55 7.87-40.67h61.65s-.09-23.62-7.59-23.62v.01zm412.02-1.6c20.83-25.64 44.98-58.57 44.98-58.57s-18.65-14.8-27.38-4.06c-6 8.15-36.83 48.2-36.83 48.2l19.23 14.43zm-150.09-59.09c-9.01-8.25-25.91 2.13-25.91 2.13s39.52 55.04 41.12 57.45l19.46-13.73s-25.67-37.61-34.66-45.86h-.01zM640 258.35c-19.78 0-130.91.93-131.06.93v-101c4.81 0 12.42-.4 22.85-1.2 40.88-2.41 70.13-4 87.77-4.81 0 0 12.22-27.19-.59-33.44-3.07-1.18-23.17 4.58-23.17 4.58s-165.22 16.49-232.36 18.05c1.6 8.82 7.62 17.08 15.78 19.55 13.31 3.48 22.69 1.7 49.15.89 24.83-1.6 43.68-2.43 56.51-2.43v99.81H351.41s2.82 22.31 25.51 22.85h107.94v70.92c0 13.97-11.19 21.99-24.48 21.12-14.08.11-26.08-1.15-41.69-1.81 1.99 3.97 6.33 14.39 19.31 21.84 9.88 4.81 16.17 6.57 26.02 6.57 29.56 0 45.67-17.28 44.89-45.31v-73.32h122.36c9.68 0 8.7-23.78 8.7-23.78l.03-.01z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

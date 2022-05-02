@@ -13,7 +13,7 @@
     
     
       
-        <title>渐进平直时空 - Mein kleines Herz</title>
+        <title>量子化 Dirac 場 - Mein kleines Herz</title>
       
     
     
@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#dirac" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              渐进平直时空
+              量子化 Dirac 場
             
           </span>
         </div>
@@ -712,12 +717,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" checked>
       
       
       
@@ -740,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_0.%20%E5%89%8D%E8%A8%80/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_0.%20%E5%89%8D%E8%A8%80/" class="md-nav__link">
         前言
       </a>
     </li>
@@ -754,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_1.%20%E7%B6%93%E5%85%B8%E5%A0%B4%E8%AB%96/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_1.%20%E7%B6%93%E5%85%B8%E5%A0%B4%E8%AB%96/" class="md-nav__link">
         經典場論
       </a>
     </li>
@@ -768,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_2.%20%E8%87%AA%E7%94%B1%E5%A0%B4/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_2.%20%E8%87%AA%E7%94%B1%E5%A0%B4/" class="md-nav__link">
         自由場
       </a>
     </li>
@@ -782,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_3.%20%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8%E5%A0%B4/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_3.%20%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8%E5%A0%B4/" class="md-nav__link">
         相互作用場
       </a>
     </li>
@@ -796,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_4.%20Dirac%20%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_4.%20Dirac%20%E6%96%B9%E7%A8%8B/" class="md-nav__link">
         Dirac 方程
       </a>
     </li>
@@ -808,11 +815,93 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_5.%20%E9%87%8F%E5%AD%90%E5%8C%96%20Dirac%20%E5%A0%B4/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          量子化 Dirac 場
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         量子化 Dirac 場
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tip" class="md-nav__link">
+    指標運算和矢量運算的一個小 tip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dyson-wick" class="md-nav__link">
+    Dyson-Wick 方法求解散射振幅
+  </a>
+  
+    <nav class="md-nav" aria-label="Dyson-Wick 方法求解散射振幅">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s_fx-y" class="md-nav__link">
+    費米子的傳播子 \(S_F(x-y)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    注意順序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-cdagger" class="md-nav__link">
+    爲什麽計算中沒有出現 \(c\) 和 \(c^{\dagger}\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_veck_1mb_veck_2nb_vecpsdaggerb_vecqrdaggerleft0rightrangle" class="md-nav__link">
+    計算 \(b_{\vec{k}_1}^mb_{\vec{k}_2}^nb_{\vec{p}}^{s\dagger}b_{\vec{q}}^{r\dagger}\left|0\right\rangle\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -824,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_6.%20%E9%87%8F%E5%AD%90%E9%9B%BB%E5%8B%95%E5%8A%9B%E5%AD%B8/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_6.%20%E9%87%8F%E5%AD%90%E9%9B%BB%E5%8B%95%E5%8A%9B%E5%AD%B8/" class="md-nav__link">
         量子電動力學
       </a>
     </li>
@@ -843,14 +932,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
       
       
       
@@ -873,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%20in%20mma/" class="md-nav__link">
+      <a href="../../%E5%BE%AE%E5%B9%BF/%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%20in%20mma/" class="md-nav__link">
         廣義相對論 in mma
       </a>
     </li>
@@ -887,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%BE%AE%E5%88%86%E5%B9%BE%E4%BD%95%E5%85%A5%E9%96%80%E8%88%87%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%E9%99%84%E9%8C%84G%E6%9D%8E%E7%BE%A4%E5%92%8C%E6%9D%8E%E4%BB%A3%E6%95%B8%E7%BF%92%E9%A1%8C%E8%A7%A3%E7%AD%94/" class="md-nav__link">
+      <a href="../../%E5%BE%AE%E5%B9%BF/%E5%BE%AE%E5%88%86%E5%B9%BE%E4%BD%95%E5%85%A5%E9%96%80%E8%88%87%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%E9%99%84%E9%8C%84G%E6%9D%8E%E7%BE%A4%E5%92%8C%E6%9D%8E%E4%BB%A3%E6%95%B8%E7%BF%92%E9%A1%8C%E8%A7%A3%E7%AD%94/" class="md-nav__link">
         附錄G“李群和李代數”習題解答
       </a>
     </li>
@@ -901,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%97%B6%E7%A9%BA%E7%9A%84%E6%95%B4%E4%BD%93%E5%9B%A0%E6%9E%9C%E7%BB%93%E6%9E%84/" class="md-nav__link">
+      <a href="../../%E5%BE%AE%E5%B9%BF/%E6%97%B6%E7%A9%BA%E7%9A%84%E6%95%B4%E4%BD%93%E5%9B%A0%E6%9E%9C%E7%BB%93%E6%9E%84/" class="md-nav__link">
         时空的整体因果结构
       </a>
     </li>
@@ -913,19 +1000,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../%E5%BE%AE%E5%B9%BF/%E6%B8%90%E8%BF%9B%E5%B9%B3%E7%9B%B4%E6%97%B6%E7%A9%BA/" class="md-nav__link">
         渐进平直时空
       </a>
-      
     </li>
   
 
@@ -1022,6 +1101,64 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tip" class="md-nav__link">
+    指標運算和矢量運算的一個小 tip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dyson-wick" class="md-nav__link">
+    Dyson-Wick 方法求解散射振幅
+  </a>
+  
+    <nav class="md-nav" aria-label="Dyson-Wick 方法求解散射振幅">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s_fx-y" class="md-nav__link">
+    費米子的傳播子 \(S_F(x-y)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    注意順序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-cdagger" class="md-nav__link">
+    爲什麽計算中沒有出現 \(c\) 和 \(c^{\dagger}\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_veck_1mb_veck_2nb_vecpsdaggerb_vecqrdaggerleft0rightrangle" class="md-nav__link">
+    計算 \(b_{\vec{k}_1}^mb_{\vec{k}_2}^nb_{\vec{p}}^{s\dagger}b_{\vec{q}}^{r\dagger}\left|0\right\rangle\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1035,9 +1172,112 @@
                 
 
 
-  <h1>渐进平直时空</h1>
-
-
+<h1 id="dirac">量子化 Dirac 場</h1>
+<blockquote>
+<p>這一次，狄拉克比邏輯更接近真理。——Pauli 評 Dirac</p>
+</blockquote>
+<h2 id="tip">指標運算和矢量運算的一個小 tip</h2>
+<div class="arithmatex">\[
+\begin{aligned}
+  &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}\left((\cancel{p}+m)\gamma^0\mathrm{e}^{\mathrm{i}\vec{p}\cdot(\vec{x}-\vec{y})}+(\cancel{p}-m)\gamma^0\mathrm{e}^{-\mathrm{i}\vec{p}\cdot(\vec{x}-\vec{y})}\right)\\
+  = &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}\left((p_0\gamma^0+p_i\gamma^i+m)\gamma^0+(p_0\gamma^0-p_i\gamma^i-m)\gamma^0\right)\mathrm{e}^{+\mathrm{i}\vec{p}\cdot(\vec{x}-\vec{y})}
+\end{aligned}
+\]</div>
+<p>因爲：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}\left(\cancel{p}-m\right)\gamma^0\mathrm{e}^{-\mathrm{i}\vec{p}\cdot(\vec{x}-\vec{y})}\\
+  = &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}\left(p_0\gamma^0+p_i\gamma^i-m\right)\gamma^0\mathrm{e}^{-\mathrm{i}\vec{p}\cdot(\vec{x}-\vec{y})}\\
+  = &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}\left(p_0\gamma^0-\vec{p}\cdot\vec{\gamma}-m\right)\gamma^0\mathrm{e}^{-\mathrm{i}\vec{p}\cdot(\vec{x}-\vec{y})}\\
+  \xlongequal{\vec{p}\to-\vec{p}} &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}\left(p_0\gamma^0+\vec{p}\cdot\vec{\gamma}-m\right)\gamma^0\mathrm{e}^{+\mathrm{i}\vec{p}\cdot(\vec{x}-\vec{y})}\\
+  = &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}\left(p_0\gamma^0-p_i\gamma^i-m\right)\gamma^0\mathrm{e}^{+\mathrm{i}\vec{p}\cdot(\vec{x}-\vec{y})}\\
+\end{aligned}
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
+\cancel{p}=p_{\mu}\gamma^{\mu}=p_0\gamma^0+p_i\gamma^i
+\]</div>
+<div class="arithmatex">\[
+\vec{p}\cdot\vec{\gamma}=\sum_{i=1}^3p^i\gamma^i=-p_i\gamma^i
+\]</div>
+<p>同理：</p>
+<div class="arithmatex">\[
+\partial_i\mathrm{e}^{+\vec{p}\cdot\vec{x}}=\partial_i\mathrm{e}^{-p_ix^i}=-p_i\mathrm{e}^{-p_ix^i}
+\]</div>
+<ul>
+<li>有一點，佟大爲很難讓我滿意，即：賦予場算符對易關係之後求產生湮滅算符的對易關係時，他從來都是先告訴你正確的結果，然後展示一下正確的結果（產生湮滅算符的對易關係）確實能給出他的條件（場算符的對易關係）。這可不能稱作是證明。</li>
+</ul>
+<h2 id="dyson-wick">Dyson-Wick 方法求解散射振幅</h2>
+<ul>
+<li>這是我自己起的名字，意思就是第三章中的那種方法，先用 Dyson 公式得到演化算符，再將其 Taylor 展開，用 Wick 定理和物理過程進行化簡，最後用對易關係和 <span class="arithmatex">\(\delta\)</span> 函數的定義及性質進行化簡。</li>
+</ul>
+<h3 id="s_fx-y">費米子的傳播子 <span class="arithmatex">\(S_F(x-y)\)</span></h3>
+<div class="arithmatex">\[
+\begin{aligned}
+  \left\langle0\right|\psi_{\alpha}(x)\bar{\psi}_{\beta}(y)\left|0\right\rangle=\left\langle0\right|\sum_{s,r} &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vec{p}}}}\left[b_{\vec{p}}^su^s(\vec{p})\mathrm{e}^{-\mathrm{i}p\cdot x}+c_{\vec{p}}^{s\dagger}v^s(\vec{p})\mathrm{e}^{+\mathrm{i}p\cdot x}\right]\\
+  \times &amp; \int\frac{\mathrm{d}^3q}{(2\pi)^3}\frac{1}{\sqrt{2E_{\vec{q}}}}\left[b_{\vec{q}}^{r\dagger}\bar{u}^r(\vec{q})\mathrm{e}^{+\mathrm{i}q\cdot y}+c_{\vec{q}}^{r}\bar{v}^r(\vec{q})\mathrm{e}^{-\mathrm{i}q\cdot y}\right]\left|0\right\rangle
+\end{aligned}
+\]</div>
+<p>由于后面的 <span class="arithmatex">\(\left|0\right\rangle\)</span>，<span class="arithmatex">\(c_{\vec{q}}^r\)</span> 没了；由于前面的 <span class="arithmatex">\(\left\langle0\right|\)</span>，<span class="arithmatex">\(c_{\vec{p}}^{s\dagger}\)</span> 没了。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  \left\langle0\right|\psi_{\alpha}(x)\bar{\psi}_{\beta}(y)\left|0\right\rangle= &amp; \left\langle0\right|\sum_{s,r}\int\frac{\mathrm{d}^3p\mathrm{d}^3q}{(2\pi)^6}\frac{1}{\sqrt{4E_{\vec{p}}E_{\vec{q}}}}\left(b_{\vec{p}}^sb_{\vec{q}}^{r\dagger}u^s(\vec{p})\bar{u}^r(\vec{q})\mathrm{e}^{-\mathrm{i}p\cdot x}\mathrm{e}^{+\mathrm{i}q\cdot y}\right)\left|0\right\rangle\\
+  \xlongequal{b_{\vec{p}}^sb_{\vec{q}}^{r\dagger}=b_{\vec{q}}^{r\dagger}b_{\vec{p}}^s+(2\pi)^3\delta^{sr}\delta^{(3)}(\vec{p}-\vec{q})} &amp; \left\langle0\right|\sum_{s,r}\int\frac{\mathrm{d}^3p\mathrm{d}^3q}{(2\pi)^6}\frac{1}{\sqrt{4E_{\vec{p}}E_{\vec{q}}}}\left((2\pi)^3\delta^{sr}\delta^{(3)}(\vec{p}-\vec{q})u^s(\vec{p})\bar{u}^r(\vec{q})\mathrm{e}^{-\mathrm{i}p\cdot x}\mathrm{e}^{+\mathrm{i}q\cdot y}\right)\left|0\right\rangle\\
+  = &amp; \sum_s\int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}u^s(\vec{p})\bar{u}^s(\vec{p})\mathrm{e}^{-\mathrm{i}p\cdot(x-y)}\\
+  \xlongequal{\sum^su^s(\vec{p})\bar{u}^s(\vec{p})=\cancel{p}+m} &amp; \int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}(\cancel{p}+m)_{\alpha\beta}\ \mathrm{e}^{-\mathrm{i}p\cdot(x-y)}
+\end{aligned}
+\]</div>
+<p>同理：</p>
+<div class="arithmatex">\[\left\langle0\right|\bar{\psi}_{\beta}(y)\psi_{\alpha}(x)\left|0\right\rangle=\int\frac{\mathrm{d}^3p}{(2\pi)^3}\frac{1}{2E_{\vec{p}}}(\cancel{p}-m)_{\alpha\beta}\ \mathrm{e}^{+\mathrm{i}p\cdot(x-y)}\]</div>
+<div class="arithmatex">\[
+S_F(x-y)=\left\langle0\right|T\psi(x)\bar{\psi}(y)\left|0\right\rangle\equiv\begin{cases}
+  \left\langle0\right|+\psi(x)\bar{\psi}(y)\left|0\right\rangle &amp; x^0&gt;y^0\\ \left\langle0\right|-\psi(x)\bar{\psi}(y)\left|0\right\rangle &amp; x^0&lt;y^0
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+S_F(x-y)=\mathrm{i}\int\frac{\mathrm{d}^4p}{(2\pi)^4}\mathrm{e}^{-\mathrm{i}p\cdot(x-y)}\frac{\gamma\cdot p+m}{p^2-m^2+\mathrm{i}\epsilon}
+\]</div>
+<div class="arithmatex">\[
+(\mathrm{i}\cancel{\partial}_x-m)S_F(x-y)=\mathrm{i}\delta^{(4)}(x-y)
+\]</div>
+<div class="arithmatex">\[
+\overbrace{\psi(x)\bar\psi(y)}=T(\psi(x)\bar\psi(y))-:\psi(x)\bar\psi(y):\ =S_F(x-y)
+\]</div>
+<h3 id="_1">注意順序</h3>
+<p>在處理費米子時有很多需要注意的順序，剛開始時容易忘記的有：</p>
+<ul>
+<li>
+<div class="arithmatex">\[
+  \left|f\right\rangle=\sqrt{4E_{\vec{p}'}E_{\vec{q}'}}b_{\vec{p}'}^{s'\dagger}b_{\vec{q}'}^{r'\dagger}\left|0\right\rangle\to\left\langle f\right|=\left\langle 0\right|b_{\vec{p}'}^{r'}b_{\vec{q}'}^{s'}\sqrt{4E_{\vec{p}'}E_{\vec{q}'}}
+  \]</div>
+</li>
+<li>因爲 <span class="arithmatex">\(\{b,c^{\dagger}\}\)</span> 這樣的東西 <span class="arithmatex">\(=0\)</span>，所以交換順序時一定要留意負號——我甚至在這裏卡了一會兒……</li>
+<li>我看不起費米子，儘管我曾經覺得費米子很酷。我認爲費米子沒有中國傳統精神——它總是不合群、總是特立獨行，更要緊的是，它總是傷害無辜的人。</li>
+<li>我對費米子的成見與費米先生無關，恰恰相反，我對費米先生的評價和楊振寧先生的一致：他是最後一個理論和實驗都特別强的物理學家。</li>
+</ul>
+<h3 id="c-cdagger">爲什麽計算中沒有出現 <span class="arithmatex">\(c\)</span> 和 <span class="arithmatex">\(c^{\dagger}\)</span></h3>
+<blockquote>
+<p>We may ignore the <span class="arithmatex">\(c^{\dagger}\)</span> pieces in <span class="arithmatex">\(\psi\)</span> since they give no contribution at order <span class="arithmatex">\(\lambda^2\)</span>.</p>
+</blockquote>
+<p>我們正在處理 <span class="arithmatex">\(\psi\psi\to\psi\psi\)</span>，如果數學的過程中有 <span class="arithmatex">\(c^{\dagger}\)</span> 以及 <span class="arithmatex">\(c\)</span> 參與，那麽對應的物理過程至少是 <span class="arithmatex">\(\psi\psi\to\psi\psi\psi\bar{\psi}\to\psi\psi\)</span>，這已經不是我們考慮的最低階的情況辣！</p>
+<h3 id="b_veck_1mb_veck_2nb_vecpsdaggerb_vecqrdaggerleft0rightrangle">計算 <span class="arithmatex">\(b_{\vec{k}_1}^mb_{\vec{k}_2}^nb_{\vec{p}}^{s\dagger}b_{\vec{q}}^{r\dagger}\left|0\right\rangle\)</span></h3>
+<p>看到這裏我知道這對你來説已經很簡單了，但是我還是打算寫出來，因爲我覺得它很爽 :)</p>
+<div class="arithmatex">\[
+\left\{b_{\vec{p}}^r,b_{\vec{q}}^{s\dagger}\right\}=(2\pi)^3\delta^{rs}\delta^{(3)}(\vec{p}-\vec{q})\Rightarrow b_{\vec{p}}^rb_{\vec{q}}^{s\dagger}=-b_{\vec{q}}^{s\dagger}b_{\vec{p}}^r+(2\pi)^3\delta^{rs}\delta^{(3)}(\vec{p}-\vec{q})
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+  &amp; b_{\vec{k}_1}^mb_{\vec{k}_2}^nb_{\vec{p}}^{s\dagger}b_{\vec{q}}^{r\dagger}\left|0\right\rangle\\
+  = &amp; b_{\vec{k}_1}^m\left(-b_{\vec{p}}^{s\dagger}b_{\vec{k}_2}^n+(2\pi)^3\delta^{ns}\delta^{(3)}\left(\vec{k}_2-\vec{p}\right)\right)b_{\vec{q}}^{r\dagger}\left|0\right\rangle\\
+  = &amp; -\left(-b_{\vec{p}}^{s\dagger}b_{\vec{k}_1}^m+(2\pi)^3\delta^{ms}\delta^{(3)}(\vec{k}_1-\vec{p})\right)\left(-b_{\vec{q}}^{r\dagger}b_{\vec{k}_2}^n+(2\pi)^3\delta^{nr}\delta^{(3)}(\vec{k}_2-\vec{q})\right)\left|0\right\rangle\\
+  &amp; +(2\pi)^3\delta^{ns}\delta^{(3)}\left(\vec{k}_2-\vec{p}\right)\left(-b_{\vec{q}}^{r\dagger}b_{\vec{k}_1}^{m}+(2\pi)^3\delta^{mr}\delta^{(3)}(\vec{q}-\vec{k}_1)\right)\left|0\right\rangle\\
+  = &amp; -(2\pi)^6\delta^{ms}\delta^{nr}\delta^{(3)}(\vec{k}_1-\vec{p})\delta^{(3)}(\vec{k}_2-\vec{q})\left|0\right\rangle+(2\pi)^6\delta^{ns}\delta^{mr}\delta^{(3)}(\vec{k}_2-\vec{p})\delta^{(3)}(\vec{k}_1-\vec{q})\left|0\right\rangle
+\end{aligned}
+\]</div>
+<ul>
+<li>個人感覺，推導出來 Feynman 規則之後在應用時最要緊的還是對稱性的要求！</li>
+<li>然而，在 Feynman 規則推導出之後，似乎理論已經結束了。</li>
+</ul>
 
               
             </article>
@@ -1056,7 +1296,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
-        <a href="../%E6%97%B6%E7%A9%BA%E7%9A%84%E6%95%B4%E4%BD%93%E5%9B%A0%E6%9E%9C%E7%BB%93%E6%9E%84/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 时空的整体因果结构" rel="prev">
+        <a href="../QFT%20by%20David%20Tong_4.%20Dirac%20%E6%96%B9%E7%A8%8B/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Dirac 方程" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1065,20 +1305,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              时空的整体因果结构
+              Dirac 方程
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../%E8%AF%BE%E7%A8%8B%E5%A4%8D%E4%B9%A0/Review_Electrodynamics/" class="md-footer__link md-footer__link--next" aria-label="下一页: Review Electrodynamics" rel="next">
+        <a href="../QFT%20by%20David%20Tong_6.%20%E9%87%8F%E5%AD%90%E9%9B%BB%E5%8B%95%E5%8A%9B%E5%AD%B8/" class="md-footer__link md-footer__link--next" aria-label="下一页: 量子電動力學" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              Review Electrodynamics
+              量子電動力學
             </div>
           </div>
           <div class="md-footer__button md-icon">

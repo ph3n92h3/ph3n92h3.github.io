@@ -13,7 +13,7 @@
     
     
       
-        <title>渐进平直时空 - Mein kleines Herz</title>
+        <title>Dirac 方程 - Mein kleines Herz</title>
       
     
     
@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#dirac" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              渐进平直时空
+              Dirac 方程
             
           </span>
         </div>
@@ -712,12 +717,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" checked>
       
       
       
@@ -740,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_0.%20%E5%89%8D%E8%A8%80/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_0.%20%E5%89%8D%E8%A8%80/" class="md-nav__link">
         前言
       </a>
     </li>
@@ -754,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_1.%20%E7%B6%93%E5%85%B8%E5%A0%B4%E8%AB%96/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_1.%20%E7%B6%93%E5%85%B8%E5%A0%B4%E8%AB%96/" class="md-nav__link">
         經典場論
       </a>
     </li>
@@ -768,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_2.%20%E8%87%AA%E7%94%B1%E5%A0%B4/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_2.%20%E8%87%AA%E7%94%B1%E5%A0%B4/" class="md-nav__link">
         自由場
       </a>
     </li>
@@ -782,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_3.%20%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8%E5%A0%B4/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_3.%20%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8%E5%A0%B4/" class="md-nav__link">
         相互作用場
       </a>
     </li>
@@ -794,11 +801,94 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_4.%20Dirac%20%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dirac 方程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Dirac 方程
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定義和性質
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dirac_1" class="md-nav__link">
+    Dirac 方程的另一半
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dirac-spinor-klein-gordon" class="md-nav__link">
+    Dirac spinor 滿足 Klein-Gordon 方程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weyl" class="md-nav__link">
+    Weyl 方程的導出
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamma5" class="md-nav__link">
+    \(\gamma^5\)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charge-conjugate" class="md-nav__link">
+    關於 charge conjugate 的一個證明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helicity" class="md-nav__link">
+    螺旋度（Helicity）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -810,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_5.%20%E9%87%8F%E5%AD%90%E5%8C%96%20Dirac%20%E5%A0%B4/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_5.%20%E9%87%8F%E5%AD%90%E5%8C%96%20Dirac%20%E5%A0%B4/" class="md-nav__link">
         量子化 Dirac 場
       </a>
     </li>
@@ -824,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../QFT%20by%20David%20Tong/QFT%20by%20David%20Tong_6.%20%E9%87%8F%E5%AD%90%E9%9B%BB%E5%8B%95%E5%8A%9B%E5%AD%B8/" class="md-nav__link">
+      <a href="../QFT%20by%20David%20Tong_6.%20%E9%87%8F%E5%AD%90%E9%9B%BB%E5%8B%95%E5%8A%9B%E5%AD%B8/" class="md-nav__link">
         量子電動力學
       </a>
     </li>
@@ -843,14 +933,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
       
       
       
@@ -873,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%20in%20mma/" class="md-nav__link">
+      <a href="../../%E5%BE%AE%E5%B9%BF/%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%20in%20mma/" class="md-nav__link">
         廣義相對論 in mma
       </a>
     </li>
@@ -887,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%BE%AE%E5%88%86%E5%B9%BE%E4%BD%95%E5%85%A5%E9%96%80%E8%88%87%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%E9%99%84%E9%8C%84G%E6%9D%8E%E7%BE%A4%E5%92%8C%E6%9D%8E%E4%BB%A3%E6%95%B8%E7%BF%92%E9%A1%8C%E8%A7%A3%E7%AD%94/" class="md-nav__link">
+      <a href="../../%E5%BE%AE%E5%B9%BF/%E5%BE%AE%E5%88%86%E5%B9%BE%E4%BD%95%E5%85%A5%E9%96%80%E8%88%87%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%E9%99%84%E9%8C%84G%E6%9D%8E%E7%BE%A4%E5%92%8C%E6%9D%8E%E4%BB%A3%E6%95%B8%E7%BF%92%E9%A1%8C%E8%A7%A3%E7%AD%94/" class="md-nav__link">
         附錄G“李群和李代數”習題解答
       </a>
     </li>
@@ -901,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%97%B6%E7%A9%BA%E7%9A%84%E6%95%B4%E4%BD%93%E5%9B%A0%E6%9E%9C%E7%BB%93%E6%9E%84/" class="md-nav__link">
+      <a href="../../%E5%BE%AE%E5%B9%BF/%E6%97%B6%E7%A9%BA%E7%9A%84%E6%95%B4%E4%BD%93%E5%9B%A0%E6%9E%9C%E7%BB%93%E6%9E%84/" class="md-nav__link">
         时空的整体因果结构
       </a>
     </li>
@@ -913,19 +1001,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../%E5%BE%AE%E5%B9%BF/%E6%B8%90%E8%BF%9B%E5%B9%B3%E7%9B%B4%E6%97%B6%E7%A9%BA/" class="md-nav__link">
         渐进平直时空
       </a>
-      
     </li>
   
 
@@ -1022,6 +1102,65 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定義和性質
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dirac_1" class="md-nav__link">
+    Dirac 方程的另一半
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dirac-spinor-klein-gordon" class="md-nav__link">
+    Dirac spinor 滿足 Klein-Gordon 方程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weyl" class="md-nav__link">
+    Weyl 方程的導出
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamma5" class="md-nav__link">
+    \(\gamma^5\)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charge-conjugate" class="md-nav__link">
+    關於 charge conjugate 的一個證明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helicity" class="md-nav__link">
+    螺旋度（Helicity）
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1035,9 +1174,164 @@
                 
 
 
-  <h1>渐进平直时空</h1>
-
-
+<h1 id="dirac">Dirac 方程</h1>
+<blockquote>
+<p>Dirac 方程中隐藏的东西比作者1928年写下它时预想的要多得多。Dirac 本人在一次谈话中说，他的方程式比作者更聪明。然而，应该补充的是，Dirac 发现了大部分额外的见解。——Weisskopf 評 Dirac</p>
+</blockquote>
+<h2 id="_1">定義和性質</h2>
+<div class="arithmatex">\[
+\{\gamma^{\mu},\gamma^{\nu}\}\equiv2\eta^{\mu\nu}\bf{1}
+\]</div>
+<ul>
+<li>
+<div class="arithmatex">\[(\gamma^0)^2=1,\ (\gamma^i)^2=-1\]</div>
+</li>
+<li>
+<div class="arithmatex">\[
+  \gamma^0=\begin{pmatrix}
+  0 &amp; \bf{1}\\ \bf{1} &amp; 0
+  \end{pmatrix},\ \gamma^i=\begin{pmatrix}
+  0 &amp; \sigma^i \\ -\sigma^i &amp; 0
+  \end{pmatrix}
+  \]</div>
+</li>
+<li>
+<div class="arithmatex">\[
+  \sigma^1=\begin{pmatrix}
+  0 &amp; 1\\ 1 &amp; 0
+  \end{pmatrix},\ \sigma^2=\begin{pmatrix}
+    0 &amp; -\mathrm{i}\\ \mathrm{i} &amp; 0
+  \end{pmatrix},\ \sigma^3=\begin{pmatrix}
+    1 &amp; 0\\ 0 &amp; -1
+  \end{pmatrix},\ \{\sigma^i,\sigma^j\}=2\delta^{ij}
+  \]</div>
+</li>
+<li>
+<div class="arithmatex">\[S^{\rho\sigma}=\frac{1}{4}[\gamma^{\rho},\gamma^{\sigma}]=\frac{1}{2}\gamma^{\rho}\gamma^{\sigma}-\frac{1}{2}\eta^{\rho\sigma}\]</div>
+</li>
+</ul>
+<div class="arithmatex">\[[S^{\mu\nu},\gamma^{\rho}]=\gamma^{\mu}\eta^{\nu\rho}-\gamma^{\nu}\eta^{\rho\mu}\]</div>
+<div class="arithmatex">\[[S^{\mu\nu},S^{\rho\sigma}]=\eta^{\nu\rho}S^{\mu\sigma}-\eta^{\mu\rho}S^{\nu\sigma}+\eta^{\mu\sigma}S^{\nu\rho}-\eta^{\nu\sigma}S^{\mu\rho}\]</div>
+<ul>
+<li>Dirac spinor: </li>
+</ul>
+<div class="arithmatex">\[\phi^\alpha(x)\to S[\Lambda]^{\alpha}_{\ \ \beta}\psi^{\beta}(\Lambda^{-1}x),\ \Lambda=\exp\left(\frac{1}{2}\Omega_{\rho\sigma}\mathcal{M}^{\rho\sigma}\right),\ S[\Lambda]=\exp\left(\frac{1}{2}\Omega_{\rho\sigma}S^{\rho\sigma}\right)\]</div>
+<ul>
+<li>
+<div class="arithmatex">\[\left(\gamma^{\mu}\right)^{\dagger}=\gamma^0\gamma^\mu\gamma^0,\ \left(S^{\mu\nu}\right)^{\dagger}=-\gamma^0S^{\mu\nu}\gamma^0,\ S[\Lambda]^{\dagger}=\gamma^0S[\Lambda]^{-1}\gamma^0\]</div>
+</li>
+</ul>
+<h2 id="dirac_1">Dirac 方程的另一半</h2>
+<div class="arithmatex">\[
+\mathcal{L}=\bar{\psi}(\mathrm{i}\gamma^{\mu}\partial_{\mu}-m)\psi
+\]</div>
+<div class="arithmatex">\[
+\Rightarrow(\mathrm{i}\gamma^{\mu}\partial_{\mu}-m)\psi,\ (\mathrm{i}\partial_{\mu}\bar{\psi}\gamma^{\mu}+m)\bar{\psi}=0
+\]</div>
+<h2 id="dirac-spinor-klein-gordon">Dirac spinor 滿足 Klein-Gordon 方程</h2>
+<div class="arithmatex">\[
+\begin{aligned}
+  &amp; (\mathrm{i}\gamma^{\mu}\partial_{\mu}-m)\psi=0\\
+  \Rightarrow &amp; (\mathrm{i}\gamma^{\nu}\partial_{\nu}+m)(\mathrm{i}\gamma^{\mu}\partial_{\mu}-m)\psi=0\\
+  \Rightarrow &amp; -(\gamma^{\nu}\gamma^{\mu}\partial_{\nu}\gamma_{\mu}+m^2)\psi=0
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+  &amp; \gamma^{\nu}\gamma^{\mu}\partial_{\nu}\partial_{\mu}\xlongequal{\text{輪換指標}}\gamma^{\mu}\gamma^{\nu}\partial_{\mu}\partial_{\nu}\xlongequal{\text{偏導數可交換順序}}\gamma^{\mu}\gamma^{\nu}\partial_{\nu}\partial_{\mu}\\
+  = &amp; \frac{1}{2}\left(\gamma^{\mu}\gamma^{\nu}+\gamma^{\nu}\gamma^{\mu}\right)\partial_{\mu}\partial_{\nu}=\frac{1}{2}\left\{\gamma^{\mu},\gamma^{\nu}\right\}\partial_{\mu}\partial_{\nu}\\
+  = &amp; \eta^{\mu\nu}\partial_{\mu}\partial_{\nu}=\partial_{\mu}\partial^{\mu}
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+-(\partial_{\mu}\partial^{\mu}+m^2)\psi=0
+\]</div>
+<p>注 🐖：我的 <code>markdown</code> 編輯器似乎不支持 <code>slashed</code> 宏包？總之，我使用 <code>cancel{}</code> 來表示 Diarc slash：<span class="arithmatex">\(A_{\mu}\gamma^{\mu}\equiv\cancel{A}\)</span>。</p>
+<h2 id="weyl">Weyl 方程的導出</h2>
+<p>發現 Lortenz 群的 Dirac 旋量表示是可約的，可以分解爲只作用在貳份量旋量上的兩個不可約表示。</p>
+<div class="arithmatex">\[
+\psi=\begin{pmatrix}
+  u_+ \\ u_-
+\end{pmatrix}
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+  &amp; (\mathrm{i}\cancel{\partial}-m)\psi=0\quad\Rightarrow\\
+  \mathcal{L}=0= &amp; \bar{\psi}(\mathrm{i}\cancel{\partial}-m)\psi=\mathrm{i}\bar{\psi}\cancel{\partial}\psi-m\bar{\psi}\psi\\
+  = &amp; \mathrm{i}\psi^{\dagger}\gamma^0\gamma^\mu\partial_{\mu}\psi-m\psi^{\dagger}\gamma^0\psi=\mathrm{i}\psi^{\dagger}\gamma^0(\gamma^0\partial_0+\gamma^i\partial_{i})\psi-m\psi^{\dagger}\gamma^0\psi\\
+  = &amp; \mathrm{i}\begin{pmatrix}
+    u_+^{\dagger} &amp; u_-^{\dagger}
+  \end{pmatrix}\begin{pmatrix}
+    0 &amp; \bf{1}\\\bf{1} &amp; 0
+  \end{pmatrix}\begin{pmatrix}
+    0 &amp; \bf{1}\\\bf{1} &amp; 0
+  \end{pmatrix}\begin{pmatrix}
+    \partial_0u_+\\\partial_0u_-
+  \end{pmatrix}
+  \\ &amp; -\mathrm{i}\begin{pmatrix}
+    u_+^{\dagger} &amp; u_-^{\dagger}
+  \end{pmatrix}\begin{pmatrix}
+    0 &amp; \bf{1}\\\bf{1} &amp; 0
+  \end{pmatrix}\begin{pmatrix}
+    0 &amp; \sigma^i\\-\sigma_i &amp; 0
+  \end{pmatrix}\begin{pmatrix}
+    \partial_iu_+\\\partial_i u_-
+  \end{pmatrix}
+  \\ &amp; -m\begin{pmatrix}
+    u_+^{\dagger} &amp; u_-^{\dagger}
+  \end{pmatrix}\begin{pmatrix}
+    0 &amp; \bf{1}\\\bf{1} &amp; 0
+  \end{pmatrix}\begin{pmatrix}
+    u_+\\u_-
+  \end{pmatrix}\\
+  \xlongequal{\sigma^{\mu}=(1,\sigma^i),\bar{\sigma}^{\mu}=(1,-\sigma^i)} &amp; \mathrm{i}u_-^{\dagger}\sigma^{\mu}\partial_{\mu}u_-+\mathrm{i}u_+^{\dagger}\bar{\sigma}^{\mu}\partial_{\mu}u_{+}-m(u_+^{\dagger}u_-+u_-^{\dagger}u_+)\\
+  \Rightarrow\xlongequal{m=0}\Rightarrow &amp; \mathrm{i}\bar{\sigma}^{\mu}\partial_{\mu}u_+=0,\ \mathrm{i}\sigma^{\mu}\partial_{\mu}u_-=0
+\end{aligned}
+\]</div>
+<h2 id="gamma5"><span class="arithmatex">\(\gamma^5\)</span></h2>
+<ul>
+<li>
+<div class="arithmatex">\[\gamma^5=-\mathrm{i}\gamma^0\gamma^1\gamma^2\gamma^3\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\{\gamma^5,\gamma^\mu\}=0,\ (\gamma^5)^2=+1\]</div>
+</li>
+<li>
+<div class="arithmatex">\[[S_{\mu\nu},\gamma^5]=0\]</div>
+</li>
+<li>
+<div class="arithmatex">\[P_{\pm}=\frac{1}{2}(1\pm\gamma^5),\ P_{\pm}^2=P_{\pm},\ P_+P_-=0\]</div>
+</li>
+<li>分清誰是標量誰是矢量誰是張量誰是贋標量誰是軸矢量</li>
+</ul>
+<h2 id="charge-conjugate">關於 charge conjugate 的一個證明</h2>
+<div class="arithmatex">\[
+(\gamma^0)^{\dagger}=\gamma^0,\ (\gamma^i)^{\dagger}=-\gamma^i
+\]</div>
+<div class="arithmatex">\[
+\psi^{(c)}=C\psi^{\star},\ C^{\dagger}C=1,\ C^{\dagger}\gamma^{\mu}C=-(\gamma^{\mu})^{\star}
+\]</div>
+<div class="arithmatex">\[
+C^{\dagger}C=1\Rightarrow\xlongequal{\text{？我還不知道這是否一般地成立}}\Rightarrow CC^{\dagger}=1
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+  C^{\dagger}S^{\mu\nu}C= &amp; C^{\dagger}\frac{1}{4}(\gamma^{\mu}\gamma^{\nu}-\gamma^{\nu}\gamma^{\mu})C\\
+  = &amp; \frac{1}{4}C^{\dagger}\gamma^{\mu}CC^{\dagger}\gamma^{\nu}C-\frac{1}{4}C^{\dagger}\gamma^{\nu}CC^{\dagger}\gamma^{\mu}C\\
+  = &amp; \frac{1}{4}(\gamma^{\mu})^{\star}(\gamma^{\nu})^{\star}-\frac{1}{4}(\gamma^{\nu})^{\star}(\gamma^{\mu})^{\star}\\
+  = &amp; (\frac{1}{4}(\gamma^{\mu}\gamma^{\nu}-\gamma^{\nu}\gamma^{\mu}))^{\star}=(S^{\mu\nu})^{\star}
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+C^{\dagger}S[\Lambda]C=(S[\Lambda])^{\star}\Rightarrow\cancel{CC^{\dagger}}S[\Lambda]C=C(S[\Lambda])^{\star}
+\]</div>
+<h2 id="helicity">螺旋度（Helicity）</h2>
+<p>竟然一筆帶過了……</p>
+<div class="arithmatex">\[
+h=\frac{\mathrm{i}}{2}\epsilon_{ijk}\hat{p}^iS^{jk}=\frac{1}{2}\hat{p}_i\begin{pmatrix}
+  \sigma^i &amp; 0\\ 0 &amp; \sigma^i
+\end{pmatrix}
+\]</div>
 
               
             </article>
@@ -1056,7 +1350,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
-        <a href="../%E6%97%B6%E7%A9%BA%E7%9A%84%E6%95%B4%E4%BD%93%E5%9B%A0%E6%9E%9C%E7%BB%93%E6%9E%84/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 时空的整体因果结构" rel="prev">
+        <a href="../QFT%20by%20David%20Tong_3.%20%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8%E5%A0%B4/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 相互作用場" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1065,20 +1359,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              时空的整体因果结构
+              相互作用場
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../%E8%AF%BE%E7%A8%8B%E5%A4%8D%E4%B9%A0/Review_Electrodynamics/" class="md-footer__link md-footer__link--next" aria-label="下一页: Review Electrodynamics" rel="next">
+        <a href="../QFT%20by%20David%20Tong_5.%20%E9%87%8F%E5%AD%90%E5%8C%96%20Dirac%20%E5%A0%B4/" class="md-footer__link md-footer__link--next" aria-label="下一页: 量子化 Dirac 場" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              Review Electrodynamics
+              量子化 Dirac 場
             </div>
           </div>
           <div class="md-footer__button md-icon">
