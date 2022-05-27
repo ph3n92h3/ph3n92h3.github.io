@@ -2056,297 +2056,297 @@
 <h2 id="_2">数据库及数据库对象</h2>
 <h4 id="database">数据库 DATABASE</h4>
 <h6 id="_3">创建</h6>
-<pre><code class="language-sql">CREATE DATABASE Studentdb
-ON
-(    NAME = 'Studentdb_Data',
-     FILENAME = 'E:\Studentdb.mdf',
-     SIZE = 3MB,
-     MAXSIZE = 50MB,
-     FILEGROWTH = 10%   /*超过初始大小后文件增长率*/
-)
-LOG ON
-(    NAME = 'Studentdb_Log',
-     FILENAME = 'E:\Studentdb.ldf',
-     SIZE = 2MB,
-     MAXSIZE = 5MB,
-     FILEGROWTH = 1MB   /*超过初始大小后文件增长率*/
-)
-GO
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">Studentdb</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">ON</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">(</span><span class="w">    </span><span class="n">NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Studentdb_Data&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">     </span><span class="n">FILENAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E:\Studentdb.mdf&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">     </span><span class="k">SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="n">MB</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">     </span><span class="n">MAXSIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="n">MB</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">     </span><span class="n">FILEGROWTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">%</span><span class="w">   </span><span class="cm">/*超过初始大小后文件增长率*/</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">LOG</span><span class="w"> </span><span class="k">ON</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">(</span><span class="w">    </span><span class="n">NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Studentdb_Log&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">     </span><span class="n">FILENAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E:\Studentdb.ldf&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">     </span><span class="k">SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">MB</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">     </span><span class="n">MAXSIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="n">MB</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">     </span><span class="n">FILEGROWTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="n">MB</span><span class="w">   </span><span class="cm">/*超过初始大小后文件增长率*/</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="k">GO</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_4">修改</h6>
 <p>添加和删除数据库文件</p>
-<pre><code class="language-sql">ALTER DATABASE database
-{
-    ADD FILE filename [TO FILEGROUP filegroup_name]
-    ADD LOG FILE filename
-    ADD FILEGROUP filegroup_name
-
-    REMOVE FILE logical_file_name
-    REMOVE FILEGROUP filegroup_name
-
-    MODIFY FILE filespec
-    MODIFY NAME=new_dbname
-
-    SET &lt;optionspec&gt; [,...n] [WITH &lt;termination&gt;]
-
-    COLLATE &lt;collation_name&gt;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">database</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">{</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="n">FILE</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="p">[</span><span class="k">TO</span><span class="w"> </span><span class="n">FILEGROUP</span><span class="w"> </span><span class="n">filegroup_name</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="n">LOG</span><span class="w"> </span><span class="n">FILE</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="n">FILEGROUP</span><span class="w"> </span><span class="n">filegroup_name</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">REMOVE</span><span class="w"> </span><span class="n">FILE</span><span class="w"> </span><span class="n">logical_file_name</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">REMOVE</span><span class="w"> </span><span class="n">FILEGROUP</span><span class="w"> </span><span class="n">filegroup_name</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">MODIFY</span><span class="w"> </span><span class="n">FILE</span><span class="w"> </span><span class="n">filespec</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">MODIFY</span><span class="w"> </span><span class="n">NAME</span><span class="o">=</span><span class="n">new_dbname</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">&lt;</span><span class="n">optionspec</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[,...</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="o">&lt;</span><span class="n">termination</span><span class="o">&gt;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="k">COLLATE</span><span class="w"> </span><span class="o">&lt;</span><span class="k">collation_name</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="err">}</span><span class="w"></span>
+</code></pre></div>
 <p>扩大指定文件的大小</p>
-<pre><code class="language-sql">ALTER DATABASE STU_DB MODIFY (NAME=student_data, SIZE=8MB)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">STU_DB</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="p">(</span><span class="n">NAME</span><span class="o">=</span><span class="n">student_data</span><span class="p">,</span><span class="w"> </span><span class="k">SIZE</span><span class="o">=</span><span class="mi">8</span><span class="n">MB</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <p>添加新的数据文件</p>
-<pre><code class="language-sql">ALTER DATABASE STU_DB ADD FILE (NAME=student_data2, FILENAME=‘E:\Data\student_data2.ndf’, SIZE=6MB, FILEGROWTH=0)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">STU_DB</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">FILE</span><span class="w"> </span><span class="p">(</span><span class="n">NAME</span><span class="o">=</span><span class="n">student_data2</span><span class="p">,</span><span class="w"> </span><span class="n">FILENAME</span><span class="o">=</span><span class="err">‘</span><span class="n">E</span><span class="p">:</span><span class="err">\</span><span class="k">Data</span><span class="err">\</span><span class="n">student_data2</span><span class="p">.</span><span class="n">ndf</span><span class="err">’</span><span class="p">,</span><span class="w"> </span><span class="k">SIZE</span><span class="o">=</span><span class="mi">6</span><span class="n">MB</span><span class="p">,</span><span class="w"> </span><span class="n">FILEGROWTH</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <p>收缩：</p>
-<pre><code class="language-sql">DBCC SHRINKDATABASE (students, 20)  /*收缩数据库*/
-DBCC SHRINKFILE (student_data1, 4)  /*收缩数据库文件*/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">DBCC</span><span class="w"> </span><span class="n">SHRINKDATABASE</span><span class="w"> </span><span class="p">(</span><span class="n">students</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w">  </span><span class="cm">/*收缩数据库*/</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">DBCC</span><span class="w"> </span><span class="n">SHRINKFILE</span><span class="w"> </span><span class="p">(</span><span class="n">student_data1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w">  </span><span class="cm">/*收缩数据库文件*/</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_5">分离数据库</h6>
-<pre><code class="language-sql">EXEC sp_detach_db 'student', 'true'
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">EXEC</span><span class="w"> </span><span class="n">sp_detach_db</span><span class="w"> </span><span class="s1">&#39;student&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_6">附加数据库</h6>
-<pre><code class="language-sql">CREATE DATABASE students
-On (FILENAME='F:\Data\Students_data1.mdf')
-FOR ATTACH
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">students</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">On</span><span class="w"> </span><span class="p">(</span><span class="n">FILENAME</span><span class="o">=</span><span class="s1">&#39;F:\Data\Students_data1.mdf&#39;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">FOR</span><span class="w"> </span><span class="n">ATTACH</span><span class="w"></span>
+</code></pre></div>
 <h4 id="schema">架构 SCHEMA</h4>
 <p>定义：</p>
-<pre><code class="language-sql">CREATE SCHEMA schema_name AUTHORIZATION user_name
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">schema_name</span><span class="w"> </span><span class="k">AUTHORIZATION</span><span class="w"> </span><span class="n">user_name</span><span class="w"></span>
+</code></pre></div>
 <p>删除：</p>
-<pre><code class="language-sql">DROP SCHEMA schema_name
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">schema_name</span><span class="w"></span>
+</code></pre></div>
 <h4 id="partition">分区表 PARTITION</h4>
 <p>创建分区函数：</p>
-<pre><code class="language-sql">CREATE PARTITION FUCNTION myPF1(int) AS
-    RANGE LEFT FOR VALUES (1, 100, 1000)
-GO
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">FUCNTION</span><span class="w"> </span><span class="n">myPF1</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">RANGE</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">GO</span><span class="w"></span>
+</code></pre></div>
 <p>创建分区方案：</p>
-<pre><code class="language-sql">CREATE PARTITION SCHEME myPS1 AS
-    PARTITION myPF1 TO (test1fg, test2fg, test3fg, test4fg)
-GO
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">SCHEME</span><span class="w"> </span><span class="n">myPS1</span><span class="w"> </span><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">PARTITION</span><span class="w"> </span><span class="n">myPF1</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="p">(</span><span class="n">test1fg</span><span class="p">,</span><span class="w"> </span><span class="n">test2fg</span><span class="p">,</span><span class="w"> </span><span class="n">test3fg</span><span class="p">,</span><span class="w"> </span><span class="n">test4fg</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">GO</span><span class="w"></span>
+</code></pre></div>
 <p>创建分区表：</p>
-<pre><code class="language-sql">CREATE TABLE PartitionTable(
-        Gid int identity(1, 1) primary key, /*取值大于等于1*/
-        GoodName varchar(40), /*可储存20个汉字*/
-        Price numeric(5, 1) /*定点小数类型，小数部分1位，整数部分到千位*/
-    ON myPS1(Gid))
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">PartitionTable</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">        </span><span class="n">Gid</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">identity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="cm">/*取值大于等于1*/</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">        </span><span class="n">GoodName</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="cm">/*可储存20个汉字*/</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">        </span><span class="n">Price</span><span class="w"> </span><span class="nb">numeric</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="cm">/*定点小数类型，小数部分1位，整数部分到千位*/</span><span class="w"></span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">myPS1</span><span class="p">(</span><span class="n">Gid</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
 <h4 id="index">索引 INDEX</h4>
 <p>创建：</p>
-<pre><code class="language-sql">CREATE [UNIQUE] [CLUSTERED|NONCLUSTERED] INDEX index_name   /*是否唯一；聚集或非聚集*/
-    ON table_name(column_name...)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="p">[</span><span class="k">UNIQUE</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">CLUSTERED</span><span class="o">|</span><span class="n">NONCLUSTERED</span><span class="p">]</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_name</span><span class="w">   </span><span class="cm">/*是否唯一；聚集或非聚集*/</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="k">column_name</span><span class="p">...)</span><span class="w"></span>
+</code></pre></div>
 <p>删除：</p>
-<pre><code class="language-sql">DROP INDEX 'table_name.index_name|viewtable.index_name'
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="s1">&#39;table_name.index_name|viewtable.index_name&#39;</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_7">索引视图</h4>
 <h2 id="_8">高级数据库查询</h2>
 <h4 id="select">SELECT 语句</h4>
-<pre><code class="language-sql">SELECT [DISTINCT] [TOP n] select_list
-    [INTO new_table]
-    [FROM table_source]
-    [WHERE search_conditition]
-    [GROUP BY group_by_expression]
-    [HAVING search_condition]
-    [ORDER BY order_expression [ASC|DESC]]
-    [COMPUTE expression]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="k">DISTINCT</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">TOP</span><span class="w"> </span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="n">select_list</span><span class="w"></span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="p">[</span><span class="k">INTO</span><span class="w"> </span><span class="n">new_table</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="p">[</span><span class="k">FROM</span><span class="w"> </span><span class="n">table_source</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">search_conditition</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">group_by_expression</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p">[</span><span class="k">HAVING</span><span class="w"> </span><span class="n">search_condition</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">order_expression</span><span class="w"> </span><span class="p">[</span><span class="k">ASC</span><span class="o">|</span><span class="k">DESC</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="p">[</span><span class="n">COMPUTE</span><span class="w"> </span><span class="n">expression</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h4 id="top">TOP</h4>
-<pre><code class="language-sql">TOP n [percent] [WITH TIES] /*是否包含并列情况*/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">TOP</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">[</span><span class="n">percent</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="n">TIES</span><span class="p">]</span><span class="w"> </span><span class="cm">/*是否包含并列情况*/</span><span class="w"></span>
+</code></pre></div>
 <h4 id="case">CASE</h4>
-<pre><code class="language-sql">CASE
-    WHEN 布尔表达式1 then 结果表达式1
-    WHEN 布尔表达式2 then 结果表达式2
-    ...
-    WHEN 布尔表达式n then 结果表达式n
-    [ELSE 结果表达式n+1]
-END
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">CASE</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="err">布尔表达式</span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="err">结果表达式</span><span class="mi">1</span><span class="w"></span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="err">布尔表达式</span><span class="mi">2</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="err">结果表达式</span><span class="mi">2</span><span class="w"></span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="err">布尔表达式</span><span class="n">n</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="err">结果表达式</span><span class="n">n</span><span class="w"></span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="p">[</span><span class="k">ELSE</span><span class="w"> </span><span class="err">结果表达式</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">END</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_9">查询结果保存至新表</h4>
-<pre><code class="language-sql">SELECT ... INTO other_table FROM ... ...    /*表名前加#为局部临时表，##为全局临时表，只有表名为永久表*/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">other_table</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w">    </span><span class="cm">/*表名前加#为局部临时表，##为全局临时表，只有表名为永久表*/</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_10">并、交、差</h4>
-<pre><code class="language-sql">UNION, INTERSECT, EXCEPT
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">UNION</span><span class="p">,</span><span class="w"> </span><span class="k">INTERSECT</span><span class="p">,</span><span class="w"> </span><span class="k">EXCEPT</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_11">相关子查询</h4>
-<pre><code class="language-sql">WHERE expression [NOT] IN (subquery)
-WHERE expression comparison_operator [ANY | ALL] (subquery)
-WHERE [NOT] EXISTS (subquery)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="p">[</span><span class="k">NOT</span><span class="p">]</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="n">subquery</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="n">comparison_operator</span><span class="w"> </span><span class="p">[</span><span class="k">ANY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="n">subquery</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="k">NOT</span><span class="p">]</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span><span class="n">subquery</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_12">开窗函数</h4>
-<pre><code class="language-sql">函数名（列）OVER（选项）
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="err">函数名（列）</span><span class="n">OVER</span><span class="err">（选项）</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_13">排序函数</h4>
-<pre><code class="language-sql">RANK()
-DENSE_RANK()
-NTILE()
-ROW_NUMBER()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">RANK</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">DENSE_RANK</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">NTILE</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_14">公用表表达式</h4>
-<pre><code class="language-sql">WITH ... AS (EXCEPT 语句)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">WITH</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="k">EXCEPT</span><span class="w"> </span><span class="err">语句</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <h2 id="_15">数据库后台编程技术</h2>
 <h4 id="procedure">（用户自定义）存储过程 PROCEDURE</h4>
 <p>删除：</p>
-<pre><code class="language-sql">DROP PROCEDURE p_custbuy
-DROP PROCEDURE p_custcout
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">p_custbuy</span><span class="w"></span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">DROP</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">p_custcout</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_16">例一</h6>
 <p>创建：</p>
-<pre><code class="language-sql">CREATE PROCEDURE p_custbuy @area varchar(20)='长沙岳麓区', @Price money
-AS
-SELECT ... FROM ... JOIN ...
-    WHERE Address=@area AND SaleUnitPrice&gt;@Price
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">p_custbuy</span><span class="w"> </span><span class="o">@</span><span class="n">area</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39;长沙岳麓区&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">Price</span><span class="w"> </span><span class="n">money</span><span class="w"></span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Address</span><span class="o">=@</span><span class="n">area</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">SaleUnitPrice</span><span class="o">&gt;@</span><span class="n">Price</span><span class="w"></span>
+</code></pre></div>
 <p>执行：</p>
-<pre><code class="language-sql">EXEC p_custbuy @Price=1000
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">EXEC</span><span class="w"> </span><span class="n">p_custbuy</span><span class="w"> </span><span class="o">@</span><span class="n">Price</span><span class="o">=</span><span class="mi">1000</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_17">例二</h6>
 <p>创建：</p>
-<pre><code class="language-sql">CREATE PROCEDURE p_custcout @area varchar(20), @sex char, @count int output, @avg_age int output
-AS
-    SELECT @count=COUNT(*), @ave_age=AVG(YEAR(GETDATE())-YEAR(BIRTHDATE))
-        FROM Table_Customer
-        WHERE Address=@area AND Sex=@sex
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">p_custcout</span><span class="w"> </span><span class="o">@</span><span class="n">area</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="o">@</span><span class="n">sex</span><span class="w"> </span><span class="nb">char</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="k">count</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">output</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">avg_age</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">output</span><span class="w"></span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="k">count</span><span class="o">=</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="o">@</span><span class="n">ave_age</span><span class="o">=</span><span class="k">AVG</span><span class="p">(</span><span class="k">YEAR</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">())</span><span class="o">-</span><span class="k">YEAR</span><span class="p">(</span><span class="n">BIRTHDATE</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table_Customer</span><span class="w"></span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Address</span><span class="o">=@</span><span class="n">area</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">Sex</span><span class="o">=@</span><span class="n">sex</span><span class="w"></span>
+</code></pre></div>
 <p>执行：</p>
-<pre><code class="language-sql">DECLARE @x int, @y int
-EXEC p_custcount '长沙岳麓区', 'F', @x output, @y output
-SELECT @x AS 人数, @y AS 平均年龄
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">y</span><span class="w"> </span><span class="nb">int</span><span class="w"></span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">EXEC</span><span class="w"> </span><span class="n">p_custcount</span><span class="w"> </span><span class="s1">&#39;长沙岳麓区&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="k">output</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">y</span><span class="w"> </span><span class="k">output</span><span class="w"></span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">人数</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">y</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">平均年龄</span><span class="w"></span>
+</code></pre></div>
 <h4 id="function">用户自定义函数 FUNCTION</h4>
 <p>删除：</p>
-<pre><code class="language-sql">DROP FUNCTION f_GoodsCount
-DROP FUNCTION f_GoodsInfo
-DROP FUNCTION f_GoodsDatails
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">f_GoodsCount</span><span class="w"></span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="k">DROP</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">f_GoodsInfo</span><span class="w"></span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="k">DROP</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">f_GoodsDatails</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_18">标量函数</h6>
 <p>创建：</p>
-<pre><code class="language-sql">CREATE FUCTION dbo.f_GoodsCount(@class varchar(10))
-   RETURN int
-AS
-BEGIN
-   DECLARE @x int
-   SELECT @x=count(*)
-        FROM Table_GoodsClass a JOIN Table_Goods b
-        ON a.GoodsClassID=b.GoodsClassID
-        WHERE GoodsClassName=@class
-   RETURN @x
-END
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">FUCTION</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">f_GoodsCount</span><span class="p">(</span><span class="o">@</span><span class="k">class</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">   </span><span class="k">RETURN</span><span class="w"> </span><span class="nb">int</span><span class="w"></span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="k">BEGIN</span><span class="w"></span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">   </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="nb">int</span><span class="w"></span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">   </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="o">=</span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table_GoodsClass</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table_Goods</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">GoodsClassID</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">GoodsClassID</span><span class="w"></span>
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">GoodsClassName</span><span class="o">=@</span><span class="k">class</span><span class="w"></span>
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w">   </span><span class="k">RETURN</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"></span>
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="k">END</span><span class="w"></span>
+</code></pre></div>
 <p>调用：</p>
-<pre><code class="language-sql">SELECT GoodsName AS 商品名, dbo.f_GoodsCount('服装') AS 种类数 FROM ... WHERE ...
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">GoodsName</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">商品名</span><span class="p">,</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">f_GoodsCount</span><span class="p">(</span><span class="s1">&#39;服装&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">种类数</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_19">内嵌表值函数</h6>
 <p>创建：</p>
-<pre><code class="language-sql">CREATE FUCTION f_GoodsInfo(@class char(10))
-   RETURNS TABLE
-AS
-    RETURN(
-        SELECT GoodName,SaleUnitPrice
-            FROM Table_GoodClass a JOIN Table_Goods b ON a.GoodsClassID=b.GoodsClassID
-            WHERE GoodClassName=@class)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">FUCTION</span><span class="w"> </span><span class="n">f_GoodsInfo</span><span class="p">(</span><span class="o">@</span><span class="k">class</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">   </span><span class="k">RETURNS</span><span class="w"> </span><span class="k">TABLE</span><span class="w"></span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="k">RETURN</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">GoodName</span><span class="p">,</span><span class="n">SaleUnitPrice</span><span class="w"></span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table_GoodClass</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table_Goods</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">GoodsClassID</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">GoodsClassID</span><span class="w"></span>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">GoodClassName</span><span class="o">=@</span><span class="k">class</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <p>调用：</p>
-<pre><code class="language-sql">SELECT * FROM dbo.f_GoodsInfo('服装')
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">f_GoodsInfo</span><span class="p">(</span><span class="s1">&#39;服装&#39;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_20">多语句表值函数</h6>
 <p>创建：</p>
-<pre><code class="language-sql">CREATE FUNCTION f_GoodsDetails(@class varchar(20))
-RETURNS @f_GoodsDetails TABLE(
-    GoodName varchar(50),
-    SaleUnitPrice money,
-    ProductionDate datetime,
-    种类数 int
-)
-AS
-BEGIN
-    INSERT INTO @f_GoodsDetails
-    SELECT GoodName, SaleUnitPrice, ProductionDate, dbo.f_GoodsDetails(@class)
-        FROM Table_GoodClass a JOIN Table_Goods b ON a.GoodsClassID=b.GoodsClassID
-        WHERE GoodsClassName=@class
-        RETURN
-END
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">f_GoodsDetails</span><span class="p">(</span><span class="o">@</span><span class="k">class</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">RETURNS</span><span class="w"> </span><span class="o">@</span><span class="n">f_GoodsDetails</span><span class="w"> </span><span class="k">TABLE</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="n">GoodName</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="n">SaleUnitPrice</span><span class="w"> </span><span class="n">money</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span><span class="n">ProductionDate</span><span class="w"> </span><span class="n">datetime</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">    </span><span class="err">种类数</span><span class="w"> </span><span class="nb">int</span><span class="w"></span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="k">BEGIN</span><span class="w"></span>
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">    </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">f_GoodsDetails</span><span class="w"></span>
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">GoodName</span><span class="p">,</span><span class="w"> </span><span class="n">SaleUnitPrice</span><span class="p">,</span><span class="w"> </span><span class="n">ProductionDate</span><span class="p">,</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">f_GoodsDetails</span><span class="p">(</span><span class="o">@</span><span class="k">class</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table_GoodClass</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table_Goods</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">GoodsClassID</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">GoodsClassID</span><span class="w"></span>
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">GoodsClassName</span><span class="o">=@</span><span class="k">class</span><span class="w"></span>
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="w">        </span><span class="k">RETURN</span><span class="w"></span>
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="k">END</span><span class="w"></span>
+</code></pre></div>
 <p>调用：</p>
-<pre><code class="language-sql">SELECT * FROM dbo.f_GoodsInfo('服装')
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">f_GoodsInfo</span><span class="p">(</span><span class="s1">&#39;服装&#39;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <h4 id="trigger">触发器 TRIGGER</h4>
 <h6 id="_21">创建</h6>
-<pre><code class="language-sql">CREATE TRIGGER trigger_name ON
-    { table | view }
-    [WITH ENCRYPTION]
-    { FOR | AFTER | INSTEAD OF }    /*FOR或AFTER：后触发；INSTEAD OF：前触发*/
-    { [ INSERT ] [ , ] [ UPDATE ] [ , ] [ DELETE ] }
-AS
-    sql_statement[... n]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="k">trigger_name</span><span class="w"> </span><span class="k">ON</span><span class="w"></span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="err">{</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="err">}</span><span class="w"></span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="n">ENCRYPTION</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="err">{</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">AFTER</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">INSTEAD</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="err">}</span><span class="w">    </span><span class="cm">/*FOR或AFTER：后触发；INSTEAD OF：前触发*/</span><span class="w"></span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">    </span><span class="err">{</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="err">}</span><span class="w"></span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">    </span><span class="n">sql_statement</span><span class="p">[...</span><span class="w"> </span><span class="n">n</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <p>后触发器：维护数据完整性</p>
-<pre><code class="language-sql">CREATE TRIGGER UnitPriceConsistent ON Table_PriceHistory FOR INSERT, UPDATE
-AS
-    DECLARE @NewPrice money
-    SELECT @NewPrice=SaleUnitPrice FROM inserted
-    UPDATE Table_Goods SET SaleUnitPrice=@NewPrice
-        WHERE GoodsID IN (SELECT GoodsID FROM inserted)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">UnitPriceConsistent</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">Table_PriceHistory</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">INSERT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"></span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">NewPrice</span><span class="w"> </span><span class="n">money</span><span class="w"></span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">NewPrice</span><span class="o">=</span><span class="n">SaleUnitPrice</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">inserted</span><span class="w"></span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">Table_Goods</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">SaleUnitPrice</span><span class="o">=@</span><span class="n">NewPrice</span><span class="w"></span>
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">GoodsID</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">GoodsID</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">inserted</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <p>前触发器：阻止非法操作</p>
-<pre><code class="language-sql">CREATE TRIGGER DeleteCust ON Table_Customer INSTEAD OF DELETE
-AS
-   IF NOT EXISTS(SELECT * FROM deleted WHERE CardID IN (SELECT CardID FROM Table_Card WHERE Score&gt;=500))
-   DELETE FROM Table_Customer WHERE CardID IN (SELECT CardID FROM deleted)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">DeleteCust</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">Table_Customer</span><span class="w"> </span><span class="k">INSTEAD</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="k">DELETE</span><span class="w"></span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="k">AS</span><span class="w"></span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">   </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">deleted</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">CardID</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">CardID</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table_Card</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Score</span><span class="o">&gt;=</span><span class="mi">500</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">   </span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table_Customer</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">CardID</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">CardID</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">deleted</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_22">删除</h6>
-<pre><code class="language-sql">DROP TRIGGER OperateCon
-DROP TRIGGER UnitPriceConsistent
-DROP TRIGGER DeleteCust
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">OperateCon</span><span class="w"></span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">UnitPriceConsistent</span><span class="w"></span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">DeleteCust</span><span class="w"></span>
+</code></pre></div>
 <h4 id="cursor">游标 cursor</h4>
 <h6 id="_23">声明</h6>
-<pre><code class="language-sql">DECLARE cursor_name CURSOR FOR (select_statement)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">DECLARE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="p">(</span><span class="n">select_statement</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_24">打开</h6>
-<pre><code class="language-sql">OPEN cursor_name
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">OPEN</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_25">提取</h6>
-<pre><code class="language-sql">FETCH FROM cursor_name [INTO @variable_name[, ...n]]    /*@@FETCH_STATUS=0时表示FETCH语句执行成功*/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">FETCH</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="p">[</span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">variable_name</span><span class="p">[,</span><span class="w"> </span><span class="p">...</span><span class="n">n</span><span class="p">]]</span><span class="w">    </span><span class="cm">/*@@FETCH_STATUS=0时表示FETCH语句执行成功*/</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_26">关闭</h6>
-<pre><code class="language-sql">CLOSE cursor_name
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">CLOSE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_27">释放</h6>
-<pre><code class="language-sql">DEALLOCATE cursor_name
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="k">DEALLOCATE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"></span>
+</code></pre></div>
 <h2 id="_28">安全管理</h2>
 <h4 id="_29">登录账户</h4>
-<pre><code class="language-sql">CREATE LOGIN SQL_User1 WITH PASSWORD='a1b2c3XY'     /*创建*/
-ALTER LOGIN SQL_User1 WITH PASSWORD='a4b5c6XY'      /*修改*/
-ALTER LOGIN SQL_User3 WITH NAME=NewUser             /*删除*/
-/*有了登录账户只能连接到SQL服务器，不具有访问数据库的权限*/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">SQL_User1</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="o">=</span><span class="s1">&#39;a1b2c3XY&#39;</span><span class="w">     </span><span class="cm">/*创建*/</span><span class="w"></span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="k">ALTER</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">SQL_User1</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="o">=</span><span class="s1">&#39;a4b5c6XY&#39;</span><span class="w">      </span><span class="cm">/*修改*/</span><span class="w"></span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="k">ALTER</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">SQL_User3</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">NAME</span><span class="o">=</span><span class="n">NewUser</span><span class="w">             </span><span class="cm">/*删除*/</span><span class="w"></span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="cm">/*有了登录账户只能连接到SQL服务器，不具有访问数据库的权限*/</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_30">数据库用户</h4>
-<pre><code class="language-sql">CREATE USER user_name [FOR|FROM] LOGIN login_name
-DROP USER user_name
-
-/*Guest用户*/
-GRANT CONNECT TO guest
-REVOKE CONNECT TO guest
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">user_name</span><span class="w"> </span><span class="p">[</span><span class="k">FOR</span><span class="o">|</span><span class="k">FROM</span><span class="p">]</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">login_name</span><span class="w"></span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="k">DROP</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">user_name</span><span class="w"></span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="cm">/*Guest用户*/</span><span class="w"></span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">guest</span><span class="w"></span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="k">REVOKE</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">guest</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_31">权限</h4>
 <p>六种：SELECT, INSERT, UPDATE, DELETE, REFERENCES, EXECUTE</p>
 <h6 id="_32">授权</h6>
-<pre><code class="language-sql">GRANT 对象权限 ON 对象 TO （主体：数据库用户名或角色） [WITH GRANT OPTION]  /*是否允许将该权限授予其他主体*/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="k">GRANT</span><span class="w"> </span><span class="err">对象权限</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="err">对象</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="err">（主体：数据库用户名或角色）</span><span class="w"> </span><span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">]</span><span class="w">  </span><span class="cm">/*是否允许将该权限授予其他主体*/</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_33">拒绝权限</h6>
-<pre><code class="language-sql">DENY 对象权限 ON 对象 TO （主体：数据库用户名或角色） [CASCADE] [AS 主体]   /*CASCADE: 同时拒绝这个主体曾经授予其他主体的权限*/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="n">DENY</span><span class="w"> </span><span class="err">对象权限</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="err">对象</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="err">（主体：数据库用户名或角色）</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADE</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">AS</span><span class="w"> </span><span class="err">主体</span><span class="p">]</span><span class="w">   </span><span class="cm">/*CASCADE: 同时拒绝这个主体曾经授予其他主体的权限*/</span><span class="w"></span>
+</code></pre></div>
 <h6 id="_34">收权</h6>
-<pre><code class="language-sql">REVOKE 对象权限 ON 对象 TO （主体：数据库用户名或角色） [CASCADE] [AS 主体] /*CASCADE: 同时收回这个主体曾经授予其他主体的权限*/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="k">REVOKE</span><span class="w"> </span><span class="err">对象权限</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="err">对象</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="err">（主体：数据库用户名或角色）</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADE</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">AS</span><span class="w"> </span><span class="err">主体</span><span class="p">]</span><span class="w"> </span><span class="cm">/*CASCADE: 同时收回这个主体曾经授予其他主体的权限*/</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_35">角色</h4>
 <p>未来教育题库中涉及到的：db_datareader, db_datawriter, dbcreator, sysadmin, db_ddladmin, db_accessadmin,</p>
 <h2 id="_36">未来教育题库应用题统计（填入的答案）</h2>

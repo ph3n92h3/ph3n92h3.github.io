@@ -1351,86 +1351,86 @@
 <p>張量包中最重要的問題之一是如何處理指標的縮並，即使用啞指標。迄今爲止，這對我們來説并不是一個真正的問題，因爲所有的輸入表達式都被標準化了，這個過程並不引入新的索引。現在我們面臨相反的問題：將表達式展開成帶有更多啞指標的新表達式。例如將一個張量的協變導數轉化爲不同的協變導數。關於轉換，我們必須解決三個問題。</p>
 <p>這一小節解釋這三個問題及其解決。理解它們是重要的。</p>
 <h3 id="_2">推薦延遲定義</h3>
-<pre><code class="language-mathematica">DefTensor[w[a],M3]
-
-w[a_]=S[a,b]v[-b]
-{w[b],w[a]w[-a]}
-
-(*更簡易方式*)
-w[a_]:=Module[{b},S[a,b]v[-b]]
-{w[b],w[a]w[-a]}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">DefTensor</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">M3</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">]</span><span class="o">=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">]}</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c">(*更簡易方式*)</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">]</span><span class="o">:=</span><span class="n">Module</span><span class="p">[{</span><span class="n">b</span><span class="p">},</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">]}</span><span class="w"></span>
+</code></pre></div>
 <h3 id="_3">消除 <code>$</code> 符號</h3>
 <p>若仍然使用 <code>Module</code>，有一種方法可以消除 <code>$</code>，即使用 <code>ScreenDollarIndices</code>。</p>
-<pre><code class="language-mathematica">{w[a],w[b],w[c],w[a]w[-a],w[a]-w[a]}
-{w[a],w[b],w[c],w[a]w[-a],w[a]-w[a]}//ScreenDollarIndices
-
-(*甚至你還可以把加在預輸出裏*)
-$PrePrint=ScreenDollarIndices;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">c</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">]}</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">c</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">]}</span><span class="o">//</span><span class="n">ScreenDollarIndices</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c">(*甚至你還可以把加在預輸出裏*)</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="err">$</span><span class="n">PrePrint</span><span class="o">=</span><span class="n">ScreenDollarIndices</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
 <p>但是這種方法（<code>Module</code>）仍有一定的缺陷，例如：對象及其索引不可同名。</p>
 <h3 id="_4">重複的啞指標</h3>
-<pre><code class="language-mathematica">(*錯誤：*)
-w[a_,b_,-b_]:=Module[{b,c},S[a,b,-b,c,-c]]
-{w[a,b,-b],w[a,c,-c]}
-
-(*正確：*)
-w[a_,b_,-b_]:=Module[{d,c},S[a,d,-d,c,-c]]
-{w[a,b,-b],w[a,c,-c]}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c">(*錯誤：*)</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">,</span><span class="nv">b_</span><span class="p">,</span><span class="o">-</span><span class="nv">b_</span><span class="p">]</span><span class="o">:=</span><span class="n">Module</span><span class="p">[{</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">},</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]}</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c">(*正確：*)</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">,</span><span class="nv">b_</span><span class="p">,</span><span class="o">-</span><span class="nv">b_</span><span class="p">]</span><span class="o">:=</span><span class="n">Module</span><span class="p">[{</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">},</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]}</span><span class="w"></span>
+</code></pre></div>
 <ul>
 <li>第二個問題通過强制類型聲明解決；</li>
 <li>第一個和第三個問題通過引入新的東西解決，即將展開。</li>
 </ul>
 <h2 id="indexsetindexsetdelayed">指標定義（IndexSet）和指標延遲定義（IndexSetDelayed）</h2>
 <p>他們的區別就像是 <code>=</code> 和 <code>:=</code> 的區別。説實話，我覺得這裏做的真的很强~</p>
-<pre><code class="language-mathematica">(*簡而言之就是自動改寫啞指標的字母*)
-IndexSet[w[a_],S[a,b]v[-b]];w[b]
-DefTensor[T[a,b,c],M3];IndexSet[T[a_,b_,-b_],S[a,b,-b,c,-c]];T[a,c,-c]
-
-(*實際上相當於定義了依賴關係，儅它依賴的東西更新了定義，那麽它也會自動展開*)
-IndexSetDelayed[T[-a_,-b,-c],w[-a]w[-b]w[-c]]
-T[-a,-b,-c]
-IndexSet[w[a_],S[a,b]S[-b,-c]v[c]]
-T[-a,-b,-c]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">(*簡而言之就是自動改寫啞指標的字母*)</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">IndexSet</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">],</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">]];</span><span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">DefTensor</span><span class="p">[</span><span class="n">T</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">],</span><span class="n">M3</span><span class="p">];</span><span class="n">IndexSet</span><span class="p">[</span><span class="n">T</span><span class="p">[</span><span class="nv">a_</span><span class="p">,</span><span class="nv">b_</span><span class="p">,</span><span class="o">-</span><span class="nv">b_</span><span class="p">],</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]];</span><span class="n">T</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c">(*實際上相當於定義了依賴關係，儅它依賴的東西更新了定義，那麽它也會自動展開*)</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">IndexSetDelayed</span><span class="p">[</span><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="nv">a_</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">]</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">]</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">c</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">IndexSet</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">],</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">S</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="n">c</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h2 id="pattern">指標模式（pattern）</h2>
 <p>之前我們都是用模式 <code>a_</code> 來定義一些量，實際上我們可以增加判斷:</p>
-<pre><code class="language-mathematica">dirvup=Dir[v[d]];dirvdown=Dir[v[-d]];(*備用*)
-
-(*把所有的 w 都顯示成 S*)
-w[a_]:=S[a];{w[a],w[-a],w[dirvdown],w[dirvup],w[A],w[-A]}
-
-(*只定義了上指標的 w，下指標的還沒有定義，故仍顯示 w*)
-w[a_?UpIndexQ]:=S[a];{w[a],w[-a],w[dirvdown],w[dirvup],w[A],w[-A]}
-(*這波只定義下指標的*)
-w[a_?UpIndexQ]=.;w[a_?DownIndexQ]:=S[a];{w[a],w[-a],w[dirvdown],w[dirvup],w[A],w[-A]};w[a_?DownIndexQ]=.
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">dirvup</span><span class="o">=</span><span class="n">Dir</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="n">d</span><span class="p">]];</span><span class="n">dirvdown</span><span class="o">=</span><span class="n">Dir</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="p">]];</span><span class="c">(*備用*)</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c">(*把所有的 w 都顯示成 S*)</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">];{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvdown</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvup</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">A</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">A</span><span class="p">]}</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c">(*只定義了上指標的 w，下指標的還沒有定義，故仍顯示 w*)</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="n">UpIndexQ</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">];{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvdown</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvup</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">A</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">A</span><span class="p">]}</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c">(*這波只定義下指標的*)</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="n">UpIndexQ</span><span class="p">]</span><span class="o">=.</span><span class="p">;</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="n">DownIndexQ</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">];{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvdown</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvup</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">A</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">A</span><span class="p">]};</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="n">DownIndexQ</span><span class="p">]</span><span class="o">=.</span><span class="w"></span>
+</code></pre></div>
 <p>還可以判斷之前提到的很多種指標類型：<code>AIndex, BIndex, CIndex, DIndex, LIndex, GIndex, ABIndex, BCIndex, CDIndex, PIndex</code></p>
-<pre><code class="language-mathematica">DefManifold[S2,2,{A,B,C,D,F,G}]
-
-(*判斷是否是抽象指標：*)w[a_?AIndex]:=S[a];w[a_?AIndexQ]=.;(*爲了不干擾以後的應用，清楚該定義，下同*)
-(*判斷是否是抽象上指標：*)w[a_Symbol]:=S[a];w[a_Symbol]=.;
-(*判斷是否是抽象下指標：*)w[-a_Symbol]:=S[-a];w[-a_Symbol]=.;
-(*判斷是否是定向指標：*)w[a_?DIndex]:=S[a];{w[a],w[-a],w[dirvup],w[dirvdown],w[A],w[-A]};w[a_?DIndexQ]=.;(*等價地：w[a_Dir]:=s[a]*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">DefManifold</span><span class="p">[</span><span class="n">S2</span><span class="p">,</span><span class="mi">2</span><span class="p">,{</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">G</span><span class="p">}]</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c">(*判斷是否是抽象指標：*)</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="n">AIndex</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">];</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="n">AIndexQ</span><span class="p">]</span><span class="o">=.</span><span class="p">;</span><span class="c">(*爲了不干擾以後的應用，清楚該定義，下同*)</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c">(*判斷是否是抽象上指標：*)</span><span class="n">w</span><span class="p">[</span><span class="nv">a_Symbol</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">];</span><span class="n">w</span><span class="p">[</span><span class="nv">a_Symbol</span><span class="p">]</span><span class="o">=.</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c">(*判斷是否是抽象下指標：*)</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="nv">a_Symbol</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">];</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="nv">a_Symbol</span><span class="p">]</span><span class="o">=.</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c">(*判斷是否是定向指標：*)</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="n">DIndex</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">];{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvup</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvdown</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">A</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">A</span><span class="p">]};</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="n">DIndexQ</span><span class="p">]</span><span class="o">=.</span><span class="p">;</span><span class="c">(*等價地：w[a_Dir]:=s[a]*)</span><span class="w"></span>
+</code></pre></div>
 <p><code>AIndexQ, BIndexQ, CIndexQ, DIndexQ, GIndexQ</code> 還允許第二個選項：判斷是否在某個流形上：</p>
-<pre><code class="language-mathematica">w[a_?(AIndexQ[#,TangentM3]&amp;)]:=S[a];
-{w[a],w[-a],w[dirvup],w[dirvdown],w[A],w[-A]};
-w[a_?(AIndexQ[#,TangentM3]&amp;)]:=.;
-(*等價地：*)
-w[a_?TangentM3`Q]:=S[a](*僅對上指標*)
-w[-a_?TangentM3`Q]:=S[-a](*僅對下指標*)
-w[a_?TangentM3`pmQ]:=S[a](*對上指標和下指標*)
-</code></pre>
-<p>喂，我想加一個判斷，要求它是抽象指標，是下指標，而且要在某個流行上，怎麽寫來著？記不住不要緊，我們可以讓 <em>mathematica</em> 幫我們寫出來：</p>
-<pre><code class="language-mathematica">PatternIndex[a,AIndex,Down,TangentM3]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="p">(</span><span class="n">AIndexQ</span><span class="p">[</span><span class="nv">#</span><span class="p">,</span><span class="n">TangentM3</span><span class="p">]</span><span class="o">&amp;</span><span class="p">)]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">];</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvup</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">dirvdown</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">A</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">A</span><span class="p">]};</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="p">(</span><span class="n">AIndexQ</span><span class="p">[</span><span class="nv">#</span><span class="p">,</span><span class="n">TangentM3</span><span class="p">]</span><span class="o">&amp;</span><span class="p">)]</span><span class="o">:=</span><span class="err">.</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c">(*等價地：*)</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="nn">TangentM3`</span><span class="n">Q</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="c">(*僅對上指標*)</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="nv">a_</span><span class="o">?</span><span class="nn">TangentM3`</span><span class="n">Q</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">]</span><span class="c">(*僅對下指標*)</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="o">?</span><span class="nn">TangentM3`</span><span class="n">pmQ</span><span class="p">]</span><span class="o">:=</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="c">(*對上指標和下指標*)</span><span class="w"></span>
+</code></pre></div>
+<p>喂，我想加一個判斷，要求它是抽象指標，是下指標，而且要在某個流行上，怎麽寫來著？記不住不要緊，我們可以讓 <em>mathematica</em> 幫我們寫出來：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">PatternIndex</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">AIndex</span><span class="p">,</span><span class="n">Down</span><span class="p">,</span><span class="n">TangentM3</span><span class="p">]</span><span class="w"></span>
+</code></pre></div></p>
 <h2 id="indexruleindexruledelayed">指標規則（IndexRule）和指標延遲規則（IndexRuleDelayed）</h2>
 <p>這個功能更是重量級（仍是自動處理啞指標）：</p>
-<pre><code class="language-mathematica">{w[a],w[b]}/.w[a_]-&gt;S[a,b]v[-b](*錯誤*)
-{w[a],w[b]}/.IndexRule[w[a_],S[a,b]v[-b]](*正確*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">]}</span><span class="o">/.</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">]</span><span class="c">(*錯誤*)</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span><span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">]}</span><span class="o">/.</span><span class="n">IndexRule</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="nv">a_</span><span class="p">],</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">]]</span><span class="c">(*正確*)</span><span class="w"></span>
+</code></pre></div>
 <h2 id="makerule">制定規則（MakeRule）</h2>
 <p>繼 <code>ToCanonical</code> 之後第二複雜的函數，見 9.1。</p>
 

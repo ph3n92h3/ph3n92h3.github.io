@@ -1279,70 +1279,70 @@
 </ul>
 <p>（這裏本應該有利用 <code>posh git</code> 自動生成的文件樹，但是我現在還不知道怎麽生成，就先用這種方式表達……）</p>
 <h2 id="maintex"><code>main.tex</code> 文件的編寫</h2>
-<pre><code class="language-latex">\documentclass{&lt;&gt;}
-\input{preamble.tex}
-
-% \usepackage{syntonly}
-% \syntaxonly %声明后，仅检查语法是否正确，不生產 .pdf
-
-% \includeonly{&lt;某個 .tex 文件&gt;} %仅真正编译该文件
-
-\begin{document}
-
-\frame{\titlepage}
-
-\begin{frame}
-    % \frametitle{Outline}
-
-    \tableofcontents
-\end{frame}
-
-\include{&lt;sub .tex file name&gt;}
-
-\printindex % 記得在序言中： \usepackage{makeidx} \makeindex
-% 用命令行運行排版命令就得手動加上這些東西，但是用 MikTeX 或者 VScode 就不用，我尚不知道原理
-\end{document}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">\documentclass</span><span class="nb">{</span>&lt;&gt;<span class="nb">}</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">\input</span><span class="nb">{</span>preamble.tex<span class="nb">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c">% \usepackage{syntonly}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c">% \syntaxonly %声明后，仅检查语法是否正确，不生產 .pdf</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c">% \includeonly{&lt;某個 .tex 文件&gt;} %仅真正编译该文件</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">\frame</span><span class="nb">{</span><span class="k">\titlepage</span><span class="nb">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="c">% \frametitle{Outline}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="k">\tableofcontents</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">\include</span><span class="nb">{</span>&lt;sub .tex file name&gt;<span class="nb">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="k">\printindex</span> <span class="c">% 記得在序言中： \usepackage{makeidx} \makeindex</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c">% 用命令行運行排版命令就得手動加上這些東西，但是用 MikTeX 或者 VScode 就不用，我尚不知道原理</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</code></pre></div>
 <h2 id="makefile"><code>MakeFile</code> 文件的編寫</h2>
 <p>這裏不對 <code>Makefile</code> 做過多的介紹。</p>
-<pre><code class="language-makefile"># 可以定義更多的變量，例如：MAIN=main,使用時用：$(MAIN)
-# 下面兩條定義變量：某個文件夾下的所有文件
-TEXES:=$(wildcard texes/**/*)
-FIGURES:=$(wildcard figures/**/*)
-
-# 展示一下怎麽定義命令組
-define delete
--del *.aux
--del *.bbl
--del *.blg
--del *.idx
--del *.ilg
--del *.ind
--del *.log
--del *.nav
--del *.out
--del *.snm
--del *.toc
-endef
-
-all: main.tex $(TEXES) $(FIGURES)
-    -pdflatex -interaction=batchmode -shell-escape main.tex
-  # 第一個選項使得屏幕上輸出的東西變少了，更加簡潔
-  # 第二個選項使得我們可以使用 `minted` package 插入代碼（這個選項還有別的意思）
-    -makeindex main.idx
-    -bibtex main
-  # 這裏全部都在命令前加上了 `-`，表示强制執行，不管前面發生了什麽都要執行，因爲這個 `bibtex` 命令有點奇怪，它運行完之後就直接停止了，不運行下面的代碼
-    -pdflatex -interaction=batchmode -shell-escape main.tex
-    -pdflatex -interaction=batchmode -shell-escape main.tex
-  # 下面自動刪除一些中間文件
-    delete
-
-# 還可以添加更多的目標和依賴關係
-
-.PHONY : clean
-clean : # 我覺得可以寫得簡潔一點罷，但是似乎不是直接：`del filename1 filename2 ...`?
-    delete
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c"># 可以定義更多的變量，例如：MAIN=main,使用時用：$(MAIN)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c"># 下面兩條定義變量：某個文件夾下的所有文件</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">TEXES</span><span class="o">:=</span><span class="k">$(</span>wildcard texes/**/*<span class="k">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nv">FIGURES</span><span class="o">:=</span><span class="k">$(</span>wildcard figures/**/*<span class="k">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c"># 展示一下怎麽定義命令組</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="cp">define delete</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.aux</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.bbl</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.blg</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.idx</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.ilg</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.ind</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.log</span><span class="w"></span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.nav</span><span class="w"></span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.out</span><span class="w"></span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.snm</span><span class="w"></span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="err">-del</span><span class="w"> </span><span class="err">*.toc</span><span class="w"></span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="cp">endef</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="nf">all</span><span class="o">:</span> <span class="n">main</span>.<span class="n">tex</span> <span class="k">$(</span><span class="nv">TEXES</span><span class="k">)</span> <span class="k">$(</span><span class="nv">FIGURES</span><span class="k">)</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    -pdflatex -interaction<span class="o">=</span>batchmode -shell-escape main.tex
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="c">  # 第一個選項使得屏幕上輸出的東西變少了，更加簡潔</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="c">  # 第二個選項使得我們可以使用 `minted` package 插入代碼（這個選項還有別的意思）</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    -makeindex main.idx
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    -bibtex main
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="c">  # 這裏全部都在命令前加上了 `-`，表示强制執行，不管前面發生了什麽都要執行，因爲這個 `bibtex` 命令有點奇怪，它運行完之後就直接停止了，不運行下面的代碼</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    -pdflatex -interaction<span class="o">=</span>batchmode -shell-escape main.tex
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    -pdflatex -interaction<span class="o">=</span>batchmode -shell-escape main.tex
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="c">  # 下面自動刪除一些中間文件</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>    delete
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c"># 還可以添加更多的目標和依賴關係</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="nf">.PHONY </span><span class="o">:</span> <span class="n">clean</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="nf">clean </span><span class="o">:</span> <span class="c"># 我覺得可以寫得簡潔一點罷，但是似乎不是直接：`del filename1 filename2 ...`?</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    delete
+</code></pre></div>
 <p>這樣寫出來好像還是“懂的不用看，不懂的看不懂”，再説一遍，我的示例 <a href="https://github.com/ph3n92h3/literature_research">工程</a>，which is 我看文獻的筆記。</p>
 
               

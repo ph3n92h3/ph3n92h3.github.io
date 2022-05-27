@@ -1328,19 +1328,19 @@
 <li><code>ToCanonical</code>：將表達式的指標標準化。</li>
 <li><code>Simplification</code> = <code>ToCanonical</code> + <code>Simplify</code></li>
 </ul>
-<pre><code class="language-mathematica">(*先定義一波~*)
-DefManifold[M3,3,{a,b,c,d,e,f,g,h,i,j}]
-DefTensor[U[-a,-b,-c],M3,Antisymmetric[{1,2,3}]]
-DefTensor[S[a,b],M3]
-DefTensor[v[x],M3]
-
-(*標準化*)
-U[-a,-d,-b]//ToCanonical
-U[-a,-b,-c]+U[-c,-b,-a]//ToCanonical
-
-(*重要的是總是使得指標數最少！*)
-S[a,b]v[-b]+S[a,c]v[-c]//ToCanonical
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c">(*先定義一波~*)</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">DefManifold</span><span class="p">[</span><span class="n">M3</span><span class="p">,</span><span class="mi">3</span><span class="p">,{</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">}]</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">DefTensor</span><span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">],</span><span class="n">M3</span><span class="p">,</span><span class="n">Antisymmetric</span><span class="p">[{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}]]</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">DefTensor</span><span class="p">[</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span><span class="n">M3</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">DefTensor</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">M3</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c">(*標準化*)</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">U</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">]</span><span class="o">//</span><span class="n">ToCanonical</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">U</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]</span><span class="o">+</span><span class="n">U</span><span class="p">[</span><span class="o">-</span><span class="n">c</span><span class="p">,</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">a</span><span class="p">]</span><span class="o">//</span><span class="n">ToCanonical</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c">(*重要的是總是使得指標數最少！*)</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">]</span><span class="o">+</span><span class="n">S</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">c</span><span class="p">]</span><span class="o">//</span><span class="n">ToCanonical</span><span class="w"></span>
+</code></pre></div>
 <h3 id="tocanonical"><code>ToCanonical</code> 的選項</h3>
 <p>函數 <code>ToCanonical</code> 有如下的選項：</p>
 <ul>
@@ -1348,26 +1348,26 @@ S[a,b]v[-b]+S[a,c]v[-c]//ToCanonical
 <li><code>TimeVerbose</code>：顯示幾個標準化步驟的時間</li>
 <li><code>xPermVerbose</code>：顯示地顯示排列標準化的過程</li>
 </ul>
-<pre><code class="language-mathematica">SetOptions[CanonicalPerm,MathLink-&gt;False](*實際上，ToCanonical 有一個可執行文件，但是它無法顯示詳細信息，所以我們不使用它*)
-
-ToCanonical[U[b,c,a]v[-b],TimeVerbose-&gt;True]
-ToCanonical[U[b,c,a]v[-b],Verbose-&gt;True]
-ToCanonical[U[b,c,a]v[-b],TimeVerbose-&gt;True](*輸出信息巨多！*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">SetOptions</span><span class="p">[</span><span class="n">CanonicalPerm</span><span class="p">,</span><span class="n">MathLink</span><span class="o">-&gt;</span><span class="n">False</span><span class="p">]</span><span class="c">(*實際上，ToCanonical 有一個可執行文件，但是它無法顯示詳細信息，所以我們不使用它*)</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">ToCanonical</span><span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">],</span><span class="n">TimeVerbose</span><span class="o">-&gt;</span><span class="n">True</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">ToCanonical</span><span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">],</span><span class="n">Verbose</span><span class="o">-&gt;</span><span class="n">True</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">ToCanonical</span><span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">],</span><span class="n">TimeVerbose</span><span class="o">-&gt;</span><span class="n">True</span><span class="p">]</span><span class="c">(*輸出信息巨多！*)</span><span class="w"></span>
+</code></pre></div>
 <p>上面提到了一個可執行程序，當我們調用它而不是在調用配套包 <code>xPerm</code> 時，可以加快標準化的速度，現在我們來試試它。</p>
-<pre><code class="language-mathematica">$xpermQ(*先看看它能不能用，正常情況下應該返回 True*)
-
-(*定義一個度規，這裏只是爲了測試用，後面的章節裏會敘述如何定義度規 :) *)
-MetricsOfVBundle[TangentM3]^={metricg};
-SymmetryGroupOfTensor[metricg]^=Symmetric[{1,2}];
-
-(*來自 Mathematica 内部*)
-SetOptions[CanonicalPerm,MathLink-&gt;False]
-AbsoluteTiming[ToCanonical[Anti[a,b]Anti[-b,-c]Anti[c,d]Anti[-d,-e]Anti[e,f]Anti[-f,-g]Anti[g,-a],TimeVerbose-&gt;True]]
-(*來自 Mathematica 外部*)
-SetOptions[CanonicalPerm,MathLink-&gt;True]
-AbsoluteTiming[ToCanonical[Anti[a,b]Anti[-b,-c]Anti[c,d]Anti[-d,-e]Anti[e,f]Anti[-f,-g]Anti[g,-a]]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">$</span><span class="n">xpermQ</span><span class="c">(*先看看它能不能用，正常情況下應該返回 True*)</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c">(*定義一個度規，這裏只是爲了測試用，後面的章節裏會敘述如何定義度規 :) *)</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">MetricsOfVBundle</span><span class="p">[</span><span class="n">TangentM3</span><span class="p">]</span><span class="o">^=</span><span class="p">{</span><span class="n">metricg</span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">SymmetryGroupOfTensor</span><span class="p">[</span><span class="n">metricg</span><span class="p">]</span><span class="o">^=</span><span class="n">Symmetric</span><span class="p">[{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">}];</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c">(*來自 Mathematica 内部*)</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">SetOptions</span><span class="p">[</span><span class="n">CanonicalPerm</span><span class="p">,</span><span class="n">MathLink</span><span class="o">-&gt;</span><span class="n">False</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">AbsoluteTiming</span><span class="p">[</span><span class="n">ToCanonical</span><span class="p">[</span><span class="n">Anti</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="o">-</span><span class="n">e</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="n">g</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="n">g</span><span class="p">,</span><span class="o">-</span><span class="n">a</span><span class="p">],</span><span class="n">TimeVerbose</span><span class="o">-&gt;</span><span class="n">True</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c">(*來自 Mathematica 外部*)</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">SetOptions</span><span class="p">[</span><span class="n">CanonicalPerm</span><span class="p">,</span><span class="n">MathLink</span><span class="o">-&gt;</span><span class="n">True</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">AbsoluteTiming</span><span class="p">[</span><span class="n">ToCanonical</span><span class="p">[</span><span class="n">Anti</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="n">c</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="o">-</span><span class="n">e</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="n">g</span><span class="p">]</span><span class="n">Anti</span><span class="p">[</span><span class="n">g</span><span class="p">,</span><span class="o">-</span><span class="n">a</span><span class="p">]]]</span><span class="w"></span>
+</code></pre></div>
 <ul>
 <li>然後你會發現你電腦的任務欄上出現一個醜醜的東西，它幫助你進行標準化了，請不要嫌棄它 😗。</li>
 </ul>
@@ -1378,13 +1378,13 @@ AbsoluteTiming[ToCanonical[Anti[a,b]Anti[-b,-c]Anti[c,d]Anti[-d,-e]Anti[e,f]Anti
 <p>在這一小節中，作者構造了三個例子來體現此程序包的高速。如果你和我一樣喜歡測試自己電腦的性能，你可以下載原文檔進行測試 :)。</p>
 <h2 id="_6">一維空間中的標準化</h2>
 <p>一維空間稍微特殊，只需注意，指標不能重複：</p>
-<pre><code class="language-mathematica">DefManifold[M1,1,{a1,b1,c1,d1}]
-DefTensor[W[a1,b1],M1]
-DefTensor[R[a1,b1],M1]
-
-(*這樣的表達式為 0*)
-W[a1,b1]R[c1,d1]-W[d1,a1]R[c1,b1]//ToCanonical
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">DefManifold</span><span class="p">[</span><span class="n">M1</span><span class="p">,</span><span class="mi">1</span><span class="p">,{</span><span class="n">a1</span><span class="p">,</span><span class="n">b1</span><span class="p">,</span><span class="n">c1</span><span class="p">,</span><span class="n">d1</span><span class="p">}]</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">DefTensor</span><span class="p">[</span><span class="n">W</span><span class="p">[</span><span class="n">a1</span><span class="p">,</span><span class="n">b1</span><span class="p">],</span><span class="n">M1</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">DefTensor</span><span class="p">[</span><span class="n">R</span><span class="p">[</span><span class="n">a1</span><span class="p">,</span><span class="n">b1</span><span class="p">],</span><span class="n">M1</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c">(*這樣的表達式為 0*)</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">W</span><span class="p">[</span><span class="n">a1</span><span class="p">,</span><span class="n">b1</span><span class="p">]</span><span class="n">R</span><span class="p">[</span><span class="n">c1</span><span class="p">,</span><span class="n">d1</span><span class="p">]</span><span class="o">-</span><span class="n">W</span><span class="p">[</span><span class="n">d1</span><span class="p">,</span><span class="n">a1</span><span class="p">]</span><span class="n">R</span><span class="p">[</span><span class="n">c1</span><span class="p">,</span><span class="n">b1</span><span class="p">]</span><span class="o">//</span><span class="n">ToCanonical</span><span class="w"></span>
+</code></pre></div>
 
               
             </article>

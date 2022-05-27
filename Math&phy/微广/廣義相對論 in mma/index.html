@@ -1814,221 +1814,219 @@
 <h2 id="_1">準備工作</h2>
 <ol>
 <li>（在綫）安裝：
-   <code>mathematica
-   URLDownload["https://raw.githubusercontent.com/bshoshany/OGRe/master/OGRe.m",FileNameJoin[{$UserBaseDirectory,"Applications","OGRe.m"}]]</code></li>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">URLDownload</span><span class="p">[</span><span class="s">&quot;https://raw.githubusercontent.com/bshoshany/OGRe/master/OGRe.m&quot;</span><span class="p">,</span><span class="n">FileNameJoin</span><span class="p">[{</span><span class="err">$</span><span class="n">UserBaseDirectory</span><span class="p">,</span><span class="s">&quot;Applications&quot;</span><span class="p">,</span><span class="s">&quot;OGRe.m&quot;</span><span class="p">}]]</span><span class="w"></span>
+</code></pre></div></li>
 <li>導入：
-   <code>mathematica
-   Needs["OGRe`"](*注意，該宏包内函數的提示信息較多，為節省篇幅，本文不會一一呈現*)</code></li>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Needs</span><span class="p">[</span><span class="s">&quot;OGRe`&quot;</span><span class="p">]</span><span class="c">(*注意，該宏包内函數的提示信息較多，為節省篇幅，本文不會一一呈現*)</span><span class="w"></span>
+</code></pre></div></li>
 <li>調出幫助文檔：
-   <code>mathematica
-   ?OGRe`*</code></li>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">?</span><span class="nn">OGRe`</span><span class="o">*</span><span class="w"></span>
+</code></pre></div></li>
 <li>卸載（？非必要不執行🤨）：
-   <code>mathematica
-   DeleteFile[FileNameJoin[{$UserBaseDirectory,"Applications","OGRe.m"}]]</code></li>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">DeleteFile</span><span class="p">[</span><span class="n">FileNameJoin</span><span class="p">[{</span><span class="err">$</span><span class="n">UserBaseDirectory</span><span class="p">,</span><span class="s">&quot;Applications&quot;</span><span class="p">,</span><span class="s">&quot;OGRe.m&quot;</span><span class="p">}]]</span><span class="w"></span>
+</code></pre></div></li>
 </ol>
 <h2 id="_2">開始定義一些基本的量</h2>
 <h3 id="_3">定義坐標系</h3>
 <p>這裏只是告訴了電腦坐標系的名字和每個坐標的記號，并沒有度規等信息。</p>
-<pre><code class="language-mathematica">TNewCoordinates[&quot;Cartesian&quot;, {t, x, y, z}](*定義Cartesian 坐標系*)
-TNewCoordinates[&quot;Spherical&quot;, {t, r, \[Theta], \[Phi]}](*定義球坐標系*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">TNewCoordinates</span><span class="p">[</span><span class="s">&quot;Cartesian&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">}]</span><span class="c">(*定義Cartesian 坐標系*)</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">TNewCoordinates</span><span class="p">[</span><span class="s">&quot;Spherical&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Theta</span><span class="p">],</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Phi</span><span class="p">]}]</span><span class="c">(*定義球坐標系*)</span><span class="w"></span>
+</code></pre></div>
 <p>請注意，裡面的所有變量都是未定義的，意即 <code>t, x, y, z</code> 之前還沒有被定義過。有一種方法可以消除已有的定義：</p>
-<pre><code class="language-mathematica">TSetReservedSymbols[{t, x, y, z}]
-TSetReservedSymbols[{t, r, \[Theta], \[Phi]}]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">TSetReservedSymbols</span><span class="p">[{</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">}]</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">TSetReservedSymbols</span><span class="p">[{</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Theta</span><span class="p">],</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Phi</span><span class="p">]}]</span><span class="w"></span>
+</code></pre></div>
 <p>但是可惜那個坐標系的名字不能以這種方法清除，詳見：<code>TChangeID[], TDelete[]</code>。</p>
 <h3 id="_4">定義度規張量</h3>
-<pre><code class="language-mathematica">TNewMetric[&quot;Minkowski&quot;, &quot;Cartesian&quot;, DiagonalMatrix[{-1, 1, 1, 1}], &quot;\[Eta]&quot;](*定義 Minkowski 度規，使用剛剛定義過的 Cartesian 坐標系，符號為\[Eta]*)
-(*接下來要定義 Schwarzschild 度規，但是裏面涉及到一個符號 M，即質量，它是一個基本的量，我們需要保留它，並使得以後不再允許爲他提供定義，因此我們附加條件：*)
-TSetReservedSymbols[M](*這條命令自動返回已經預先保留的符號*)
-TNewMetric[&quot;Schwarzschild&quot;,&quot;Spherical&quot;,DiagonalMatrix[{-(1-(2 M)/r),1/(1-(2 M)/r),r^2,r^2 Sin[\[Theta]]^2}]](*定義 Schwarzschild 度規，使用剛剛定義過的球坐標系，符號為默認符號 g*)
-</code></pre>
-<p>甚至可以直接計算出度規張量對應的行列式：</p>
-<pre><code class="language-mathematica">TVolumeElementSquared[&quot;Minkowski&quot;](*--&gt; -1*)
-TVolumeElementSquared[&quot;Schwarzschild&quot;](*--&gt; -r^4 Sin[\[Theta]]^2*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">TNewMetric</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cartesian&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">DiagonalMatrix</span><span class="p">[{</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">}],</span><span class="w"> </span><span class="s">&quot;\[Eta]&quot;</span><span class="p">]</span><span class="c">(*定義 Minkowski 度規，使用剛剛定義過的 Cartesian 坐標系，符號為\[Eta]*)</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c">(*接下來要定義 Schwarzschild 度規，但是裏面涉及到一個符號 M，即質量，它是一個基本的量，我們需要保留它，並使得以後不再允許爲他提供定義，因此我們附加條件：*)</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">TSetReservedSymbols</span><span class="p">[</span><span class="n">M</span><span class="p">]</span><span class="c">(*這條命令自動返回已經預先保留的符號*)</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">TNewMetric</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">,</span><span class="s">&quot;Spherical&quot;</span><span class="p">,</span><span class="n">DiagonalMatrix</span><span class="p">[{</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="n">M</span><span class="p">)</span><span class="o">/</span><span class="n">r</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="n">M</span><span class="p">)</span><span class="o">/</span><span class="n">r</span><span class="p">),</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="n">r</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="n">Sin</span><span class="p">[</span><span class="err">\</span><span class="p">[</span><span class="n">Theta</span><span class="p">]]</span><span class="o">^</span><span class="mi">2</span><span class="p">}]]</span><span class="c">(*定義 Schwarzschild 度規，使用剛剛定義過的球坐標系，符號為默認符號 g*)</span><span class="w"></span>
+</code></pre></div>
+<p>甚至可以直接計算出度規張量對應的行列式：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">TVolumeElementSquared</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">]</span><span class="c">(*--&gt; -1*)</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">TVolumeElementSquared</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">]</span><span class="c">(*--&gt; -r^4 Sin[\[Theta]]^2*)</span><span class="w"></span>
+</code></pre></div></p>
 <h3 id="_5">查看已定義的量</h3>
 <p>有好幾種方法，：
 1. <code>TShow[]</code>：以矩陣格式呈現
-   <code>mathematica
-   TShow["Cartesian"]
-   TShow["Spherical"]
-   TShow["Minkowski"]
-   TShow["Schwarzschild"](*爲什麽上面那三個家夥一樣長……*)</code>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">TShow</span><span class="p">[</span><span class="s">&quot;Cartesian&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">TShow</span><span class="p">[</span><span class="s">&quot;Spherical&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">TShow</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">TShow</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">]</span><span class="c">(*爲什麽上面那三個家夥一樣長……*)</span><span class="w"></span>
+</code></pre></div>
 2. <code>TList[]</code>：只分別顯示出非零的量，方便直接讀出具體指標
-   <code>mathematica
-   TList["Minkowski"]
-   TList["Schwarzschild"]</code>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">TList</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">TList</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 3. <code>TLineElement[]</code>：包括他們的基矢，寫成一個多項式的形式
-   <code>mathematica
-   TLineElement["Minkowski"](*--&gt; -\[DoubleStruckD]t^2+\[DoubleStruckD]x^2+\[DoubleStruckD]y^2+\[DoubleStruckD]z^2*)
-   TLineElement["Schwarzschild"](*--&gt; \[DoubleStruckD]r^2/(1-(2 M)/r)+(-1+(2 M)/r) \[DoubleStruckD]t^2+r^2 \[DoubleStruckD]\[Theta]^2+r^2 \[DoubleStruckD]\[Phi]^2 Sin[\[Theta]]^2*)</code></p>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">TLineElement</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">]</span><span class="c">(*--&gt; -\[DoubleStruckD]t^2+\[DoubleStruckD]x^2+\[DoubleStruckD]y^2+\[DoubleStruckD]z^2*)</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">TLineElement</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">]</span><span class="c">(*--&gt; \[DoubleStruckD]r^2/(1-(2 M)/r)+(-1+(2 M)/r) \[DoubleStruckD]t^2+r^2 \[DoubleStruckD]\[Theta]^2+r^2 \[DoubleStruckD]\[Phi]^2 Sin[\[Theta]]^2*)</span><span class="w"></span>
+</code></pre></div></p>
 <ul>
-<li>什麽？你的度規的定義裏存在參數是時空點的函數？別着急！</li>
-</ul>
-<pre><code class="language-mathematica">TSetReservedSymbols[{v,f}];
-TNewMetric[&quot;Alcubierre&quot;,&quot;Cartesian&quot;,{{-1+v[t]^2 f[t,x,y,z]^2,0,0,-v[t] f[t,x,y,z]},{0,1,0,0},{0,0,1,0},{-v[t] f[t,x,y,z],0,0,1}}];
-</code></pre>
-<ul>
+<li>什麽？你的度規的定義裏存在參數是時空點的函數？別着急！
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">TSetReservedSymbols</span><span class="p">[{</span><span class="n">v</span><span class="p">,</span><span class="n">f</span><span class="p">}];</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">TNewMetric</span><span class="p">[</span><span class="s">&quot;Alcubierre&quot;</span><span class="p">,</span><span class="s">&quot;Cartesian&quot;</span><span class="p">,{{</span><span class="mi">-1</span><span class="o">+</span><span class="n">v</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]},{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="o">-</span><span class="n">v</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">}}];</span><span class="w"></span>
+</code></pre></div></li>
 <li>Here, <code>TShow[]</code> 在顯示的時候不會顯示出依賴關係，但是 <code>TLineElement[]</code> 會。</li>
-<li>什麽？你想用你自己的指標順序？別着急，我們是追求自由和美的戰士！</li>
+<li>什麽？你想用你自己的指標順序？別着急，我們是追求自由和美的戰士！
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c">(*先看看當前的指標順序*)</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">TSetIndexLetters</span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c">(*你說你喜歡英文字母是吧？*)</span><span class="w"></span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">TSetIndexLetters</span><span class="p">[</span><span class="s">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c">(*你又想改回默認？好吧，一切美化的終點都是默認……*)</span><span class="w"></span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">TSetIndexLetters</span><span class="p">[</span><span class="n">Automatic</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c">(*增强文化自信，我使用天干做指標😗*)</span><span class="w"></span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">TSetIndexLetters</span><span class="p">[</span><span class="s">&quot;甲乙丙丁戊己庚辛壬癸&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c">(*但是應該注意，你要是已經規定了坐標的指標，那有些東西還是按照你坐標的指標來*)</span><span class="w"></span>
+</code></pre></div></li>
 </ul>
-<pre><code class="language-mathematica">(*先看看當前的指標順序*)
-TSetIndexLetters[]
-(*你說你喜歡英文字母是吧？*)
-TSetIndexLetters[&quot;abcdefghijklmnopqrstuvwxyz&quot;]
-(*你又想改回默認？好吧，一切美化的終點都是默認……*)
-TSetIndexLetters[Automatic]
-(*增强文化自信，我使用天干做指標😗*)
-TSetIndexLetters[&quot;甲乙丙丁戊己庚辛壬癸&quot;]
-(*但是應該注意，你要是已經規定了坐標的指標，那有些東西還是按照你坐標的指標來*)
-</code></pre>
 <h3 id="_6">定義其他的東西：各種張量</h3>
 <p>講起來有點複雜，直接上例子：</p>
-<pre><code class="language-mathematica">(*從現在起，前面都加“TShow@”，這將會自動返回我們定義的具體内容*)
-(*標量，空列表{}表示沒有指標，各個東西的含義自明：這個量的名字，它所處在的流形的度規和所選坐標系，指標類型，大小。符號*)
-TShow@TNewTensor[&quot;Kretschmann&quot;, &quot;Schwarzschild&quot;, &quot;Spherical&quot;, {}, {(48 M^2)/
-  r^6}, &quot;K&quot;]
-(*--&gt; Kretschmann:   Subsuperscript[K, , ](t,r,\[Theta],\[Phi]) = (48 M^2)/r^6*)
-(*矢量，但是還沒有指定符號*)
-TShow@TNewTensor[&quot;FourVelocity&quot;, &quot;Minkowski&quot;, &quot;Cartesian&quot;, {1}, {1, v, 0, 0}/Sqrt[1 - v^2]]
-(*(2, 0)型張量*)
-TSetReservedSymbols[{\[Rho], p}]
-TShow@TNewTensor[&quot;PerfectFluid&quot;, &quot;Minkowski&quot;, &quot;Cartesian&quot;, {1, 1}, DiagonalMatrix[{\[Rho], p, p, p}], &quot;T&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c">(*從現在起，前面都加“TShow@”，這將會自動返回我們定義的具體内容*)</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c">(*標量，空列表{}表示沒有指標，各個東西的含義自明：這個量的名字，它所處在的流形的度規和所選坐標系，指標類型，大小。符號*)</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TNewTensor</span><span class="p">[</span><span class="s">&quot;Kretschmann&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Spherical&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{(</span><span class="mi">48</span><span class="w"> </span><span class="n">M</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="w"></span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="n">r</span><span class="o">^</span><span class="mi">6</span><span class="p">},</span><span class="w"> </span><span class="s">&quot;K&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c">(*--&gt; Kretschmann:   Subsuperscript[K, , ](t,r,\[Theta],\[Phi]) = (48 M^2)/r^6*)</span><span class="w"></span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c">(*矢量，但是還沒有指定符號*)</span><span class="w"></span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TNewTensor</span><span class="p">[</span><span class="s">&quot;FourVelocity&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Minkowski&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cartesian&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="o">/</span><span class="n">Sqrt</span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="o">^</span><span class="mi">2</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c">(*(2, 0)型張量*)</span><span class="w"></span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="n">TSetReservedSymbols</span><span class="p">[{</span><span class="err">\</span><span class="p">[</span><span class="n">Rho</span><span class="p">],</span><span class="w"> </span><span class="n">p</span><span class="p">}]</span><span class="w"></span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TNewTensor</span><span class="p">[</span><span class="s">&quot;PerfectFluid&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Minkowski&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cartesian&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="n">DiagonalMatrix</span><span class="p">[{</span><span class="err">\</span><span class="p">[</span><span class="n">Rho</span><span class="p">],</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">}],</span><span class="w"> </span><span class="s">&quot;T&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <p>關於定義的張量的類型，由中間那個列表表示，裏面的值只能是正負一，第幾個就是第幾個指標，例如：<span class="arithmatex">\(<span class="arithmatex">\(T^{ab}_{\ \ \ \ cd}\Rightarrow\{1, 1, -1, -1\},\ T^{a\ c}_{\ \ \ b\ d}\Rightarrow\{1, -1, 1, -1\}\)</span>\)</span>。</p>
 <h2 id="_7">開始（常規/基本）操作</h2>
 <h3 id="_8">改名換姓</h3>
 <ul>
 <li>區分<em>名字</em>和<em>符號</em>！</li>
 </ul>
-<pre><code class="language-mathemaatica">TShow@TChangeSymbol[&quot;FourVelocity&quot;, &quot;u&quot;]
-TChangeID[&quot;FourVelocity&quot; -&gt; &quot;4-Velocity&quot;]
-TShow[&quot;FourVelocity&quot;]
-TShow[&quot;4-Velocity&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>TShow@TChangeSymbol[&quot;FourVelocity&quot;, &quot;u&quot;]
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>TChangeID[&quot;FourVelocity&quot; -&gt; &quot;4-Velocity&quot;]
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>TShow[&quot;FourVelocity&quot;]
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>TShow[&quot;4-Velocity&quot;]
+</code></pre></div>
 <h3 id="_9">刪除和覆蓋（定義）</h3>
-<pre><code class="language-mathemaatica">(*坐標系、度規張量可不能刪除！*)
-TDelete[&quot;Cartesian&quot;](*報錯*)
-TDelete[&quot;Minkowski&quot;](*報錯*)
-(*查看現在是否允許覆蓋定義*)TSetAllowOverwrite[]
-(*我就要允許覆蓋！*)TSetAllowOverwrite[True]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>(*坐標系、度規張量可不能刪除！*)
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>TDelete[&quot;Cartesian&quot;](*報錯*)
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>TDelete[&quot;Minkowski&quot;](*報錯*)
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>(*查看現在是否允許覆蓋定義*)TSetAllowOverwrite[]
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>(*我就要允許覆蓋！*)TSetAllowOverwrite[True]
+</code></pre></div>
 <h3 id="_10">指標升降</h3>
 <h4 id="_11">以某種方式顯示</h4>
-<pre><code class="language-mathematica">TShow[&quot;4-Velocity&quot;, {-1}](*已經自動用它定義中的度規張量升降過*)
-TList[&quot;Schwarzschild&quot;, {1, -1}](*度規張量變成一上一下的時候就成了單位張量*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">TShow</span><span class="p">[</span><span class="s">&quot;4-Velocity&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">-1</span><span class="p">}]</span><span class="c">(*已經自動用它定義中的度規張量升降過*)</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">TList</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">}]</span><span class="c">(*度規張量變成一上一下的時候就成了單位張量*)</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_12">永久地改變</h4>
-<pre><code class="language-mathematica">TChangeDefaultIndices[&quot;PerfectFluid&quot;, {-1, -1}]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">TChangeDefaultIndices</span><span class="p">[</span><span class="s">&quot;PerfectFluid&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">}]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="_13">坐標變換</h3>
 <h4 id="_14">定義坐標關係</h4>
-<pre><code class="language-mathematica">TAddCoordTransformation[&quot;Spherical&quot;-&gt;&quot;Cartesian&quot;,{r-&gt;Sqrt[x^2+y^2+z^2],\[Theta]-&gt;ArcCos[z/Sqrt[x^2+y^2+z^2]],\[Phi]-&gt;ArcTan[x,y]}];
-(*可以看到，不需要變的坐標可以不寫*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">TAddCoordTransformation</span><span class="p">[</span><span class="s">&quot;Spherical&quot;</span><span class="o">-&gt;</span><span class="s">&quot;Cartesian&quot;</span><span class="p">,{</span><span class="n">r</span><span class="o">-&gt;</span><span class="n">Sqrt</span><span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">z</span><span class="o">^</span><span class="mi">2</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">Theta</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">ArcCos</span><span class="p">[</span><span class="n">z</span><span class="o">/</span><span class="n">Sqrt</span><span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">z</span><span class="o">^</span><span class="mi">2</span><span class="p">]],</span><span class="err">\</span><span class="p">[</span><span class="n">Phi</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">ArcTan</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]}];</span><span class="w"></span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c">(*可以看到，不需要變的坐標可以不寫*)</span><span class="w"></span>
+</code></pre></div>
 <h4 id="vans">顯示就 vans !</h4>
-<pre><code class="language-mathematica">TShow[&quot;Minkowski&quot;, &quot;Spherical&quot;]
-TShow[&quot;PerfectFluid&quot;, {1, 1}, &quot;Spherical&quot;]
-TList[&quot;Kretschmann&quot;, &quot;Cartesian&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">TShow</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Spherical&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">TShow</span><span class="p">[</span><span class="s">&quot;PerfectFluid&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="s">&quot;Spherical&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">TList</span><span class="p">[</span><span class="s">&quot;Kretschmann&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cartesian&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h4 id="_15">永久地改變（默認坐標系）</h4>
-<pre><code class="language-mathematica">TChangeDefaultCoords[&quot;PerfectFluid&quot;, &quot;Spherical&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">TChangeDefaultCoords</span><span class="p">[</span><span class="s">&quot;PerfectFluid&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Spherical&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="_16">帶入數值</h3>
-<pre><code class="language-mathematica">TShow[&quot;Kretschmann&quot;, ReplaceAll[{M -&gt; 1, r -&gt; 10}]]
-TList[&quot;PerfectFluid&quot;, ReplaceAll[p -&gt; \[Rho]]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">TShow</span><span class="p">[</span><span class="s">&quot;Kretschmann&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ReplaceAll</span><span class="p">[{</span><span class="n">M</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">}]]</span><span class="w"></span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">TList</span><span class="p">[</span><span class="s">&quot;PerfectFluid&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ReplaceAll</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Rho</span><span class="p">]]]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="_17">設置化簡假設</h3>
-<pre><code class="language-mathematica">TSetAssumptions[r &gt;= 0]
-TShow[TSimplify[&quot;SpatialDistance&quot;], &quot;Spherical&quot;]
-(*允許使用非實數變量：*)TSetAssumptions[!Reals]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">TSetAssumptions</span><span class="p">[</span><span class="n">r</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">TShow</span><span class="p">[</span><span class="n">TSimplify</span><span class="p">[</span><span class="s">&quot;SpatialDistance&quot;</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;Spherical&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c">(*允許使用非實數變量：*)</span><span class="n">TSetAssumptions</span><span class="p">[</span><span class="o">!</span><span class="n">Reals</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="_18">導出和導入</h3>
 <p>不想每次打開筆記本文件都要把所有東西都跑一遍罷~</p>
-<pre><code class="language-mathematica">(*導出（包括關聯）*)
-TExport[&quot;4-Velocity&quot;]
-TExport[&quot;Cartesian&quot;]
-TExportAll[]
-
-(*查看信息（包括關聯）*)
-TInfo[&quot;Cartesian&quot;]
-TInfo[]
-
-(*導入（所有信息）*)
-TImportAll[source]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c">(*導出（包括關聯）*)</span><span class="w"></span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">TExport</span><span class="p">[</span><span class="s">&quot;4-Velocity&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">TExport</span><span class="p">[</span><span class="s">&quot;Cartesian&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="n">TExportAll</span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="c">(*查看信息（包括關聯）*)</span><span class="w"></span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="n">TInfo</span><span class="p">[</span><span class="s">&quot;Cartesian&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="n">TInfo</span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="c">(*導入（所有信息）*)</span><span class="w"></span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="n">TImportAll</span><span class="p">[</span><span class="n">source</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <blockquote>
 <p>這部分在實踐中很重要，但是沒有辦法給出很好的例子，請查閱原文檔。</p>
 </blockquote>
-<pre><code class="language-mathematica">(*以某種（指標）方式顯示出張量的係數*)
-TGetComponents[&quot;Schwarzschild&quot;,{1,1},&quot;Spherical&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c">(*以某種（指標）方式顯示出張量的係數*)</span><span class="w"></span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">TGetComponents</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">,{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span><span class="s">&quot;Spherical&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h2 id="tcalc">代數運算：<code>TCalc</code></h2>
 <h3 id="_19">加法</h3>
-<div class="arithmatex">\[S_{\mu\nu}=\eta_{\mu\nu}+T_{\mu\nu}\]</div>
-<pre><code class="language-mathematica">TShow@TCalc[&quot;SumResult&quot;,&quot;Minkowski&quot;[&quot;\[Mu]\[Nu]&quot;]+&quot;PerfectFluid&quot;[&quot;\[Mu]\[Nu]&quot;],&quot;S&quot;](*名字和符號是可選的*)
-</code></pre>
+<p><span class="arithmatex">\(<span class="arithmatex">\(S_{\mu\nu}=\eta_{\mu\nu}+T_{\mu\nu}\)</span>\)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="s">&quot;SumResult&quot;</span><span class="p">,</span><span class="s">&quot;Minkowski&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Nu]&quot;</span><span class="p">]</span><span class="o">+</span><span class="s">&quot;PerfectFluid&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Nu]&quot;</span><span class="p">],</span><span class="s">&quot;S&quot;</span><span class="p">]</span><span class="c">(*名字和符號是可選的*)</span><span class="w"></span>
+</code></pre></div></p>
 <h3 id="_20">數乘</h3>
 <p>這裏的“數”不可以是定義出來的0階張量</p>
-<pre><code class="language-mathematica">TShow@TCalc[2 t &quot;Minkowski&quot;[&quot;\[Mu]\[Nu]&quot;]-3 x &quot;PerfectFluid&quot;[&quot;\[Mu]\[Nu]&quot;]+4 y &quot;NonSymmetric&quot;[&quot;\[Mu]\[Nu]&quot;]-5 z &quot;NonSymmetric&quot;[&quot;\[Nu]\[Mu]&quot;]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="s">&quot;Minkowski&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Nu]&quot;</span><span class="p">]</span><span class="mi">-3</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="s">&quot;PerfectFluid&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Nu]&quot;</span><span class="p">]</span><span class="o">+</span><span class="mi">4</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="s">&quot;NonSymmetric&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Nu]&quot;</span><span class="p">]</span><span class="mi">-5</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="s">&quot;NonSymmetric&quot;</span><span class="p">[</span><span class="s">&quot;\[Nu]\[Mu]&quot;</span><span class="p">]]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="_21">縮並：<code>.</code></h3>
-<pre><code class="language-mathematica">(*無縮並，只是簡單的張量積*)
-TShow@TCalc[&quot;PerfectFluidFromVelocity&quot;,(\[Rho]+p) &quot;4-Velocity&quot;[&quot;\[Mu]&quot;].&quot;4-Velocity&quot;[&quot;\[Nu]&quot;]+p &quot;Minkowski&quot;[&quot;\[Mu]\[Nu]&quot;],&quot;T&quot;](*參數的順序仍然是：答案的名字，表達式，答案的符號*)
-
-(*零階張量*)
-TShow[TCalc[&quot;SpatialDistance&quot;[&quot;&quot;].&quot;Minkowski&quot;[&quot;\[Mu]\[Nu]&quot;]],&quot;Spherical&quot;]
-TShow[TCalc[&quot;SpatialDistance&quot;[&quot;&quot;].&quot;SpatialDistance&quot;[&quot;&quot;]],&quot;Spherical&quot;]
-
-(*自己内積自己*)
-TShow@TCalc[&quot;4-Velocity&quot;[&quot;\[Mu]&quot;] . &quot;4-Velocity&quot;[&quot;\[Mu]&quot;]]
-
-(*正經八百的縮並*)
-TShow@TCalc[&quot;4-Velocity&quot;[&quot;\[Mu]&quot;].&quot;PerfectFluidFromVelocity&quot;[&quot;\[Mu]\[Nu]&quot;].&quot;NonSymmetric&quot;[&quot;\[Nu]\[Rho]&quot;]]
-
-(*自己縮並自己：求跡*)
-TShow@TCalc[&quot;Minkowski&quot;[&quot;\[Mu]\[Mu]&quot;]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c">(*無縮並，只是簡單的張量積*)</span><span class="w"></span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="s">&quot;PerfectFluidFromVelocity&quot;</span><span class="p">,(</span><span class="err">\</span><span class="p">[</span><span class="n">Rho</span><span class="p">]</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;4-Velocity&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]&quot;</span><span class="p">]</span><span class="err">.</span><span class="s">&quot;4-Velocity&quot;</span><span class="p">[</span><span class="s">&quot;\[Nu]&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">p</span><span class="w"> </span><span class="s">&quot;Minkowski&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Nu]&quot;</span><span class="p">],</span><span class="s">&quot;T&quot;</span><span class="p">]</span><span class="c">(*參數的順序仍然是：答案的名字，表達式，答案的符號*)</span><span class="w"></span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="c">(*零階張量*)</span><span class="w"></span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="n">TShow</span><span class="p">[</span><span class="n">TCalc</span><span class="p">[</span><span class="s">&quot;SpatialDistance&quot;</span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">]</span><span class="err">.</span><span class="s">&quot;Minkowski&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Nu]&quot;</span><span class="p">]],</span><span class="s">&quot;Spherical&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="n">TShow</span><span class="p">[</span><span class="n">TCalc</span><span class="p">[</span><span class="s">&quot;SpatialDistance&quot;</span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">]</span><span class="err">.</span><span class="s">&quot;SpatialDistance&quot;</span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">]],</span><span class="s">&quot;Spherical&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="c">(*自己内積自己*)</span><span class="w"></span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="s">&quot;4-Velocity&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]&quot;</span><span class="p">]</span><span class="w"> </span><span class="err">.</span><span class="w"> </span><span class="s">&quot;4-Velocity&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]&quot;</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="c">(*正經八百的縮並*)</span><span class="w"></span>
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="s">&quot;4-Velocity&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]&quot;</span><span class="p">]</span><span class="err">.</span><span class="s">&quot;PerfectFluidFromVelocity&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Nu]&quot;</span><span class="p">]</span><span class="err">.</span><span class="s">&quot;NonSymmetric&quot;</span><span class="p">[</span><span class="s">&quot;\[Nu]\[Rho]&quot;</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="c">(*自己縮並自己：求跡*)</span><span class="w"></span>
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]\[Mu]&quot;</span><span class="p">]]</span><span class="w"></span>
+</code></pre></div>
 <ul>
 <li>應該指出，運算時寫出來的指標不需要我們關心上下指標，只需要關心左右關係，因爲計算機可以由定義得知上下指標</li>
 </ul>
 <h3 id="_22">求範數的平方</h3>
 <div class="arithmatex">\[|v|^2\equiv v^{\mu}v_{\mu},\ |T|^2=T^{\mu\nu}T_{\mu\nu},\ \dots\]</div>
-<pre><code class="language-mathematica">TList@TCalcNormSquared[&quot;4-Velocity&quot;]
-TList@TCalcNormSquared[&quot;Minkowski&quot;]
-TList@TCalcNormSquared[&quot;SchwarzschildRiemann&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcNormSquared</span><span class="p">[</span><span class="s">&quot;4-Velocity&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcNormSquared</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcNormSquared</span><span class="p">[</span><span class="s">&quot;SchwarzschildRiemann&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h2 id="_23">微積分運算</h2>
 <h3 id="_24">偏導數</h3>
 <div class="arithmatex">\[\partial_\mu K\mathrm{\ and\ }\partial_\mu x^\mu\mathrm{:}\]</div>
-<pre><code class="language-mathematica">TShow@TCalc[TPartialD[&quot;\[Mu]&quot;] . &quot;Kretschmann&quot;[&quot;&quot;]]
-TShow@TCalc[TPartialD[&quot;\[Mu]&quot;] . &quot;Spherical&quot;[&quot;\[Mu]&quot;]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="n">TPartialD</span><span class="p">[</span><span class="s">&quot;\[Mu]&quot;</span><span class="p">]</span><span class="w"> </span><span class="err">.</span><span class="w"> </span><span class="s">&quot;Kretschmann&quot;</span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">TShow</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="n">TPartialD</span><span class="p">[</span><span class="s">&quot;\[Mu]&quot;</span><span class="p">]</span><span class="w"> </span><span class="err">.</span><span class="w"> </span><span class="s">&quot;Spherical&quot;</span><span class="p">[</span><span class="s">&quot;\[Mu]&quot;</span><span class="p">]]</span><span class="w"></span>
+</code></pre></div>
 <p>若非特殊需要，强烈不建議使用！</p>
 <h3 id="christoffel">Christoffel 符號</h3>
 <div class="arithmatex">\[\Gamma^{\lambda}_{\ \ \mu\nu}=\frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\nu\sigma}+\partial_{\nu}g_{\sigma\mu}-\partial_{\sigma}g_{\mu\nu})\]</div>
 <p>直接使用内置函數，自動命名，自動體現特殊的變換性質：</p>
-<pre><code class="language-mathematica">TList@TCalcChristoffel[&quot;Schwarzschild&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcChristoffel</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="riemann">Riemann 張量</h3>
 <div class="arithmatex">\[R^{\rho}_{\ \ \sigma\mu\nu}=\partial_\mu\Gamma^\rho_{\ \ \nu\sigma}+\partial_{\nu}\Gamma^{\rho}_{\ \ \mu\sigma}+\Gamma^{\rho}_{\ \ \mu\lambda}\Gamma^{\lambda}_{\ \ \nu\sigma}-\Gamma^{\rho}_{\ \ \nu\lambda}\Gamma^{\lambda}_{\ \ \mu\sigma}\]</div>
 <p>直接使用内置函數，自動計算中間過程函數……：</p>
-<pre><code class="language-mathematica">TList@TCalcRiemannTensor[&quot;FLRW&quot;](*那是某一個度規張量的名字*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcRiemannTensor</span><span class="p">[</span><span class="s">&quot;FLRW&quot;</span><span class="p">]</span><span class="c">(*那是某一個度規張量的名字*)</span><span class="w"></span>
+</code></pre></div>
 <h3 id="ricci">Ricci 張量和曲率標量</h3>
 <div class="arithmatex">\[R_{\mu\nu}=R^{\lambda}_{\ \ \mu\lambda\nu},\ R=R^\lambda_{\ \ \lambda}\]</div>
 <p>内置函數，爽的：</p>
-<pre><code class="language-mathematica">TList@TCalcRicciTensor[&quot;FLRW&quot;]
-TList@TCalcRicciScalar[&quot;FLRW&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcRicciTensor</span><span class="p">[</span><span class="s">&quot;FLRW&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcRicciScalar</span><span class="p">[</span><span class="s">&quot;FLRW&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="einstein">Einstein 張量</h3>
 <div class="arithmatex">\[G_{\mu\nu}=R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R\]</div>
-<pre><code class="language-mathematica">TList@TCalcEinsteinTensor[&quot;FLRW&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcEinsteinTensor</span><span class="p">[</span><span class="s">&quot;FLRW&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="nabla_mu">協變導數 <span class="arithmatex">\(\nabla_\mu\)</span></h3>
-<pre><code class="language-mathematica">TList@TCalc[TCovariantD[&quot;\[Mu]&quot;] . &quot;FLRW&quot;[&quot;\[Alpha]\[Beta]&quot;]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalc</span><span class="p">[</span><span class="n">TCovariantD</span><span class="p">[</span><span class="s">&quot;\[Mu]&quot;</span><span class="p">]</span><span class="w"> </span><span class="err">.</span><span class="w"> </span><span class="s">&quot;FLRW&quot;</span><span class="p">[</span><span class="s">&quot;\[Alpha]\[Beta]&quot;</span><span class="p">]]</span><span class="w"></span>
+</code></pre></div>
 <blockquote>
 <p>注🐖：當一個度規張量被覆蓋定義時，由它計算出來的量自動被刪除。</p>
 </blockquote>
@@ -2036,33 +2034,33 @@ TList@TCalcRicciScalar[&quot;FLRW&quot;]
 <h3 id="lagrangian">曲线的 Lagrangian 與測地綫方程（組）</h3>
 <div class="arithmatex">\[\mathscr{L}=g_{\mu\nu}\dot{x}^{\mu}\dot{x}^{\nu}\]</div>
 <p>可以求，都可以求：</p>
-<pre><code class="language-mathematica">TList@TCalcLagrangian[&quot;Minkowski&quot;]
-TList@TCalcLagrangian[&quot;Schwarzschild&quot;]
-TList@TCalcLagrangian[&quot;FLRW&quot;]
-TList@TCalcLagrangian[&quot;Alcubierre&quot;]
-(*簡簡單單導出一個 mma 格式的表達式*)
-TGetComponents[&quot;MinkowskiLagrangian&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcLagrangian</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcLagrangian</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcLagrangian</span><span class="p">[</span><span class="s">&quot;FLRW&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcLagrangian</span><span class="p">[</span><span class="s">&quot;Alcubierre&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="c">(*簡簡單單導出一個 mma 格式的表達式*)</span><span class="w"></span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="n">TGetComponents</span><span class="p">[</span><span class="s">&quot;MinkowskiLagrangian&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <p>由 Lagrangian 得到測地綫方程：</p>
 <div class="arithmatex">\[\frac{\mathrm{d}}{\mathrm{d}\lambda}(\frac{\partial\mathscr{L}}{\partial\dot{x}^{\mu}})-\frac{\partial\mathscr{L}}{\partial x^{\mu}}=0\]</div>
-<pre><code class="language-mathematica">TList@TCalcGeodesicFromLagrangian[&quot;Minkowski&quot;]
-(*更標準的形式：*)TList[&quot;MinkowskiGeodesicFromLagrangian&quot;, Activate]
-(*得到 mma 表達式以便進一步計算*)TGetComponents[&quot;MinkowskiGeodesicFromLagrangian&quot;,Activate]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcGeodesicFromLagrangian</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="c">(*更標準的形式：*)</span><span class="n">TList</span><span class="p">[</span><span class="s">&quot;MinkowskiGeodesicFromLagrangian&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Activate</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="c">(*得到 mma 表達式以便進一步計算*)</span><span class="n">TGetComponents</span><span class="p">[</span><span class="s">&quot;MinkowskiGeodesicFromLagrangian&quot;</span><span class="p">,</span><span class="n">Activate</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <p>注 🐖 ：默認的曲綫參數是 <span class="arithmatex">\(\lambda\)</span>，so 你是不是已經準備掂刀 🔪 或者 TJ 了？別擔心，可以改成我們最喜歡的固有時 <span class="arithmatex">\(\tau\)</span>：<code>TSetCurveParameter[\[Tau]];</code>。</p>
 <h3 id="christoffel_1">Christoffel 符號與測地綫方程（組）</h3>
 <div class="arithmatex">\[\dot{x}^{\rho}\nabla_{\rho}\dot{x}^{\sigma}=0\Rightarrow\ddot{x}^{\sigma}+\Gamma^{\sigma}_{\ \ \mu\nu}\dot{x}^{\mu}\dot{x}^{\nu}=0\]</div>
-<pre><code class="language-mathematica">TList@TCalcGeodesicFromChristoffel[&quot;Minkowski&quot;]
-TList@TCalcGeodesicFromChristoffel[&quot;Schwarzschild&quot;]
-...
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcGeodesicFromChristoffel</span><span class="p">[</span><span class="s">&quot;Minkowski&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcGeodesicFromChristoffel</span><span class="p">[</span><span class="s">&quot;Schwarzschild&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="err">...</span><span class="w"></span>
+</code></pre></div>
 <p>兩種方法得到的方程組的形式未必一樣，但是有相同的解。對於不同的度規張量，他們的形式簡化程度不同</p>
 <h3 id="_26">用坐標時表出測地綫方程（組）</h3>
 <p>我們想要求解坐標系中的運動方程，則更喜歡如下形式的測地綫方程組：</p>
 <div class="arithmatex">\[\frac{\mathrm{d}^2x^{\sigma}}{\mathrm{d}t^2}+(\Gamma^{\sigma}_{\ \ \mu\nu}-\Gamma^{0}_{\ \ \mu\nu}\frac{\mathrm{d}x^{\sigma}}{\mathrm{d}t})\frac{\mathrm{d}x^{\mu}}{\mathrm{d}t}\frac{\mathrm{d}x^{\nu}}{\mathrm{d}t}=0\]</div>
-<pre><code class="language-mathematica">TList@TCalcGeodesicWithTimeParameter[&quot;FLRW&quot;, &quot;Cartesian&quot;]
-TGetComponents[&quot;FLRWGeodesicWithTimeParameter&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">TList</span><span class="o">@</span><span class="n">TCalcGeodesicWithTimeParameter</span><span class="p">[</span><span class="s">&quot;FLRW&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cartesian&quot;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="n">TGetComponents</span><span class="p">[</span><span class="s">&quot;FLRWGeodesicWithTimeParameter&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <ul>
 <li>這裏在提醒一下，很多函數計算之後會自動為結果命名。</li>
 </ul>
@@ -2073,17 +2071,17 @@ TGetComponents[&quot;FLRWGeodesicWithTimeParameter&quot;]
 </ul>
 <p>允許并行化計算：<code>TSetParallelization[True]</code>，然後就不用管了，其他的代碼不用修改。</p>
 <p>甚至還可以利用這個包來化簡別的表達式 🦁：</p>
-<pre><code class="language-mathematica">(*查看當前化簡假設*)TSetAssumptions[]
-
-(*一個測試案例*)
-testExpression=Table[f[a b Sqrt[r^(a+b)]],{a,1,5},{b,1,5}];
-
-ClearSystemCache[]
-notParallelSimplify=AbsoluteTiming[FullSimplify[testExpression.testExpression]]
-
-ClearSystemCache[]
-parallelSimplify=AbsoluteTiming[TSimplify[testExpression.testExpression]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c">(*查看當前化簡假設*)</span><span class="n">TSetAssumptions</span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="c">(*一個測試案例*)</span><span class="w"></span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="n">testExpression</span><span class="o">=</span><span class="n">Table</span><span class="p">[</span><span class="n">f</span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">Sqrt</span><span class="p">[</span><span class="n">r</span><span class="o">^</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)]],{</span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">},{</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">}];</span><span class="w"></span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="n">ClearSystemCache</span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="n">notParallelSimplify</span><span class="o">=</span><span class="n">AbsoluteTiming</span><span class="p">[</span><span class="n">FullSimplify</span><span class="p">[</span><span class="n">testExpression</span><span class="err">.</span><span class="n">testExpression</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="n">ClearSystemCache</span><span class="p">[]</span><span class="w"></span>
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="n">parallelSimplify</span><span class="o">=</span><span class="n">AbsoluteTiming</span><span class="p">[</span><span class="n">TSimplify</span><span class="p">[</span><span class="n">testExpression</span><span class="err">.</span><span class="n">testExpression</span><span class="p">]]</span><span class="w"></span>
+</code></pre></div>
 <p>當輸入的表達式是 <code>List</code> 時，自動調用并行化簡。</p>
 <p align="right">廣義相對論 in mma - 完</p>
 

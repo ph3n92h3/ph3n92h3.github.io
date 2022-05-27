@@ -1205,26 +1205,27 @@
 <li>怎麽更換 Windows 以及 vscode 的字體請見：<a href="\Windows&amp;font.md">我之前的一篇文章</a></li>
 <li>加一些漂亮的 title(?):</li>
 </ol>
-<p>```shell
-   # 安装 posh-git 和 oh-my-posh
-   Install-Module posh-git -Scope CurrentUser
-   Install-Module oh-my-posh -Scope CurrentUser</p>
-<p># 设置 PowerShell 的 profile
-   if (!(Test-Path -Path $PROFILE )) { New-Item -Type File -Path $PROFILE -Force }
-   &lt;你的編輯器&gt; $PROFILE</p>
-<p># 寫入并保存：
-   Import-Module oh-my-posh # 引入 Oh My Posh 模块
-   Set-PoshPrompt -Theme agnosterplus # 设置主题为 agnosterplus
-   ```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 安装 posh-git 和 oh-my-posh</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Install-Module posh-git -Scope CurrentUser
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Install-Module oh-my-posh -Scope CurrentUser
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 设置 PowerShell 的 profile</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">if</span> <span class="o">(</span>!<span class="o">(</span>Test-Path -Path <span class="nv">$PROFILE</span> <span class="o">))</span> <span class="o">{</span> New-Item -Type File -Path <span class="nv">$PROFILE</span> -Force <span class="o">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>&lt;你的編輯器&gt; <span class="nv">$PROFILE</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 寫入并保存：</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Import-Module oh-my-posh <span class="c1"># 引入 Oh My Posh 模块</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Set-PoshPrompt -Theme agnosterplus <span class="c1"># 设置主题为 agnosterplus</span>
+</code></pre></div>
 <ol>
 <li>換顏色。</li>
 <li>人們都説可以用微軟官方推出的顔色工具 <code>colortool</code> 直接安裝顔色主題，但是我這裏沒有奏效。</li>
 <li>msstore（微軟軟件商店） 可以安裝它，裏面可以製作自己的顔色，或者直接查看裏面現成的一些配色組合。</li>
 <li>找到自己中意的配色之後自己手動在 <code>Windows Terminal</code> 裏面設置。</li>
 <li>優化 <code>ls</code> 命令的樣式（不同種類文件直接顔色不同了）:
-   <code>shell
-   Install-Module Get-ChildItemColor
-   Import-Module Get-ChildItemColor</code></li>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Install-Module Get-ChildItemColor
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Import-Module Get-ChildItemColor
+</code></pre></div></li>
 <li>设置背景图片，我仍选择我最喜欢的<a href="https://commons.wikimedia.org/wiki/File:Jean-L%C3%A9on_G%C3%A9r%C3%B4me,_Phryne_revealed_before_the_Areopagus_(1861)_-_01.jpg">这张图片</a>.</li>
 </ol>
 <p>应该这就差不多了？我最后既没有把我的电脑变成 Mac 的样子，也没有用 Scoop，但是我也还挺高兴。可惜，人生中很多其他事我没有这样达观的心态。</p>

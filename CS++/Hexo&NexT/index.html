@@ -1199,61 +1199,61 @@
 <li>安裝 NexT 主題：官方文檔中的命令是過時的，新的為：<code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code></li>
 <li>似乎沒什麽人刻意地提及這一點：Hexo 推薦的方式似乎是需要在 Git 上準備兩個倉庫，一個用來放置源碼，似乎一般叫做 <code>blog</code> ；另一個則是 <code>&lt;username&gt;.github.io</code>，因爲 Hexo 有一個“一鍵部署”的功能，它先生成靜態網頁，之後在將這組靜態網頁覆蓋到 <code>&lt;username&gt;.github.io</code> 倉庫中。當然這兩個倉庫之間需要聯係：在站點配置文件末尾寫入如下内容（細節部分不同人寫的教程互異，這裏是官方的寫法）：</li>
 </ol>
-<pre><code class="language-yml"># Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: https://github.com/&lt;username&gt;/&lt;username&gt;.github.io
-  branch: master
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Deployment
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>## Docs: https://hexo.io/docs/one-command-deployment
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>deploy:
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  type: git
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  repo: https://github.com/&lt;username&gt;/&lt;username&gt;.github.io
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  branch: master
+</code></pre></div>
 <ol>
 <li>調試（一邊寫一邊在本地看看寫出來的效果）：<code>hexo s --debug</code></li>
 <li>部署與發佈：</li>
 </ol>
-<pre><code class="language-shell">hexo clean
-hexo g
-hexo d  #注意此時不挂 VPN 的情況成功率較高 :)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hexo clean
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>hexo g
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>hexo d  <span class="c1">#注意此時不挂 VPN 的情況成功率較高 :)</span>
+</code></pre></div>
 <ol>
 <li>語言設置：繁體中文一律設置 <code>zh-TW</code>。注：本人堅持“一個中國”原則，堅決反對任何企圖分裂中國的行爲。</li>
 <li>Hexo 和 NexT 的官方文檔都說可以優雅地使用 <code>{% ... %}</code> 這種方式創建環境或引用，但是我這樣做似乎還沒有奏效</li>
 <li>關於 MathJax 的使用，要在主題配置文件相應的配置項中修改：</li>
 </ol>
-<pre><code class="language-yml">  per_page: false   # 這裏為 false 時即爲每一頁都使用 MathJax
-  # 我踩的坑我就不説了……
-  ...
-  mathjax:
-    enable: true    # 即啓用
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>  per_page: false   # 這裏為 false 時即爲每一頁都使用 MathJax
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  # 我踩的坑我就不説了……
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  ...
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  mathjax:
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    enable: true    # 即啓用
+</code></pre></div>
 <ol>
 <li>設置背景圖片及文字透明：圖片為：<code>./themes/next/source/images/background.jpg</code>；新建配置文件 <code>./source/_data/styles.styl</code> 並寫入：</li>
 </ol>
-<pre><code class="language-styl">// background
-
-body {
-  background:url(/images/background.jpg);
-  height:100%;
-  width:100%;
-  background-repeat:repeat-x;
-  background-attachment:fixed;
-  background-size:100% 100%;
-}
-
-// page-opacity
-
-.content-wrap {
-  opacity: 0.8;
-}
-.sidebar {
-  opacity: 0.8;
-}
-.header-inner {
-  background: rgba(255,255,255,0.8);    //這裏不能用 'opacity' 直接修改！
-}
-.popup {
-  opacity: 0.8;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>// background
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>body {
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  background:url(/images/background.jpg);
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  height:100%;
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  width:100%;
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  background-repeat:repeat-x;
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  background-attachment:fixed;
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  background-size:100% 100%;
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>}
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>// page-opacity
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>.content-wrap {
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  opacity: 0.8;
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>}
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>.sidebar {
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>  opacity: 0.8;
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>}
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>.header-inner {
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>  background: rgba(255,255,255,0.8);    //這裏不能用 &#39;opacity&#39; 直接修改！
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>}
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>.popup {
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>  opacity: 0.8;
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>}
+</code></pre></div>
 <p>似乎也就是這些了，但是我現在用起來這個東西還是心驚膽戰的，真害怕它突然崩掉了……</p>
 <p>我之前説過我的博客不會設置社交功能，但是我現在其實是想去設置一個評論區的，或者設置一個瀏覽量統計的功能。説實話，我覺得前者可能性稍小，後者可能性較大，但都不是今天。</p>
 <blockquote>

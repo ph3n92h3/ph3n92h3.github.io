@@ -1342,58 +1342,58 @@
 <li><code>$ProductManifolds</code>：列出已定義的乘積流形</li>
 </ul>
 <h3 id="_3">定義流形</h3>
-<pre><code class="language-mathematica">(*符號、維數、使用的指標*)
-DefManifold[M3,3,{a,b,c,d,e,f,g,h}]
-(*對於指標列表，我們可以使用：IndexRange[a,h] 作爲簡化*)
-
-(*查看信息*)
-?M3
-
-(*該流形上的切叢已被自動定義*)
-Tangent[M3]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c">(*符號、維數、使用的指標*)</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">DefManifold</span><span class="p">[</span><span class="n">M3</span><span class="p">,</span><span class="mi">3</span><span class="p">,{</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">h</span><span class="p">}]</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c">(*對於指標列表，我們可以使用：IndexRange[a,h] 作爲簡化*)</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c">(*查看信息*)</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="o">?</span><span class="n">M3</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c">(*該流形上的切叢已被自動定義*)</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">Tangent</span><span class="p">[</span><span class="n">M3</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h3 id="_4">清除流行的定義</h3>
-<pre><code class="language-mathematica">UndefManifold[M3];?M3
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">UndefManifold</span><span class="p">[</span><span class="n">M3</span><span class="p">];</span><span class="o">?</span><span class="n">M3</span><span class="w"></span>
+</code></pre></div>
 <h2 id="_5">乘積流形</h2>
-<pre><code class="language-mathematica">DefManifold[M3,3,IndexRange[a,g]]
-DenManifold[S2,2,{A,B,C,D,F,G,H}](*不允許使用 E 和 I 做指標*)
-
-(*定義乘機流形*)
-DefManifold[M5,{M3,S2}, {\[Mu], \[Nu], \[Lambda], \[Sigma], \[Eta], \[Rho]}]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">DefManifold</span><span class="p">[</span><span class="n">M3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">IndexRange</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">g</span><span class="p">]]</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">DenManifold</span><span class="p">[</span><span class="n">S2</span><span class="p">,</span><span class="mi">2</span><span class="p">,{</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">H</span><span class="p">}]</span><span class="c">(*不允許使用 E 和 I 做指標*)</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c">(*定義乘機流形*)</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">DefManifold</span><span class="p">[</span><span class="n">M5</span><span class="p">,{</span><span class="n">M3</span><span class="p">,</span><span class="n">S2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="err">\</span><span class="p">[</span><span class="n">Mu</span><span class="p">],</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Nu</span><span class="p">],</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Lambda</span><span class="p">],</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Sigma</span><span class="p">],</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Eta</span><span class="p">],</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Rho</span><span class="p">]}]</span><span class="w"></span>
+</code></pre></div>
 <p>還可以直接用 Cartesian 生成乘積流形</p>
-<pre><code class="language-mathematica">CartesianProduct[M3,S2]//ManifoldQ(*確實是流行*)
-CartesianProduct[M3,S2]//DimOfManifold(*有正確的維數*)
-CartesianProduct[M3,S2]//Tangent(*直和生成切叢*)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">CartesianProduct</span><span class="p">[</span><span class="n">M3</span><span class="p">,</span><span class="n">S2</span><span class="p">]</span><span class="o">//</span><span class="n">ManifoldQ</span><span class="c">(*確實是流行*)</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">CartesianProduct</span><span class="p">[</span><span class="n">M3</span><span class="p">,</span><span class="n">S2</span><span class="p">]</span><span class="o">//</span><span class="n">DimOfManifold</span><span class="c">(*有正確的維數*)</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">CartesianProduct</span><span class="p">[</span><span class="n">M3</span><span class="p">,</span><span class="n">S2</span><span class="p">]</span><span class="o">//</span><span class="n">Tangent</span><span class="c">(*直和生成切叢*)</span><span class="w"></span>
+</code></pre></div>
 <h2 id="_6">内部矢量叢</h2>
 <ul>
 <li><code>DefVBundle, UndefVBundle</code>：切叢的定義和清楚定義</li>
 <li><code>VBundleQ</code>：檢查是否為切叢</li>
 <li><code>$VBundles, $SumVBundles</code>：列出已定義的切叢和和切叢</li>
 </ul>
-<pre><code class="language-mathematica">(*符號、流行依賴、維數、指標*)
-DefVBundle[InnerC,M3,4,{\[GothicCapitalA],\[GothicCapitalB],\[GothicCapitalC],\[GothicCapitalD],\[GothicCapitalE],\[GothicCapitalF],\[GothicCapitalG],\[GothicCapitalH]},Dagger-&gt;Complex]
-
-(*共軛切叢一同被定義*)
-?InnerC\[Dagger]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c">(*符號、流行依賴、維數、指標*)</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">DefVBundle</span><span class="p">[</span><span class="n">InnerC</span><span class="p">,</span><span class="n">M3</span><span class="p">,</span><span class="mi">4</span><span class="p">,{</span><span class="err">\</span><span class="p">[</span><span class="n">GothicCapitalA</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicCapitalB</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicCapitalC</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicCapitalD</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicCapitalE</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicCapitalF</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicCapitalG</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicCapitalH</span><span class="p">]},</span><span class="n">Dagger</span><span class="o">-&gt;</span><span class="n">Complex</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c">(*共軛切叢一同被定義*)</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="o">?</span><span class="n">InnerC</span><span class="err">\</span><span class="p">[</span><span class="n">Dagger</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <h2 id="_7">參數</h2>
 <ul>
 <li>參數的定義與清楚定義，檢查，列出</li>
 </ul>
-<pre><code class="language-mathematica">(*我直接定義時間*)DefParameter[time]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c">(*我直接定義時間*)</span><span class="n">DefParameter</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
 <p><code>xTensor</code> 中的對象只“依賴於”流形和參數</p>
 <p><strong>原作者</strong>的求助：一个重要的问题是一维流形上的场与参数函数之间的关系。在 ADM 类型分解中，最好能从一个四维结构到一个3+1结构，然后从这里到一个加上时间参数的三维结构。我仍然不知道如何编程實現這個想法。有很多东西需要以一种非平凡的方式改变:张量场，协变导数，度規，等等。如果你有什么建议，请告诉我。</p>
 <h2 id="_8">矢量空間：一點上的叢</h2>
 <p>只想要一個適量空間？不是不可以，但是還是需要一個（不能再簡單的）底流形。</p>
-<pre><code class="language-mathematica">(*独点流形*)
-DefManifold[P, 0, {}]
-(*定義切叢*)
-DefVBundle[V,P,4,{\[GothicA],\[GothicB],\[GothicC]}]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c">(*独点流形*)</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">DefManifold</span><span class="p">[</span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">{}]</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c">(*定義切叢*)</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">DefVBundle</span><span class="p">[</span><span class="n">V</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="mi">4</span><span class="p">,{</span><span class="err">\</span><span class="p">[</span><span class="n">GothicA</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicB</span><span class="p">],</span><span class="err">\</span><span class="p">[</span><span class="n">GothicC</span><span class="p">]}]</span><span class="w"></span>
+</code></pre></div>
 
               
             </article>
