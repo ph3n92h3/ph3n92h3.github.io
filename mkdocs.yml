@@ -1,1 +1,19 @@
-site_name: My Docs
+site_author: ph3n92h3
+site_description: 想妳。
+site_name: Mein kleines Herz
+site_url: https://ph3n92h3.github.io/
+
+theme:
+  language: zh
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
