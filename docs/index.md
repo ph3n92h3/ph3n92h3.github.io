@@ -1,17 +1,47 @@
-# Welcome to MkDocs
+Zhe Feng/冯哲/桜井 雪子
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China.
 
-## Commands
+E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Language
 
-## Project layout
+- Chinese(Jin Chinese/Han-Xin/Ci-Zhang, Mandarin)
+- English
+- German and Japanese learning
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Academic
+
+### Research Interests
+
+- General Relativity and Quantum Cosmology (gr-qc)
+- High Energy Physics - Theory (hep-th)
+
+### Education and Research Experience
+
+- 2020.9 - present: B.S. in Physics, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China
+- 2017.9 - 2020.7: [石家庄二中实验学校](http://sjzezsyxx.com/), Shijiazhuang, China
+- 2014.9 - 2017.6: 邯郸市育华中学, Handan, China
+- 2011.9 - 2014.6: 临漳县实验学校, Handan, China
+- 2008.9 - 2011.6: 临漳县第二小学, Handan, China
+- ? - 2008.6: 临漳县第一幼儿园, Handan, China
+
+### Publications
+
+[INSPIRE-HEP](https://inspirehep.net/authors/2174851)
+
+1. "Slow-roll inflation in $f\left(R, T, R_{ab}T^{ab}\right)$ gravity", Zhe Feng, [arXiv](https://arxiv.org/abs/2211.13233)
+2. "Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity", Zhe Feng, [arxiv](https://arxiv.org/abs/2210.01574)
+
+## Interest
+
+- programming:
+    - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
+    - [Go](https://go.dev/)
+    - [Python](https://www.python.org/)
+    - C/C++
+- music
+    - Future House/Future Bounce
+    - Progressive House/Progressive Trance
+- game:
+    - [Counter-Strike: Global Offensive](https://www.counter-strike.net/)
