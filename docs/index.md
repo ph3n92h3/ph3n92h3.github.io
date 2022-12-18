@@ -1,4 +1,6 @@
-Zhe Feng/冯哲/桜井 雪子
+> 及至始皇，奮六世之馀烈，振長策而御宇內，吞二周而亡諸侯，履至尊而製六合，執棰拊以鞭笞天下，威振四海。
+
+Zhe Feng/冯哲/馮哲/桜井 雪子
 
 Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China.
 
@@ -19,7 +21,7 @@ E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
 
 ### Education and Research Experience
 
-- 2020.9 - present: B.S. in Physics, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China
+- 2020.9 - present: Undergraduate student majoring in physics, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China
 - 2017.9 - 2020.7: [石家庄二中实验学校](http://sjzezsyxx.com/), Shijiazhuang, China
 - 2014.9 - 2017.6: 邯郸市育华中学, Handan, China
 - 2011.9 - 2014.6: 临漳县实验学校, Handan, China
@@ -30,17 +32,17 @@ E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
 
 [INSPIRE-HEP](https://inspirehep.net/authors/2174851)
 
-1. "Slow-roll inflation in $f\left(R, T, R_{ab}T^{ab}\right)$ gravity", Zhe Feng, [arXiv](https://arxiv.org/abs/2211.13233)
-2. "Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity", Zhe Feng, [arxiv](https://arxiv.org/abs/2210.01574)
+1. "Slow-roll inflation in $f\left(R, T, R_{ab}T^{ab}\right)$ gravity", Zhe Feng, [arXiv:2211.13233](https://arxiv.org/abs/2211.13233)
+2. "Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity", Zhe Feng, [arxiv:2210.01574](https://arxiv.org/abs/2210.01574)
 
 ## Interest
 
 - programming:
-    - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
-    - [Go](https://go.dev/)
-    - [Python](https://www.python.org/)
-    - C/C++
-- music
+    - [Wolfram Mathematica](https://www.wolfram.com/mathematica/): use everyday
+    - [Go](https://go.dev/): learning...
+    - [Python](https://www.python.org/): use occasionally
+    - C/C++ and MATLAB: used to be familiar with
+- electronic music
     - Future House/Future Bounce
     - Progressive House/Progressive Trance
 - game:

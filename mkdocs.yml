@@ -39,10 +39,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-site_author: ph3n92h3
-site_description: miss you
 site_name: Mein kleines Herz
-site_url: https://ph3n92h3.github.io/
 
 theme:
   features:
