@@ -38,6 +38,10 @@ extra_javascript:
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences 
 
 site_name: Mein kleines Herz
 
