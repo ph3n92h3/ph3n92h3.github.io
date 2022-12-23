@@ -14,6 +14,9 @@ extra:
     - icon: fontawesome/solid/music
       link: https://music.163.com/#/user/home?id=534851842
       name: Netease music
+    - icon: simple/notion
+      link: https://ph3n92h3.notion.site/7369e59f5ca94251af2ecbc623a7fb1f?v=2a2762b03dd24fda81a82727544d17d4
+      name: Notion
     - icon: fontawesome/brands/bilibili
       link: https://space.bilibili.com/38969888
       name: BiliBili

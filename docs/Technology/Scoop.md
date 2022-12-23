@@ -2,15 +2,18 @@
 
 Added buckets:
 
+```
 extras
 main
 nerd-fonts
 nonportable
 scoopet
 versions
+```
 
 Installed apps:
 
+```
 7zip
 anki
 aria2
@@ -65,3 +68,4 @@ windows-terminal
 wpsoffice-cn
 yesplaymusic
 zoom
+```

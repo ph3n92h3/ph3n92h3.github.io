@@ -1,3 +1,11 @@
+## Installed Extensions
+
+```
+Go
+```
+
+## setting.json
+
 ```json
 {
 	"editor.fontFamily": "Cascadia Code, LXGW WenKai",
