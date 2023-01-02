@@ -29,4 +29,4 @@ Control Panel - Power Options - Edit Plan Settings - Change advanced power setti
     - Plugged in: Passive
 - Maximum processor state
     - On battery: 80%
-    - Plugged in: 99%
+    - Plugged in: 100%

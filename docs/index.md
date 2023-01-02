@@ -41,9 +41,10 @@ E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
     - [Wolfram Mathematica](https://www.wolfram.com/mathematica/): use everyday
     - [Go](https://go.dev/): learning...
     - [Python](https://www.python.org/): use occasionally
-    - C/C++ and MATLAB: used to be familiar with
+    - C/C++ and [MATLAB](http://www.matlab.com/): used to be familiar with
 - electronic music
     - Future House/Future Bounce
     - Progressive House/Progressive Trance
 - game:
     - [Counter-Strike: Global Offensive](https://www.counter-strike.net/)
+    - [Forza Horizon 4](https://forza.net/horizon/)
