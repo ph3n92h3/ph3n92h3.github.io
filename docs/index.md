@@ -1,6 +1,6 @@
 > 及至始皇，奮六世之馀烈，振長策而御宇內，吞二周而亡諸侯，履至尊而製六合，執棰拊以鞭笞天下，威振四海。
 
-Zhe Feng/冯哲/馮哲/桜井 雪子
+Zhe Feng/冯哲
 
 Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China.
 
