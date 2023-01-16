@@ -69,11 +69,11 @@ Watt Toolkit
 
 ### 手动安装的软件
 
-···
+```shell
 [aurora](https://arr.network/)
 [EndNote X9](https://endnote.com/)
 [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
-···
+```
 
 ## Lists Installed Fonts
 
