@@ -1,9 +1,15 @@
 ## ffmpeg
 
-Accelerated h265/hevc encoding with AMD core graphics:
+Accelerate h265/hevc encoding with AMD core graphics:
 
 ```shell
-ffmpeg -i <input file> -c:v hevc_amf output.mp4
+ffmpeg -i <input file> -c:v hevc_amf <output file>
+```
+
+av1 encoding with CPU:
+
+```shell
+ffmpeg -i <input file> -c:v libsvtav1 <output file>
 ```
 
 ## imagemagick
