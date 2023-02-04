@@ -11,6 +11,7 @@ av1 encoding with CPU:
 ```shell
 ffmpeg -i <input file> -c:v libsvtav1 <output file>
 ```
+.mkv format is recommended
 
 ## imagemagick
 
