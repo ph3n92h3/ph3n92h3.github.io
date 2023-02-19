@@ -16,4 +16,4 @@ Thermodynamics and Statistical Mechanics/[热力学与统计物理学复习](htt
 
 Quantum Mechanics/[量子力学复习手稿](https://github.com/ph3n92h3/notes/blob/main/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E5%A4%8D%E4%B9%A0%E6%89%8B%E7%A8%BF.pdf)
 
-Analog Electronics Technology/[模拟电路复习手稿](https://github.com/ph3n92h3/notes/blob/main/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF%E5%A4%8D%E4%B9%A0%E6%89%8B%E7%A8%BF.pdf)
+Analogue Electronic Technology/[模拟电路复习手稿](https://github.com/ph3n92h3/notes/blob/main/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF%E5%A4%8D%E4%B9%A0%E6%89%8B%E7%A8%BF.pdf)
