@@ -20,7 +20,6 @@ Microsoft.WindowsTerminal
 NetEase.CloudMusic
 oldj.switchhosts
 Oracle.VirtualBox
-SomePythonThings.WingetUIStore
 Tencent.TencentMeeting
 Tencent.TIM
 Tencent.WeChat
