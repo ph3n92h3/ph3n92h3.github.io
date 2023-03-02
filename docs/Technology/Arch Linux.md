@@ -1,4 +1,4 @@
-# 安装与配置 Arch Linux
+# Arch Linux
 
 本文只记录个人安装与配置 arch linux 的流程，更系统的教程请见：
 
@@ -232,7 +232,8 @@ sudo pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-rade
 
 ## 个人配置
 
-更改显示缩放（最好是刚进入桌面环境就更改）
+- 更改显示缩放（最好是刚进入桌面环境就更改）
+- add widget: Dictionary, weather report(set location)
 
 install mathematica
 
@@ -249,12 +250,13 @@ yay LXGW                            # 霞鹜文楷、霞鹜新晰黑及其分别
 yay microsoft-edge-stable           # 登录微软账号
 yay obs-studio
 yay onedriver                       # 配置两个账号
+yay qbittorrent-enhanced
 yay tencent meeting                 # 大概叫做 weemeet
 yay typora                          # 选择 0.11+ cn 版本
 yay vlc
 yay vscode
 yay wps-office
-``
+```
 
 未解决：youdao-dict 不工作
 
