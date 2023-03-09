@@ -232,6 +232,8 @@ sudo pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-rade
 
 ## 个人配置
 
+### 软件安装
+
 - 更改显示缩放（最好是刚进入桌面环境就更改）
 - add widget: Dictionary, weather report(set location)
 
@@ -259,5 +261,14 @@ yay wps-office
 ```
 
 未解决：youdao-dict 不工作
+
+### 系统美化
+
+```bash
+# 通过代理进入系统设置
+yay proxychains                     # install proxychains
+sudo vim /etc/proxychains.conf      # 修改最后一行为代理的端口
+proxychains systemsettings5
+```
 
 最后，我自己在一个相对私人的笔记本电脑安装了 archlinux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机，它们所需的花费并没有想象中的大。如果你没有另一台 macos 或 windows 的电脑，我不建议你安装 archlinux。
