@@ -241,12 +241,13 @@ install mathematica
 
 ```bash
 yay clash-for-windows               # 配置两个账号，配置代理并重启
-yay yesplaymusic
+yay yesplaymusic                    # 调整音质，关联 last.fm
 
 yay ffmpeg
 yay flameshot
 yay foliate
 yay jabref
+sudo pacman -S libreoffice-still libreoffice-still-zh-cn
 yay linuxqq
 yay LXGW                            # 霞鹜文楷、霞鹜新晰黑及其分别的 screen 版本
 yay microsoft-edge-stable           # 登录微软账号
@@ -257,12 +258,18 @@ yay tencent meeting                 # 大概叫做 weemeet
 yay typora                          # 选择 0.11+ cn 版本
 yay vlc
 yay vscode
-yay wps-office
 ```
 
 未解决：youdao-dict 不工作
 
 ### 系统美化
+
+美化教程：
+
+- https://arch.icekylin.online/guide/advanced/beauty-1.html
+- https://arch.icekylin.online/guide/advanced/beauty-2.html
+- https://arch.icekylin.online/guide/advanced/beauty-3.html
+- https://archlinuxstudio.github.io/ArchLinuxTutorial/#/advanced/beauty
 
 ```bash
 # 通过代理进入系统设置
