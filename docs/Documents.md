@@ -20,6 +20,8 @@ Microcontroller/[单片机](https://github.com/ph3n92h3/notes/blob/main/%E5%8D%9
 
 [QFT by David Tong](https://github.com/ph3n92h3/notes/blob/main/QFT%20by%20David%20Tong.pdf)
 
+[group theory forked from 東雲正樹](https://github.com/ph3n92h3/notes/blob/main/group%20theory%20forked%20from%20%E6%9D%B1%E9%9B%B2%E6%AD%A3%E6%A8%B9.md)
+
 ## Others
 
 [小狗钱钱2](https://github.com/ph3n92h3/notes/blob/main/%E5%B0%8F%E7%8B%97%E9%92%B1%E9%92%B12.md)
