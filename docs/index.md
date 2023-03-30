@@ -6,7 +6,7 @@ Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[æ
 
 E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
 
-My CV: [https://www.overleaf.com/read/nnhqrxntxnwm](https://www.overleaf.com/read/nnhqrxntxnwm)
+My CV: [English](https://www.overleaf.com/read/nnhqrxntxnwm) / [Chinese](https://www.overleaf.com/read/vndcwhhqfctq)
 
 ## Language
 
