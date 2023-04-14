@@ -6,19 +6,22 @@ Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[�
 
 E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
 
-My CV: [English](https://www.overleaf.com/read/nnhqrxntxnwm) / [Chinese](https://www.overleaf.com/read/vndcwhhqfctq)
+My CV: [🇺🇸 / 🇬🇧 English](https://www.overleaf.com/read/nnhqrxntxnwm) / [🇨🇳 Chinese (Simplified)](https://www.overleaf.com/read/vndcwhhqfctq)
 
 ## Language
 
-- Chinese(Jin Chinese/Han-Xin/Ci-Zhang, Mandarin)
-- English
-- German and Japanese learning
+- 🇨🇳 Chinese(Jin Chinese/Han-Xin/Ci-Zhang, Mandarin)
+- 🇺🇸 / 🇬🇧 English
+- 🇩🇪 German and 🇯🇵 Japanese learning
 
 ## Academic
 
 ### Research Interests
 
 - General Relativity and Quantum Cosmology (gr-qc)
+    - gravitational theory
+    - Cosmological inflation, Cosmological perturbation
+    - black hole, compact star
 - High Energy Physics - Theory (hep-th)
 
 ### Education and Research Experience
@@ -41,7 +44,6 @@ My CV: [English](https://www.overleaf.com/read/nnhqrxntxnwm) / [Chinese](https:/
 
 - programming:
     - [Wolfram Mathematica](https://www.wolfram.com/mathematica/): use everyday
-    - [Go](https://go.dev/): learning...
     - [Python](https://www.python.org/): use occasionally
     - C/C++ and [MATLAB](http://www.matlab.com/): used to be familiar with
 - electronic music
