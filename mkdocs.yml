@@ -53,7 +53,6 @@ theme:
   features:
     - navigation.indexes
     - navigation.instant
-    - navigation.sections
     - navigation.tracking
   icon:
     logo: material/biohazard
