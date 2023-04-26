@@ -20,9 +20,11 @@ Solid State Physics/[固体物理复习手稿](https://github.com/ph3n92h3/notes
 
 [《微分幾何入門與廣義相對論》附錄G“李群和李代數”習題解答](https://github.com/ph3n92h3/notes/blob/main/%E3%80%8A%E5%BE%AE%E5%88%86%E5%B9%BE%E4%BD%95%E5%85%A5%E9%96%80%E8%88%87%E5%BB%A3%E7%BE%A9%E7%9B%B8%E5%B0%8D%E8%AB%96%E3%80%8B%E9%99%84%E9%8C%84G%E2%80%9C%E6%9D%8E%E7%BE%A4%E5%92%8C%E6%9D%8E%E4%BB%A3%E6%95%B8%E2%80%9D%E7%BF%92%E9%A1%8C%E8%A7%A3%E7%AD%94.pdf)
 
-[QFT by David Tong](https://github.com/ph3n92h3/notes/blob/main/QFT%20by%20David%20Tong.pdf)
+[QFT by David Tong](https://github.com/ph3n92h3/notes/blob/main/QFT%20by%20David%20Tong.pdf)/量子场论
 
-[group theory forked from 東雲正樹](https://github.com/ph3n92h3/notes/blob/main/group%20theory%20forked%20from%20%E6%9D%B1%E9%9B%B2%E6%AD%A3%E6%A8%B9.md)
+Group Theory/[群论 by 東雲正樹](https://github.com/ph3n92h3/notes/blob/main/%E7%BE%A4%E8%AE%BA%20by%20%E6%9D%B1%E9%9B%B2%E6%AD%A3%E6%A8%B9.md)
+
+[Cosmological Perturbation Theory by Hannu Kurki-Suonio](https://github.com/ph3n92h3/notes/blob/main/Cosmological%20Perturbation%20Theory%20by%20Hannu%20Kurki-Suonio.pdf)/宇宙学微扰理论
 
 ## Others
 
