@@ -1,5 +1,7 @@
 ## ffmpeg
 
+[hardware acceleration introduction](https://trac.ffmpeg.org/wiki/HWAccelIntro)
+
 Accelerate h265/hevc encoding with AMD core graphics:
 
 ```shell
