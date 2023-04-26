@@ -1,6 +1,6 @@
 > 及至始皇，奮六世之馀烈……
 
-![Image title](https://dummyimage.com/600x400/eee/aaa){ align=left }
+![](./temp.jpeg){ align=left, width="50%" }
 
 Zhe Feng/冯哲
 
@@ -21,10 +21,12 @@ My CV: [🇺🇸 / 🇬🇧 English](https://www.overleaf.com/read/nnhqrxntxnwm)
 ### Research Interests
 
 - General Relativity and Quantum Cosmology (gr-qc)
-    - gravitational theory
-    - Cosmological inflation, Cosmological perturbation
+    - gravitational theory, modified gravity
+    - cosmological inflation, cosmological perturbation
     - black hole, compact star
 - High Energy Physics - Theory (hep-th)
+    - cosmological collider
+    - quantum field theory in curved space
 
 ### Education and Research Experience
 
