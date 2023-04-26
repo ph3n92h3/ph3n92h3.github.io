@@ -8,7 +8,7 @@ E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
 
 My CV: [🇺🇸 / 🇬🇧 English](https://www.overleaf.com/read/nnhqrxntxnwm) / [🇨🇳 Chinese (Simplified)](https://www.overleaf.com/read/vndcwhhqfctq)
 
-![](./avatar.jpg){ width="10%" }
+<div align=center> <img src="./avatar.jpg" width = 20%/> </div>
 
 ## Language
 
