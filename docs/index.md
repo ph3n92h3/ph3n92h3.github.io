@@ -41,8 +41,8 @@ My CV: [🇺🇸 / 🇬🇧 English](https://www.overleaf.com/read/nnhqrxntxnwm)
 
 [INSPIRE-HEP](https://inspirehep.net/authors/2174851)
 
-1. "Slow-roll inflation in $f\left(R, T, R_{ab}T^{ab}\right)$ gravity", Zhe Feng, [arXiv:2211.13233](https://arxiv.org/abs/2211.13233)
-2. "Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity", Zhe Feng, [arxiv:2210.01574](https://arxiv.org/abs/2210.01574)
+1. "Slow-roll inflation in $f\left(R, T, R_{ab}T^{ab}\right)$ gravity", Zhe Feng, [arXiv:2211.13233[gr-qc]](https://arxiv.org/abs/2211.13233)
+2. "Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity", Zhe Feng, [arxiv:2210.01574[gr-qc]](https://arxiv.org/abs/2210.01574)
 
 ## Interest
 
