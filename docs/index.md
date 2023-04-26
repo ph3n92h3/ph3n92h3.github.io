@@ -1,9 +1,7 @@
 > 及至始皇，奮六世之馀烈……
 
 ![](./temp.jpeg){ align=left, width="50%" }
-
 Zhe Feng/冯哲
-
 Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China.
 
 E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
