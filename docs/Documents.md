@@ -26,6 +26,8 @@ Group Theory/[群论 by 東雲正樹](https://github.com/ph3n92h3/notes/blob/mai
 
 [Cosmological Perturbation Theory by Hannu Kurki-Suonio](https://github.com/ph3n92h3/notes/blob/main/Cosmological%20Perturbation%20Theory%20by%20Hannu%20Kurki-Suonio.pdf)/宇宙学微扰理论
 
+Groups and Representations(MMathPhys/MScMTP lecture course) by Andre Lukas and Hannah Tillim/[群论和表示论](https://github.com/ph3n92h3/notes/blob/main/%E7%BE%A4%E8%AE%BA%E5%92%8C%E8%A1%A8%E7%A4%BA%E8%AE%BA.pdf)
+
 ## Others
 
 [小狗钱钱2](https://github.com/ph3n92h3/notes/blob/main/%E5%B0%8F%E7%8B%97%E9%92%B1%E9%92%B12.md)
