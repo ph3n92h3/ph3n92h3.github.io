@@ -29,6 +29,7 @@ Solid State Physics / [固体物理复习手稿](https://github.com/ph3n92h3/not
 [Groups and Representations by Andre Lukas and Hannah Tillim](http://www-thphys.physics.ox.ac.uk/people/AndreLukas/GroupsandRepresentations/) / [群论和表示论 by Andre Lukas and Hannah Tillim](https://github.com/ph3n92h3/notes/blob/main/%E7%BE%A4%E8%AE%BA%E5%92%8C%E8%A1%A8%E7%A4%BA%E8%AE%BA%20by%20Andre%20Lukas%20and%20Hannah%20Tillim.pdf)
 
 这部分是怎么命名的？「just to remind myself」
+
 - 「/」前：文本是 英文标题 by 作者名字，链接是原作地址
 - 「/」后：文本是 中文标题 by 作者名字（不译），链接是我的笔记地址
 - 为什么要写两遍作者名字？一方面是表示尊重，一方面是为了规范笔记的命名
