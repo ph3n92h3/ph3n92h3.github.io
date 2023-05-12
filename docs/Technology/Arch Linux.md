@@ -62,6 +62,18 @@ yay -S wps-office ttf-wps-fonts ttf-ms-fonts # 还有一个字体包忘了，装
 yay -S yesplaymusic
 ```
 
+### jabref
+
+直接 `yay -S jabref` 则会发现有一个 java 需要的东西几乎下载不下来，这里提供一种解决方法：
+
+1. 下载失败会有提示，去那个连接手动下载
+2. 把从 github 上下载下来的 .tar.gz 文件解压缩修改 `gradle\wrapper\gradle-wrapper.properties` 里面的下载地址为手动下载下来的文件的位置 `file:///home/...`
+3. 理论上 Sha256Sum 不需要更改，如果报了这个错误就回来改
+4. 再把这个包打包成 .tar.gz 文件，复制到 ~/.cache/yay/jabref/src 下
+5. 最重要的一步，安装：`yay -S --mflags --skipinteg jabref`「这个选项是为了跳过 Sha256Sum 检验」
+
+也许在第一次安装 java 编译程序的时候可以选择其他的编译环境以避免这样做（可能吗？我觉得不可能，因为下载那个文件是 jabref 的 源码所需要的），你可以试一试……
+
 ## 软件配置
 
 ### KDE 平铺脚本
