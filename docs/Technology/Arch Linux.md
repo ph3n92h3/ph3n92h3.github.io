@@ -36,7 +36,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ```bash
 sudo pacman -S yay
 
-yay -S clash-verge
+yay -S clash clash-meta clash-verge
 yay -S ffmpeg
 yay -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
 yay -S foliate
@@ -54,11 +54,11 @@ yay -S qbittorrent-enhanced-git
 yay -S spectacle
 yay -S stardict
 yay -S typst
-yay -S vivaldi
+yay -S vivaldi vivaldi-ffmpeg-codecs
 yay -S vlc
 yay -S wechat-uos
 yay -S wemeet-bin
-yay -S wps-office ttf-wps-fonts ttf-ms-fonts # 还有一个字体包忘了，装完 wps-office 有提示
+yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 yay -S yesplaymusic
 ```
 
@@ -111,6 +111,8 @@ GLFW_IM_MODULE=ibus
 ### Konsole
 
 修改默认的颜色主题透明度为 `75%`
+
+### stardict
 
 ### proxy
 

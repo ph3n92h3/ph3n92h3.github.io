@@ -25,6 +25,7 @@ My CV: [🇺🇸 / 🇬🇧 English](https://www.overleaf.com/read/nnhqrxntxnwm)
     - cosmological inflation, cosmological perturbation
     - black hole, compact star
 - High Energy Physics - Theory (hep-th)
+    - supersymmetry
     - cosmological collider
     - quantum field theory in curved space
 
