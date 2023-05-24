@@ -47,13 +47,14 @@ yay -S kwin-scripts-tiling
 yay -S linuxqq
 yay -S mathematica
 yay -S microsoft-edge-dev-bin
-yay -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+yay -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-fandol
 yay -S obs-studio xdg-desktop-portal xdg-desktop-portal-kde
 yay -S onedrivegui-git
+yay -S python-pip
 yay -S qbittorrent-enhanced-git
 yay -S spectacle
 yay -S stardict
-yay -S typst
+yay -S texlive-most texlive-lang texlive-latexindent-meta
 yay -S vivaldi vivaldi-ffmpeg-codecs
 yay -S vlc
 yay -S wechat-uos
