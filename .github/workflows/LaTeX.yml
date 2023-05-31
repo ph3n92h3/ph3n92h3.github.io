@@ -20,7 +20,7 @@ jobs:
         run: |
           git config --global user.email "ph3n92h3@gmail.com"
           git config --global user.name "ph3n92h3"
-          mv CV_en.pdf CV_zh.pdf CV
+          # mv CV_en.pdf CV_zh.pdf CV
           git add CV
           git commit -m "github action"
           git push
