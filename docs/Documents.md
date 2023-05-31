@@ -1,20 +1,20 @@
 ## Course Review Notes
 
-Method of Mathematical Physics / [数学物理方法](https://github.com/ph3n92h3/notes/blob/main/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95%E5%A4%8D%E4%B9%A0.pdf)
+Method of Mathematical Physics / [数学物理方法](https://github.com/ph3n92h3/notes/tree/main/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95)
 
-Optics / [光学](https://github.com/ph3n92h3/notes/blob/main/%E5%85%89%E5%AD%A6%E5%A4%8D%E4%B9%A0.pdf)
+Optics / [光学](https://github.com/ph3n92h3/notes/tree/main/%E5%85%89%E5%AD%A6)
 
-Electrodynamics / [电动力学](https://github.com/ph3n92h3/notes/blob/main/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6.pdf)
+Electrodynamics / [电动力学](https://github.com/ph3n92h3/notes/tree/main/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6)
 
-Thermodynamics and Statistical Mechanics / [热力学与统计物理学复习](https://github.com/ph3n92h3/notes/blob/main/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E5%A4%8D%E4%B9%A0.pdf)
+Thermodynamics and Statistical Mechanics / [热力学与统计物理学](https://github.com/ph3n92h3/notes/tree/main/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6)
 
-Quantum Mechanics / [量子力学复习手稿](https://github.com/ph3n92h3/notes/blob/main/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E5%A4%8D%E4%B9%A0%E6%89%8B%E7%A8%BF.pdf)
+Quantum Mechanics / [量子力学](https://github.com/ph3n92h3/notes/tree/main/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6)
 
-Analogue Electronic Technology / [模拟电路复习手稿](https://github.com/ph3n92h3/notes/blob/main/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF%E5%A4%8D%E4%B9%A0%E6%89%8B%E7%A8%BF.pdf)
+Analogue Electronic Technology / [模拟电路](https://github.com/ph3n92h3/notes/tree/main/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF)
 
-Microcontroller / [单片机](https://github.com/ph3n92h3/notes/blob/main/%E5%8D%95%E7%89%87%E6%9C%BA.pdf)
+Microcontroller / [单片机](https://github.com/ph3n92h3/notes/tree/main/%E5%8D%95%E7%89%87%E6%9C%BA)
 
-Solid State Physics / [固体物理复习手稿](https://github.com/ph3n92h3/notes/blob/main/%E5%9B%BA%E4%BD%93%E7%89%A9%E7%90%86%E5%A4%8D%E4%B9%A0.pdf)
+Solid State Physics / 固体物理: loading...
 
 ## Physics/Mathematics Reading Notes
 

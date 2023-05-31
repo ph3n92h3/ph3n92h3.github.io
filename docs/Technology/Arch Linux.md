@@ -34,6 +34,8 @@ ParallelDownloads = 5
 
 [archlinuxcn]
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+# 先设置这一个，安装 archlinuxcn-mirrorlist-git 后再成：
+# Include = /etc/pacman.d/archlinuxcn-mirrorlist
 ```
 
 ## 软件安装
@@ -42,6 +44,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 sudo pacman -S archlinuxcn-keyring
 sudo pacman -S yay
 
+yay -S archlinuxcn-mirrorlist-git
 yay -S clash clash-meta clash-verge
 yay -S ffmpeg neofetch lolcat
 yay -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
@@ -91,6 +94,12 @@ yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 
 - 在系统设置中搜索 `KWin Scripts`
 - "Tiling Extension" 中 "Gap" 全部设置为 `5`
+
+### 非聚焦窗口透明化
+
+- 在系统设置中搜索 `Translucency`
+- 在 `Dekstop Effects` 中搜索 `Translucency`
+- `Translucency` 左边全部设置为右起第四档
 
 ### 添加虚拟桌面
 

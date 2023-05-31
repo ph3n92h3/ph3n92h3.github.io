@@ -6,7 +6,7 @@ Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[�
 
 E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
 
-My CV: [🇺🇸 / 🇬🇧 English](https://www.overleaf.com/read/nnhqrxntxnwm) / [🇨🇳 Chinese (Simplified)](https://www.overleaf.com/read/vndcwhhqfctq)
+My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github.io/blob/main/CV/CV_en.pdf) / [🇨🇳 Chinese (Simplified)](https://github.com/ph3n92h3/ph3n92h3.github.io/blob/main/CV/CV_zh.pdf)
 
 <div align=center> <img src="./avatar.jpg" width = 20%/> </div>
 
