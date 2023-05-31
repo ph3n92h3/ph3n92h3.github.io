@@ -14,8 +14,8 @@ jobs:
         with:
           latexmk_use_xelatex: true
           root_file: |
-            CV_en.tex
-            CV_zh.tex
+            CV/CV_en.tex
+            CV/CV_zh.tex
       - name: save
         run: |
           git config --global user.email "ph3n92h3@gmail.com"
