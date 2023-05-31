@@ -25,6 +25,7 @@ sudo pip install pygments
 ```
 
 注：
+
 1. `texlive-most` 基本包组
 2. `texlive-lang` 语言支持，我主要是用 `ctex` 包
 3. `texlive-latexindent-meta` 这个是为了在 vscode 中可以自动格式化代码
@@ -37,8 +38,7 @@ sudo pip install pygments
 "latex-workshop.latex.tools": [...],
 ```
 
-`xelatexmk` 的 `args` 加入 `-shell-escape`
-
+add `-shell-escape` into `args` in `xelatexmk`
 
 ## Project Structure
 
@@ -61,7 +61,7 @@ sudo pip install pygments
 ```latex
 \documentclass{article}
 
-\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,marginparwidth=1.75cm]{geometry}
 
 \usepackage{ctex} % [UTF8]
 
@@ -69,22 +69,24 @@ sudo pip install pygments
 \setCJKsansfont{Noto Sans CJK SC}
 \setCJKmonofont{Noto Sans Mono CJK SC}
 
-\usepackage{algorithm2e}
+% \usepackage{algorithm2e}
 \usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{cancel}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+% \usepackage{cancel}
 % \usepackage{emoji}
 \usepackage{extarrows}
-\usepackage{float}
+% \usepackage{float}
 \usepackage{framed}
 \usepackage[colorlinks=true]{hyperref}
-\usepackage{mathrsfs}
-\usepackage{minted}
+% \usepackage{mathrsfs}
+% \usepackage{minted}
+% \usepackage{multicol}
 \usepackage{physics}
-\usepackage{pifont}
-\usepackage{unicode-math}
-\usepackage{upgreek}
+% \usepackage{pifont}
+% \usepackage{unicode-math}
+% \usepackage{upgreek}
+\usepackage{xcolor}
 
 \newcommand{\rme}{\mathrm{e}}
 \newcommand{\rmi}{\mathrm{i}}

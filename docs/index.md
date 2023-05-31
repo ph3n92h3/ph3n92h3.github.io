@@ -1,6 +1,6 @@
 > 及至始皇，奮六世之馀烈……
 
-Zhe Feng/冯哲
+Zhe Feng / 冯哲
 
 Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China.
 
@@ -42,15 +42,16 @@ My CV: [🇺🇸 / 🇬🇧 English](https://www.overleaf.com/read/nnhqrxntxnwm)
 
 [INSPIRE-HEP](https://inspirehep.net/authors/2174851)
 
-1. "Slow-roll inflation in $f\left(R, T, R_{ab}T^{ab}\right)$ gravity", Zhe Feng, [arXiv:2211.13233[gr-qc]](https://arxiv.org/abs/2211.13233)
-2. "Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity", Zhe Feng, [arxiv:2210.01574[gr-qc]](https://arxiv.org/abs/2210.01574)
+1. Slow-roll inflation in $f\left(R, T, R_{ab}T^{ab}\right)$ gravity, Zhe Feng, [arXiv:2211.13233[gr-qc]](https://arxiv.org/abs/2211.13233)
+2. Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity, Zhe Feng, [arxiv:2210.01574[gr-qc]](https://arxiv.org/abs/2210.01574)
 
 ## Interest
 
-- programming:
+- programming & CS:
     - [Wolfram Mathematica](https://www.wolfram.com/mathematica/): use everyday
     - [Python](https://www.python.org/): use occasionally
     - C/C++ and [MATLAB](http://www.matlab.com/): used to be familiar with
+    - [Arch Linux](https://archlinux.org/)
 - electronic music
     - Future House/Future Bounce
     - Progressive House/Progressive Trance

@@ -11,18 +11,23 @@
 ## 基础配置
 
 - 禁用 PC speaker: `sudo vim /etc/modprobe.d/nobeep.conf`
+
 ```bash
 blacklist pcspkr
 blacklist snd_pcsp
 ```
+
 - 更改显示缩放: `150%`
 - 加速开关机 `sudo vim /etc/default/grub`，修改后运行 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
+
 ```bash
 # GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
 # 修改为
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog splash"
 ```
+
 - pacman 颜色、多线程下载、cn 源：`sudo vim /etc/pacman.conf`
+
 ```
 Color
 ParallelDownloads = 5
@@ -34,33 +39,34 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ## 软件安装
 
 ```bash
+sudo pacman -S archlinuxcn-keyring
 sudo pacman -S yay
 
 yay -S clash clash-meta clash-verge
-yay -S ffmpeg
+yay -S ffmpeg neofetch lolcat
 yay -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
-yay -S foliate
-yay -S foxitreader
+yay -S foliate foxitreader
 yay -S github-desktop-bin
 yay -S jabref
+yay -S kuro
 yay -S kwin-scripts-tiling
-yay -S linuxqq
+yay -S linuxqq wechat-uos wemeet-bin
 yay -S mathematica
-yay -S microsoft-edge-dev-bin
+yay -S microsoft-edge-dev-bin vivaldi vivaldi-ffmpeg-codecs
 yay -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-fandol
+yay -S nerd-fonts-meta
+yay -S ntfs-3g
 yay -S obs-studio xdg-desktop-portal xdg-desktop-portal-kde
 yay -S onedrivegui-git
 yay -S python-pip
 yay -S qbittorrent-enhanced-git
+yay -S sddm-git
 yay -S spectacle
 yay -S stardict
 yay -S texlive-most texlive-lang texlive-latexindent-meta
-yay -S vivaldi vivaldi-ffmpeg-codecs
-yay -S vlc
-yay -S wechat-uos
-yay -S wemeet-bin
+yay -S visual-studio-code-bin
+yay -S vlc yesplaymusic
 yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
-yay -S yesplaymusic
 ```
 
 ### jabref
@@ -77,6 +83,10 @@ yay -S yesplaymusic
 
 ## 软件配置
 
+### 壁纸
+
+使用必应每日一图
+
 ### KDE 平铺脚本
 
 - 在系统设置中搜索 `KWin Scripts`
@@ -87,7 +97,7 @@ yay -S yesplaymusic
 - 在系统设置中搜索 `Virtual Desktops`
 - 添加至 `5` 个
 - 设置他们的快捷键为 `Super + Shift + <number>`
-  
+
   - 在系统设置中搜索 `Shortcuts` -> `KWin`
 
 ### 任务栏
@@ -115,9 +125,19 @@ GLFW_IM_MODULE=ibus
 
 ### stardict
 
+1. 下载 [简体中文词典](http://download.huzheng.org/zh_CN/)
+2. 安装词典 `tar -xjvf <file name> -C ~/.stardict/dic/ # or /usr/share/stardict/dic/`
+
 ### proxy
 
+`clash-verge`
+
 ### 登陆各种账号
+
+1. vivaldi
+2. google
+3. microsoft
+4. vscode
 
 ---
 
