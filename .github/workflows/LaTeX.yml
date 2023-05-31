@@ -1,0 +1,26 @@
+name: LaTeX
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: xu-cheng/latex-action@v2
+        with:
+          latexmk_use_xelatex: true
+          root_file: |
+            CV_en.tex
+            CV_zh.tex
+      - name: save
+        run: |
+          git config --global user.email "ph3n92h3@gmail.com"
+          git config --global user.name "ph3n92h3"
+          mv CV_en.tex CV_zh.tex CV
+          git add CV
+          git commit -m "github action"
+          git push

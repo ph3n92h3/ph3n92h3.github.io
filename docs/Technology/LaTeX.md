@@ -40,6 +40,8 @@ sudo pip install pygments
 
 add `-shell-escape` into `args` in `xelatexmk`
 
+虽然说已经设置了 `lastUsed`，但是每当打开 vscode 后第一次排版还是得手动选择 `xeLaTeX`……先不管了
+
 ## Project Structure
 
 ```
