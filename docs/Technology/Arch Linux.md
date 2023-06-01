@@ -52,6 +52,7 @@ yay -S foliate foxitreader
 yay -S github-desktop-bin
 yay -S jabref
 yay -S kuro
+yay -S kvantum kvantum-theme-nordic-git
 yay -S kwin-scripts-tiling
 yay -S linuxqq wechat-uos wemeet-bin
 yay -S mathematica
@@ -84,11 +85,21 @@ yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 
 也许在第一次安装 java 编译程序的时候可以选择其他的编译环境以避免这样做（可能吗？我觉得不可能，因为下载那个文件是 jabref 的 源码所需要的），你可以试一试……
 
-## 软件配置
+## 美化
 
-### 壁纸
+1. [系统美化](https://archlinuxstudio.github.io/ArchLinuxTutorial/#/advanced/beauty)
+2. [archlinux 系统美化（布局篇）](https://arch.icekylin.online/guide/advanced/beauty-1.html)
+3. [archlinux 系统美化（主题篇）](https://arch.icekylin.online/guide/advanced/beauty-2.html)
+4. [archlinux 系统美化（终端篇）](https://arch.icekylin.online/guide/advanced/beauty-3.html)
+5. [Tutorials/Force Transparency And Blur](https://userbase.kde.org/Tutorials/Force_Transparency_And_Blur)
 
-使用必应每日一图
+- 任务栏：放在屏幕顶部
+- 壁纸：使用必应每日一图
+- Konsole：修改默认的颜色主题透明度为 `75%`
+
+### 更换主题
+
+先在 `kvantum manager` 里更换主题，再在系统设置里把能改成 `kvantum` 的改掉。
 
 ### KDE 平铺脚本
 
@@ -101,6 +112,8 @@ yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 - 在 `Dekstop Effects` 中搜索 `Translucency`
 - `Translucency` 左边全部设置为右起第四档
 
+## 软件配置
+
 ### 添加虚拟桌面
 
 - 在系统设置中搜索 `Virtual Desktops`
@@ -108,10 +121,6 @@ yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 - 设置他们的快捷键为 `Super + Shift + <number>`
 
   - 在系统设置中搜索 `Shortcuts` -> `KWin`
-
-### 任务栏
-
-- 放在屏幕顶部
 
 ### 中文输入法
 
@@ -127,10 +136,6 @@ GLFW_IM_MODULE=ibus
 
 - 添加输入法 `Shuangpin`，修改双拼方案为 `Xiaohe`
 - 修改云拼音后端为 `Baidu`
-
-### Konsole
-
-修改默认的颜色主题透明度为 `75%`
 
 ### stardict
 
