@@ -14,7 +14,7 @@ Analogue Electronic Technology / [模拟电路](https://github.com/ph3n92h3/note
 
 Microcontroller / [单片机](https://github.com/ph3n92h3/notes/tree/main/%E5%8D%95%E7%89%87%E6%9C%BA)
 
-Solid State Physics / 固体物理: loading...
+Solid State Physics / [固体物理](https://github.com/ph3n92h3/notes/tree/main/%E5%9B%BA%E4%BD%93%E7%89%A9%E7%90%86)
 
 ## Physics/Mathematics Reading Notes
 

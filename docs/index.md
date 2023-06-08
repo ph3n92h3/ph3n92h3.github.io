@@ -25,9 +25,10 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
     - cosmological inflation, cosmological perturbation
     - black hole, compact star
 - High Energy Physics - Theory (hep-th)
-    - supersymmetry
-    - cosmological collider
+    - string theory
+    - supersymmetry field theory
     - quantum field theory in curved space
+    - cosmological collider
 
 ### Education and Research Experience
 
@@ -47,7 +48,7 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
 
 ## Interest
 
-- programming & CS:
+- programming & CS
     - [Wolfram Mathematica](https://www.wolfram.com/mathematica/): use everyday
     - [Python](https://www.python.org/): use occasionally
     - C/C++ and [MATLAB](http://www.matlab.com/): used to be familiar with
@@ -55,6 +56,12 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
 - electronic music
     - Future House/Future Bounce
     - Progressive House/Progressive Trance
-- game:
+- game
     - [Counter-Strike: Global Offensive](https://www.counter-strike.net/)
     - [Forza Horizon 4](https://forza.net/horizon/)
+
+## Social Contribution
+
+- 2020 - 2022: Blood donations totaled 1400 mL for five times
+- 2020 - 2022: Excellent volunteer in the epidemic(COVID-19) prevention, Linzhang, Handan, Hebei
+- 2020: Volunteer in Jiulong Lake Reading Center, Jiangning District, Nanjing, Jiangsu

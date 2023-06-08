@@ -12,7 +12,7 @@
 
 - 禁用 PC speaker: `sudo vim /etc/modprobe.d/nobeep.conf`
 
-```bash
+```conf
 blacklist pcspkr
 blacklist snd_pcsp
 ```
@@ -28,7 +28,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog splash"
 
 - pacman 颜色、多线程下载、cn 源：`sudo vim /etc/pacman.conf`
 
-```
+```conf
 Color
 ParallelDownloads = 5
 
@@ -62,6 +62,7 @@ yay -S nerd-fonts-meta
 yay -S ntfs-3g
 yay -S obs-studio xdg-desktop-portal xdg-desktop-portal-kde
 yay -S onedrivegui-git
+yay -S plasma5-applets-weather-widget-2
 yay -S python-pip
 yay -S qbittorrent-enhanced-git
 yay -S sddm-git
@@ -118,7 +119,7 @@ yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 
 - 在系统设置中搜索 `Virtual Desktops`
 - 添加至 `5` 个
-- 设置他们的快捷键为 `Super + Shift + <number>`
+- 设置他们的快捷键为 `Meta + Alt + <number>`
 
   - 在系统设置中搜索 `Shortcuts` -> `KWin`
 
