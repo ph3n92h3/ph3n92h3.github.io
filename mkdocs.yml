@@ -54,6 +54,8 @@ theme:
     - navigation.indexes
     - navigation.instant
     - navigation.tracking
+  font:
+    text: Noto Serif SC
   icon:
     logo: material/biohazard
   name: material
