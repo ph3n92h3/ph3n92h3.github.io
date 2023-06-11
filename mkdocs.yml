@@ -5,6 +5,9 @@ extra:
     property: G-27F91GZFBZ
     provider: google
   social:
+    - icon: fontawesome/solid/house
+      link: https://ph3n92h3.github.io
+      name: Mein kleines Herz
     - icon: fontawesome/regular/envelope
       link: mailto:ph3n92h3@gmail.com
       name: E-Mail
@@ -14,9 +17,6 @@ extra:
     - icon: fontawesome/solid/music
       link: https://music.163.com/#/user/home?id=534851842
       name: Netease music
-    - icon: simple/notion
-      link: https://ph3n92h3.notion.site/7369e59f5ca94251af2ecbc623a7fb1f?v=2a2762b03dd24fda81a82727544d17d4
-      name: Notion
     - icon: fontawesome/brands/bilibili
       link: https://space.bilibili.com/38969888
       name: BiliBili
@@ -45,7 +45,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.superfences 
+  - pymdownx.superfences
 
 site_name: Mein kleines Herz
 

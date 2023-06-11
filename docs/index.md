@@ -1,6 +1,6 @@
 > 及至始皇，奮六世之馀烈……
 
-Zhe Feng / 冯哲
+Zhe Feng / <ruby>冯<rt>féng</rt></ruby> <ruby>哲<rt>zhé</rt></ruby>
 
 Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), Nanjing, China.
 
@@ -63,4 +63,4 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
 
 - 2020 - 2023: Blood donations totaled 1700 mL for six times
 - 2020 - 2022: Excellent volunteer in the epidemic(COVID-19) prevention, Linzhang, Handan, Hebei
-- 2020: Volunteer in Jiulong Lake Reading Center, Jiangning District, Nanjing, Jiangsu
+- 2020: Volunteer in Jiulong Lake Reading Center, Jiangning, Nanjing, Jiangsu
