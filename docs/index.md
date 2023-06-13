@@ -22,11 +22,12 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
 
 - General Relativity and Quantum Cosmology (gr-qc)
     - cosmological inflation, cosmological perturbation
-    - gravitational theory, modified gravity
+    - modified gravity
     - black hole, compact star
 - High Energy Physics - Theory (hep-th)
     - string theory
     - supersymmetric field theory
+    - scattering amplitude
     - quantum field theory in curved space
 
 ### Education and Research Experience
@@ -47,10 +48,10 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
 
 ## Interest
 
-- programming & CS
+- program & code & CS
     - [Wolfram Mathematica](https://www.wolfram.com/mathematica/): use everyday
     - [Python](https://www.python.org/): use occasionally
-    - C/C++ and [MATLAB](http://www.matlab.com/): used to be familiar with
+    - C/C++ and [MATLAB](http://www.matlab.com/): used to be familiar with...
     - [Arch Linux](https://archlinux.org/)
 - electronic music
     - Future House/Future Bounce

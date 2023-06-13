@@ -52,9 +52,8 @@ yay -S foliate foxitreader
 yay -S github-desktop-bin
 yay -S jabref
 yay -S kuro
-yay -S kvantum kvantum-theme-nordic-git
 yay -S kwin-scripts-tiling
-yay -S linuxqq wechat-uos wemeet-bin
+yay -S linuxqq wechat-uos wemeet-bin zoom
 yay -S mathematica
 yay -S microsoft-edge-dev-bin vivaldi vivaldi-ffmpeg-codecs
 yay -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-fandol
@@ -93,6 +92,16 @@ yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 3. [archlinux 系统美化（主题篇）](https://arch.icekylin.online/guide/advanced/beauty-2.html)
 4. [archlinux 系统美化（终端篇）](https://arch.icekylin.online/guide/advanced/beauty-3.html)
 5. [Tutorials/Force Transparency And Blur](https://userbase.kde.org/Tutorials/Force_Transparency_And_Blur)
+
+```bash
+yay -S bibata-cursor-theme
+yay -S catppuccin-fcitx5-git
+yay -S flat-remix
+yay -S kvantum kvantum-theme-nordic-git
+yay -S nordic-kde-git
+yay -S nordic-theme
+yay -S sddm-nordic-theme-git
+```
 
 - 任务栏：放在屏幕顶部
 - 壁纸：使用必应每日一图
@@ -146,6 +155,15 @@ GLFW_IM_MODULE=ibus
 ### proxy
 
 `clash-verge`
+
+### hosts
+
+```bash
+# sudo vim /etc/hoats
+
+104.22.68.109 mimir.vivaldi.com
+172.67.21.222 mimir.vivaldi.com
+```
 
 ### 登陆各种账号
 
