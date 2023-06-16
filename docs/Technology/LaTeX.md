@@ -66,7 +66,6 @@ add `-shell-escape` into `args` in `xelatexmk`
 \usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,marginparwidth=1.75cm]{geometry}
 
 \usepackage{ctex} % [UTF8]
-
 \setCJKmainfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
 \setCJKmonofont{Noto Sans Mono CJK SC}
@@ -80,7 +79,7 @@ add `-shell-escape` into `args` in `xelatexmk`
 \usepackage{extarrows}
 % \usepackage{float}
 \usepackage{framed}
-\usepackage[colorlinks=true]{hyperref}
+\usepackage[colorlinks]{hyperref}
 % \usepackage{mathrsfs}
 % \usepackage{minted}
 % \usepackage{multicol}
@@ -110,28 +109,35 @@ add `-shell-escape` into `args` in `xelatexmk`
 ### Beamer
 
 ```latex
-\documentclass{beamer}
+\documentclass[9pt,aspectratio=169,hyperref=colorlinks]{beamer}
 
 \usetheme{Goettingen}
 \usecolortheme{crane}
+\usefonttheme{professionalfonts}
+\setbeamercolor{item}{fg=black}
+\setbeamertemplate{itemize items}[circle]
 
+
+\usepackage{xeCJK}
 \setCJKmainfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
 \setCJKmonofont{Noto Sans Mono CJK SC}
 
-% \usepackage{}
+\usepackage{ragged2e}
+\justifying\let\raggedright\justifying
+% \usepackage{tikz}
+% \usebackgroundtemplate{\tikz\node[opacity=0.1]{\includegraphics[width=\paperwidth]{background.jpeg}};}
 
 \title{}
-% \subtitle{}
-\institute{河海大学\ 理学院}
-\author{冯哲}
-\date{}
+\institute{College of Science, Hohai University}
+\author{Feng Zhe / 冯哲}
+% \date{}
 
 \begin{document}
 
-\frame{\frame{\titlepage}}
+\frame{\titlepage}
 
-\begin{frame}{...}
+\begin{frame}{frame title}
 
 \end{frame}
 

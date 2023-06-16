@@ -161,8 +161,10 @@ GLFW_IM_MODULE=ibus
 ```bash
 # sudo vim /etc/hoats
 
+31.209.137.10 bifrost.vivaldi.com
 104.22.68.109 mimir.vivaldi.com
 172.67.21.222 mimir.vivaldi.com
+104.22.58.199 vivaldi.com
 ```
 
 ### 登陆各种账号
