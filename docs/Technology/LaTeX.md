@@ -19,14 +19,14 @@
 
 ```bash
 yay -S python-pip
-yay -S texlive-most texlive-lang texlive-latexindent-meta
+yay -S texlive texlive-lang texlive-latexindent-meta
 
 sudo pip install pygments
 ```
 
 注：
 
-1. `texlive-most` 基本包组
+1. `texlive` 基本包组
 2. `texlive-lang` 语言支持，我主要是用 `ctex` 包
 3. `texlive-latexindent-meta` 这个是为了在 vscode 中可以自动格式化代码
 4. `python-pip` & `pygments` 一些宏包「例如 `physics` 和 `minted`」需要
@@ -36,11 +36,9 @@ sudo pip install pygments
 ```json
 "latex-workshop.latex.recipe.default": "lastUsed",
 "latex-workshop.latex.tools": [...],
+// add `-shell-escape` into `args` in `xelatexmk`
 ```
 
-add `-shell-escape` into `args` in `xelatexmk`
-
-虽然说已经设置了 `lastUsed`，但是每当打开 vscode 后第一次排版还是得手动选择 `xeLaTeX`……先不管了
 
 ## Project Structure
 
@@ -65,7 +63,7 @@ add `-shell-escape` into `args` in `xelatexmk`
 
 \usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,marginparwidth=1.75cm]{geometry}
 
-\usepackage{ctex} % [UTF8]
+\usepackage{ctex}
 \setCJKmainfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
 \setCJKmonofont{Noto Sans Mono CJK SC}
@@ -116,7 +114,6 @@ add `-shell-escape` into `args` in `xelatexmk`
 \usefonttheme{professionalfonts}
 \setbeamercolor{item}{fg=black}
 \setbeamertemplate{itemize items}[circle]
-
 
 \usepackage{xeCJK}
 \setCJKmainfont{Noto Serif CJK SC}

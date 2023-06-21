@@ -53,6 +53,7 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
     - [Python](https://www.python.org/): use occasionally
     - C/C++ and [MATLAB](http://www.matlab.com/): used to be familiar with...
     - [Arch Linux](https://archlinux.org/)
+    - $\LaTeX$
 - electronic music
     - Future House/Future Bounce
     - Progressive House/Progressive Trance
@@ -60,7 +61,7 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
     - [Counter-Strike: Global Offensive](https://www.counter-strike.net/)
     - [Forza Horizon 4](https://forza.net/horizon/)
 
-## Social
+## Volunteer Experience
 
 - 2020 - 2023: Blood donations totaled 1700 mL for six times
 - 2020 - 2022: Excellent volunteer in the epidemic(COVID-19) prevention, Linzhang, Handan, Hebei
