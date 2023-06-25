@@ -16,7 +16,6 @@ jobs:
           root_file: |
             CV/CV_en.tex
             CV/CV_zh.tex
-            CV/PS_slide.tex
       - name: save
         run: |
           git config --global user.email "ph3n92h3@gmail.com"

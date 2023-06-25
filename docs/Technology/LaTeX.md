@@ -8,20 +8,15 @@
 
 ### Offline
 
-#### Windows
-
-[MiKTeX](https://miktex.org/)
-
 #### Arch Linux
 
 1. [https://wiki.archlinux.org/title/TeX_Live](https://wiki.archlinux.org/title/TeX_Live)
 2. [https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/](https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/)
 
-```bash
-yay -S python-pip
-yay -S texlive texlive-lang texlive-latexindent-meta
 
-sudo pip install pygments
+```sh
+yay -S texlive texlive-lang texlive-latexindent-meta
+yay -S python-pygments
 ```
 
 注：
@@ -31,18 +26,29 @@ sudo pip install pygments
 3. `texlive-latexindent-meta` 这个是为了在 vscode 中可以自动格式化代码
 4. `python-pip` & `pygments` 一些宏包「例如 `physics` 和 `minted`」需要
 
+#### MacOS
+
+```sh
+brew install --cask mactex-no-gui
+brew install latexindent
+```
+
+#### Windows
+
+[MiKTeX](https://miktex.org/)
+
 #### vscode
 
 ```json
 "latex-workshop.latex.recipe.default": "lastUsed",
 "latex-workshop.latex.tools": [...],
-// add `-shell-escape` into `args` in `xelatexmk`
+// add `-shell-escape` into `args` in `xelatexmk` and `lualatexmk`
 ```
 
 
 ## Project Structure
 
-```
+```sh
 - main.tex
 - ref.bib
 - texes
