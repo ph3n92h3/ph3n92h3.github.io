@@ -1,8 +1,9 @@
 name: LaTeX
 on:
   push:
-    branches:
-      - main
+    paths:
+      - "CV/CV_en.tex"
+      - "CV/CV-en.tex"
 permissions:
   contents: write
 jobs:

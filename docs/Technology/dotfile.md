@@ -237,7 +237,9 @@
   "mdmath.macros": {
     "\\dd": "{\\mathrm{d}}",
     "\\dv": "{\\frac{\\mathrm{d} #1}{\\mathrm{d} #2}}",
-    "\\pdv": "{\\frac{\\partial #1}{\\partial #2}}"
+    "\\pdv": "{\\frac{\\partial #1}{\\partial #2}}",
+    "\\rme": "{\\mathrm{e}}",
+    "\\rmi": "{\\mathrm{i}}"
   },
   "redhat.telemetry.enabled": true,
   "security.workspace.trust.untrustedFiles": "open",
