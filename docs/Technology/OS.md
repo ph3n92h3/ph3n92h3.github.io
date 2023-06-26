@@ -163,6 +163,8 @@ GLFW_IM_MODULE=ibus
 ```sh
 /bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"
 
+brew tap homebrew/cask-fonts 
+
 brew install --cask clashx
 
 brew install ffmpeg
@@ -171,10 +173,13 @@ brew install lolcat
 brew install neofetch
 
 brew install --cask adrive
+brew install --cask github
+brew install --cask keka
 brew install --cask mactex-no-gui
 brew install --cask microsoft-edge
 brew install --cask onedrive
 brew install --cask qq
+brew install --cask snipaste
 brew install --cask telegram
 brew install --cask typora
 brew install --cask visual-studio-code
@@ -182,6 +187,10 @@ brew install --cask vivaldi
 brew install --cask vlc
 brew install --cask wechat
 brew install --cask yesplaymusic
+brew install --cask youdaodict
+
+brew install --cask font-fira-code-nerd-font
+brew install --cask font-lxgw-wenkai
 ```
 
 ## Windows
