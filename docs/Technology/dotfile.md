@@ -233,6 +233,7 @@
   "markdown-mermaid.lightModeTheme": "forest",
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.math.enabled": false,
+  "markdown.preview.fontFamily": "'FiraCode Nerd Font', 'Noto Sans CJK SC'",
   "markdown.preview.fontSize": 20,
   "mdmath.macros": {
     "\\dd": "{\\mathrm{d}}",
@@ -255,7 +256,9 @@
   ],
   "yaml.schemas": {
     "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
-  }
+  },
+  "z-reader.fileDir": "/home/ph2/OneDrive_ph3n92h3/sth/",
+  "z-reader.onlineSite": "笔趣阁"
 }
 ```
 

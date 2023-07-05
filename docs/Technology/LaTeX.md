@@ -67,7 +67,7 @@ brew install latexindent
 ```latex
 \documentclass{article}
 
-\usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,scale=0.8]{geometry}
 
 \usepackage{ctex}
 \setCJKmainfont{Noto Serif CJK SC}
@@ -101,6 +101,7 @@ brew install latexindent
 % \date{}
 
 \begin{document}
+
 \maketitle
 
 ---
