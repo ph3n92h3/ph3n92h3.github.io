@@ -10,21 +10,13 @@
 
 #### Arch Linux
 
-1. [https://wiki.archlinux.org/title/TeX_Live](https://wiki.archlinux.org/title/TeX_Live)
-2. [https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/](https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/)
-
+- [https://wiki.archlinux.org/title/TeX_Live](https://wiki.archlinux.org/title/TeX_Live)
+- [https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/](https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/)
 
 ```sh
 yay -S texlive texlive-lang texlive-latexindent-meta
 yay -S python-pygments
 ```
-
-注：
-
-1. `texlive` 基本包组
-2. `texlive-lang` 语言支持，我主要是用 `ctex` 包
-3. `texlive-latexindent-meta` 这个是为了在 vscode 中可以自动格式化代码
-4. `python-pip` & `pygments` 一些宏包「例如 `physics` 和 `minted`」需要
 
 #### MacOS
 
@@ -44,7 +36,6 @@ brew install latexindent
 "latex-workshop.latex.tools": [...],
 // add `-shell-escape` into `args` in `xelatexmk` and `lualatexmk`
 ```
-
 
 ## Project Structure
 
@@ -103,10 +94,6 @@ brew install latexindent
 \begin{document}
 
 \maketitle
-
----
-
----
 
 \end{document}
 ```

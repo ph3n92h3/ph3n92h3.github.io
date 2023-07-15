@@ -12,121 +12,114 @@
 
 ### 基础配置
 
-- 禁用 PC speaker: `sudo vim /etc/modprobe.d/nobeep.conf`
+#### 禁用 PC speaker
+
+`sudo vim /etc/modprobe.d/nobeep.conf`
 
 ```sh
 blacklist pcspkr
 blacklist snd_pcsp
 ```
 
-- 更改显示缩放: `150%`
-- 加速开关机 `sudo vim /etc/default/grub`，修改后运行 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
+#### 加速开关机
+
+`sudo vim /etc/default/grub`
 
 ```sh
 # GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
 # 修改为
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog splash"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog"
 ```
 
-- pacman 颜色、多线程下载、cn 源：`sudo vim /etc/pacman.conf`
+`sudo grub-mkconfig -o /boot/grub/grub.cfg`
+
+#### pacman 颜色、多线程下载
+
+`sudo vim /etc/pacman.conf`
 
 ```sh
 Color
-ParallelDownloads = 5
-
-[archlinuxcn]
-Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
-# 先设置这一个，安装 archlinuxcn-mirrorlist-git 后再成：
-# Include = /etc/pacman.d/archlinuxcn-mirrorlist
+ParallelDownloads = 10
 ```
 
-### 软件安装
+#### 添加非官方用户仓库
+
+- [arch4edu](https://github.com/arch4edu/arch4edu)
+- [archlinuxcn](https://github.com/archlinuxcn/repo)
+
+首先添加在一个源，再下载它的密钥和镜像列表文件，在镜像列表文件中对要使用的源取消注释，最后把 Server 改为 Include
+
+```sh
+# [core], [extra]
+
+# [multilib]
+
+[arch4edu]
+Server = https://mirrors.tuna.tsinghua.edu.cn/arch4edu/$arch
+## or other mirrors in https://github.com/arch4edu/mirrorlist/blob/master/mirrorlist.arch4edu
+#Include = /etc/pacman.d/mirrorlist.arch4edu
+
+[archlinuxcn]
+Server = http://repo.archlinuxcn.org/$arch
+## or install archlinuxcn-mirrorlist-git and use the mirrorlist
+#Include = /etc/pacman.d/archlinuxcn-mirrorlist
+```
 
 ```sh
 sudo pacman -S archlinuxcn-keyring archlinuxcn-mirrorlist-git
-sudo pacman -S yay
-
-yay -S lrzip lzop p7zip unarchiver unrar
-yay -S appstream appstream-qt packagekit packagekit-qt5
-
-yay -S clash clash-meta clash-verge
-yay -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
-yay -S ffmpeg fish neofetch lolcat
-yay -S foliate foxitreader okular
-yay -S github-desktop-bin
-yay -S helix typora visual-studio-code-bin xmind
-yay -S icalingua++ linuxqq wechat-uos wemeet-bin zoom
-yay -S jabref
-yay -S kuro
-yay -S kwin-scripts-tiling
-yay -S mathematica
-yay -S microsoft-edge-stable-bin vivaldi vivaldi-ffmpeg-codecs
-yay -S nerd-fonts-meta noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-fandol ttf-lxgw-wenkai ttf-lxgw-wenkai-mono
-yay -S ntfs-3g
-yay -S obs-studio xdg-desktop-portal xdg-desktop-portal-kde
-yay -S onedrivegui-git
-yay -S plasma5-applets-weather-widget-2
-yay -S qbittorrent-enhanced-git
-yay -S sddm-git
-yay -S spectacle
-yay -S stardict
-yay -S texlive texlive-lang biber texlive-latexindent-meta
-yay -S vlc yesplaymusic
-yay -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
+sudo pacman -S arch4edu-keyring mirrorlist.arch4edu
+sudo pacman -S paru
 ```
 
-#### jabref
+- [ALHP](https://somegit.dev/ALHP/ALHP.GO)
 
-直接 `yay -S jabref` 则会发现有一个 java 需要的东西几乎下载不下来，这里提供一种解决方法：
-
-1. 下载失败会有提示，去那个连接手动下载
-2. 把从 github 上下载下来的 .tar.gz 文件解压缩修改 `gradle\wrapper\gradle-wrapper.properties` 里面的下载地址为手动下载下来的文件的位置 `file:///home/...`
-3. 理论上 Sha256Sum 不需要更改，如果报了这个错误就回来改
-4. 再把这个包打包成 .tar.gz 文件，复制到 ~/.cache/yay/jabref/src 下
-5. 最重要的一步，安装：`yay -S --mflags --skipinteg jabref`「这个选项是为了跳过 Sha256Sum 检验」
-
-也许在第一次安装 java 编译程序的时候可以选择其他的编译环境以避免这样做（可能吗？我觉得不可能，因为下载那个文件是 jabref 的 源码所需要的），你可以试一试……
-
-### 美化
-
-1. [系统美化](https://archlinuxstudio.github.io/ArchLinuxTutorial/#/advanced/beauty)
-2. [archlinux 系统美化（布局篇）](https://arch.icekylin.online/guide/advanced/beauty-1.html)
-3. [archlinux 系统美化（主题篇）](https://arch.icekylin.online/guide/advanced/beauty-2.html)
-4. [archlinux 系统美化（终端篇）](https://arch.icekylin.online/guide/advanced/beauty-3.html)
-5. [Tutorials/Force Transparency And Blur](https://userbase.kde.org/Tutorials/Force_Transparency_And_Blur)
+    - 用了这个之后，浏览器显示不出来东西了……
 
 ```sh
-yay -S bibata-cursor-theme
-yay -S catppuccin-fcitx5-git
-yay -S flat-remix
-yay -S kvantum kvantum-theme-nordic-git
-yay -S nordic-kde-git
-yay -S nordic-theme
-yay -S sddm-nordic-theme-git
+paru -S alhp-keyring alhp-mirrorlist
+#Server = https://mirrors.shanghaitech.edu.cn/alhp/$repo/os/$arch/
 ```
 
-- 任务栏：放在屏幕顶部
-- 壁纸：使用必应每日一图
-- Konsole：修改默认的颜色主题透明度为 `75%`
+```sh
+[core-x86-64-v3]
+Include = /etc/pacman.d/alhp-mirrorlist
 
-#### 更换主题
+[extra-x86-64-v3]
+Include = /etc/pacman.d/alhp-mirrorlist
 
-先在 `kvantum manager` 里更换主题，再在系统设置里把能改成 `kvantum` 的改掉。
+# [core], [extra]
 
-#### KDE 平铺脚本
+[multilib-x86-64-v3]
+Include = /etc/pacman.d/alhp-mirrorlist
 
-- 在系统设置中搜索 `KWin Scripts`
-- "Tiling Extension" 中 "Gap" 全部设置为 `5`
+# [multilib]
+```
 
-### 软件配置
+### 软件安装与配置
 
-#### 添加虚拟桌面
+```sh
+paru -S ark lrzip lzop p7zip unarchiver unrar
 
-- 在系统设置中搜索 `Virtual Desktops`
-- 添加至 `5` 个
-- 设置他们的快捷键为 `Meta + Alt + <number>`
-
-  - 在系统设置中搜索 `Shortcuts` -> `KWin`
+paru -S clash clash-meta clash-verge
+paru -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
+paru -S ffmpeg fish neofetch lolcat
+paru -S foliate foxitreader
+paru -S github-desktop-bin
+paru -S helix typora visual-studio-code-bin
+paru -S linuxqq wemeet-bin zoom
+paru -S jabref
+paru -S kuro
+paru -S mathematica
+paru -S microsoft-edge-stable-bin vivaldi vivaldi-ffmpeg-codecs
+paru -S nerd-fonts-meta noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-fandol ttf-lxgw-wenkai ttf-lxgw-wenkai-mono
+paru -S ntfs-3g
+paru -S obs-studio
+paru -S onedrivegui-git
+paru -S qbittorrent-enhanced-git
+paru -S texlive texlive-lang texlive-latexindent-meta
+paru -S vlc yesplaymusic
+paru -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
+```
 
 #### 中文输入法
 
@@ -143,14 +136,106 @@ GLFW_IM_MODULE=ibus
 - 添加输入法 `Shuangpin`，修改双拼方案为 `Xiaohe`
 - 修改云拼音后端为 `Baidu`
 
-#### stardict
+#### 翻译软件
 
-1. 下载 [简体中文词典](http://download.huzheng.org/zh_CN/)
-2. 安装词典 `tar -xjvf <file name> -C ~/.stardict/dic/ # or /usr/share/stardict/dic/`
+- wudao-dict
+- stardict- wudao-dict
 
-#### proxy
+    1. 下载 [简体中文词典](http://download.huzheng.org/zh_CN/)
+    2. 安装词典 `tar -xjvf <file name> -C ~/.stardict/dic/ # or /usr/share/stardict/dic/`
 
-`clash-verge`
+#### Syncthing
+
+```sh
+systemctl enable syncthing@ph2.service
+```
+
+### Hyprland
+
+#### 专属软件
+
+```sh
+sudo pacman -S hyprland kitty
+paru -S hyprland-hidpi-xprop-git xdg-desktop-portal-hyprland qt5-wayland qt6-wayland
+paru -S dunst hyprpaper udiskie waybar
+```
+
+#### 疑难解决
+
+- 图形化连接网络：`paru -S networkmanager` -> `nmtui`
+- 自动挂载 U 盘：`paru -S udiskie`
+- 切换代理：在 `clash-verge` 里面创建一个空的 profile，不想走代理的时候就用这个
+- 剪切板：`Ctrl + ;`
+
+##### 功耗控制
+
+[archlinux 功耗控制](https://arch.icekylin.online/guide/advanced/power-ctl.html)
+
+```sh
+paru -S tlp tlp-rdw
+sudo systemctl enable tlp.service
+sudo systemctl enable NetworkManager-dispatcher.service
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+
+paru -S auto-cpufreq
+sudo systemctl enable auto-cpufreq.service
+sudo systemctl mask power-profiles-daemon.service
+```
+
+##### 疑难未解决
+
+- 缩放导致光标大小不一样
+- 更换系统默认字体
+
+### KDE
+
+#### 专属软件
+
+```sh
+paru -S appstream appstream-qt packagekit packagekit-qt5
+paru -S kwin-scripts-tiling
+paru -S plasma5-applets-weather-widget-2
+paru -S sddm-git
+paru -S spectacle
+paru -S xdg-desktop-portal-kde
+```
+
+#### KDE 平铺脚本
+
+- 在系统设置中搜索 `KWin Scripts`
+- "Tiling Extension" 中 "Gap" 全部设置为 `5`
+
+#### 添加虚拟桌面
+
+- 在系统设置中搜索 `Virtual Desktops`
+- 添加至 `5` 个
+- 设置他们的快捷键为 `Meta + Alt + <number>`
+
+  - 在系统设置中搜索 `Shortcuts` -> `KWin`
+
+#### 美化
+
+1. [ArchLinux 系统美化](https://archlinuxstudio.github.io/ArchLinuxTutorial/#/advanced/beauty)
+2. [ArchLinux 系统美化（布局篇）](https://arch.icekylin.online/guide/advanced/beauty-1.html)
+3. [ArchLinux 系统美化（主题篇）](https://arch.icekylin.online/guide/advanced/beauty-2.html)
+4. [ArchLinux 系统美化（终端篇）](https://arch.icekylin.online/guide/advanced/beauty-3.html)
+5. [Tutorials/Force Transparency And Blur](https://userbase.kde.org/Tutorials/Force_Transparency_And_Blur)
+
+```sh
+paru -S bibata-cursor-theme
+paru -S catppuccin-fcitx5-git
+paru -S flat-remix
+paru -S kvantum kvantum-theme-nordic-git
+paru -S nordic-kde-git
+paru -S nordic-theme
+paru -S sddm-nordic-theme-git
+```
+
+- 任务栏：放在屏幕顶部
+- 壁纸：使用必应每日一图
+- Konsole：修改默认的颜色主题透明度为 `75%`
+- 更换主题：先在 `kvantum manager` 里更换主题，再在系统设置里把能改成 `kvantum` 的改掉。
 
 > 我自己在一个相对私人的笔记本电脑安装了 arch linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 macos 或 windows 的电脑，我不建议你安装 arch linux。
 

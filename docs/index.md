@@ -21,14 +21,7 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
 ### Research Interests
 
 - General Relativity and Quantum Cosmology (gr-qc)
-    - cosmological inflation, cosmological perturbation
-    - modified gravity
-    - black hole, compact star
 - High Energy Physics - Theory (hep-th)
-    - string theory
-    - supersymmetric field theory
-    - scattering amplitude
-    - quantum field theory in curved space
 
 ### Education and Research Experience
 
