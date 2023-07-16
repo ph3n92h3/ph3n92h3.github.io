@@ -10,6 +10,12 @@ SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=ibus
 ```
 
+### /etc/default/grub
+
+```sh
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog"
+```
+
 ### /etc/hosts
 
 ```sh
@@ -19,6 +25,32 @@ GLFW_IM_MODULE=ibus
 104.22.58.199 vivaldi.com
 ```
 
+### /etc/makepkg.conf
+
+```conf
+# Overriding git flags
+GITFLAGS="--filter=tree:0"
+
+# Building optimized binaries
+CFLAGS="-march=native -O2 -pipe ..."
+CXXFLAGS="$CFLAGS ..."
+
+RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
+
+# Parallel compilation
+MAKEFLAGS="-j$(nproc)"
+
+# Building from files in memory
+BUILDDIR=/tmp/makepkg
+
+# Utilizing multiple cores on compression
+COMPRESSGZ=(pigz -c -f -n)
+COMPRESSBZ2=(pbzip2 -c -f)
+COMPRESSXZ=(xz -c -z --threads=0 -)
+COMPRESSZST=(zstd -c -z -q --threads=0 -)
+COMPRESSLZ=(plzip -c -f)
+```
+
 ### /etc/modprobe.d/nobeep.conf
 
 ```conf
@@ -26,11 +58,45 @@ blacklist pcspkr
 blacklist snd_pcsp
 ```
 
+### /etc/pacman.conf
+
+```conf
+Color
+
+CheckSpace
+VerbosePkgLists
+ParallelDownloads = 8
+
+[core-x86-64-v3]
+Include = /etc/pacman.d/alhp-mirrorlist
+
+[extra-x86-64-v3]
+Include = /etc/pacman.d/alhp-mirrorlist
+
+# [core], [extra]
+
+[multilib-x86-64-v3]
+Include = /etc/pacman.d/alhp-mirrorlist
+
+# [multilib]
+
+[arch4edu]
+Server = https://mirrors.tuna.tsinghua.edu.cn/arch4edu/$arch
+## or other mirrors in https://github.com/arch4edu/mirrorlist/blob/master/mirrorlist.arch4edu
+#Include = /etc/pacman.d/mirrorlist.arch4edu
+
+[archlinuxcn]
+Server = http://repo.archlinuxcn.org/$arch
+## or install archlinuxcn-mirrorlist-git and use the mirrorlist
+#Include = /etc/pacman.d/archlinuxcn-mirrorlist
+```
+
 ### /etc/paru.conf
 
 ```conf
 [options]
 BottomUp
+CleanAfter
 ```
 
 ## ~/.config

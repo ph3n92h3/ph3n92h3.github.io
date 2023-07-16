@@ -14,32 +14,30 @@
 
 #### 禁用 PC speaker
 
-`sudo vim /etc/modprobe.d/nobeep.conf`
+`sudo helix /etc/modprobe.d/nobeep.conf`
 
-```sh
+```conf
 blacklist pcspkr
 blacklist snd_pcsp
 ```
 
-#### 加速开关机
-
-`sudo vim /etc/default/grub`
+#### `sudo helix /etc/default/grub`
 
 ```sh
 # GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
-# 修改为
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog"
 ```
 
 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
 
-#### pacman 颜色、多线程下载
+#### `sudo helix /etc/pacman.conf`
 
-`sudo vim /etc/pacman.conf`
-
-```sh
+```conf
 Color
-ParallelDownloads = 10
+
+CheckSpace
+VerbosePkgLists
+ParallelDownloads = 8
 ```
 
 #### 添加非官方用户仓库
@@ -49,7 +47,7 @@ ParallelDownloads = 10
 
 首先添加在一个源，再下载它的密钥和镜像列表文件，在镜像列表文件中对要使用的源取消注释，最后把 Server 改为 Include
 
-```sh
+```conf
 # [core], [extra]
 
 # [multilib]
@@ -80,7 +78,7 @@ paru -S alhp-keyring alhp-mirrorlist
 #Server = https://mirrors.shanghaitech.edu.cn/alhp/$repo/os/$arch/
 ```
 
-```sh
+```conf
 [core-x86-64-v3]
 Include = /etc/pacman.d/alhp-mirrorlist
 
@@ -93,6 +91,50 @@ Include = /etc/pacman.d/alhp-mirrorlist
 Include = /etc/pacman.d/alhp-mirrorlist
 
 # [multilib]
+```
+
+#### makepkg
+
+[makepkg-optimize](https://wiki.archlinux.org/title/Makepkg-optimize)
+
+```sh
+paru -S makepkg-optimize openmp upx optipng svgoAUR polly
+```
+
+[makepkg - Tips and tricks](https://wiki.archlinux.org/title/Makepkg#Tips_and_tricks)
+
+```sh
+paru -S pacman-git
+paru -S zstd xz pigz pbzip2 lbzip2 plzip
+```
+
+`sudo helix /etc/makepkg.conf`
+
+```conf
+# Overriding git flags
+GITFLAGS="--filter=tree:0"
+
+# Building optimized binaries
+CFLAGS="-march=native -O2 -pipe ..."
+CXXFLAGS="${CFLAGS} ..."
+
+RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
+
+# Parallel compilation
+MAKEFLAGS="-j$(nproc)"
+
+# Building from files in memory
+BUILDDIR=/tmp/makepkg
+
+# Use other compression algorithms
+PKGEXT='.pkg.tar' makepkg
+
+# Utilizing multiple cores on compression
+COMPRESSZST=(zstd -c -z -q --threads=0 -)
+COMPRESSXZ=(xz -c -z --threads=0 -)
+COMPRESSGZ=(pigz -c -f -n)
+COMPRESSBZ2=(pbzip2 -c -f)
+COMPRESSLZ=(plzip -c -f)
 ```
 
 ### 软件安装与配置
@@ -123,7 +165,7 @@ paru -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 
 #### 中文输入法
 
-`sudo vim /etc/environment`
+`sudo helix /etc/environment`
 
 ```sh
 GTK_IM_MODULE=fcitx
@@ -139,7 +181,7 @@ GLFW_IM_MODULE=ibus
 #### 翻译软件
 
 - wudao-dict
-- stardict- wudao-dict
+- stardict
 
     1. 下载 [简体中文词典](http://download.huzheng.org/zh_CN/)
     2. 安装词典 `tar -xjvf <file name> -C ~/.stardict/dic/ # or /usr/share/stardict/dic/`
