@@ -14,8 +14,8 @@
 - [https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/](https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/)
 
 ```sh
-yay -S texlive texlive-lang texlive-latexindent-meta
-yay -S python-pygments
+paru -S texlive texlive-lang texlive-latexindent-meta
+paru -S python-pygments
 ```
 
 #### MacOS
@@ -27,7 +27,9 @@ brew install latexindent
 
 #### Windows
 
-[MiKTeX](https://miktex.org/)
+```sh
+scoop install latex latexindent # miktex
+```
 
 #### vscode
 
