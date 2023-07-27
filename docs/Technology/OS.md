@@ -21,15 +21,6 @@ blacklist pcspkr
 blacklist snd_pcsp
 ```
 
-#### `sudo helix /etc/default/grub`
-
-```sh
-# GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog"
-```
-
-`sudo grub-mkconfig -o /boot/grub/grub.cfg`
-
 #### `sudo helix /etc/pacman.conf`
 
 ```conf
@@ -58,20 +49,21 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/arch4edu/$arch
 #Include = /etc/pacman.d/mirrorlist.arch4edu
 
 [archlinuxcn]
-Server = http://repo.archlinuxcn.org/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 ## or install archlinuxcn-mirrorlist-git and use the mirrorlist
 #Include = /etc/pacman.d/archlinuxcn-mirrorlist
 ```
 
 ```sh
 sudo pacman -S archlinuxcn-keyring archlinuxcn-mirrorlist-git
+pacman-key --recv-keys 7931B6D628C8D3BA
+pacman-key --finger 7931B6D628C8D3BA
+pacman-key --lsign-key 7931B6D628C8D3BA
 sudo pacman -S arch4edu-keyring mirrorlist.arch4edu
 sudo pacman -S paru
 ```
 
 - [ALHP](https://somegit.dev/ALHP/ALHP.GO)
-
-    - 用了这个之后，浏览器显示不出来东西了……
 
 ```sh
 paru -S alhp-keyring alhp-mirrorlist
@@ -98,7 +90,7 @@ Include = /etc/pacman.d/alhp-mirrorlist
 [makepkg-optimize](https://wiki.archlinux.org/title/Makepkg-optimize)
 
 ```sh
-paru -S makepkg-optimize openmp upx optipng svgoAUR polly
+paru -S makepkg-optimize openmp upx optipng svgo polly
 ```
 
 [makepkg - Tips and tricks](https://wiki.archlinux.org/title/Makepkg#Tips_and_tricks)
@@ -116,7 +108,7 @@ GITFLAGS="--filter=tree:0"
 
 # Building optimized binaries
 CFLAGS="-march=native -O2 -pipe ..."
-CXXFLAGS="${CFLAGS} ..."
+CXXFLAGS="$CFLAGS ..."
 
 RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
 
@@ -125,9 +117,6 @@ MAKEFLAGS="-j$(nproc)"
 
 # Building from files in memory
 BUILDDIR=/tmp/makepkg
-
-# Use other compression algorithms
-PKGEXT='.pkg.tar' makepkg
 
 # Utilizing multiple cores on compression
 COMPRESSZST=(zstd -c -z -q --threads=0 -)
@@ -140,26 +129,28 @@ COMPRESSLZ=(plzip -c -f)
 ### 软件安装与配置
 
 ```sh
+paru -S aria2 xbyyunpan-appimage
 paru -S ark lrzip lzop p7zip unarchiver unrar
-
 paru -S clash clash-meta clash-verge
 paru -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
-paru -S ffmpeg fish neofetch lolcat
+paru -S ffmpeg fish gotop joshuto neofetch nvtop
 paru -S foliate foxitreader
-paru -S github-desktop-bin
+paru -S gimp nomacs shotcut vlc yesplaymusic
+paru -S gnome-keyring github-desktop-bin
 paru -S helix typora visual-studio-code-bin
-paru -S linuxqq wemeet-bin zoom
+paru -S linuxqq telegram-desktop wemeet-bin zoom
 paru -S jabref
 paru -S kuro
-paru -S mathematica
+paru -S mathematica # mathematica-light
 paru -S microsoft-edge-stable-bin vivaldi vivaldi-ffmpeg-codecs
 paru -S nerd-fonts-meta noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-fandol ttf-lxgw-wenkai ttf-lxgw-wenkai-mono
 paru -S ntfs-3g
-paru -S obs-studio
+paru -S obs-studio obs-backgroundremoval
 paru -S onedrivegui-git
-paru -S qbittorrent-enhanced-git
+paru -S pot-translation-bin wudao-dict-git
+# paru -S qbittorrent-enhanced-git
 paru -S texlive texlive-lang texlive-latexindent-meta
-paru -S vlc yesplaymusic
+paru -S ventoy-bin
 paru -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 ```
 
@@ -180,17 +171,12 @@ GLFW_IM_MODULE=ibus
 
 #### 翻译软件
 
-- wudao-dict
+- pot-translation-bin
+- wudao-dict-git
 - stardict
 
     1. 下载 [简体中文词典](http://download.huzheng.org/zh_CN/)
     2. 安装词典 `tar -xjvf <file name> -C ~/.stardict/dic/ # or /usr/share/stardict/dic/`
-
-#### Syncthing
-
-```sh
-systemctl enable syncthing@ph2.service
-```
 
 ### Hyprland
 
@@ -199,7 +185,10 @@ systemctl enable syncthing@ph2.service
 ```sh
 sudo pacman -S hyprland kitty
 paru -S hyprland-hidpi-xprop-git xdg-desktop-portal-hyprland qt5-wayland qt6-wayland
-paru -S dunst hyprpaper udiskie waybar
+paru -S xrdb
+paru -S dunst hyprpaper udiskie wofi
+paru -S waybar-hyprland-git otf-font-awesome cava
+paru -S brightnessctl easyeffects grim slurp swaylock
 ```
 
 #### 疑难解决
@@ -252,9 +241,8 @@ paru -S xdg-desktop-portal-kde
 
 - 在系统设置中搜索 `Virtual Desktops`
 - 添加至 `5` 个
+- 在系统设置中搜索 `Shortcuts` -> `KWin`
 - 设置他们的快捷键为 `Meta + Alt + <number>`
-
-  - 在系统设置中搜索 `Shortcuts` -> `KWin`
 
 #### 美化
 
@@ -285,25 +273,21 @@ paru -S sddm-nordic-theme-git
 
 ### Homebrew
 
-[镜像快速安装Homebrew教程](https://brew.idayer.com)
+[Homebrew 源使用帮助](https://mirrors.ustc.edu.cn/help/brew.git.html)
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"
-
 brew tap homebrew/cask-fonts 
 
 brew install --cask clashx
 
 brew install ffmpeg
 brew install latexindent
-brew install lolcat
-brew install neofetch
+brew install fastfetch
 
 brew install --cask adrive
 brew install --cask github
 brew install --cask keka
 brew install --cask mactex-no-gui
-brew install --cask microsoft-edge
 brew install --cask onedrive
 brew install --cask qq
 brew install --cask snipaste
