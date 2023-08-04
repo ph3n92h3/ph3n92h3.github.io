@@ -63,9 +63,9 @@ scoop install latex latexindent # miktex
 \usepackage[a4paper,scale=0.8]{geometry}
 
 \usepackage{ctex}
-\setCJKmainfont{Noto Serif CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
+% \setCJKmainfont{Noto Serif CJK SC}
+% \setCJKsansfont{Noto Sans CJK SC}
+% \setCJKmonofont{Noto Sans Mono CJK SC}
 
 % \usepackage{algorithm2e}
 \usepackage{amsfonts}
@@ -78,6 +78,7 @@ scoop install latex latexindent # miktex
 \usepackage{framed}
 \usepackage[colorlinks]{hyperref}
 % \usepackage{mathrsfs}
+\usepackage{mathtools}
 % \usepackage{minted}
 % \usepackage{multicol}
 \usepackage{physics}
@@ -118,6 +119,7 @@ scoop install latex latexindent # miktex
 
 \usepackage{ragged2e}
 \justifying\let\raggedright\justifying
+
 % \usepackage{tikz}
 % \usebackgroundtemplate{\tikz\node[opacity=0.1]{\includegraphics[width=\paperwidth]{background.jpeg}};}
 

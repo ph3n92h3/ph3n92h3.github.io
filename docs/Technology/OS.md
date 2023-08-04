@@ -2,6 +2,8 @@
 
 ## Arch Linux
 
+- [dotfile](https://github.com/ph3n92h3/dotfile)
+
 仅记录个人安装与配置 Arch Linux 的流程，更系统的教程请见：
 
 1. [Arch Linux 官方维基](https://wiki.archlinux.org/)
@@ -19,16 +21,6 @@
 ```conf
 blacklist pcspkr
 blacklist snd_pcsp
-```
-
-#### `sudo helix /etc/pacman.conf`
-
-```conf
-Color
-
-CheckSpace
-VerbosePkgLists
-ParallelDownloads = 8
 ```
 
 #### 添加非官方用户仓库
@@ -85,6 +77,19 @@ Include = /etc/pacman.d/alhp-mirrorlist
 # [multilib]
 ```
 
+- [chaotic-aur](https://aur.chaotic.cx)
+
+```sh
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key 3056513887B78AEB
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+```
+
+```conf
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+```
+
 #### makepkg
 
 [makepkg-optimize](https://wiki.archlinux.org/title/Makepkg-optimize)
@@ -100,7 +105,7 @@ paru -S pacman-git
 paru -S zstd xz pigz pbzip2 lbzip2 plzip
 ```
 
-`sudo helix /etc/makepkg.conf`
+`sudo helix ~/.config/pacman/makepkg.conf`
 
 ```conf
 # Overriding git flags
@@ -129,20 +134,21 @@ COMPRESSLZ=(plzip -c -f)
 ### 软件安装与配置
 
 ```sh
-paru -S aria2 xbyyunpan-appimage
+paru -S aria2 xbyyunpan-bin
 paru -S ark lrzip lzop p7zip unarchiver unrar
 paru -S clash clash-meta clash-verge
 paru -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
-paru -S ffmpeg fish gotop joshuto neofetch nvtop
+paru -S fastfetch ffmpeg fish gotop joshuto nvtop
 paru -S foliate foxitreader
-paru -S gimp nomacs shotcut vlc yesplaymusic
+paru -S geeqie gimp shotcut vlc yesplaymusic
 paru -S gnome-keyring github-desktop-bin
 paru -S helix typora visual-studio-code-bin
 paru -S linuxqq telegram-desktop wemeet-bin zoom
+paru -S linux-amd-znver2 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 paru -S jabref
 paru -S kuro
 paru -S mathematica # mathematica-light
-paru -S microsoft-edge-stable-bin vivaldi vivaldi-ffmpeg-codecs
+paru -S vivaldi vivaldi-ffmpeg-codecs
 paru -S nerd-fonts-meta noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-fandol ttf-lxgw-wenkai ttf-lxgw-wenkai-mono
 paru -S ntfs-3g
 paru -S obs-studio obs-backgroundremoval
@@ -185,10 +191,10 @@ GLFW_IM_MODULE=ibus
 ```sh
 sudo pacman -S hyprland kitty
 paru -S hyprland-hidpi-xprop-git xdg-desktop-portal-hyprland qt5-wayland qt6-wayland
-paru -S xrdb
+paru -S xorg-xrdb
 paru -S dunst hyprpaper udiskie wofi
-paru -S waybar-hyprland-git otf-font-awesome cava
-paru -S brightnessctl easyeffects grim slurp swaylock
+paru -S waybar otf-font-awesome
+paru -S brightnessctl grim slurp swaylock
 ```
 
 #### 疑难解决
@@ -214,10 +220,16 @@ sudo systemctl enable auto-cpufreq.service
 sudo systemctl mask power-profiles-daemon.service
 ```
 
-##### 疑难未解决
+#### 美化
 
-- 缩放导致光标大小不一样
-- 更换系统默认字体
+```sh
+paru -S kvantum qt5ct
+paru -S graphite-grub-theme-nord-4k nordic-theme tela-circle-icon-theme-nord-git
+
+sudo helix /etc/default/grub
+# GRUB_THEME="/usr/share/grub/themes/graphite-nord-4k/theme.txt"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
 
 ### KDE
 
