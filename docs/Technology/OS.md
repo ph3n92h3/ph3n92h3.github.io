@@ -16,7 +16,7 @@
 
 #### 禁用 PC speaker
 
-`sudo helix /etc/modprobe.d/nobeep.conf`
+`sudo hx /etc/modprobe.d/nobeep.conf`
 
 ```conf
 blacklist pcspkr
@@ -52,7 +52,7 @@ pacman-key --recv-keys 7931B6D628C8D3BA
 pacman-key --finger 7931B6D628C8D3BA
 pacman-key --lsign-key 7931B6D628C8D3BA
 sudo pacman -S arch4edu-keyring mirrorlist.arch4edu
-sudo pacman -S paru
+sudo pacman -S paru-git
 ```
 
 - [ALHP](https://somegit.dev/ALHP/ALHP.GO)
@@ -101,100 +101,49 @@ paru -S makepkg-optimize openmp upx optipng svgo polly
 [makepkg - Tips and tricks](https://wiki.archlinux.org/title/Makepkg#Tips_and_tricks)
 
 ```sh
-paru -S pacman-git
-paru -S zstd xz pigz pbzip2 lbzip2 plzip
+paru -S lbzip2 pbzip2 pigz plzip xz zstd
 ```
 
-`sudo helix ~/.config/pacman/makepkg.conf`
-
-```conf
-# Overriding git flags
-GITFLAGS="--filter=tree:0"
-
-# Building optimized binaries
-CFLAGS="-march=native -O2 -pipe ..."
-CXXFLAGS="$CFLAGS ..."
-
-RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
-
-# Parallel compilation
-MAKEFLAGS="-j$(nproc)"
-
-# Building from files in memory
-BUILDDIR=/tmp/makepkg
-
-# Utilizing multiple cores on compression
-COMPRESSZST=(zstd -c -z -q --threads=0 -)
-COMPRESSXZ=(xz -c -z --threads=0 -)
-COMPRESSGZ=(pigz -c -f -n)
-COMPRESSBZ2=(pbzip2 -c -f)
-COMPRESSLZ=(plzip -c -f)
-```
+`sudo hx ~/.config/pacman/makepkg.conf`
 
 ### 软件安装与配置
 
 ```sh
-paru -S aria2 xbyyunpan-bin
-paru -S ark lrzip lzop p7zip unarchiver unrar
-paru -S clash clash-meta clash-verge
+paru -S aria2 onedrivegui-git qbittorrent-enhanced-git xbyyunpan-bin
+paru -S ark # arj lrzip lzop p7zip unarchiver unrar
+paru -S clash-dev-git clash-meta-alpha-git clash-verge
+paru -S code code-features code-marketplace helix-git
 paru -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
-paru -S fastfetch ffmpeg fish gotop joshuto nvtop
+paru -S fastfetch-git ffmpeg-git fish-git joshuto-git nvtop
 paru -S foliate foxitreader
-paru -S geeqie gimp shotcut vlc yesplaymusic
-paru -S gnome-keyring github-desktop-bin
-paru -S helix typora visual-studio-code-bin
+paru -S geeqie gimp shotcut vlc-git yesplaymusic
+paru -S gnome-keyring github-desktop
 paru -S linuxqq telegram-desktop wemeet-bin zoom
-paru -S linux-amd-znver2 # sudo grub-mkconfig -o /boot/grub/grub.cfg
+paru -S linux-amd-drm-next linux-amd-znver2 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 paru -S jabref
 paru -S kuro
 paru -S mathematica # mathematica-light
 paru -S vivaldi vivaldi-ffmpeg-codecs
-paru -S nerd-fonts-meta noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra otf-fandol ttf-lxgw-wenkai ttf-lxgw-wenkai-mono
+paru -S nerd-fonts-meta noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-mono-cn-fonts
 paru -S ntfs-3g
 paru -S obs-studio obs-backgroundremoval
-paru -S onedrivegui-git
-paru -S pot-translation-bin wudao-dict-git
-# paru -S qbittorrent-enhanced-git
+paru -S pot-translation-bin tesseract tesseract-data wudao-dict-git
+paru -S stable-diffusion-ui
 paru -S texlive texlive-lang texlive-latexindent-meta
 paru -S ventoy-bin
 paru -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 ```
-
-#### 中文输入法
-
-`sudo helix /etc/environment`
-
-```sh
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=ibus
-```
-
-- 添加输入法 `Shuangpin`，修改双拼方案为 `Xiaohe`
-- 修改云拼音后端为 `Baidu`
-
-#### 翻译软件
-
-- pot-translation-bin
-- wudao-dict-git
-- stardict
-
-    1. 下载 [简体中文词典](http://download.huzheng.org/zh_CN/)
-    2. 安装词典 `tar -xjvf <file name> -C ~/.stardict/dic/ # or /usr/share/stardict/dic/`
 
 ### Hyprland
 
 #### 专属软件
 
 ```sh
-sudo pacman -S hyprland kitty
-paru -S hyprland-hidpi-xprop-git xdg-desktop-portal-hyprland qt5-wayland qt6-wayland
-paru -S xorg-xrdb
-paru -S dunst hyprpaper udiskie wofi
-paru -S waybar otf-font-awesome
-paru -S brightnessctl grim slurp swaylock
+sudo pacman -S hyprland-hidpi-xprop-git kitty-git
+paru -S xdg-desktop-portal-hyprland-git qt5-wayland qt6-wayland
+paru -S dunst hyprpaper-git udiskie wofi
+paru -S waybar-hyprland-git otf-font-awesome
+paru -S brightnessctl grimblast-git swaylock-git
 ```
 
 #### 疑难解决
@@ -224,9 +173,9 @@ sudo systemctl mask power-profiles-daemon.service
 
 ```sh
 paru -S kvantum qt5ct
-paru -S graphite-grub-theme-nord-4k nordic-theme tela-circle-icon-theme-nord-git
+paru -S fcitx5-nord graphite-grub-theme-nord-4k nordic-theme tela-circle-icon-theme-nord-git
 
-sudo helix /etc/default/grub
+sudo hx /etc/default/grub
 # GRUB_THEME="/usr/share/grub/themes/graphite-nord-4k/theme.txt"
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```

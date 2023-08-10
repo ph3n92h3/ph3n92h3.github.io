@@ -33,6 +33,9 @@ extra:
       link: https://www.zhihu.com/people/feng-zhe-51-84
       name: Zhihu
 
+extra_css:
+  - stylesheets/extra.css
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6

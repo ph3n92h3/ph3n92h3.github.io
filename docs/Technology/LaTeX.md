@@ -1,4 +1,4 @@
-# $LaTeX$
+# LaTeX
 
 ## environment
 
@@ -29,14 +29,6 @@ brew install latexindent
 
 ```sh
 scoop install latex latexindent # miktex
-```
-
-#### vscode
-
-```json
-"latex-workshop.latex.recipe.default": "lastUsed",
-"latex-workshop.latex.tools": [...],
-// add `-shell-escape` into `args` in `xelatexmk` and `lualatexmk`
 ```
 
 ## Project Structure
@@ -125,7 +117,7 @@ scoop install latex latexindent # miktex
 
 \title{}
 \institute{College of Science, Hohai University}
-\author{Feng Zhe / 冯哲}
+\author{桜井\ 雪子}
 % \date{}
 
 \begin{document}
