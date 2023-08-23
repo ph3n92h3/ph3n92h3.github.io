@@ -54,41 +54,69 @@ scoop install latex latexindent # miktex
 
 \usepackage[a4paper,scale=0.8]{geometry}
 
-\usepackage{ctex}
-% \setCJKmainfont{Noto Serif CJK SC}
-% \setCJKsansfont{Noto Sans CJK SC}
-% \setCJKmonofont{Noto Sans Mono CJK SC}
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
 
 % \usepackage{algorithm2e}
-\usepackage{amsfonts}
-% \usepackage{amsmath}
+% \usepackage{amsfonts}
+\usepackage{amsmath}\DeclareMathOperator{\Tr}{Tr}
 % \usepackage{amssymb}
 % \usepackage{cancel}
+\usepackage{derivative}
 % \usepackage{emoji}
 \usepackage{extarrows}
 % \usepackage{float}
-\usepackage{framed}
+% \usepackage{framed}
 \usepackage[colorlinks]{hyperref}
 % \usepackage{mathrsfs}
 \usepackage{mathtools}
-% \usepackage{minted}
+\usepackage{minted}
 % \usepackage{multicol}
-\usepackage{physics}
+\usepackage{physics2}\usephysicsmodule{ab, braket}
 % \usepackage{pifont}
+\usepackage{slashed}
 % \usepackage{unicode-math}
 % \usepackage{upgreek}
-\usepackage{xcolor}
+% \usepackage{xcolor}
 
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\gammafive}{\gamma_5}
+\newcommand{\gammamu}{\gamma^{\mu}}
+\newcommand{\gammanu}{\gamma^{\nu}}
+\newcommand{\gammarho}{\gamma^{\rho}}
+\newcommand{\gammasigma}{\gamma^{\sigma}}
+\newcommand{\gmunu}{g^{\mu\nu}}
 \newcommand{\rme}{\mathrm{e}}
 \newcommand{\rmi}{\mathrm{i}}
+\newcommand{\rmR}{\mathrm{R}}
+\newcommand{\rmT}{\mathrm{T}}
+\newcommand{\slasheda}{\slashed{a}}
+\newcommand{\slashedb}{\slashed{b}}
+\newcommand{\slashedc}{\slashed{c}}
+\newcommand{\slashedd}{\slashed{d}}
+\newcommand{\slashedp}{\slashed{p}}
+\newcommand{\slashedq}{\slashed{q}}
+\newcommand{\slashedr}{\slashed{r}}
+\newcommand{\slasheds}{\slashed{s}}
+\newcommand{\Smunu}{S^{\mu\nu}}
+\newcommand{\veck}{\vec{k}}
+\newcommand{\vecp}{\vec{p}}
+\newcommand{\xleq}{\xlongequal}
 
-\title{}
+\title{temp}
 \author{桜井\ 雪子}
 % \date{}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
 
 \end{document}
 ```
