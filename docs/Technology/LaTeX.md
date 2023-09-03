@@ -1,6 +1,6 @@
 # LaTeX
 
-## environment
+## Environment
 
 ### Online
 
@@ -11,10 +11,9 @@
 #### Arch Linux
 
 - [https://wiki.archlinux.org/title/TeX_Live](https://wiki.archlinux.org/title/TeX_Live)
-- [https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/](https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/)
 
 ```sh
-paru -S texlive texlive-lang texlive-latexindent-meta
+paru -S texlive texlive-lang
 paru -S python-pygments
 ```
 
@@ -30,6 +29,11 @@ brew install latexindent
 ```sh
 scoop install latex latexindent # miktex
 ```
+
+## Useful Resources
+
+- [install-latex-guide-zh-cn](https://ctan.org/pkg/install-latex-guide-zh-cn)
+- [lshort-zh-cn](https://www.ctan.org/pkg/lshort-zh-cn)
 
 ## Project Structure
 

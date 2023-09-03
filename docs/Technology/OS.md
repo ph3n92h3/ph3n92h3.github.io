@@ -274,7 +274,6 @@ winget + scoop + Microsoft store
 #### Winget
 
 ```sh
-winget install Alibaba.aDrive
 winget install Armin2208.WindowsAutoNightMode
 winget install Bilibili.Livehime
 winget install EpicGames.EpicGamesLauncher
@@ -284,12 +283,12 @@ winget install Microsoft.DotNet.DesktopRuntime.6
 winget install Microsoft.DotNet.DesktopRuntime.7
 winget install NetEase.CloudMusic
 winget install Oracle.VirtualBox
+winget install Pylogmon.pot
 winget install Tencent.TencentMeeting
 winget install Tencent.TIM
 winget install Tencent.WeChat
 winget install Thunder.Thunder
 winget install Valve.Steam
-winget install Youdao.YoudaoDict
 ```
 
 #### Scoop
@@ -302,23 +301,25 @@ scoop bucket add nerd-fonts
 
 # install apps
 scoop install 7zip bandizip winrar
-scoop install altsnap powertoys quicklook snipaste
+scoop install altsnap everything format-factory powertoys quicklook snipaste
 scoop install clash-verge
-scoop install cpu-z crystaldiskmark gpu-z 
-scoop install dark innounp
-scoop install everything
-scoop install fastfetch ffmpeg git imagemagick pandoc sudo
-scoop install FiraCode LXGWNeoXiHei LXGWWenKai
+scoop install cpu-z crystaldiskinfo crystaldiskmark gpu-z 
+scoop install cpufetch fastfetch ffmpeg git imagemagick lf pandoc sudo syncthing
+# scoop install dark innounp
+scoop install FiraCode SarasaGothic-ttc
+scoop install foxit-reader sumatrapdf
 scoop install github
+scoop install helix vscode
 scoop install jabref
 scoop install latex latexindent # miktex
-scoop install obs-studio vlc yesplaymusic
+scoop install mpv obs-studio yesplaymusic
+scoop install msiafterburner
 scoop install office-tool-plus
 # scoop install qbittorrent-enhanced
-scoop install sumatrapdf
-scoop install syncthing
-scoop install typora vscode
+scoop install telegram
+scoop install ventoy
 scoop install vivaldi
+scoop install windows-terminal
 ```
 
 #### Microsoft Store
@@ -329,11 +330,10 @@ Watt Toolkit
 
 #### Install Manually
 
-```sh
-[EndNote X9](https://endnote.com/)
-[pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
-[Wolfram Mathematica](https://www.wolfram.com/mathematica/)
-```
+- [小白羊云盘](https://githubfast.com/gaozhangmin/aliyunpan)
+- [EndNote X9](https://endnote.com/)
+- [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
+- [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
 
 ### Limit Power Consumption and Reduce Noise
 
