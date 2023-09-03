@@ -113,10 +113,10 @@ paru -S aria2 onedrivegui-git qbittorrent-enhanced-git xbyyunpan-bin
 paru -S ark # arj lrzip lzop p7zip unarchiver unrar
 paru -S clash-dev-git clash-meta-alpha-git clash-verge
 paru -S code code-features code-marketplace helix-git
+paru -S cpufetch-git fastfetch-git ffmpeg-git fish-git joshuto-git nvtop pandoc-bin
 paru -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
-paru -S fastfetch-git ffmpeg-git fish-git joshuto-git nvtop
 paru -S foliate foxitreader
-paru -S geeqie gimp shotcut vlc-git yesplaymusic
+paru -S geeqie gimp shotcut mpv-git yesplaymusic
 paru -S gnome-keyring github-desktop
 paru -S linuxqq telegram-desktop wemeet-bin zoom
 paru -S linux-amd-drm-next linux-amd-znver2 # sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -142,7 +142,7 @@ paru -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 sudo pacman -S hyprland-hidpi-xprop-git kitty-git
 paru -S xdg-desktop-portal-hyprland-git qt5-wayland qt6-wayland
 paru -S dunst hyprpaper-git udiskie wofi
-paru -S waybar-hyprland-git otf-font-awesome
+paru -S waybar-hyprland-git otf-font-awesome wttrbar-git
 paru -S brightnessctl grimblast-git swaylock-git
 ```
 
@@ -155,14 +155,12 @@ paru -S brightnessctl grimblast-git swaylock-git
 
 ##### 功耗控制
 
-[archlinux 功耗控制](https://arch.icekylin.online/guide/advanced/power-ctl.html)
-
 ```sh
-paru -S tlp tlp-rdw
-sudo systemctl enable tlp.service
-sudo systemctl enable NetworkManager-dispatcher.service
-sudo systemctl mask systemd-rfkill.service
-sudo systemctl mask systemd-rfkill.socket
+# paru -S tlp tlp-rdw
+# sudo systemctl enable tlp.service
+# sudo systemctl enable NetworkManager-dispatcher.service
+# sudo systemctl mask systemd-rfkill.service
+# sudo systemctl mask systemd-rfkill.socket
 
 paru -S auto-cpufreq
 sudo systemctl enable auto-cpufreq.service
