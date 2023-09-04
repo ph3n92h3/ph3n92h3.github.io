@@ -51,7 +51,7 @@ scoop install latex latexindent # miktex
 
 ## Template
 
-### Notes
+### Academic Notes
 
 ```latex
 \documentclass{article}
@@ -125,7 +125,28 @@ scoop install latex latexindent # miktex
 \end{document}
 ```
 
-### Beamer
+### General Chinese Notes
+
+```latex
+\documentclass{ctexart}
+
+\usepackage[a4paper,scale=0.8]{geometry}
+
+\usepackage[colorlinks]{hyperref}
+
+\title{}
+\author{桜井\ 雪子}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\end{document}
+```
+
+### Slides
 
 ```latex
 \documentclass[9pt,aspectratio=169,hyperref=colorlinks]{beamer}

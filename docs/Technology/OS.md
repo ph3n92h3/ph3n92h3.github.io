@@ -112,12 +112,16 @@ paru -S lbzip2 pbzip2 pigz plzip xz zstd
 paru -S aria2 onedrivegui-git qbittorrent-enhanced-git xbyyunpan-bin
 paru -S ark # arj lrzip lzop p7zip unarchiver unrar
 paru -S clash-dev-git clash-meta-alpha-git clash-verge
-paru -S code code-features code-marketplace helix-git
 paru -S cpufetch-git fastfetch-git ffmpeg-git fish-git joshuto-git nvtop pandoc-bin
-paru -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
+
+paru -S fcitx5-im
+paru -S fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
+paru -S fcitx5-rime rime-double-pinyin
+
 paru -S foliate foxitreader
-paru -S geeqie gimp shotcut mpv-git yesplaymusic
+paru -S geeqie gimp shotcut mpv-git obs-studio obs-backgroundremoval yesplaymusic
 paru -S gnome-keyring github-desktop
+paru -S helix-git visual-studio-code-bin
 paru -S linuxqq telegram-desktop wemeet-bin zoom
 paru -S linux-amd-drm-next linux-amd-znver2 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 paru -S jabref
@@ -126,10 +130,9 @@ paru -S mathematica # mathematica-light
 paru -S vivaldi vivaldi-ffmpeg-codecs
 paru -S nerd-fonts-meta noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-mono-cn-fonts
 paru -S ntfs-3g
-paru -S obs-studio obs-backgroundremoval
-paru -S pot-translation-bin tesseract tesseract-data wudao-dict-git
+paru -S pot-translation-git tesseract tesseract-data wudao-dict-git
 paru -S stable-diffusion-ui
-paru -S texlive texlive-lang texlive-latexindent-meta
+paru -S texlive texlive-lang
 paru -S ventoy-bin
 paru -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 ```
@@ -226,7 +229,7 @@ paru -S sddm-nordic-theme-git
 - Konsole：修改默认的颜色主题透明度为 `75%`
 - 更换主题：先在 `kvantum manager` 里更换主题，再在系统设置里把能改成 `kvantum` 的改掉。
 
-> 我自己在一个相对私人的笔记本电脑安装了 arch linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 macos 或 windows 的电脑，我不建议你安装 arch linux。
+> 我自己在一个相对私人的笔记本电脑安装了 Arch Linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 macos 或 windows 的电脑，我不建议你安装 Arch Linux。
 
 ## MacOS
 
