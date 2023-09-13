@@ -53,14 +53,14 @@ markdown_extensions:
 site_name: Mein kleines Herz
 
 theme:
-  favicon: logo.png
+  favicon: /images/logo.png
   features:
     - navigation.indexes
     - navigation.instant
     - navigation.tracking
   font:
     text: Noto Serif SC
-  logo: logo.png
+  logo: /images/logo.png
   name: material
   palette:
     # Palette toggle for light mode

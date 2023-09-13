@@ -1,5 +1,7 @@
 # LaTeX
 
+<div align=center> <img src="/images/ctanlion.png" width = 30%/> </div>
+
 ## Environment
 
 ### Online
@@ -59,9 +61,6 @@ scoop install latex latexindent # miktex
 \usepackage[a4paper,scale=0.8]{geometry}
 
 \usepackage{xeCJK}
-\setCJKmainfont{Noto Serif CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
 
 % \usepackage{algorithm2e}
 % \usepackage{amsfonts}
@@ -128,7 +127,7 @@ scoop install latex latexindent # miktex
 ### General Chinese Notes
 
 ```latex
-\documentclass{ctexart}
+\documentclass[fontset=founder]{ctexart}
 
 \usepackage[a4paper,scale=0.8]{geometry}
 

@@ -118,16 +118,15 @@ paru -S fcitx5-im
 paru -S fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki fcitx5-pinyin-custom-pinyin-dictionary
 paru -S fcitx5-rime rime-double-pinyin
 
-paru -S foliate foxitreader
-paru -S geeqie gimp shotcut mpv-git obs-studio obs-backgroundremoval yesplaymusic
+paru -S vivaldi vivaldi-ffmpeg-codecs # firefox
+paru -S foliate jabref rnote xournalpp # foxitreader
+paru -S geeqie gimp shotcut mpv obs-studio obs-backgroundremoval yesplaymusic
 paru -S gnome-keyring github-desktop
-paru -S helix-git visual-studio-code-bin
+paru -S helix visual-studio-code-bin
 paru -S linuxqq telegram-desktop wemeet-bin zoom
-paru -S linux-amd-drm-next linux-amd-znver2 # sudo grub-mkconfig -o /boot/grub/grub.cfg
-paru -S jabref
+paru -S linux-amd-znver2 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 paru -S kuro
 paru -S mathematica # mathematica-light
-paru -S vivaldi vivaldi-ffmpeg-codecs
 paru -S nerd-fonts-meta noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-mono-cn-fonts
 paru -S ntfs-3g
 paru -S pot-translation-git tesseract tesseract-data wudao-dict-git
@@ -238,7 +237,7 @@ paru -S sddm-nordic-theme-git
 [Homebrew 源使用帮助](https://mirrors.ustc.edu.cn/help/brew.git.html)
 
 ```sh
-brew tap homebrew/cask-fonts 
+brew tap homebrew/cask-fonts
 
 brew install --cask clashx
 
@@ -304,7 +303,7 @@ scoop bucket add nerd-fonts
 scoop install 7zip bandizip winrar
 scoop install altsnap everything format-factory powertoys quicklook snipaste
 scoop install clash-verge
-scoop install cpu-z crystaldiskinfo crystaldiskmark gpu-z 
+scoop install cpu-z crystaldiskinfo crystaldiskmark gpu-z
 scoop install cpufetch fastfetch ffmpeg git imagemagick lf pandoc sudo syncthing
 # scoop install dark innounp
 scoop install FiraCode SarasaGothic-ttc
