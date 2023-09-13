@@ -1,4 +1,4 @@
-# LaTeX
+# :simple-latex: LaTeX
 
 <div align=center> <img src="/images/ctanlion.png" width = 30%/> </div>
 

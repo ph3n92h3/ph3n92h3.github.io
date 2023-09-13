@@ -1,3 +1,5 @@
+# :material-home: Home
+
 > 及至始皇，奮六世之馀烈……
 
 Zhe Feng / <ruby>冯<rt>féng</rt></ruby> <ruby>哲<rt>zhé</rt></ruby>

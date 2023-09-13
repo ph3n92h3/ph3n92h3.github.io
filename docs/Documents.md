@@ -1,4 +1,4 @@
-# Documents
+# :material-file-document: Documents
 
 ## Course Review Notes
 

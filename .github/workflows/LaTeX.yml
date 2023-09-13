@@ -23,5 +23,5 @@ jobs:
           git config --global user.name "ph3n92h3"
           mv CV_en.pdf CV_zh.pdf CV
           git add CV
-          git commit -m "github action"
+          git commit -m "update CVs by GitHub action"
           git push

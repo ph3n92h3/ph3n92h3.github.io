@@ -1,4 +1,4 @@
-# Academic
+# :simple-microsoftacademic: Academic
 
 ## Research Interests
 

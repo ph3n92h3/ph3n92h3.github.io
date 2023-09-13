@@ -1,6 +1,6 @@
-# OS
+# :fontawesome-solid-computer: OS
 
-## Arch Linux
+## :material-arch: :simple-linux: Arch Linux
 
 - [dotfile](https://github.com/ph3n92h3/dotfile)
 
@@ -14,7 +14,7 @@
 
 ### Basic Configuration
 
-#### 禁用 PC speaker
+#### 禁用 PC speaker :material-speaker:
 
 `sudo hx /etc/modprobe.d/nobeep.conf`
 
@@ -180,7 +180,7 @@ sudo hx /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### KDE
+### :simple-kde: KDE
 
 #### 专属软件
 
@@ -230,9 +230,9 @@ paru -S sddm-nordic-theme-git
 
 > 我自己在一个相对私人的笔记本电脑安装了 Arch Linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 macos 或 windows 的电脑，我不建议你安装 Arch Linux。
 
-## MacOS
+## :simple-apple: MacOS
 
-### Homebrew
+### :simple-homebrew: Homebrew
 
 [Homebrew 源使用帮助](https://mirrors.ustc.edu.cn/help/brew.git.html)
 
@@ -265,7 +265,7 @@ brew install --cask font-fira-code-nerd-font
 brew install --cask font-lxgw-wenkai
 ```
 
-## Windows
+## :simple-windows: Windows
 
 ### Apps
 
@@ -291,7 +291,7 @@ winget install Thunder.Thunder
 winget install Valve.Steam
 ```
 
-#### Scoop
+#### :material-silverware-spoon: Scoop
 
 ```sh
 # add bucket
@@ -330,10 +330,10 @@ Watt Toolkit
 
 #### Install Manually
 
-- [小白羊云盘](https://githubfast.com/gaozhangmin/aliyunpan)
+- :material-sheep: [小白羊云盘](https://githubfast.com/gaozhangmin/aliyunpan)
 - [EndNote X9](https://endnote.com/)
 - [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
-- [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
+- :simple-wolframmathematica: [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
 
 ### Limit Power Consumption and Reduce Noise
 
