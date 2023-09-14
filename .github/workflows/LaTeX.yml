@@ -2,8 +2,8 @@ name: LaTeX
 on:
   push:
     paths:
-      - "CV/CV_en.tex"
-      - "CV/CV-en.tex"
+      - "CV-PS/CV_en.tex"
+      - "CV-PS/CV-en.tex"
 permissions:
   contents: write
 jobs:
@@ -15,13 +15,13 @@ jobs:
         with:
           latexmk_use_xelatex: true
           root_file: |
-            CV/CV_en.tex
-            CV/CV_zh.tex
+            CV-PS/CV_en.tex
+            CV-PS/CV_zh.tex
       - name: save
         run: |
           git config --global user.email "ph3n92h3@gmail.com"
           git config --global user.name "ph3n92h3"
-          mv CV_en.pdf CV_zh.pdf CV
-          git add CV
+          mv CV_en.pdf CV_zh.pdf CV-PS
+          git add CV-PS
           git commit -m "update CVs by GitHub action"
           git push
