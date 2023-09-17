@@ -46,8 +46,8 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
   - pymdownx.inlinehilite
   - pymdownx.highlight:
       anchor_linenums: true
@@ -58,11 +58,13 @@ site_name: Mein kleines Herz
 theme:
   favicon: /images/logo.png
   features:
+    - content.code.copy
     - navigation.indexes
     - navigation.instant
     - navigation.tracking
   font:
     text: Noto Serif SC
+    code: Fira Code
   logo: /images/logo.png
   name: material
   palette:
