@@ -2,7 +2,7 @@ name: mkdocs
 on:
   push:
     paths:
-      - ".github/workflow/mkdocs.yml"
+      - ".github/workflows/mkdocs.yml"
       - "docs/*"
       - "mkdocs.yml"
 permissions:
