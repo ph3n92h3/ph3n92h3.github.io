@@ -14,10 +14,10 @@ jobs:
         with:
           latexmk_shell_escape: true
           latexmk_use_xelatex: true
-          root_file: "CV_en.tex"
+          root_file: "CV_*.tex"
           working_directory: CV-PS/
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: CV-PS
-          paths: "*.pdf"
+          path: "*.pdf"
