@@ -1,27 +1,23 @@
 name: LaTeX
-on:
-  push:
-    paths:
-      - "CV-PS/CV_en.tex"
-      - "CV-PS/CV-en.tex"
-permissions:
-  contents: write
+on: [push]
+# on:
+#   push:
+#     paths: CV-PS/
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: xu-cheng/latex-action@v2
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
+          latexmk_shell_escape: true
           latexmk_use_xelatex: true
-          root_file: |
-            CV-PS/CV_en.tex
-            CV-PS/CV_zh.tex
-      - name: save
-        run: |
-          git config --global user.email "ph3n92h3@gmail.com"
-          git config --global user.name "ph3n92h3"
-          mv CV_en.pdf CV_zh.pdf CV-PS
-          git add CV-PS
-          git commit -m "update CVs by GitHub action"
-          git push
+          root_file: "*.tex"
+          working_directory: CV-PS/
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: CV-PS
+          paths: "*.pdf"
