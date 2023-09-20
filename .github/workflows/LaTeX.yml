@@ -26,4 +26,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: CV-PS
-          path: "*.pdf"
+          path: |
+            CV_en.pdf
+            CV_zh.pdf
+            PS_scholarship_old.pdf
+            PS_scholarship.pdf
+            PS_slide.pdf
+            PS.pdf
