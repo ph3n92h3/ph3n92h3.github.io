@@ -6,7 +6,8 @@
 
 ### Online
 
-[Overleaf](https://www.overleaf.com/) or [Overleaf in Chinese](https://cn.overleaf.com/)
+- [Overleaf](https://www.overleaf.com/) or [Overleaf in Chinese](https://cn.overleaf.com/)
+- [GitHub Action](https://github.com/marketplace/actions/github-action-for-latex)
 
 ### Offline
 
@@ -29,7 +30,7 @@ brew install latexindent
 #### Windows
 
 ```sh
-scoop install latex latexindent # miktex
+scoop install miktex latexindent
 ```
 
 ## Useful Resources
@@ -127,7 +128,7 @@ scoop install latex latexindent # miktex
 ### General Chinese Notes
 
 ```latex
-\documentclass[fontset=founder]{ctexart}
+\documentclass{ctexart}
 
 \usepackage[a4paper,scale=0.8]{geometry}
 
@@ -149,17 +150,15 @@ scoop install latex latexindent # miktex
 
 ```latex
 \documentclass[9pt,aspectratio=169,hyperref=colorlinks]{beamer}
+\usepackage{xeCJK}
+% or \documentclass[9pt,aspectratio=169,hyperref=colorlinks]{ctexbeamer}
 
 \usetheme{Goettingen}
 \usecolortheme{crane}
 \usefonttheme{professionalfonts}
 \setbeamercolor{item}{fg=black}
+\setbeamertemplate{footline}[frame number]
 \setbeamertemplate{itemize items}[circle]
-
-\usepackage{xeCJK}
-\setCJKmainfont{Noto Serif CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
 
 \usepackage{ragged2e}
 \justifying\let\raggedright\justifying

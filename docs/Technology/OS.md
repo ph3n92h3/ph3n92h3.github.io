@@ -123,6 +123,7 @@ paru -S foliate jabref rnote xournalpp # foxitreader
 paru -S geeqie gimp shotcut mpv obs-studio obs-backgroundremoval yesplaymusic
 paru -S gnome-keyring github-desktop
 paru -S helix visual-studio-code-bin
+paru -S libreoffice-still wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 paru -S linuxqq telegram-desktop wemeet-bin zoom
 paru -S linux-amd-znver2 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 paru -S kuro
@@ -133,7 +134,6 @@ paru -S pot-translation-git tesseract tesseract-data wudao-dict-git
 paru -S stable-diffusion-ui
 paru -S texlive texlive-lang
 paru -S ventoy-bin
-paru -S wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
 ```
 
 ### Hyprland
@@ -154,6 +154,12 @@ paru -S brightnessctl grimblast-git swaylock-git
 - 自动挂载 U 盘：`paru -S udiskie`
 - 切换代理：在 `clash-verge` 里面创建一个空的 profile，不想走代理的时候就用这个
 - 剪切板：`Ctrl + ;`
+- 合并图片成 `pdf`
+
+```sh
+libreoffice --headless --convert-to pdf *.jpg
+pdfunit *.pdf output.pdf
+```
 
 ##### 功耗控制
 
@@ -227,6 +233,16 @@ paru -S sddm-nordic-theme-git
 - 壁纸：使用必应每日一图
 - Konsole：修改默认的颜色主题透明度为 `75%`
 - 更换主题：先在 `kvantum manager` 里更换主题，再在系统设置里把能改成 `kvantum` 的改掉。
+
+### 痛点
+
+#### 办公
+
+- MS Office 网页版无法编辑 `.doc`，自动转换出来的 `.docs` 很差
+- 各种 office 套件（包括 WPS）对 MS Office 的兼容效果很差
+- 一大堆 `.jpg`, `.png`, `.pdf` 如何合并成一个 `.pdf`？
+    - `imagemagick` 的 `convert` 转换出来的分辨率太低
+- OneDrive 同步效果并不是完全实时的
 
 > 我自己在一个相对私人的笔记本电脑安装了 Arch Linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 macos 或 windows 的电脑，我不建议你安装 Arch Linux。
 
