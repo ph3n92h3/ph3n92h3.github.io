@@ -293,17 +293,17 @@ winget + scoop + Microsoft store
 winget install Armin2208.WindowsAutoNightMode
 winget install Bilibili.Livehime
 winget install EpicGames.EpicGamesLauncher
-winget install Kingsoft.TypeEasy
-winget install Kingsoft.WPSOffice.CN
+# winget install Kingsoft.TypeEasy
+# winget install Kingsoft.WPSOffice.CN
 winget install Microsoft.DotNet.DesktopRuntime.6
-winget install Microsoft.DotNet.DesktopRuntime.7
+# winget install Microsoft.DotNet.DesktopRuntime.7
 winget install NetEase.CloudMusic
-winget install Oracle.VirtualBox
+# winget install Oracle.VirtualBox
 winget install Pylogmon.pot
 winget install Tencent.TencentMeeting
-winget install Tencent.TIM
+winget install Tencent.QQ.NT
 winget install Tencent.WeChat
-winget install Thunder.Thunder
+# winget install Thunder.Thunder
 winget install Valve.Steam
 ```
 
@@ -316,23 +316,23 @@ scoop bucket add main
 scoop bucket add nerd-fonts
 
 # install apps
-scoop install 7zip bandizip winrar
-scoop install altsnap everything format-factory powertoys quicklook snipaste
+scoop install 7zip winrar # bandizip
+scoop install altsnap everything powertoys quicklook snipaste # format-factory
 scoop install clash-verge
 scoop install cpu-z crystaldiskinfo crystaldiskmark gpu-z
 scoop install cpufetch fastfetch ffmpeg git imagemagick lf pandoc sudo syncthing
 # scoop install dark innounp
-scoop install FiraCode SarasaGothic-ttc
-scoop install foxit-reader sumatrapdf
+scoop install FiraCode # SarasaGothic-ttc
+scoop install sumatrapdf # foxit-reader
 scoop install github
-scoop install helix vscode
+scoop install vscode # helix
 scoop install jabref
-scoop install latex latexindent # miktex
+scoop install latexindent tectonic # miktex
 scoop install mpv obs-studio yesplaymusic
-scoop install msiafterburner
+# scoop install msiafterburner
 scoop install office-tool-plus
 # scoop install qbittorrent-enhanced
-scoop install telegram
+# scoop install telegram
 scoop install ventoy
 scoop install vivaldi
 scoop install windows-terminal
@@ -341,14 +341,15 @@ scoop install windows-terminal
 #### Microsoft Store
 
 ```sh
-Watt Toolkit
+:simple-steam: Watt Toolkit
 ```
 
 #### Install Manually
 
-- :material-sheep: [小白羊云盘](https://githubfast.com/gaozhangmin/aliyunpan)
-- [EndNote X9](https://endnote.com/)
-- [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
+- :fontawesome-solid-file-pdf: [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
+- :fontawesome-solid-scissors: [必剪](https://bcut.bilibili.cn)
+- :material-note: [EndNote X9](https://endnote.com/)
+- :material-sheep: [小白羊云盘](https://github.com/gaozhangmin/aliyunpan)
 - :simple-wolframmathematica: [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
 
 ### Limit Power Consumption and Reduce Noise
