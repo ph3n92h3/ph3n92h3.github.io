@@ -285,62 +285,58 @@ brew install --cask font-lxgw-wenkai
 
 ### Apps
 
-winget + scoop + Microsoft store
+> winget + Microsoft store
 
 #### Winget
 
 ```sh
+winget install AltSnap.AltSnap
+winget install Microsoft.PowerToys
+winget install QL-Win.QuickLook
+winget install voidtools.Everything
+
+winget install CPUID.CPU-Z
+winget install CrystalDewWorld.CrystalDiskInfo
+winget install CrystalDewWorld.CrystalDiskMark
+winget install TechPowerUp.GPU-Z
+
+winget install Dr-Noob.cpufetch
+winget install Gyan.FFmpeg
+winget install ImageMagick.ImageMagick
+winget install JohnMacFarlane.Pandoc
+winget install nepnep.neofetch-win
+winget install Syncthing.Syncthing
+
 winget install Armin2208.WindowsAutoNightMode
+winget install Bandisoft.Bandizip # 7zip.7zip RARLab.WinRAR
 winget install Bilibili.Livehime
+winget install c0re100.qBittorrent-Enhanced-Edition
 winget install EpicGames.EpicGamesLauncher
-# winget install Kingsoft.TypeEasy
-# winget install Kingsoft.WPSOffice.CN
-winget install Microsoft.DotNet.DesktopRuntime.6
-# winget install Microsoft.DotNet.DesktopRuntime.7
+winget install GitHub.GitHubDesktop
+winget install GyDi.ClashVerge
+winget install JabRef.JabRef
+winget install Kingsoft.WPSOffice.CN
+winget install Microsoft.VisualStudioCode
+winget install Microsoft.WindowsTerminal
 winget install NetEase.CloudMusic
+winget install OBSProject.OBSStudio
 # winget install Oracle.VirtualBox
 winget install Pylogmon.pot
+winget install qier222.yesplaymusic
+winget install SumatraPDF.SumatraPDF
 winget install Tencent.TencentMeeting
 winget install Tencent.QQ.NT
 winget install Tencent.WeChat
 # winget install Thunder.Thunder
 winget install Valve.Steam
-```
-
-#### :material-silverware-spoon: Scoop
-
-```sh
-# add bucket
-scoop bucket add extras
-scoop bucket add main
-scoop bucket add nerd-fonts
-
-# install apps
-scoop install 7zip winrar # bandizip
-scoop install altsnap everything powertoys quicklook snipaste # format-factory
-scoop install clash-verge
-scoop install cpu-z crystaldiskinfo crystaldiskmark gpu-z
-scoop install cpufetch fastfetch ffmpeg git imagemagick lf pandoc sudo syncthing
-# scoop install dark innounp
-scoop install FiraCode # SarasaGothic-ttc
-scoop install sumatrapdf # foxit-reader
-scoop install github
-scoop install vscode # helix
-scoop install jabref
-scoop install latexindent tectonic # miktex
-scoop install mpv obs-studio yesplaymusic
-# scoop install msiafterburner
-scoop install office-tool-plus
-# scoop install qbittorrent-enhanced
-# scoop install telegram
-scoop install ventoy
-scoop install vivaldi
-scoop install windows-terminal
+winget install VideoLAN.VLC
+winget install VivaldiTechnologies.Vivaldi
 ```
 
 #### Microsoft Store
 
 ```sh
+Snipaste
 :simple-steam: Watt Toolkit
 ```
 
@@ -348,8 +344,11 @@ scoop install windows-terminal
 
 - :fontawesome-solid-file-pdf: [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
 - :fontawesome-solid-scissors: [必剪](https://bcut.bilibili.cn)
+- :material-airplane: [msiafterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
+- :material-factory: [格式工厂](http://formatfactory.org/CN/index.html)
 - :material-note: [EndNote X9](https://endnote.com/)
 - :material-sheep: [小白羊云盘](https://github.com/gaozhangmin/aliyunpan)
+- :material-usb-flash-drive: [ventoy](https://www.ventoy.net/en/index.html)
 - :simple-wolframmathematica: [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
 
 ### Limit Power Consumption and Reduce Noise
