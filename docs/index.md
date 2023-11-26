@@ -8,6 +8,8 @@ Undergraduate, College of Science, [Hohai University](https://en.hhu.edu.cn/)/[�
 
 E-mail: [2010020129@hhu.edu.cn](mailto:2010020129@hhu.edu.cn)
 
+Mailing Address: 江苏省南京市江宁区佛城西路8号河海大学江宁校区
+
 My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github.io/blob/main/CV-PS/CV_en.tex) / [🇨🇳 Chinese (Simplified)](https://github.com/ph3n92h3/ph3n92h3.github.io/blob/main/CV-PS/CV_zh.tex)
 
 <div align=center> <img src="/images/avatar.jpg" width = 20%/> </div>
