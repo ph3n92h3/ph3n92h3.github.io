@@ -18,6 +18,8 @@ Solid State Physics / [固体物理](https://github.com/ph3n92h3/notes/tree/main
 
 ## Physics/Mathematics Reading Notes
 
+[微积分](https://github.com/ph3n92h3/notes/tree/main/%E5%BE%AE%E7%A7%AF%E5%88%86)
+
 [《微分幾何入門與廣義相對論》附錄G“李群和李代數”習題解答](https://github.com/ph3n92h3/notes/tree/main/%E3%80%8A%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E5%85%A5%E9%97%A8%E4%B8%8E%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA%E3%80%8B%E9%99%84%E5%BD%95G%E2%80%9C%E6%9D%8E%E7%BE%A4%E5%92%8C%E6%9D%8E%E4%BB%A3%E6%95%B0%E2%80%9D%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94)
 
 [Quantum Field Theory by David Tong](http://www.damtp.cam.ac.uk/user/tong/qft.html) / [量子场论 by David Tong](https://github.com/ph3n92h3/notes/tree/main/%E9%87%8F%E5%AD%90%E5%9C%BA%E8%AE%BA%20by%20David%20Tong)
@@ -28,6 +30,8 @@ Solid State Physics / [固体物理](https://github.com/ph3n92h3/notes/tree/main
 
 [Groups and Representations by Andre Lukas and Hannah Tillim](http://www-thphys.physics.ox.ac.uk/people/AndreLukas/GroupsandRepresentations/) / [群论和表示论 by Andre Lukas and Hannah Tillim](https://github.com/ph3n92h3/notes/blob/main/%E7%BE%A4%E8%AE%BA%E5%92%8C%E8%A1%A8%E7%A4%BA%E8%AE%BA%20by%20Andre%20Lukas%20and%20Hannah%20Tillim.pdf)
 
+[Supersymmetric Quantum Mechanics by David Tong](http://www.damtp.cam.ac.uk/user/tong/susyqm.html) / [Comments in 'Supersymmetric Quantum Mechanics by David Tong'](https://github.com/ph3n92h3/notes/tree/main/Comments%20in%20'Supersymmetric%20Quantum%20Mechanics%20by%20David%20Tong')
+
 <!-- 这部分是怎么命名的？「just to remind myself」
 
 - 「/」前：文本是 英文标题 by 作者名字，链接是原作地址
@@ -37,3 +41,7 @@ Solid State Physics / [固体物理](https://github.com/ph3n92h3/notes/tree/main
 ## Others
 
 [小狗钱钱2](https://github.com/ph3n92h3/notes/blob/main/%E5%B0%8F%E7%8B%97%E9%92%B1%E9%92%B12.md)
+
+[戒为良药](https://github.com/ph3n92h3/notes/tree/main/%E6%88%92%E4%B8%BA%E8%89%AF%E8%8D%AF)
+
+[黄帝内经](https://github.com/ph3n92h3/notes/tree/main/%E9%BB%84%E5%B8%9D%E5%86%85%E7%BB%8F)
