@@ -3,12 +3,15 @@
 ## Research Interests
 
 - High Energy Physics - Theory (hep-th)
+    - Covariant Phase Space Formalism, AdS/CFT Correspondence, Holographic Entanglement Entropy
+    - SUSY, CFT
 - General Relativity and Quantum Cosmology (gr-qc)
+    - Inflation, Cosmology, Black Hole, Compact Star
 
-## Education and Research Experience
+## Education Experience
 
 - *2024.09 -* : Ph.D, [Chinese Academy of Sciences, Institute of Theoretical Physics](http://english.itp.cas.cn)/[中国科学院理论物理研究所](http://itp.cas.cn), *Beijing, China*
-- *2020.09 - present* : Undergraduate, [Hohai University](https://en.hhu.edu.cn/), [College of Science](http://lxy.hhu.edu.cn/en/)/[河海大学](https://hhu.edu.cn/), [理学院](http://lxy.hhu.edu.cn/index), *Nanjing, China*
+- *2020.09 - present* : Undergraduate, [Hohai University](https://en.hhu.edu.cn/)/[河海大学](https://hhu.edu.cn/), *Nanjing, China*
 - *2017.09 - 2020.07* : [石家庄二中实验学校](http://sjzezsyxx.com/), *Shijiazhuang, China*
 - *2014.09 - 2017.06* : 邯郸市育华中学, *Handan, China*
 - *2011.09 - 2014.06* : 临漳县实验学校, *Handan, China*
