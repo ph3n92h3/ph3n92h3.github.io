@@ -291,9 +291,10 @@ brew install --cask font-lxgw-wenkai
 
 ```sh
 winget install AltSnap.AltSnap
+winget install Highresolution.X-MouseButtonControl
 winget install Microsoft.PowerToys
 winget install QL-Win.QuickLook
-# winget install voidtools.Everything
+winget install voidtools.Everything
 
 # winget install CPUID.CPU-Z
 # winget install CrystalDewWorld.CrystalDiskInfo
@@ -304,12 +305,13 @@ winget install QL-Win.QuickLook
 winget install Gyan.FFmpeg
 # winget install ImageMagick.ImageMagick
 # winget install JohnMacFarlane.Pandoc
+winget install LocalSend.LocalSend
 # winget install nepnep.neofetch-win
 # winget install Syncthing.Syncthing
 
-winget install 7zip.7zip # Bandisoft.Bandizip RARLab.WinRAR
 winget install AppbyTroye.KoodoReader
 winget install Armin2208.WindowsAutoNightMode
+winget install Bandisoft.Bandizip # 7zip.7zip RARLab.WinRAR
 winget install Bilibili.Livehime
 # winget install c0re100.qBittorrent-Enhanced-Edition
 winget install EpicGames.EpicGamesLauncher
@@ -317,13 +319,12 @@ winget install ForgQi.biliup-app
 winget install GitHub.GitHubDesktop
 winget install GyDi.ClashVerge
 # winget install JabRef.JabRef
-winget install LocalSend.LocalSend
 winget install Microsoft.VisualStudioCode
 winget install Microsoft.WindowsTerminal
 winget install NetEase.CloudMusic
 winget install OBSProject.OBSStudio
 winget install Pylogmon.pot
-winget install Python.Python.3.12
+# winget install Python.Python.3.12
 winget install SumatraPDF.SumatraPDF
 winget install Tencent.TencentMeeting
 winget install Tencent.QQ.NT
@@ -333,6 +334,7 @@ winget install Thunder.Thunder
 winget install Valve.Steam
 winget install VideoLAN.VLC
 winget install VivaldiTechnologies.Vivaldi
+winget install Xournal++.Xournal++
 ```
 
 #### Microsoft Store
@@ -341,7 +343,6 @@ winget install VivaldiTechnologies.Vivaldi
 iCloud
 Snipaste
 Watt Toolkit
-mpv
 ```
 
 #### Install Manually
@@ -353,102 +354,23 @@ mpv
 - [TeX Live](https://ctan.org/pkg/install-latex-guide-zh-cn)
 - [ventoy](https://www.ventoy.net/en/index.html)
 - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
+- [WeGame](https://www.wegame.com.cn)
 - [WPS 365 教育版](https://365.wps.cn/edu/home)
 <!-- - [必剪](https://bcut.bilibili.cn) -->
 - [格式工厂](http://formatfactory.org/CN/index.html)
 - [小白羊云盘](https://github.com/gaozhangmin/aliyunpan)
 
 ```sh
-pip install bilili
+# pip install bilili
 ```
 
-#### Fonts
+### Fonts
 
 - [Fira Code](https://github.com/tonsky/FiraCode)
 - [LXGW Neo XiHei](https://github.com/lxgw/LxgwNeoXiHei)
 - [LXGW WenKai](https://github.com/lxgw/LxgwWenKai)
 - [Sarasa Gothic](https://github.com/be5invis/Sarasa-Gothic)
 - [Smiley Sans](https://github.com/atelier-anchor/smiley-sans)
-
-### Apps(Study and Work)
-
-#### Winget
-
-```sh
-winget install AltSnap.AltSnap
-winget install Microsoft.PowerToys
-winget install QL-Win.QuickLook
-
-winget install 7zip.7zip # Bandisoft.Bandizip RARLab.WinRAR
-winget install AppbyTroye.KoodoReader
-winget install Armin2208.WindowsAutoNightMode
-winget install GitHub.GitHubDesktop
-winget install GyDi.ClashVerge
-# winget install JabRef.JabRef
-winget install LocalSend.LocalSend
-winget install Microsoft.VisualStudioCode
-winget install NetEase.CloudMusic
-winget install Pylogmon.pot
-winget install SumatraPDF.SumatraPDF
-winget install Tencent.TencentMeeting
-winget install Tencent.QQ.NT
-winget install Tencent.WeChat
-winget install VivaldiTechnologies.Vivaldi
-```
-
-#### Microsoft Store
-
-```sh
-iCloud
-Snipaste
-```
-
-#### Install Manually
-
-- [Office Tool Plus](https://otp.landian.vip/zh-cn/)
-- [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
-- [TeX Live](https://ctan.org/pkg/install-latex-guide-zh-cn)
-- [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
-- [WPS 365 教育版](https://365.wps.cn/edu/home)
-
-### Apps(Just for Fun)
-
-#### Winget
-
-```sh
-winget install Gyan.FFmpeg
-
-winget install 7zip.7zip # Bandisoft.Bandizip RARLab.WinRAR
-winget install AppbyTroye.KoodoReader
-winget install Armin2208.WindowsAutoNightMode
-winget install Bilibili.Livehime
-winget install ForgQi.biliup-app
-winget install GyDi.ClashVerge
-winget install LocalSend.LocalSend
-winget install NetEase.CloudMusic
-winget install OBSProject.OBSStudio
-winget install Tencent.QQ.NT
-winget install Tencent.QQBrowser
-winget install Tencent.WeChat
-winget install Thunder.Thunder
-winget install Valve.Steam
-winget install VideoLAN.VLC
-winget install VivaldiTechnologies.Vivaldi
-```
-
-#### Microsoft Store
-
-```sh
-Watt Toolkit
-mpv
-```
-
-#### Install Manually
-
-- [msiafterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
-<!-- - [必剪](https://bcut.bilibili.cn) -->
-- [格式工厂](http://formatfactory.org/CN/index.html)
-- [小白羊云盘](https://github.com/gaozhangmin/aliyunpan)
 
 ### Limit Power Consumption and Reduce Noise
 
