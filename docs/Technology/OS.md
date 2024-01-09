@@ -291,7 +291,7 @@ brew install --cask font-lxgw-wenkai
 
 ```sh
 winget install AltSnap.AltSnap
-winget install Highresolution.X-MouseButtonControl
+# winget install Highresolution.X-MouseButtonControl
 winget install Microsoft.PowerToys
 winget install QL-Win.QuickLook
 winget install voidtools.Everything
@@ -302,45 +302,43 @@ winget install voidtools.Everything
 # winget install TechPowerUp.GPU-Z
 
 # winget install Dr-Noob.cpufetch
-winget install Gyan.FFmpeg
+winget install Git.Git
+# winget install Gyan.FFmpeg
 # winget install ImageMagick.ImageMagick
 # winget install JohnMacFarlane.Pandoc
 winget install LocalSend.LocalSend
 # winget install nepnep.neofetch-win
 # winget install Syncthing.Syncthing
 
-winget install AppbyTroye.KoodoReader
 winget install Armin2208.WindowsAutoNightMode
 winget install Bandisoft.Bandizip # 7zip.7zip RARLab.WinRAR
 winget install Bilibili.Livehime
 # winget install c0re100.qBittorrent-Enhanced-Edition
-winget install EpicGames.EpicGamesLauncher
-winget install ForgQi.biliup-app
+# winget install EpicGames.EpicGamesLauncher
+# winget install ForgQi.biliup-app
 winget install GitHub.GitHubDesktop
 winget install GyDi.ClashVerge
 # winget install JabRef.JabRef
 winget install Microsoft.VisualStudioCode
-winget install Microsoft.WindowsTerminal
 winget install NetEase.CloudMusic
 winget install OBSProject.OBSStudio
-winget install Pylogmon.pot
+# winget install Pylogmon.pot
 # winget install Python.Python.3.12
 winget install SumatraPDF.SumatraPDF
 winget install Tencent.TencentMeeting
 winget install Tencent.QQ.NT
-winget install Tencent.QQBrowser
+# winget install Tencent.QQBrowser
 winget install Tencent.WeChat
-winget install Thunder.Thunder
+# winget install Thunder.Thunder
 winget install Valve.Steam
 winget install VideoLAN.VLC
 winget install VivaldiTechnologies.Vivaldi
-winget install Xournal++.Xournal++
+# winget install Xournal++.Xournal++
 ```
 
 #### Microsoft Store
 
 ```sh
-iCloud
 Snipaste
 Watt Toolkit
 ```
@@ -348,16 +346,17 @@ Watt Toolkit
 #### Install Manually
 
 <!-- - [EndNote X9](https://endnote.com/) -->
-- [msiafterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
+<!-- - [msiafterburner](https://www.msi.com/Landing/afterburner/graphics-cards) -->
+- [No!! MeiryoUI](https://github.com/Tatsu-syo/noMeiryoUI)
 - [Office Tool Plus](https://otp.landian.vip/zh-cn/)
-- [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
+<!-- - [pdfpatcher](https://www.cnblogs.com/pdfpatcher/) -->
 - [TeX Live](https://ctan.org/pkg/install-latex-guide-zh-cn)
-- [ventoy](https://www.ventoy.net/en/index.html)
+<!-- - [ventoy](https://www.ventoy.net/en/index.html) -->
 - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
-- [WeGame](https://www.wegame.com.cn)
-- [WPS 365 教育版](https://365.wps.cn/edu/home)
+<!-- - [WeGame](https://www.wegame.com.cn) -->
+<!-- - [WPS 365 教育版](https://365.wps.cn/edu/home) -->
 <!-- - [必剪](https://bcut.bilibili.cn) -->
-- [格式工厂](http://formatfactory.org/CN/index.html)
+<!-- - [格式工厂](http://formatfactory.org/CN/index.html) -->
 - [小白羊云盘](https://github.com/gaozhangmin/aliyunpan)
 
 ```sh
@@ -366,15 +365,16 @@ Watt Toolkit
 
 ### Fonts
 
-- [Fira Code](https://github.com/tonsky/FiraCode)
 - [LXGW Neo XiHei](https://github.com/lxgw/LxgwNeoXiHei)
 - [LXGW WenKai](https://github.com/lxgw/LxgwWenKai)
 - [Sarasa Gothic](https://github.com/be5invis/Sarasa-Gothic)
+    - Install `10` fonts named `Sarasa Mono SC`
+    - Install `10` fonts named `Sarasa Ui SC`
 - [Smiley Sans](https://github.com/atelier-anchor/smiley-sans)
 
 ### Limit Power Consumption and Reduce Noise
 
-Control Panel - Power Options - Edit Plan Settings - Change advanced power settings - Processor power management
+Control Panel\Hardware and Sound\Power Options\Edit Plan Settings -> Change advanced power settings -> Processor power management
 
 - Minimum processor state
     - On battery: 5%
