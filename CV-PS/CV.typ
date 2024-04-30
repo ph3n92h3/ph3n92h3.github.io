@@ -1,16 +1,14 @@
 #set page(margin: 5%)
-
 #set par(justify: true)
-
 #set text(font: ("New Computer Modern", "Noto Serif CJK SC"))
 
 #show heading.where(level: 1): it => [
   #it #v(-1em) #line(length: 100%, stroke: 0.4pt)
 ]
-#show emph: text.with(font: ("New Computer Modern", "Kaiti"))
+#show emph: set text(font: ("New Computer Modern", "Kaiti"))
 
 #align(center)[
-  #text(size: 25pt)[*Zhe Feng / 冯 哲*]
+  #text(size: 24pt)[*Zhe Feng / 冯 哲*]
 
   #text(fill: blue)[#link("mailto:2010020129@hhu.edu.cn")[2010020129\@hhu.edu.cn]] $diamond.stroked.small$ #text(fill: blue)[#link("https://ph3n92h3.github.io")]
 ]
@@ -40,7 +38,7 @@
 == High Energy Physics - Theory
 
 _Revisiting the asymptotic symmetries and their
-associated charges in the pure $"AdS"_3$ gravity_\ #h(1fr) _Prof. Jie-qiang Wu(ITP, CAS)_ Oct. 2023 - Present
+associated charges in the pure $"AdS"_3$ gravity_\ #h(1fr) _Prof. Jie-qiang Wu(ITP, CAS)_, Oct. 2023 - Present
 
 - In this paper, we revisit the asymptotic symmetries and their associated charges in the pure $"AdS"_3$ gravity with the covariant phase space formalism. Different from the ordinary approach of the covariant phase formalism, our approach starts from an off-shell formalism. Here, we define the pure $"AdS"_3$ gravity as a set of configurations incorporated with an action which is a function of the set of configurations. And we view the asymptotic symmetries as transformations acting on the set of configurations. To make the pure $"AdS"_3$ gravity well defined, we take a proper treatment for the IR divergence. Specifically, we adopt proper asymptotic boundary conditions for the configuration. And we include proper counter terms in the action cancelling all of the IR divergence for all configurations.
 - Based on this formalism, we show that the asymptotic symmetries are indeed symmetries of the pure $"AdS"_3$ gravity in the following sense. Namely, when we act the asymptotic symmetries on the action, the change of the action only supports at the initial and final Cauchy surfaces, up to some constant terms supporting in between, which we refer to as anomaly terms. We also compute the charges associated with the asymptotic symmetries with the equation of the Noether charge. Here, we get the same expression as the charges computed with the ordinary approach of the covariant phase space formalism and with the boundary stress tensor.
@@ -63,13 +61,13 @@ associated charges in the pure $"AdS"_3$ gravity_\ #h(1fr) _Prof. Jie-qiang Wu(I
 
 _基于 Fabry-Pérot 多层膜 / Si 结构的小型化波长可分辨光电探测器_\ #h(1fr) _Prof. Zhibin Shao(HHU)_, Sept. 2021 - Aug. 2023
 
-- 河海大学大学生创新训练项目 _优秀结题_
+- 河海大学大学生创新训练项目（校级） _优秀结题_
 - 硅的吸收光谱对于光的波长没有选择性，这导致现有的光电探测器难以实现对光谱的分辨，使得光电探测器的应用场景受到局限。而 Fabry-Pérot 多层膜由于其高度的灵活性与强大的波长选择性能有望解决此问题，将 Fabry-Pérot 多层膜与硅基半导体相耦合，可以在进行光探测的同时进行波长的选择，从而实现波长分辨。
 - 传统的大型、固定的光谱仪通常需要长光路和宽接收面，难以满足时效性、便携性、小型化的应用需求。 光电探测器基于电极层和单晶硅，光电特性基于半导体的内禀性质，不依赖于长光路和宽接收面，将其应用于光谱分辨则可解决传统光谱仪的尺寸局限性问题。
 
 _激光刻蚀辅助硅微纳结构图案化制备研究_ #h(1fr) _Prof. Zhibin Shao(HHU)_, Sept. 2021 - Aug. 2023
 
-- 河海大学大学生创新训练项目 _优秀结题_
+- 河海大学大学生创新训练项目（校级） _优秀结题_
 - 激光具有单色性好、方向性好、高精度、可设计性高等特点，与其他微纳结构材料制备方法相比，激光加工具有设备简单、任意性高、参数容易调控等优点，研究激光刻蚀在制备硅微纳结构中的应用有重要意义。
 - 光伏电池生产中，利用表面制绒技术制备硅微纳结构，提高面板的吸光率和光电转换效率。然而该技术也使得硅基光伏面板呈现单一深色，降低光伏面板的美观性。通过精确调控硅微纳结构的尺寸和位置，可以控制硅晶圆局部光学特性，有望实现图案化光伏面板的制备，推动可装饰太阳能产业的发展。
 
@@ -87,7 +85,7 @@ _激光刻蚀辅助硅微纳结构图案化制备研究_ #h(1fr) _Prof. Zhibin S
 - 理学院 2021-2022 学年 “李立聪奖学金” #h(1fr) _Dec. 2021_
 - 河海大学 2020-2021 学年学业优秀奖学金 #h(1fr) _Nov. 2021_
 - 河海大学 2020-2021 学年科技创新奖学金 #h(1fr) _Nov. 2021_
-\
+#line(start: (25%, 0pt), end: (75%, 0pt), stroke: 0.4pt)
 - 第十五届全国大学生数学竞赛（非数学 A 类） _一等奖_ #h(1fr) _Dec. 2023_
 - 江苏省高等学校第二十届高等数学竞赛本科一级A组 _二等奖_ #h(1fr) _Jun. 2023_
 - 2022年第八届全国大学生物理实验竞赛 _二等奖_ #h(1fr) _Dec. 2022_
@@ -99,6 +97,6 @@ _激光刻蚀辅助硅微纳结构图案化制备研究_ #h(1fr) _Prof. Zhibin S
 
 = Volunteer Experience
 
-- Blood donations totaled 1700 mL for six times #h(1fr) 2020 - 2023
+- Blood donations totaled 2000 mL for seven times #h(1fr) 2020 - 2023
 - Excellent volunteer in the epidemic(COVID-19) prevention, Linzhang, Handan, Hebei #h(1fr) 2020 - 2022
 - Volunteer in Jiulong Lake Reading Center, Jiangning, Nanjing, Jiangsu #h(1fr) 2020
