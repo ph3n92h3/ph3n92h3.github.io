@@ -283,94 +283,99 @@ brew install --cask font-lxgw-wenkai
 
 ## :simple-windows: Windows
 
-> winget + Microsoft store
-
-### Apps(All in One)
+### Apps
 
 #### Winget
 
 ```sh
 winget install AltSnap.AltSnap
-# winget install Highresolution.X-MouseButtonControl
+winget install Highresolution.X-MouseButtonControl
+winget install LocalSend.LocalSend
 winget install Microsoft.PowerToys
 winget install QL-Win.QuickLook
+winget install Ventoy.Ventoy
 winget install voidtools.Everything
 
-# winget install CPUID.CPU-Z
-# winget install CrystalDewWorld.CrystalDiskInfo
-# winget install CrystalDewWorld.CrystalDiskMark
-# winget install TechPowerUp.GPU-Z
+winget install CPUID.CPU-Z
+winget install CrystalDewWorld.CrystalDiskInfo
+winget install CrystalDewWorld.CrystalDiskMark
+winget install TechPowerUp.GPU-Z
 
-# winget install Dr-Noob.cpufetch
+winget install Dr-Noob.cpufetch
 winget install Git.Git
-# winget install Gyan.FFmpeg
-# winget install ImageMagick.ImageMagick
-# winget install JohnMacFarlane.Pandoc
-winget install LocalSend.LocalSend
-# winget install nepnep.neofetch-win
-# winget install Syncthing.Syncthing
+winget install Gyan.FFmpeg
+winget install ImageMagick.ImageMagick
+winget install JohnMacFarlane.Pandoc
+winget install nepnep.neofetch-win
+winget install Syncthing.Syncthing
 
 winget install Armin2208.WindowsAutoNightMode
 winget install Bandisoft.Bandizip # 7zip.7zip RARLab.WinRAR
 winget install Bilibili.Livehime
-# winget install c0re100.qBittorrent-Enhanced-Edition
-# winget install EpicGames.EpicGamesLauncher
-# winget install ForgQi.biliup-app
+winget install c0re100.qBittorrent-Enhanced-Edition
+winget install EpicGames.EpicGamesLauncher
+winget install ForgQi.biliup-app
 winget install GitHub.GitHubDesktop
 winget install GyDi.ClashVerge
-# winget install JabRef.JabRef
+winget install JabRef.JabRef
 winget install Microsoft.VisualStudioCode
 winget install NetEase.CloudMusic
 winget install OBSProject.OBSStudio
-# winget install Pylogmon.pot
-# winget install Python.Python.3.12
+winget install Pylogmon.pot
+winget install Python.Python.3.12
 winget install SumatraPDF.SumatraPDF
 winget install Tencent.TencentMeeting
 winget install Tencent.QQ.NT
-# winget install Tencent.QQBrowser
+winget install Tencent.QQBrowser
 winget install Tencent.WeChat
-# winget install Thunder.Thunder
+winget install Thunder.Thunder
 winget install Valve.Steam
 winget install VideoLAN.VLC
 winget install VivaldiTechnologies.Vivaldi
-# winget install Xournal++.Xournal++
+winget install Xournal++.Xournal++
 ```
 
 #### Microsoft Store
 
 ```sh
+Apple Music
 Snipaste
 Watt Toolkit
 ```
 
 #### Install Manually
 
-<!-- - [EndNote X9](https://endnote.com/) -->
-<!-- - [msiafterburner](https://www.msi.com/Landing/afterburner/graphics-cards) -->
-- [No!! MeiryoUI](https://github.com/Tatsu-syo/noMeiryoUI)
+- [msiafterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
 - [Office Tool Plus](https://otp.landian.vip/zh-cn/)
-<!-- - [pdfpatcher](https://www.cnblogs.com/pdfpatcher/) -->
+- [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
 - [TeX Live](https://ctan.org/pkg/install-latex-guide-zh-cn)
-<!-- - [ventoy](https://www.ventoy.net/en/index.html) -->
 - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
-<!-- - [WeGame](https://www.wegame.com.cn) -->
-<!-- - [WPS 365 教育版](https://365.wps.cn/edu/home) -->
-<!-- - [必剪](https://bcut.bilibili.cn) -->
-<!-- - [格式工厂](http://formatfactory.org/CN/index.html) -->
+- [WeGame](https://www.wegame.com.cn)
+- [WPS 365 教育版](https://365.wps.cn/edu/home)
+- [必剪](https://bcut.bilibili.cn)
+- [剪映](https://www.capcut.cn)
+- [格式工厂](http://formatfactory.org/CN/index.html)
 - [小白羊云盘](https://github.com/gaozhangmin/aliyunpan)
 
 ```sh
-# pip install bilili
+pip install bilili
 ```
 
 ### Fonts
 
-- [LXGW Neo XiHei](https://github.com/lxgw/LxgwNeoXiHei)
-- [LXGW WenKai](https://github.com/lxgw/LxgwWenKai)
+- [Noto Serif CJK SC](https://github.com/notofonts/noto-cjk)
+    - Install `Static Super OTC` in `Releases`
 - [Sarasa Gothic](https://github.com/be5invis/Sarasa-Gothic)
     - Install `10` fonts named `Sarasa Mono SC`
     - Install `10` fonts named `Sarasa Ui SC`
 - [Smiley Sans](https://github.com/atelier-anchor/smiley-sans)
+
+### 微软拼音 Add 小鹤双拼
+
+1. 注册表编辑器 -> `计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS`;
+2. 新建字符串值，数值名称 `UserDefinedDoublePinyinScheme0 `，数值数据 `小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt`.
+
+Reference: [Win10 微软拼音添加小鹤双拼以及其他配置](https://ifttl.com/add-flypy-to-win10-microsoft-pinyin-and-other-configuration/)
 
 ### Limit Power Consumption and Reduce Noise
 

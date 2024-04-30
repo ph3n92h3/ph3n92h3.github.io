@@ -18,7 +18,7 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
 
 - 🇨🇳 Chinese(Jin Chinese/Han-Xin/Ci-Zhang, Mandarin)
 - 🇺🇸 / 🇬🇧 English
-- 🇩🇪 German and 🇯🇵 Japanese learning
+- 🇯🇵 Japanese and 🇩🇪 German learning
 
 ## Interest
 
@@ -35,6 +35,6 @@ My CV: [🇺🇸 / 🇬🇧 English](https://github.com/ph3n92h3/ph3n92h3.github
 
 ## Volunteer Experience
 
-- *2020 - 2023* : Blood donations totaled 1700 mL for six times
+- *2020 - 2023* : Blood donations totaled 2000 mL for 7 times
 - *2020 - 2022* : Excellent volunteer in the epidemic(COVID-19) prevention, Linzhang, Handan, Hebei
 - *2020* : Volunteer in Jiulong Lake Reading Center, Jiangning, Nanjing, Jiangsu
