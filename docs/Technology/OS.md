@@ -238,13 +238,13 @@ paru -S sddm-nordic-theme-git
 
 #### 办公
 
-- MS Office 网页版无法编辑 `.doc`，自动转换出来的 `.docs` 很差
+- MS Office 网页版无法编辑 `.doc`，自动转换出来的 `.docx` 很差
 - 各种 office 套件（包括 WPS）对 MS Office 的兼容效果很差
 - 一大堆 `.jpg`, `.png`, `.pdf` 如何合并成一个 `.pdf`？
     - `imagemagick` 的 `convert` 转换出来的分辨率太低
 - OneDrive 同步效果并不是完全实时的
 
-> 我自己在一个相对私人的笔记本电脑安装了 Arch Linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 macos 或 windows 的电脑，我不建议你安装 Arch Linux。
+> 我自己在一个相对私人的笔记本电脑安装了 Arch Linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 MacOS 或 Windows 电脑，我不建议你安装 Arch Linux。
 
 ## :simple-apple: MacOS
 
@@ -287,6 +287,8 @@ brew install --cask font-lxgw-wenkai
 
 #### Winget
 
+> [Winget-AutoUpdate](https://github.com/Romanitho/Winget-AutoUpdate)
+
 ```sh
 winget install AltSnap.AltSnap
 winget install Highresolution.X-MouseButtonControl
@@ -307,22 +309,25 @@ winget install Gyan.FFmpeg
 winget install ImageMagick.ImageMagick
 winget install JohnMacFarlane.Pandoc
 winget install nepnep.neofetch-win
-winget install Syncthing.Syncthing
 
 winget install Armin2208.WindowsAutoNightMode
 winget install Bandisoft.Bandizip # 7zip.7zip RARLab.WinRAR
 winget install Bilibili.Livehime
+winget install ByteDance.JianyingPro
 winget install c0re100.qBittorrent-Enhanced-Edition
 winget install EpicGames.EpicGamesLauncher
 winget install ForgQi.biliup-app
 winget install GitHub.GitHubDesktop
 winget install GyDi.ClashVerge
 winget install JabRef.JabRef
+winget install Kingsoft.WPSOffice.CN
+winget install LastFM.LastFMDesktopScrobbler
 winget install Microsoft.VisualStudioCode
 winget install NetEase.CloudMusic
 winget install OBSProject.OBSStudio
 winget install Pylogmon.pot
 winget install Python.Python.3.12
+winget install qier222.YesPlayMusic
 winget install SumatraPDF.SumatraPDF
 winget install Tencent.TencentMeeting
 winget install Tencent.QQ.NT
@@ -351,14 +356,12 @@ Watt Toolkit
 - [TeX Live](https://ctan.org/pkg/install-latex-guide-zh-cn)
 - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
 - [WeGame](https://www.wegame.com.cn)
-- [WPS 365 教育版](https://365.wps.cn/edu/home)
 - [必剪](https://bcut.bilibili.cn)
-- [剪映](https://www.capcut.cn)
 - [格式工厂](http://formatfactory.org/CN/index.html)
 - [小白羊云盘](https://github.com/gaozhangmin/aliyunpan)
 
 ```sh
-pip install bilili
+pip install yutto
 ```
 
 ### Fonts

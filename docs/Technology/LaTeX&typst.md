@@ -29,31 +29,35 @@
   - 3.png
 ```
 
-## Template
+### Template
 
-### Slides
+#### Slides
 
 ```latex
 \documentclass[9pt,aspectratio=169,hyperref=colorlinks]{beamer}
 \usepackage{xeCJK}
-% or \documentclass[9pt,aspectratio=169,hyperref=colorlinks]{ctexbeamer}
+% or \documentclass{ctexbeamer}
 
-\usetheme{Goettingen}
-\usecolortheme{crane}
+\usecolortheme{whale}
 \usefonttheme{professionalfonts}
-\setbeamercolor{item}{fg=black}
-\setbeamertemplate{footline}[frame number]
+% \setbeamercolor{item}{fg=black}
+\setbeamertemplate{page number in head/foot}[totalframenumber]\useoutertheme[footline=authorinstitutetitle]{miniframes}
 \setbeamertemplate{itemize items}[circle]
 
-\usepackage{ragged2e}
-\justifying\let\raggedright\justifying
+\title{纯 $\mathbf{AdS_3}$ 引力中的渐进对称性和守恒荷}
+\subtitle{河海大学本科毕业论文答辩}
+\institute{河海大学力学与工程科学学院}
+\author{冯哲}
+
+\usepackage{ragged2e}\justifying\let\raggedright\justifying
 
 % \usepackage{tikz}
 % \usebackgroundtemplate{\tikz\node[opacity=0.1]{\includegraphics[width=\paperwidth]{background.jpg}};}
 
-\title{}
-\institute{College of Science, Hohai University}
-\author{桜井\ 雪子}
+\title{Title}
+\subtitle{Subtitle}
+\institute{Institute}
+\author{Author}
 % \date{}
 
 \begin{document}
@@ -66,7 +70,7 @@
 \end{document}
 ```
 
-### Hohai University Bachelor Thesis
+#### Hohai University Bachelor Thesis
 
 - [HHUBachelorThesis](https://github.com/ph3n92h3/HHUBachelorThesis)
 
@@ -75,21 +79,32 @@
 ### Usage
 
 - [typst.app](https://typst.app)
-- VS Code: [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist), [Typst Preview](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview)
+- VS Code: [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist)
 
 ### Tutorial
 
-- [社区驱动的非官方 Typst 中文文档](https://typst-doc-cn.github.io/docs/)
-- [Typst中文教程](https://github.com/typst-doc-cn/tutorial)
+- [Typst 中文社区导航](https://typst-doc-cn.github.io/guide/)
+- [Typst 中文教程](https://typst-doc-cn.github.io/tutorial/)
 
 ### Template
 
+中文文章：
+
 ```typst
 #set heading(numbering: "1.1")
-#set page(margin: 5%)
-#set par(justify: true)
+#set page(margin: 10%, numbering: "1")
+#set par(first-line-indent: 2em, justify: true)
 #set text(font: ("New Computer Modern", "Noto Serif CJK SC"), lang: "zh", size: 12pt)
 
+#set heading(numbering: "1.1")
+#show heading.where(level: 1): it => {
+  counter(math.equation).update(0)
+  it
+}
+#set math.equation(numbering: n => {
+  numbering("(1.1)", counter(heading).get().first(), n)
+})
+#show math.equation: set block(breakable: true)
 #show raw: set text(font: "New Computer Modern Mono")
 
 #align(center)[
