@@ -120,7 +120,7 @@ paru -S fcitx5-rime rime-double-pinyin
 
 paru -S vivaldi vivaldi-ffmpeg-codecs # firefox
 paru -S foliate jabref rnote xournalpp # foxitreader
-paru -S geeqie gimp shotcut mpv obs-studio obs-backgroundremoval yesplaymusic
+paru -S geeqie gimp shotcut mpv obs-studio obs-backgroundremoval
 paru -S gnome-keyring github-desktop
 paru -S helix visual-studio-code-bin
 paru -S libreoffice-still wps-office wps-office-fonts ttf-wps-fonts ttf-ms-fonts
@@ -244,7 +244,7 @@ paru -S sddm-nordic-theme-git
     - `imagemagick` 的 `convert` 转换出来的分辨率太低
 - OneDrive 同步效果并不是完全实时的
 
-> 我自己在一个相对私人的笔记本电脑安装了 Arch Linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 MacOS 或 Windows 电脑，我不建议你安装 Arch Linux。
+> ~~我自己在一个相对私人的笔记本电脑安装了 Arch Linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 MacOS 或 Windows 电脑，我不建议你安装 Arch Linux。~~
 
 ## :simple-apple: MacOS
 
@@ -255,30 +255,32 @@ paru -S sddm-nordic-theme-git
 ```sh
 brew tap homebrew/cask-fonts
 
-brew install --cask clashx
+brew install --cask clash-verge-rev
 
-brew install ffmpeg
-brew install latexindent
 brew install fastfetch
+brew install ffmpeg
+brew install tex-fmt
 
 brew install --cask adrive
+brew install --cask c0re100-qbittorrent
 brew install --cask github
+brew install --cask jabref
 brew install --cask keka
 brew install --cask mactex-no-gui
+brew install --cask neteasemusic
+brew install --cask obs
 brew install --cask onedrive
 brew install --cask qq
 brew install --cask snipaste
-brew install --cask telegram
-brew install --cask typora
 brew install --cask visual-studio-code
 brew install --cask vivaldi
 brew install --cask vlc
 brew install --cask wechat
-brew install --cask yesplaymusic
+brew install --cask wpsoffice-cn
 brew install --cask youdaodict
 
-brew install --cask font-fira-code-nerd-font
-brew install --cask font-lxgw-wenkai
+brew install --cask font-sarasa-gothic
+brew install --cask font-smiley-sans
 ```
 
 ## :simple-windows: Windows
@@ -287,10 +289,11 @@ brew install --cask font-lxgw-wenkai
 
 #### Winget
 
-> [Winget-AutoUpdate](https://github.com/Romanitho/Winget-AutoUpdate)
-
 ```sh
+winget install Romanitho.Winget-AutoUpdate
+
 winget install AltSnap.AltSnap
+winget install Armin2208.WindowsAutoNightMode
 winget install Highresolution.X-MouseButtonControl
 winget install LocalSend.LocalSend
 winget install Microsoft.PowerToys
@@ -301,6 +304,7 @@ winget install voidtools.Everything
 winget install CPUID.CPU-Z
 winget install CrystalDewWorld.CrystalDiskInfo
 winget install CrystalDewWorld.CrystalDiskMark
+winget install Guru3D.Afterburner
 winget install TechPowerUp.GPU-Z
 
 winget install Dr-Noob.cpufetch
@@ -310,34 +314,34 @@ winget install ImageMagick.ImageMagick
 winget install JohnMacFarlane.Pandoc
 winget install nepnep.neofetch-win
 
-winget install Armin2208.WindowsAutoNightMode
+winget install Alibaba.aDrive
 winget install Bandisoft.Bandizip # 7zip.7zip RARLab.WinRAR
 winget install Bilibili.Livehime
 winget install ByteDance.JianyingPro
 winget install c0re100.qBittorrent-Enhanced-Edition
+winget install ClashVergeRev.ClashVergeRev
 winget install EpicGames.EpicGamesLauncher
 winget install ForgQi.biliup-app
 winget install GitHub.GitHubDesktop
-winget install GyDi.ClashVerge
 winget install JabRef.JabRef
 winget install Kingsoft.WPSOffice.CN
-winget install LastFM.LastFMDesktopScrobbler
 winget install Microsoft.VisualStudioCode
 winget install NetEase.CloudMusic
 winget install OBSProject.OBSStudio
 winget install Pylogmon.pot
-winget install Python.Python.3.12
-winget install qier222.YesPlayMusic
+winget install Python.Python.3.13
 winget install SumatraPDF.SumatraPDF
 winget install Tencent.TencentMeeting
 winget install Tencent.QQ.NT
 winget install Tencent.QQBrowser
-winget install Tencent.WeChat
+winget install Tencent.WeChat.Universal
 winget install Thunder.Thunder
 winget install Valve.Steam
 winget install VideoLAN.VLC
 winget install VivaldiTechnologies.Vivaldi
+winget install Xiaomi.MIUI+
 winget install Xournal++.Xournal++
+winget install Youdao.YoudaoTranslate
 ```
 
 #### Microsoft Store
@@ -350,15 +354,13 @@ Watt Toolkit
 
 #### Install Manually
 
-- [msiafterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
 - [Office Tool Plus](https://otp.landian.vip/zh-cn/)
 - [pdfpatcher](https://www.cnblogs.com/pdfpatcher/)
 - [TeX Live](https://ctan.org/pkg/install-latex-guide-zh-cn)
-- [Wolfram Mathematica](https://www.wolfram.com/mathematica/)
+- [Wolfram Mathematica](https://www.wolfram.com/mathematica/) 12.3.1
 - [WeGame](https://www.wegame.com.cn)
 - [必剪](https://bcut.bilibili.cn)
 - [格式工厂](http://formatfactory.org/CN/index.html)
-- [小白羊云盘](https://github.com/gaozhangmin/aliyunpan)
 
 ```sh
 pip install yutto
@@ -379,17 +381,3 @@ pip install yutto
 2. 新建字符串值，数值名称 `UserDefinedDoublePinyinScheme0 `，数值数据 `小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt`.
 
 Reference: [Win10 微软拼音添加小鹤双拼以及其他配置](https://ifttl.com/add-flypy-to-win10-microsoft-pinyin-and-other-configuration/)
-
-### Limit Power Consumption and Reduce Noise
-
-Control Panel\Hardware and Sound\Power Options\Edit Plan Settings -> Change advanced power settings -> Processor power management
-
-- Minimum processor state
-    - On battery: 5%
-    - Plugged in: 5%
-- System cooling policy
-    - On battery: Passive
-    - Plugged in: Passive
-- Maximum processor state
-    - On battery: 80%
-    - Plugged in: 100%

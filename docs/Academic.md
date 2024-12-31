@@ -19,5 +19,9 @@
 
 [INSPIRE-HEP](https://inspirehep.net/authors/2174851) & [ORCID](https://orcid.org/0000-0002-6377-8544)
 
-1. Z. Feng, *Slow-roll inflation in $f\left(R, T, R_{ab}T^{ab}\right)$ gravity*, [Modern Physics Letters A(2024)](https://doi.org/10.1142/S0217732324500263), [arXiv:2211.13233](https://arxiv.org/abs/2211.13233).
-2. Z. Feng, *Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity*, [arXiv:2210.01574](https://arxiv.org/abs/2210.01574).
+1. Z. Feng, "Slow-roll inflation in f(R,T,RabTab) gravity," Mod. Phys. Lett. A \textbf{39} (2024) no.08, 2450026 doi:10.1142/S0217732324500263 [arXiv:2211.13233[gr-qc]].
+2. Z. Feng, "Charged anisotropic white dwarfs in $f\left({R}, {T}\right)$ gravity," [arXiv:2210.01574[gr-qc]].
+
+## Talks
+
+1. "Noether's Theorem and AdS$_3$ Gravity", Shenzhen China, Jan. 2025

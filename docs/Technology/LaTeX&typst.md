@@ -1,4 +1,4 @@
-# :simple-latex: $\LaTeX$ & :simple-typst: typst
+# :simple-latex: $\LaTeX$ & :simple-typst: Typst
 
 ## $\LaTeX$
 
@@ -74,46 +74,39 @@
 
 - [HHUBachelorThesis](https://github.com/ph3n92h3/HHUBachelorThesis)
 
-## typst
+## Typst
 
 ### Usage
 
-- [typst.app](https://typst.app)
+- [Typst.app](https://Typst.app)
 - VS Code: [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist)
 
 ### Tutorial
 
-- [Typst 中文社区导航](https://typst-doc-cn.github.io/guide/)
-- [Typst 中文教程](https://typst-doc-cn.github.io/tutorial/)
+- [Typst 中文社区导航](https://Typst-doc-cn.github.io/guide/)
+- [Typst 中文教程](https://Typst-doc-cn.github.io/tutorial/)
 
 ### Template
 
 中文文章：
 
-```typst
-#set heading(numbering: "1.1")
-#set page(margin: 10%, numbering: "1")
-#set par(first-line-indent: 2em, justify: true)
-#set text(font: ("New Computer Modern", "Noto Serif CJK SC"), lang: "zh", size: 12pt)
+```Typst
+#import "article.typ": *
+#show: article
 
-#set heading(numbering: "1.1")
-#show heading.where(level: 1): it => {
-  counter(math.equation).update(0)
-  it
+#import "@preview/cetz:0.3.0"
+#import "@preview/physica:0.9.3": tensor
+
+#let article(body) = {
+  set heading(numbering: "1.1")
+  set math.equation(numbering: "(1)")
+  set page(numbering: "1")
+  set par(leading: 0.55em, spacing: 0.55em, first-line-indent: 1.8em, justify: true)
+  set text(font: ("New Computer Modern", "Noto Serif CJK JP"))
+
+  show heading: set block(above: 1.4em, below: 1em)
+  show math.equation: set block(breakable: true)
+
+  body
 }
-#set math.equation(numbering: n => {
-  numbering("(1.1)", counter(heading).get().first(), n)
-})
-#show math.equation: set block(breakable: true)
-#show raw: set text(font: "New Computer Modern Mono")
-
-#align(center)[
-  #text(size: 20pt)[Title]
-
-  #text(size: 14pt)[author#footnote[institute]]
-
-  #text(size: 14pt)[#datetime.today().display()]
-]
-
-#outline(indent: auto)
 ```

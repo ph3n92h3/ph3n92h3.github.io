@@ -22,97 +22,36 @@
 
 #h(5%) _B.Sc in Physics #h(1fr) GPA: 4.88/5.00, ranking 1/55_
 
-- Mechanics: 92, Thermal Physics: 95, Electromagnetism: 94, Fundamental Optics: 91
-- Method of Mathematical Physics: 99
-- Theoretical Mechanics: 93, Electrodynamics: 97, Thermodynamics and Statistical Mechanics: 97
-- Quantum Mechanics: 99, Advanced Quantum Mechanics: 93
-- Solid-state Physics: 94, Semiconductor Physics: 95
-
 = Research Interest
 
 - High Energy Physics - Theory: AdS/CFT correspondence
 - General Relativity and Quantum Cosmology: Inflation, Cosmology, Black Holes, Compact Stars
 
-= Research Experience
+= Publication, Project & Talk
 
-== High Energy Physics - Theory
+== Publication
 
-_Revisiting the asymptotic symmetries and their associated charges in the pure $"AdS"_3$ gravity_\ #h(1fr) _Prof. Jie-qiang Wu(ITP-CAS)_,
-Oct. 2023 - Present
++ Zhe Feng, "Slow-roll inflation in $f(R, T, R_(a b) T^(a b))$ gravity", #link("https://doi.org/10.1142/s0217732324500263")[Mod.Phys.Lett.A 39 (2024) 08, 2450026], #link("https://arxiv.org/abs/2211.13233")[arXiv:2211.13233[gr-qc]].
++ Zhe Feng, "Charged anisotropic white dwarfs in $f(R, T)$ gravity", #link("https://arxiv.org/abs/2210.01574")[arXiv:2210.01574[gr-qc]].
 
-- 河海大学 2024 届本科优秀毕业论文
+== Project
 
-== General Relativity and Quantum Cosmology
+- 基于 Fabry-Pérot 多层膜 / Si 结构的小型化波长可分辨光电探测器\ #h(1fr) _Prof. Zhibin Shao(HHU)_, Sept. 2021 - Aug. 2023
+- 激光刻蚀辅助硅微纳结构图案化制备研究 #h(1fr) _Prof. Zhibin Shao(HHU)_, Sept. 2021 - Jun. 2023
 
-=== Modified Gravity and Cosmology
-#h(1fr) Feb. 2022 - Jan. 2024
+== Talk
 
-- Z. Feng, _Slow-roll inflation in $f(R, T, R_(a b) T^(a b))$ gravity_, #link("https://doi.org/10.1142/s0217732324500263")[Modern Physics Letters A(2024)], #link("https://arxiv.org/abs/2211.13233")[arXiv:2211.13233].
+= Honor & Award
 
-In the framework of $f(R, T, R_(a b) T^(a b))$ gravity theory, the slow-roll approximation of the cosmic inflation is
-investigated, where $T$ is the trace of the energy–momentum tensor $T^(a b)$, $R$ and $R_(a b)$ are the Ricci scalar and
-tensor, respectively. After obtaining the equations of motion of the gravitational field from the action principle in
-the spatially flat FLRW metric, the fundamental equations of this theory are received by introducing the inflation
-scalar field as the matter and taking into account only the minimum curvature-inflation coupling term. Remarkably, after
-taking the slow-roll approximation, the identical equations as in $f(R, T)$ gravity with a $R T$ mixing term are
-derived. We study several potentials of interest in different domains. We perform analytical analyzes under various
-approximate conditions, and present numerical results and their comparison with existing observational data at the same
-time. In the appendix, we analyze the behavior of the inflation scalar field under perturbation while ignoring the
-effect of metric perturbations. This research complements the slow-roll inflation in the modified theory of gravity.
-
-=== Modified Gravity and Astrophysics
-#h(1fr) Feb. 2022 - Oct. 2022
-
-- Z. Feng, _Charged anisotropic white dwarfs in $f(R, T)$ gravity_, #link("https://arxiv.org/abs/2210.01574")[arXiv:2210.01574].
-
-In the context of $f(R, T) = R + 2 beta T$ gravity, where $R$ is the Ricci scalar and $T$ is the trace of the
-energy-momentum tensor, the equilibrium structure of charged anisotropic white dwarfs (WDs) is studied. The stellar
-equations for the general case are derived and numerical solutions are found for the Chandrasekhar equation of state
-(EoS) and a charge density distribution proportional to the energy density $rho_("ch") = alpha rho$. By adjusting
-different parameters, the properties of the solutions under various conditions are compared. Most importantly, by going
-beyond the trivial WD in GR in various ways, the solutions may exhibit super-Chandrasekhar behavior. This paper is a
-study of a WD structure, and the results obtained may have a contrasting effect on astronomical observations such as
-superluminous type Ia supernovae.
-
-== Condensed Matter - Materials Science
-
-_基于 Fabry-Pérot 多层膜 / Si 结构的小型化波长可分辨光电探测器_\ #h(1fr) _Prof. Zhibin Shao(HHU)_, Sept. 2021 - Aug. 2023
-
-- 河海大学大学生创新训练项目（校级） _优秀结题_
-
-硅的吸收光谱对于光的波长没有选择性，这导致现有的光电探测器难以实现对光谱的分辨，使得光电探测器的应用场景受到局限。而 Fabry-Pérot 多层膜由于其高度的灵活性与强大的波长选择性能有望解决此问题，将 Fabry-Pérot
-多层膜与硅基半导体相耦合，可以在进行光探测的同时进行波长的选择，从而实现波长分辨。
-
-传统的大型、固定的光谱仪通常需要长光路和宽接收面，难以满足时效性、便携性、小型化的应用需求。 光电探测器基于电极层和单晶硅，光电特性基于半导体的内禀性质，不依赖于长光路和宽接收面，将其应用于光谱分辨则可解决传统光谱仪的尺寸局限性问题。
-
-_激光刻蚀辅助硅微纳结构图案化制备研究_ #h(1fr) _Prof. Zhibin Shao(HHU)_, Sept. 2021 - Jun. 2023
-
-- 河海大学大学生创新训练项目（校级） _优秀结题_
-
-激光具有单色性好、方向性好、高精度、可设计性高等特点，与其他微纳结构材料制备方法相比，激光加工具有设备简单、任意性高、参数容易调控等优点，研究激光刻蚀在制备硅微纳结构中的应用有重要意义。
-
-光伏电池生产中，利用表面制绒技术制备硅微纳结构，提高面板的吸光率和光电转换效率。然而该技术也使得硅基光伏面板呈现单一深色，降低光伏面板的美观性。通过精确调控硅微纳结构的尺寸和位置，可以控制硅晶圆局部光学特性，有望实现图案化光伏面板的制备，推动可装饰太阳能产业的发展。
-
-= Honors & Awards
-
-- 2023-2024 学年河海大学毕业班“优秀学生” #h(1fr) _Jun. 2024_
-- 2023-2024 学年河海大学毕业班“优秀学生干部” #h(1fr) _Jun. 2024_
-- 河海大学 2023-2024 学年毕业班优秀学生奖学金之学业优秀奖学金 #h(1fr) _Jun. 2024_
-- 河海大学 2023-2024 学年毕业班优秀学生奖学金之科技创新奖学金 #h(1fr) _Jun. 2024_
-- 河海大学 2023-2024 学年毕业班优秀学生奖学金之社会工作优秀奖学金 #h(1fr) _Jun. 2024_
-- 河海大学 2023-2024 学年毕业班优秀学生奖学金之精神文明奖学金 #h(1fr) _Jun. 2024_
+- 2023-2024 学年河海大学毕业班“优秀学生”、“优秀学生干部” #h(1fr) _Jun. 2024_
+- 河海大学 2023-2024 学年毕业班优秀学生奖学金之学业优秀奖学金、科技创新奖学金、社会工作优秀奖学金、精神文明奖学金 #h(1fr) _Jun. 2024_
 - 2022-2023 学年度本专科生国家奖学金 #h(1fr) _Dec. 2023_
 - 2022-2023 学年河海大学“优秀学生” #h(1fr) _Dec. 2023_
-- 河海大学 2022-2023 学年学业优秀奖学金 #h(1fr) _Dec. 2023_
-- 河海大学 2022-2023 学年科技创新奖学金 #h(1fr) _Dec. 2023_
-- 河海大学 2022-2023 学年精神文明奖学金 #h(1fr) _Dec. 2023_
+- 河海大学 2022-2023 学年学业优秀奖学金、科技创新奖学金、精神文明奖学金 #h(1fr) _Dec. 2023_
 - 2021-2022 学年河海大学“优秀学生标兵” #h(1fr) _Nov. 2022_
-- 河海大学 2021-2022 学年学业优秀奖学金 #h(1fr) _Nov. 2022_
-- 河海大学 2021-2022 学年科技创新奖学金 #h(1fr) _Nov. 2022_
-- 河海大学 2021-2022 学年精神文明奖学金 #h(1fr) _Nov. 2022_
+- 河海大学 2021-2022 学年学业优秀奖学金、科技创新奖学金、精神文明奖学金 #h(1fr) _Nov. 2022_
 - 理学院 2021-2022 学年 “李立聪奖学金” #h(1fr) _Dec. 2021_
-- 河海大学 2020-2021 学年学业优秀奖学金 #h(1fr) _Nov. 2021_
-- 河海大学 2020-2021 学年科技创新奖学金 #h(1fr) _Nov. 2021_
+- 河海大学 2020-2021 学年学业优秀奖学金、科技创新奖学金 #h(1fr) _Nov. 2021_
 #line(start: (25%, 0pt), end: (75%, 0pt), stroke: 0.4pt)
 - 江苏省高等学校第二十一届高等数学竞赛 _一等奖_ #h(1fr) _2024_
 - 第十五届全国大学生数学竞赛（非数学 A 类） _一等奖_ #h(1fr) _Dec. 2023_
@@ -124,7 +63,7 @@ _激光刻蚀辅助硅微纳结构图案化制备研究_ #h(1fr) _Prof. Zhibin S
 - 第十三届全国大学生数学竞赛（非数学类） _一等奖_ #h(1fr) _Dec. 2021_
 - 江苏省高等学校第十八届高等数学竞赛本科一级A组 _一等奖_ #h(1fr) _Jun. 2021_
 
-= Volunteer Experience
+= Voluntary Service
 
 - Blood donations totaled $2300$ mL for $8$ times #h(1fr) 2020 - 2024
 - Excellent volunteer in the epidemic(COVID-19) prevention, Linzhang, Handan, Hebei #h(1fr) 2020 - 2022
