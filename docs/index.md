@@ -23,13 +23,13 @@ My CV: [🇺🇸 / 🇬🇧 English](https://typst.app/project/r3U3n4H6KWPjkowTs
 ## Interest
 
 - Program & Code & CS
-  - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)(including [xAct](https://xact.es/index.html))
-  - [$\LaTeX$](https://www.latex-project.org) and [Typst](https://typst.app)
+    - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)(including [xAct](https://xact.es/index.html))
+    - [$\LaTeX$](https://www.latex-project.org) and [Typst](https://typst.app)
 - Electronic Music
-  - Hardstyle
+    - Hardstyle
 - Game
-  - [Forza Horizon 4](https://forza.net/horizon/)
-  - [Euro Truck Simulator 2](https://eurotrucksimulator2.com)
+    - [Forza Horizon 4](https://forza.net/horizon/)
+    - [Euro Truck Simulator 2](https://eurotrucksimulator2.com)
 
 ## Volunteer Experience
 

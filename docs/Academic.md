@@ -20,7 +20,7 @@
 [INSPIRE-HEP](https://inspirehep.net/authors/2174851) & [ORCID](https://orcid.org/0000-0002-6377-8544)
 
 1. Z. Feng, W. Jia(CUHK), J. q. Wu, "A Noether's Theorem Resolution of the Holographic Gravitational Anomaly," in preparation.
-2. Z. Feng, Z. e. Gao, X. S. Wang, J. q. Wu, H. Zhang(BNU), "Applying Noether's theorem to the pure $"AdS"_3$ gravity," in preparation.
+2. Z. Feng, Z. e. Gao, X. S. Wang, J. q. Wu, H. Zhang(BNU), "Applying Noether's theorem to the pure $\mathrm{AdS}_3$ gravity," in preparation.
 3. Z. Feng, "Slow-roll inflation in $f\left(R, T, R_{ab} T^{ab}\right)$ gravity," Mod. Phys. Lett. A 39, no.08, 2450026 (2024), doi:10.1142/S0217732324500263, [arXiv:2211.13233 [gr-qc]].
 4. Z. Feng, "Charged anisotropic white dwarfs in $f\left(R, T\right)$ gravity," Mod. Phys. Lett. A 40, no.04, 2450218 (2025), doi:10.1142/S0217732324502183, [arXiv:2210.01574 [gr-qc]].
 

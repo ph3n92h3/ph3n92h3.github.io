@@ -13,7 +13,7 @@ extra:
       name: E-Mail
     - icon: fontawesome/brands/github
       link: https://github.com/ph3n92h3
-      name: github
+      name: GitHub
     - icon: fontawesome/solid/music
       link: https://music.163.com/#/user/home?id=534851842
       name: Netease music
@@ -23,12 +23,6 @@ extra:
     - icon: fontawesome/brands/steam
       link: https://steamcommunity.com/profiles/76561199079491640/
       name: Steam
-    - icon: fontawesome/brands/amilia
-      link: https://www.acfun.cn/u/50472639
-      name: Acfun
-    - icon: fontawesome/brands/lastfm
-      link: https://www.last.fm/user/ph3n92h3
-      name: last.fm
     - icon: fontawesome/brands/zhihu
       link: https://www.zhihu.com/people/feng-zhe-51-84
       name: Zhihu
