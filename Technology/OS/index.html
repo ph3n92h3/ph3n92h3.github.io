@@ -1,0 +1,1863 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Neural%20ODE/">
+      
+      
+        <link rel="next" href="../Script/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>OS - Mein kleines Herz</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-27F91GZFBZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-27F91GZFBZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-27F91GZFBZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#os" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mein kleines Herz" class="md-header__button md-logo" aria-label="Mein kleines Herz" data-md-component="logo">
+      
+  <img src="/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mein kleines Herz
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mein kleines Herz" class="md-nav__button md-logo" aria-label="Mein kleines Herz" data-md-component="logo">
+      
+  <img src="/images/logo.png" alt="logo">
+
+    </a>
+    Mein kleines Herz
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Academic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Academic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Honors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Honors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Face%20Recognition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Face Recognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git%20%26%20GitHub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git &amp; GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LaTeX%26typst/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    \(\LaTeX\) &amp; Typst
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Neural%20ODE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neural ODE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arch-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arch Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arch Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pc-speaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        禁用 PC speaker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加非官方用户仓库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makepkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        makepkg
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        软件安装与配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyprland" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hyprland
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hyprland">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        专属软件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        疑难解决
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="疑难解决">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        功耗控制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        美化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KDE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        专属软件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kde_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KDE 平铺脚本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加虚拟桌面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        美化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        痛点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="痛点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        办公
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MacOS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MacOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#homebrew" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Homebrew
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simple-windows-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        :simple-windows: Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=":simple-windows: Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#winget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Winget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft Store
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        微软拼音 Add 小鹤双拼
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9C%BA%E5%8A%A8%E8%BD%A6%E9%A9%BE%E9%A9%B6%E4%BA%BA%E8%80%83%E8%AF%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机动车驾驶人考试
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arch-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arch Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arch Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pc-speaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        禁用 PC speaker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加非官方用户仓库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makepkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        makepkg
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        软件安装与配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyprland" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hyprland
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hyprland">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        专属软件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        疑难解决
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="疑难解决">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        功耗控制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        美化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KDE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        专属软件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kde_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KDE 平铺脚本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加虚拟桌面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        美化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        痛点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="痛点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        办公
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MacOS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MacOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#homebrew" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Homebrew
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simple-windows-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        :simple-windows: Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=":simple-windows: Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#winget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Winget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft Store
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        微软拼音 Add 小鹤双拼
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="os"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M348.8 32C340.7 46.1 336 62.5 336 80v16H64v224h272v64H64c-35.3 0-64-28.7-64-64V96c0-35.3 28.7-64 64-64zM336 432c0 17.5 4.7 33.9 12.8 48H120c-13.3 0-24-10.7-24-24s10.7-24 24-24zm96-400h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48m24 64c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24zm56 144a32 32 0 1 0-64 0 32 32 0 1 0 64 0"/></svg></span> OS</h1>
+<h2 id="arch-linux"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c-.89 2.18-1.43 3.61-2.42 5.73.61.64 1.35 1.39 2.56 2.24-1.3-.54-2.19-1.07-2.85-1.63C8 11 6.03 14.75 2 22c3.17-1.83 5.63-2.96 7.92-3.39-.1-.42-.16-.88-.15-1.36v-.1c.05-2.03 1.11-3.59 2.36-3.48 1.25.1 2.22 1.83 2.17 3.87-.01.38-.05.75-.12 1.09 2.26.44 4.69 1.56 7.82 3.37-.62-1.14-1.17-2.16-1.69-3.13-.81-.64-1.7-1.48-3.46-2.37 1.21.3 2.08.66 2.76 1.07C14.26 7.62 13.83 6.3 12 2"/></svg></span> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.504 0q-.232 0-.48.021c-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.4.4 0 0 0-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071s1.592-.536 2.257-1.306c.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.36.36 0 0 0-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139m.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105l-.004-.021-.004-.024a1.8 1.8 0 0 1-.15.706.95.95 0 0 1-.213.335 1 1 0 0 0-.088-.042c-.104-.045-.198-.064-.284-.133a1.3 1.3 0 0 0-.22-.066c.05-.06.146-.133.183-.198q.08-.193.088-.402v-.02a1.2 1.2 0 0 0-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 0 0-.205.334 1.2 1.2 0 0 0-.09.4v.019q.002.134.02.267c-.193-.067-.438-.135-.607-.202a2 2 0 0 1-.018-.2v-.02a1.8 1.8 0 0 1 .15-.768 1.08 1.08 0 0 1 .43-.533 1 1 0 0 1 .594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2q.018-.136.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.6.6 0 0 0-.166-.267.25.25 0 0 0-.183-.064h-.021c-.071.006-.13.04-.186.132a.55.55 0 0 0-.12.27 1 1 0 0 0-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268q.014.014.034.024c-.07.057-.117.07-.176.136a.3.3 0 0 1-.131.068 2.6 2.6 0 0 1-.275-.402 1.8 1.8 0 0 1-.155-.667 1.8 1.8 0 0 1 .08-.668 1.4 1.4 0 0 1 .283-.535c.128-.133.26-.2.418-.2m1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.57.57 0 0 1 .016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.1 1.1 0 0 1-.448-.067 4 4 0 0 1-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71q-.104-.403.193-.6c.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.7 2.7 0 0 0-.402-.533 1.5 1.5 0 0 0-.275-.333c.182 0 .338-.03.465-.067a.62.62 0 0 0 .314-.334c.108-.267 0-.697-.345-1.163s-.931-.995-1.788-1.521c-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.1 8.1 0 0 1 .647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335q.058.005.11.006c.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01q.08 0 .157.014c.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602q-.553-.1-.723-.4c-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336m7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8 8 0 0 1-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065m-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg></span> Arch Linux</h2>
+<ul>
+<li><a href="https://github.com/ph3n92h3/dotfile">dotfile</a></li>
+</ul>
+<p>仅记录个人安装与配置 Arch Linux 的流程，更系统的教程请见：</p>
+<ol>
+<li><a href="https://wiki.archlinux.org/">Arch Linux 官方维基</a></li>
+<li><a href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/">Arch Linux 安装使用教程</a></li>
+<li><a href="https://arch.icekylin.online">Arch Linux 简明指南</a></li>
+</ol>
+<p>建议：跟着教程装一两遍，之后 <code>archinstall</code> 就行了</p>
+<h3 id="basic-configuration">Basic Configuration</h3>
+<h4 id="pc-speaker">禁用 PC speaker <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m5-2H7c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2"/></svg></span></h4>
+<p><code>sudo hx /etc/modprobe.d/nobeep.conf</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>blacklist pcspkr
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>blacklist snd_pcsp
+</code></pre></div>
+<h4 id="_1">添加非官方用户仓库</h4>
+<ul>
+<li><a href="https://github.com/arch4edu/arch4edu">arch4edu</a></li>
+<li><a href="https://github.com/archlinuxcn/repo">archlinuxcn</a></li>
+</ul>
+<p>首先添加在一个源，再下载它的密钥和镜像列表文件，在镜像列表文件中对要使用的源取消注释，最后把 Server 改为 Include</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># [core], [extra]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a># [multilib]
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[arch4edu]
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Server = https://mirrors.tuna.tsinghua.edu.cn/arch4edu/$arch
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>## or other mirrors in https://github.com/arch4edu/mirrorlist/blob/master/mirrorlist.arch4edu
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>#Include = /etc/pacman.d/mirrorlist.arch4edu
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>[archlinuxcn]
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>## or install archlinuxcn-mirrorlist-git and use the mirrorlist
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>#Include = /etc/pacman.d/archlinuxcn-mirrorlist
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>archlinuxcn-keyring<span class="w"> </span>archlinuxcn-mirrorlist-git
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pacman-key<span class="w"> </span>--recv-keys<span class="w"> </span>7931B6D628C8D3BA
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pacman-key<span class="w"> </span>--finger<span class="w"> </span>7931B6D628C8D3BA
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>pacman-key<span class="w"> </span>--lsign-key<span class="w"> </span>7931B6D628C8D3BA
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>arch4edu-keyring<span class="w"> </span>mirrorlist.arch4edu
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>paru-git
+</code></pre></div>
+<ul>
+<li><a href="https://somegit.dev/ALHP/ALHP.GO">ALHP</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>paru<span class="w"> </span>-S<span class="w"> </span>alhp-keyring<span class="w"> </span>alhp-mirrorlist
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">#Server = https://mirrors.shanghaitech.edu.cn/alhp/$repo/os/$arch/</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[core-x86-64-v3]
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Include = /etc/pacman.d/alhp-mirrorlist
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>[extra-x86-64-v3]
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Include = /etc/pacman.d/alhp-mirrorlist
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a># [core], [extra]
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>[multilib-x86-64-v3]
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Include = /etc/pacman.d/alhp-mirrorlist
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a># [multilib]
+</code></pre></div>
+<ul>
+<li><a href="https://aur.chaotic.cx">chaotic-aur</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>pacman-key<span class="w"> </span>--recv-key<span class="w"> </span>3056513887B78AEB<span class="w"> </span>--keyserver<span class="w"> </span>keyserver.ubuntu.com
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>pacman-key<span class="w"> </span>--lsign-key<span class="w"> </span>3056513887B78AEB
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-U<span class="w"> </span><span class="s1">&#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&#39;</span><span class="w"> </span><span class="s1">&#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[chaotic-aur]
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Include = /etc/pacman.d/chaotic-mirrorlist
+</code></pre></div>
+<h4 id="makepkg">makepkg</h4>
+<p><a href="https://wiki.archlinux.org/title/Makepkg-optimize">makepkg-optimize</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>paru<span class="w"> </span>-S<span class="w"> </span>makepkg-optimize<span class="w"> </span>openmp<span class="w"> </span>upx<span class="w"> </span>optipng<span class="w"> </span>svgo<span class="w"> </span>polly
+</code></pre></div>
+<p><a href="https://wiki.archlinux.org/title/Makepkg#Tips_and_tricks">makepkg - Tips and tricks</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>paru<span class="w"> </span>-S<span class="w"> </span>lbzip2<span class="w"> </span>pbzip2<span class="w"> </span>pigz<span class="w"> </span>plzip<span class="w"> </span>xz<span class="w"> </span>zstd
+</code></pre></div>
+<p><code>sudo hx ~/.config/pacman/makepkg.conf</code></p>
+<h3 id="_2">软件安装与配置</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>paru<span class="w"> </span>-S<span class="w"> </span>aria2<span class="w"> </span>onedrivegui-git<span class="w"> </span>qbittorrent-enhanced-git<span class="w"> </span>xbyyunpan-bin
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>paru<span class="w"> </span>-S<span class="w"> </span>ark<span class="w"> </span><span class="c1"># arj lrzip lzop p7zip unarchiver unrar</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>paru<span class="w"> </span>-S<span class="w"> </span>clash-dev-git<span class="w"> </span>clash-meta-alpha-git<span class="w"> </span>clash-verge
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>paru<span class="w"> </span>-S<span class="w"> </span>cpufetch-git<span class="w"> </span>fastfetch-git<span class="w"> </span>ffmpeg-git<span class="w"> </span>fish-git<span class="w"> </span>joshuto-git<span class="w"> </span>nvtop<span class="w"> </span>pandoc-bin
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>paru<span class="w"> </span>-S<span class="w"> </span>fcitx5-im
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>paru<span class="w"> </span>-S<span class="w"> </span>fcitx5-chinese-addons<span class="w"> </span>fcitx5-pinyin-moegirl<span class="w"> </span>fcitx5-pinyin-zhwiki<span class="w"> </span>fcitx5-pinyin-custom-pinyin-dictionary
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>paru<span class="w"> </span>-S<span class="w"> </span>fcitx5-rime<span class="w"> </span>rime-double-pinyin
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>paru<span class="w"> </span>-S<span class="w"> </span>vivaldi<span class="w"> </span>vivaldi-ffmpeg-codecs<span class="w"> </span><span class="c1"># firefox</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>paru<span class="w"> </span>-S<span class="w"> </span>foliate<span class="w"> </span>jabref<span class="w"> </span>rnote<span class="w"> </span>xournalpp<span class="w"> </span><span class="c1"># foxitreader</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>paru<span class="w"> </span>-S<span class="w"> </span>geeqie<span class="w"> </span>gimp<span class="w"> </span>shotcut<span class="w"> </span>mpv<span class="w"> </span>obs-studio<span class="w"> </span>obs-backgroundremoval
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>paru<span class="w"> </span>-S<span class="w"> </span>gnome-keyring<span class="w"> </span>github-desktop
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>paru<span class="w"> </span>-S<span class="w"> </span>helix<span class="w"> </span>visual-studio-code-bin
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>paru<span class="w"> </span>-S<span class="w"> </span>libreoffice-still<span class="w"> </span>wps-office<span class="w"> </span>wps-office-fonts<span class="w"> </span>ttf-wps-fonts<span class="w"> </span>ttf-ms-fonts
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>paru<span class="w"> </span>-S<span class="w"> </span>linuxqq<span class="w"> </span>telegram-desktop<span class="w"> </span>wemeet-bin<span class="w"> </span>zoom
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>paru<span class="w"> </span>-S<span class="w"> </span>linux-amd-znver2<span class="w"> </span><span class="c1"># sudo grub-mkconfig -o /boot/grub/grub.cfg</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>paru<span class="w"> </span>-S<span class="w"> </span>kuro
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>paru<span class="w"> </span>-S<span class="w"> </span>mathematica<span class="w"> </span><span class="c1"># mathematica-light</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>paru<span class="w"> </span>-S<span class="w"> </span>nerd-fonts-meta<span class="w"> </span>noto-fonts<span class="w"> </span>noto-fonts-cjk<span class="w"> </span>noto-fonts-emoji<span class="w"> </span>noto-fonts-extra<span class="w"> </span>adobe-source-han-sans-cn-fonts<span class="w"> </span>adobe-source-han-serif-cn-fonts<span class="w"> </span>adobe-source-han-mono-cn-fonts
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>paru<span class="w"> </span>-S<span class="w"> </span>ntfs-3g
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>paru<span class="w"> </span>-S<span class="w"> </span>pot-translation-git<span class="w"> </span>tesseract<span class="w"> </span>tesseract-data<span class="w"> </span>wudao-dict-git
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>paru<span class="w"> </span>-S<span class="w"> </span>stable-diffusion-ui
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>paru<span class="w"> </span>-S<span class="w"> </span>texlive<span class="w"> </span>texlive-lang
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>paru<span class="w"> </span>-S<span class="w"> </span>ventoy-bin
+</code></pre></div>
+<h3 id="hyprland">Hyprland</h3>
+<h4 id="_3">专属软件</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>hyprland-hidpi-xprop-git<span class="w"> </span>kitty-git
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>paru<span class="w"> </span>-S<span class="w"> </span>xdg-desktop-portal-hyprland-git<span class="w"> </span>qt5-wayland<span class="w"> </span>qt6-wayland
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>paru<span class="w"> </span>-S<span class="w"> </span>dunst<span class="w"> </span>hyprpaper-git<span class="w"> </span>udiskie<span class="w"> </span>wofi
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>paru<span class="w"> </span>-S<span class="w"> </span>waybar-hyprland-git<span class="w"> </span>otf-font-awesome<span class="w"> </span>wttrbar-git
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>paru<span class="w"> </span>-S<span class="w"> </span>brightnessctl<span class="w"> </span>grimblast-git<span class="w"> </span>swaylock-git
+</code></pre></div>
+<h4 id="_4">疑难解决</h4>
+<ul>
+<li>图形化连接网络：<code>paru -S networkmanager</code> -&gt; <code>nmtui</code></li>
+<li>自动挂载 U 盘：<code>paru -S udiskie</code></li>
+<li>切换代理：在 <code>clash-verge</code> 里面创建一个空的 profile，不想走代理的时候就用这个</li>
+<li>剪切板：<code>Ctrl + ;</code></li>
+<li>合并图片成 <code>pdf</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>libreoffice<span class="w"> </span>--headless<span class="w"> </span>--convert-to<span class="w"> </span>pdf<span class="w"> </span>*.jpg
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pdfunit<span class="w"> </span>*.pdf<span class="w"> </span>output.pdf
+</code></pre></div>
+<h5 id="_5">功耗控制</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># paru -S tlp tlp-rdw</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># sudo systemctl enable tlp.service</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># sudo systemctl enable NetworkManager-dispatcher.service</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># sudo systemctl mask systemd-rfkill.service</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># sudo systemctl mask systemd-rfkill.socket</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>paru<span class="w"> </span>-S<span class="w"> </span>auto-cpufreq
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>auto-cpufreq.service
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>mask<span class="w"> </span>power-profiles-daemon.service
+</code></pre></div>
+<h4 id="_6">美化</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>paru<span class="w"> </span>-S<span class="w"> </span>kvantum<span class="w"> </span>qt5ct
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>paru<span class="w"> </span>-S<span class="w"> </span>fcitx5-nord<span class="w"> </span>graphite-grub-theme-nord-4k<span class="w"> </span>nordic-theme<span class="w"> </span>tela-circle-icon-theme-nord-git
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>sudo<span class="w"> </span>hx<span class="w"> </span>/etc/default/grub
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># GRUB_THEME=&quot;/usr/share/grub/themes/graphite-nord-4k/theme.txt&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
+</code></pre></div>
+<h3 id="kde"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.881 0 9.89.382v16.435l3.949-.594V9.216l5.308 7.772 4.162-1.317-5.436-7.475 5.479-7.05L19.105.17 13.84 7.22zM4.834 4.005a.2.2 0 0 0-.123.059L3.145 5.63a.2.2 0 0 0-.03.248L4.949 8.9a7.8 7.8 0 0 0-.772 1.759l-3.367.7a.2.2 0 0 0-.162.199v2.215c0 .093.064.174.155.196l3.268.8a7.8 7.8 0 0 0 .801 2.03L2.98 19.683a.2.2 0 0 0 .027.254l1.566 1.567a.204.204 0 0 0 .249.03l2.964-1.8c.582.336 1.21.6 1.874.78l.692 3.325c.02.094.102.161.198.161h2.215a.2.2 0 0 0 .197-.155l.815-3.332a7.8 7.8 0 0 0 1.927-.811l2.922 1.915c.08.053.186.042.254-.026l1.567-1.566a.2.2 0 0 0 .03-.248l-1.067-1.758-.345.11a.12.12 0 0 1-.135-.047L17.371 15.8a6.347 6.347 0 1 1-8.255-8.674V5.488c-.401.14-.79.31-1.159.511l-.001-.002-2.99-1.96a.2.2 0 0 0-.132-.033Z"/></svg></span> KDE</h3>
+<h4 id="_7">专属软件</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>paru<span class="w"> </span>-S<span class="w"> </span>appstream<span class="w"> </span>appstream-qt<span class="w"> </span>packagekit<span class="w"> </span>packagekit-qt5
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>paru<span class="w"> </span>-S<span class="w"> </span>kwin-scripts-tiling
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>paru<span class="w"> </span>-S<span class="w"> </span>plasma5-applets-weather-widget-2
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>paru<span class="w"> </span>-S<span class="w"> </span>sddm-git
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>paru<span class="w"> </span>-S<span class="w"> </span>spectacle
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>paru<span class="w"> </span>-S<span class="w"> </span>xdg-desktop-portal-kde
+</code></pre></div>
+<h4 id="kde_1">KDE 平铺脚本</h4>
+<ul>
+<li>在系统设置中搜索 <code>KWin Scripts</code></li>
+<li>"Tiling Extension" 中 "Gap" 全部设置为 <code>5</code></li>
+</ul>
+<h4 id="_8">添加虚拟桌面</h4>
+<ul>
+<li>在系统设置中搜索 <code>Virtual Desktops</code></li>
+<li>添加至 <code>5</code> 个</li>
+<li>在系统设置中搜索 <code>Shortcuts</code> -&gt; <code>KWin</code></li>
+<li>设置他们的快捷键为 <code>Meta + Alt + &lt;number&gt;</code></li>
+</ul>
+<h4 id="_9">美化</h4>
+<ol>
+<li><a href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/advanced/beauty">ArchLinux 系统美化</a></li>
+<li><a href="https://arch.icekylin.online/guide/advanced/beauty-1.html">ArchLinux 系统美化（布局篇）</a></li>
+<li><a href="https://arch.icekylin.online/guide/advanced/beauty-2.html">ArchLinux 系统美化（主题篇）</a></li>
+<li><a href="https://arch.icekylin.online/guide/advanced/beauty-3.html">ArchLinux 系统美化（终端篇）</a></li>
+<li><a href="https://userbase.kde.org/Tutorials/Force_Transparency_And_Blur">Tutorials/Force Transparency And Blur</a></li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>paru<span class="w"> </span>-S<span class="w"> </span>bibata-cursor-theme
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>paru<span class="w"> </span>-S<span class="w"> </span>catppuccin-fcitx5-git
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>paru<span class="w"> </span>-S<span class="w"> </span>flat-remix
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>paru<span class="w"> </span>-S<span class="w"> </span>kvantum<span class="w"> </span>kvantum-theme-nordic-git
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>paru<span class="w"> </span>-S<span class="w"> </span>nordic-kde-git
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>paru<span class="w"> </span>-S<span class="w"> </span>nordic-theme
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>paru<span class="w"> </span>-S<span class="w"> </span>sddm-nordic-theme-git
+</code></pre></div>
+<ul>
+<li>任务栏：放在屏幕顶部</li>
+<li>壁纸：使用必应每日一图</li>
+<li>Konsole：修改默认的颜色主题透明度为 <code>75%</code></li>
+<li>更换主题：先在 <code>kvantum manager</code> 里更换主题，再在系统设置里把能改成 <code>kvantum</code> 的改掉。</li>
+</ul>
+<h3 id="_10">痛点</h3>
+<h4 id="_11">办公</h4>
+<ul>
+<li>MS Office 网页版无法编辑 <code>.doc</code>，自动转换出来的 <code>.docx</code> 很差</li>
+<li>各种 office 套件（包括 WPS）对 MS Office 的兼容效果很差</li>
+<li>一大堆 <code>.jpg</code>, <code>.png</code>, <code>.pdf</code> 如何合并成一个 <code>.pdf</code>？<ul>
+<li><code>imagemagick</code> 的 <code>convert</code> 转换出来的分辨率太低</li>
+</ul>
+</li>
+<li>OneDrive 同步效果并不是完全实时的</li>
+</ul>
+<blockquote>
+<p>~~我自己在一个相对私人的笔记本电脑安装了 Arch Linux，并同时另持有一台 MacBook Pro 2015 和一台 Windows 台式机——它们所需的花费并没有想象中的大。如果你没有另一台 MacOS 或 Windows 电脑，我不建议你安装 Arch Linux。~~</p>
+</blockquote>
+<h2 id="macos"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg></span> MacOS</h2>
+<h3 id="homebrew"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.938 0a.214.214 0 0 0-.206.156c-.316 1.104.179 2.15.838 2.935q.23.27.476.501a2 2 0 0 0-.665.02c-1.184.233-2.193.985-2.74 2.532a3.9 3.9 0 0 0-.2 1.466 1.565 1.565 0 0 0-1.156 1.504 1.59 1.59 0 0 0 1.227 1.541l.026 12.046c0 .195.1.377.264.482l.008.005c.537.31 2.047.812 5.21.812 3.238 0 4.7-.678 5.181-1.04l.008-.007a.57.57 0 0 0 .206-.439c.002-.344.002-1.136.002-1.604a.143.143 0 0 1 .147-.144c.397.006.869.006 1.318.005a1.826 1.826 0 0 0 1.832-1.825v-5.804a1.826 1.826 0 0 0-1.825-1.826H16.56a.14.14 0 0 1-.143-.144V10.6h.007v-.001a1.57 1.57 0 0 0 1.356-1.556c0-.816-.627-1.489-1.424-1.563-.025-1.438-.437-2.126-.736-2.58l-.005-.007c-.364-.51-1.193-1.282-2.275-1.316-.503-.016-.842.124-1.125.254-.217.1-.42.177-.67.22.002-1.286.945-1.981.945-1.981a.214.214 0 0 0 .05-.298s-.087-.122-.21-.26c-.121-.136-.269-.294-.47-.378a.2.2 0 0 0-.079-.017.21.21 0 0 0-.145.055 4.3 4.3 0 0 0-.875 1.101 3 3 0 0 0-.133.273 3.5 3.5 0 0 0-.381-.846C9.794.978 9.063.436 8.017.016A.2.2 0 0 0 7.939 0zm.156.524c.85.378 1.43.83 1.79 1.403.274.438.426.962.484 1.584a3 3 0 0 0-.012.462l-.168-.052a5.5 5.5 0 0 1-1.29-1.106c-.551-.657-.935-1.46-.804-2.291M11.8 1.618c.07.054.141.101.212.18.034.039.032.04.058.073-.332.308-1.07 1.144-.952 2.453a.214.214 0 0 0 .222.195c.469-.017.782-.172 1.056-.299.273-.126.508-.228.931-.214.875.027 1.639.715 1.939 1.134.295.449.65 1 .663 2.36a1.7 1.7 0 0 0-.41.142 1.94 1.94 0 0 0-1.77-1.16 1.94 1.94 0 0 0-1.87 1.448 1.78 1.78 0 0 0-1.356-.64c-.484 0-.91.205-1.233.517a1.87 1.87 0 0 0-1.85-1.625c-.649 0-1.218.335-1.552.84a3 3 0 0 1 .157-.735c.51-1.437 1.355-2.045 2.42-2.254.367-.073.664-.011.99.095s.671.262 1.094.342a.214.214 0 0 0 .252-.245c-.112-.67.073-1.266.336-1.744a3.7 3.7 0 0 1 .663-.863M7.44 6.611a1.442 1.442 0 0 1 1.363 1.925.214.214 0 0 0 .168.283h.005a.214.214 0 0 0 .238-.146 1.373 1.373 0 0 1 2.613-.01.214.214 0 0 0 .417-.09 1.51 1.51 0 0 1 1.504-1.664c.678 0 1.249.445 1.442 1.056a.214.214 0 0 0 .259.143l.15-.04a.2.2 0 0 0 .051-.02 1.14 1.14 0 0 1 1.702.995 1.14 1.14 0 0 1-.985 1.131h-.001a2.2 2.2 0 0 0-.485.126 11 11 0 0 1-1.176.365.21.21 0 0 0-.162.186 1.3 1.3 0 0 1-.146.478 2.07 2.07 0 0 0-.239 1.111l.001.151a.44.44 0 0 1-.16.36.67.67 0 0 1-.43.14.586.586 0 0 1-.588-.59.8.8 0 0 0-.38-.681l-.002-.002c-.24-.145-.43-.37-.532-.636a.21.21 0 0 0-.207-.138 19.5 19.5 0 0 1-5.37-.6l-.003-.002a9 9 0 0 0-.838-.194h.003a1.16 1.16 0 0 1-.937-1.134c0-.619.488-1.118 1.101-1.14a.214.214 0 0 0 .204-.176 1.44 1.44 0 0 1 1.42-1.187m8.549 4.106v.455c0 .314.259.573.572.573h1.329a1.397 1.397 0 0 1 1.397 1.397v5.804a1.396 1.396 0 0 1-1.402 1.396h-.002c-.448.002-.918 0-1.31-.005a.573.573 0 0 0-.584.573c0 .468 0 1.262-.002 1.603v.001q-.002.065-.05.107c-.346.26-1.75.95-4.915.95-3.107 0-4.587-.52-4.99-.752a.14.14 0 0 1-.065-.118l-.025-11.955q.217.05.431.11h.003c.115.031.246.064.383.097v10.37c0 .129.069.247.18.31.453.217 1.767.732 4.071.732 2.32 0 3.595-.626 4.022-.884a.36.36 0 0 0 .164-.3l.001-10.21q.4-.111.792-.254m-7.99.894a.493.493 0 0 1 .494.493v8.578a.493.493 0 0 1-.493.493.493.493 0 0 1-.494-.493v-8.578A.493.493 0 0 1 8 11.611zm8.652 1.14a.663.663 0 0 0-.662.662v5.208a.663.663 0 0 0 .662.662h1.14a.663.663 0 0 0 .662-.662v-5.209a.663.663 0 0 0-.662-.662zm0 .428h1.14a.233.233 0 0 1 .233.233v5.21a.233.233 0 0 1-.233.232h-1.14a.233.233 0 0 1-.233-.233v-5.209a.233.233 0 0 1 .233-.233"/></svg></span> Homebrew</h3>
+<p><a href="https://mirrors.ustc.edu.cn/help/brew.git.html">Homebrew 源使用帮助</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>brew<span class="w"> </span>tap<span class="w"> </span>homebrew/cask-fonts
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>clash-verge-rev
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>brew<span class="w"> </span>install<span class="w"> </span>fastfetch
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>brew<span class="w"> </span>install<span class="w"> </span>ffmpeg
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>brew<span class="w"> </span>install<span class="w"> </span>tex-fmt
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>adrive
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>c0re100-qbittorrent
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>github
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>jabref
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>keka
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>mactex-no-gui
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>neteasemusic
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>obs
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>onedrive
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>qq
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>snipaste
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>visual-studio-code
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>vivaldi
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>vlc
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>wechat
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>wpsoffice-cn
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>youdaodict
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>font-sarasa-gothic
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>font-smiley-sans
+</code></pre></div>
+<h2 id="simple-windows-windows">:simple-windows: Windows</h2>
+<h3 id="apps">Apps</h3>
+<h4 id="winget">Winget</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>winget<span class="w"> </span>install<span class="w"> </span>Romanitho.Winget-AutoUpdate
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>winget<span class="w"> </span>install<span class="w"> </span>AltSnap.AltSnap
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>winget<span class="w"> </span>install<span class="w"> </span>Armin2208.WindowsAutoNightMode
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>winget<span class="w"> </span>install<span class="w"> </span>Highresolution.X-MouseButtonControl
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>winget<span class="w"> </span>install<span class="w"> </span>LocalSend.LocalSend
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>winget<span class="w"> </span>install<span class="w"> </span>Microsoft.PowerToys
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>winget<span class="w"> </span>install<span class="w"> </span>QL-Win.QuickLook
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>winget<span class="w"> </span>install<span class="w"> </span>Ventoy.Ventoy
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>winget<span class="w"> </span>install<span class="w"> </span>voidtools.Everything
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>winget<span class="w"> </span>install<span class="w"> </span>CPUID.CPU-Z
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>winget<span class="w"> </span>install<span class="w"> </span>CrystalDewWorld.CrystalDiskInfo
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>winget<span class="w"> </span>install<span class="w"> </span>CrystalDewWorld.CrystalDiskMark
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>winget<span class="w"> </span>install<span class="w"> </span>Guru3D.Afterburner
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>winget<span class="w"> </span>install<span class="w"> </span>TechPowerUp.GPU-Z
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>winget<span class="w"> </span>install<span class="w"> </span>Dr-Noob.cpufetch
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>winget<span class="w"> </span>install<span class="w"> </span>Git.Git
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>winget<span class="w"> </span>install<span class="w"> </span>Gyan.FFmpeg
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>winget<span class="w"> </span>install<span class="w"> </span>ImageMagick.ImageMagick
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>winget<span class="w"> </span>install<span class="w"> </span>JohnMacFarlane.Pandoc
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>winget<span class="w"> </span>install<span class="w"> </span>nepnep.neofetch-win
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>
+<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>winget<span class="w"> </span>install<span class="w"> </span>Alibaba.aDrive
+<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>winget<span class="w"> </span>install<span class="w"> </span>Bandisoft.Bandizip<span class="w"> </span><span class="c1"># 7zip.7zip RARLab.WinRAR</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>winget<span class="w"> </span>install<span class="w"> </span>Bilibili.Livehime
+<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>winget<span class="w"> </span>install<span class="w"> </span>ByteDance.JianyingPro
+<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>winget<span class="w"> </span>install<span class="w"> </span>c0re100.qBittorrent-Enhanced-Edition
+<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>winget<span class="w"> </span>install<span class="w"> </span>ClashVergeRev.ClashVergeRev
+<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a>winget<span class="w"> </span>install<span class="w"> </span>EpicGames.EpicGamesLauncher
+<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>winget<span class="w"> </span>install<span class="w"> </span>ForgQi.biliup-app
+<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>winget<span class="w"> </span>install<span class="w"> </span>GitHub.GitHubDesktop
+<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>winget<span class="w"> </span>install<span class="w"> </span>JabRef.JabRef
+<a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a>winget<span class="w"> </span>install<span class="w"> </span>Kingsoft.WPSOffice.CN
+<a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>winget<span class="w"> </span>install<span class="w"> </span>Microsoft.VisualStudioCode
+<a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a>winget<span class="w"> </span>install<span class="w"> </span>NetEase.CloudMusic
+<a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a>winget<span class="w"> </span>install<span class="w"> </span>OBSProject.OBSStudio
+<a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a>winget<span class="w"> </span>install<span class="w"> </span>Pylogmon.pot
+<a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a>winget<span class="w"> </span>install<span class="w"> </span>Python.Python.3.13
+<a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a>winget<span class="w"> </span>install<span class="w"> </span>SumatraPDF.SumatraPDF
+<a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a>winget<span class="w"> </span>install<span class="w"> </span>Tencent.TencentMeeting
+<a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a>winget<span class="w"> </span>install<span class="w"> </span>Tencent.QQ.NT
+<a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>winget<span class="w"> </span>install<span class="w"> </span>Tencent.QQBrowser
+<a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a>winget<span class="w"> </span>install<span class="w"> </span>Tencent.WeChat.Universal
+<a id="__codelineno-17-46" name="__codelineno-17-46" href="#__codelineno-17-46"></a>winget<span class="w"> </span>install<span class="w"> </span>Thunder.Thunder
+<a id="__codelineno-17-47" name="__codelineno-17-47" href="#__codelineno-17-47"></a>winget<span class="w"> </span>install<span class="w"> </span>Valve.Steam
+<a id="__codelineno-17-48" name="__codelineno-17-48" href="#__codelineno-17-48"></a>winget<span class="w"> </span>install<span class="w"> </span>VideoLAN.VLC
+<a id="__codelineno-17-49" name="__codelineno-17-49" href="#__codelineno-17-49"></a>winget<span class="w"> </span>install<span class="w"> </span>VivaldiTechnologies.Vivaldi
+<a id="__codelineno-17-50" name="__codelineno-17-50" href="#__codelineno-17-50"></a>winget<span class="w"> </span>install<span class="w"> </span>Xiaomi.MIUI+
+<a id="__codelineno-17-51" name="__codelineno-17-51" href="#__codelineno-17-51"></a>winget<span class="w"> </span>install<span class="w"> </span>Xournal++.Xournal++
+<a id="__codelineno-17-52" name="__codelineno-17-52" href="#__codelineno-17-52"></a>winget<span class="w"> </span>install<span class="w"> </span>Youdao.YoudaoTranslate
+</code></pre></div>
+<h4 id="microsoft-store">Microsoft Store</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Apple<span class="w"> </span>Music
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Snipaste
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Watt<span class="w"> </span>Toolkit
+</code></pre></div>
+<h4 id="install-manually">Install Manually</h4>
+<ul>
+<li><a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a></li>
+<li><a href="https://www.cnblogs.com/pdfpatcher/">pdfpatcher</a></li>
+<li><a href="https://ctan.org/pkg/install-latex-guide-zh-cn">TeX Live</a></li>
+<li><a href="https://www.wolfram.com/mathematica/">Wolfram Mathematica</a> 12.3.1</li>
+<li><a href="https://www.wegame.com.cn">WeGame</a></li>
+<li><a href="https://bcut.bilibili.cn">必剪</a></li>
+<li><a href="http://formatfactory.org/CN/index.html">格式工厂</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pip<span class="w"> </span>install<span class="w"> </span>yutto
+</code></pre></div>
+<h3 id="fonts">Fonts</h3>
+<ul>
+<li><a href="https://github.com/notofonts/noto-cjk">Noto Serif CJK SC</a><ul>
+<li>Install <code>Static Super OTC</code> in <code>Releases</code></li>
+</ul>
+</li>
+<li><a href="https://github.com/be5invis/Sarasa-Gothic">Sarasa Gothic</a><ul>
+<li>Install <code>10</code> fonts named <code>Sarasa Mono SC</code></li>
+<li>Install <code>10</code> fonts named <code>Sarasa Ui SC</code></li>
+</ul>
+</li>
+<li><a href="https://github.com/atelier-anchor/smiley-sans">Smiley Sans</a></li>
+</ul>
+<h3 id="add">微软拼音 Add 小鹤双拼</h3>
+<ol>
+<li>注册表编辑器 -&gt; <code>计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS</code>;</li>
+<li>新建字符串值，数值名称 <code>UserDefinedDoublePinyinScheme0</code>，数值数据 <code>小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt</code>.</li>
+</ol>
+<p>Reference: <a href="https://ifttl.com/add-flypy-to-win10-microsoft-pinyin-and-other-configuration/">Win10 微软拼音添加小鹤双拼以及其他配置</a></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022.01.02 - now ph3n92h3 & 桜井雪子
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://ph3n92h3.github.io" target="_blank" rel="noopener" title="Mein kleines Herz" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M277.8 8.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S18.8 272 32 272h16v176c0 35.3 28.7 64 64 64h288c35.3 0 64-28.7 64-64V272h16c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1zM240 320h32c26.5 0 48 21.5 48 48v96H192v-96c0-26.5 21.5-48 48-48"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:ph3n92h3@gmail.com" target="_blank" rel="noopener" title="E-Mail" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M61.4 64C27.5 64 0 91.5 0 125.4c0 .9 0 1.7.1 2.6H0v256c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V128h-.1c0-.9.1-1.7.1-2.6 0-33.9-27.5-61.4-61.4-61.4zM464 192.3V384c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192.3l154.8 117.4c31.4 23.9 74.9 23.9 106.4 0zM48 125.4c0-7.4 6-13.4 13.4-13.4h389.2c7.4 0 13.4 6 13.4 13.4 0 4.2-2 8.2-5.3 10.7L280.2 271.5c-14.3 10.8-34.1 10.8-48.4 0L53.3 136.1c-3.3-2.5-5.3-6.5-5.3-10.7"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/ph3n92h3" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://music.163.com/#/user/home?id=534851842" target="_blank" rel="noopener" title="Netease music" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M468 7c7.6 6.1 12 15.3 12 25v304c0 44.2-43 80-96 80s-96-35.8-96-80 43-80 96-80c11.2 0 22 1.6 32 4.6V143.9l-224 49.8V400c0 44.2-43 80-96 80S0 444.2 0 400s43-80 96-80c11.2 0 22 1.6 32 4.6V96c0-15 10.4-28 25.1-31.2l288-64c9.5-2.1 19.4.2 27 6.3z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://space.bilibili.com/38969888" target="_blank" rel="noopener" title="BiliBili" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92c-26.4-.8-48.2-9.8-65.3-27.2S.7 396.5 0 368.2V169.8c.8-26 9.7-47.6 26.7-65.7C43.8 87.8 65.5 78.8 92 78h29.4L96 52.2c-5.7-5.7-8.6-13-8.6-21.8S90.3 14.3 96 8.6 109 0 117.9 0s16.1 2.9 21.9 8.6L213.1 78h88l74.5-69.4C381.7 2.9 389.2 0 398 0s16.1 2.9 21.9 8.6c5.7 5.7 8.6 13 8.6 21.8s-2.9 16.1-8.6 21.8L394.6 78h29.3c26.4.8 48 9.8 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96c-9.6.4-17.4 3.7-23.6 9.8-6.1 6.1-9.4 13.9-9.8 23.5v194.4c0 9.2 3.3 17 9.8 23.5s14.4 9.8 23.6 9.8h320.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://steamcommunity.com/profiles/76561199079491640/" target="_blank" rel="noopener" title="Steam" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M504 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L184.6 279c-15.5-.9-30.7 3.4-43.5 12.1L8 236.1C18.2 108.4 125.1 8 255.6 8 392.8 8 504 119 504 256M163.7 384.3l-30.5-12.6c5.6 11.6 15.3 20.8 27.2 25.8 26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3.1-40.3S214 305.6 201 300.2c-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21m173.8-254.5a62.3 62.3 0 1 1 0 124.6 62.3 62.3 0 1 1 0-124.6m.1 109a46.8 46.8 0 1 0 0-93.6 46.8 46.8 0 1 0 0 93.6"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.zhihu.com/people/feng-zhe-51-84" target="_blank" rel="noopener" title="Zhihu" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M170.5 148.1v217.5h23.4l7.7 26.4 42-26.4h49.5V148.1H170.4zM268.3 342h-27.9l-27.9 17.5-5.1-17.5h-11.9V171.7h72.8zm-118.5-94.3H97.5c1.7-27.1 2.2-51.6 2.2-73.5h51.2s2-22.6-8.6-22.3H53.8c3.5-13.1 7.9-26.7 13.1-40.7 0 0-24.1 0-32.3 21.6-3.4 8.9-13.2 43.1-30.7 78.1 5.9-.6 25.4-1.2 36.8-22.2 2.1-5.9 2.5-6.7 5.1-14.5h28.9c0 10.5-1.2 66.9-1.7 73.4H20.7c-11.7 0-15.6 23.6-15.6 23.6h65.6c-4.4 49.9-28 91.9-70.8 125.1 20.5 5.9 40.9-.9 51-9.9 0 0 23-20.9 35.6-69.3l54 64.9s7.9-26.9-1.2-40c-7.6-8.9-28.1-33.1-36.8-41.8L87.9 312c4.4-14 7-27.6 7.9-40.7h61.6s-.1-23.6-7.6-23.6m412-1.6c20.8-25.6 45-58.6 45-58.6s-18.6-14.8-27.4-4.1c-6 8.2-36.8 48.2-36.8 48.2l19.2 14.4zm-150-59.1c-9-8.2-25.9 2.1-25.9 2.1s39.5 55 41.1 57.4l19.5-13.7s-25.7-37.6-34.7-45.9zM640 258.4c-19.8 0-130.9.9-131.1.9v-101q7.2 0 22.8-1.2c40.9-2.4 70.1-4 87.8-4.8 0 0 12.2-27.2-.6-33.4-3.1-1.2-23.2 4.6-23.2 4.6s-165.2 16.5-232.4 18c1.6 8.8 7.6 17.1 15.8 19.6 13.3 3.5 22.7 1.7 49.2.9 24.8-1.6 43.7-2.4 56.5-2.4v99.8H351.3s2.8 22.3 25.5 22.9h107.9v70.9c0 14-11.2 22-24.5 21.1-14.1.1-26.1-1.1-41.7-1.8 2 4 6.3 14.4 19.3 21.8 9.9 4.8 16.2 6.6 26 6.6 29.6 0 45.7-17.3 44.9-45.3v-73.3h122.4c9.7 0 8.7-23.8 8.7-23.8z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
