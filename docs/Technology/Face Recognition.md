@@ -1,4 +1,4 @@
-# :material-face-man: Face Recognition
+# Face Recognition
 
 > 我是真的没有想到人脸识别下限这么低。—— 桜井雪子
 
@@ -13,7 +13,7 @@
 
 一个简单的方法：装一个 `PyCharm`，在 `PyCharm` 里面换源、装库
 
-## :material-camera: 摄像头拍照
+## 摄像头拍照
 
 ```python
 import cv2 as cv
@@ -44,7 +44,7 @@ cv.destroyAllWindows()
 
 分类器：[opencv haarcascades](https://githubfast.com/opencv/opencv/tree/master/data/haarcascades)
 
-### :material-image: 图片
+### 图片
 
 ```python
 import cv2 as cv
@@ -65,7 +65,7 @@ cv.waitKey(0)
 cv.destroyAllWindows()
 ```
 
-### :material-camera: 摄像头
+### 摄像头
 
 ```python
 import cv2 as cv
@@ -96,7 +96,7 @@ camera.release()
 cv.destroyAllWindows()
 ```
 
-### :material-video: 视频
+### 视频
 
 ```python
 
@@ -167,7 +167,7 @@ faceRecognizer.train(faceArray, np.array(indexArray))
 faceRecognizer.write('训练出的 .yml 文件')
 ```
 
-### :material-image: 图片
+### 图片
 
 ```python
 import cv2 as cv
@@ -210,7 +210,7 @@ cv.waitKey(0)
 cv.destroyAllWindows()
 ```
 
-### :material-camera: 摄像头
+### 摄像头
 
 ```python
 import cv2 as cv
@@ -257,7 +257,7 @@ camera.release()
 cv.destroyAllWindows()
 ```
 
-### :material-video: 视频
+### 视频
 
 ```python
 import cv2 as cv

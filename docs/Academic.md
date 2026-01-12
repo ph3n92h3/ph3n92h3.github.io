@@ -1,4 +1,4 @@
-# :simple-academia: Academic
+# Academic
 
 ## Research Interests
 

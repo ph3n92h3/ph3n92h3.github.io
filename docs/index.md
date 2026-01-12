@@ -1,4 +1,4 @@
-# :material-home: Home
+# Home
 
 > 及至始皇，奮六世之馀烈……
 

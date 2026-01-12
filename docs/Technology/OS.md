@@ -1,6 +1,6 @@
-# :fontawesome-solid-computer: OS
+# OS
 
-## :material-arch: :simple-linux: Arch Linux
+## Arch Linux
 
 - [dotfile](https://github.com/ph3n92h3/dotfile)
 
@@ -14,7 +14,7 @@
 
 ### Basic Configuration
 
-#### 禁用 PC speaker :material-speaker:
+#### 禁用 PC speaker
 
 `sudo hx /etc/modprobe.d/nobeep.conf`
 
@@ -378,6 +378,6 @@ pip install yutto
 ### 微软拼音 Add 小鹤双拼
 
 1. 注册表编辑器 -> `计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS`;
-2. 新建字符串值，数值名称 `UserDefinedDoublePinyinScheme0 `，数值数据 `小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt`.
+2. 新建字符串值，数值名称 `UserDefinedDoublePinyinScheme0`，数值数据 `小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt`.
 
 Reference: [Win10 微软拼音添加小鹤双拼以及其他配置](https://ifttl.com/add-flypy-to-win10-microsoft-pinyin-and-other-configuration/)

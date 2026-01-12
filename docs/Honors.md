@@ -1,4 +1,4 @@
-# :fontawesome-solid-award: Honors
+# Honors
 
 - Dec. 2025 - 2025 年硕士研究生国家奖学金
 - Jun. 2025 - 中国科学院大学优秀学生干部（2024-2025 学年）

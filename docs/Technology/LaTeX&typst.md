@@ -1,4 +1,4 @@
-# :simple-latex: $\LaTeX$ & :simple-typst: Typst
+# $\LaTeX$ & Typst
 
 ## $\LaTeX$
 
@@ -6,9 +6,9 @@
 
 - [Overleaf](https://www.overleaf.com/)
 - [TeX Live](https://tug.org/texlive/)
-  - [Arch Linux](https://wiki.archlinux.org/title/TeX_Live): `paru -S texlive texlive-lang texlive-binextra python-pygments`
-  - MacOS: `brew install --cask mactex-no-gui` & `brew install latexindent`
-  - Windows: [install-latex-guide-zh-cn](https://ctan.org/pkg/install-latex-guide-zh-cn)
+    - [Arch Linux](https://wiki.archlinux.org/title/TeX_Live): `paru -S texlive texlive-lang texlive-binextra python-pygments`
+    - MacOS: `brew install --cask mactex-no-gui` & `brew install latexindent`
+    - Windows: [install-latex-guide-zh-cn](https://ctan.org/pkg/install-latex-guide-zh-cn)
 - VS Code: [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop), [LaTeX Utilities](https://marketplace.visualstudio.com/items?itemName=tecosaur.latex-utilities), [Ultra Math Preview](https://marketplace.visualstudio.com/items?itemName=yfzhao.ultra-math-preview)
 
 ### Tutorial
