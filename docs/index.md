@@ -25,14 +25,12 @@ My CV: [🇺🇸 / 🇬🇧 English](https://typst.app/project/r3U3n4H6KWPjkowTs
 - Program & Code & CS
     - [Wolfram Mathematica](https://www.wolfram.com/mathematica/)(including [xAct](https://xact.es/index.html))
     - [$\LaTeX$](https://www.latex-project.org) and [Typst](https://typst.app)
-- Electronic Music
-    - Hardstyle
-- Game
-    - [Forza Horizon 4](https://forza.net/horizon/)
-    - [Euro Truck Simulator 2](https://eurotrucksimulator2.com)
+- Electronic Dance Music
+- [Game on Steam](https://steamcommunity.com/profiles/76561199079491640)
 
 ## Volunteer Experience
 
-- 2020~2024: Blood donations totaled 2300 mL for 8 times
-- 2020~2022: Excellent volunteer in the epidemic(COVID-19) prevention, Linzhang, Handan, Hebei
-- 2020: Volunteer in Jiulong Lake Reading Center, Jiangning, Nanjing, Jiangsu
+- 2024-07-22~31: Volunteer for [KITS Summer School](https://kitssummerschool2024.github.io), Beijing, China
+- 2020~2024: Blood donations totaled 2300 mL for 8 times, Nanjing, China
+- 2020~2022: Outstanding volunteer for COVID-19 prevention and control, Handan, China
+- 2020: Volunteer at Jiulong Lake Reading Center, Nanjing, China
