@@ -1,31 +1,50 @@
-/* Local, dependency-free word comparison and two-way merging. */
+/* Local, dependency-free text comparison and two-way merging. */
 (() => {
   "use strict";
 
+  const sides = ["left", "right"];
   const segmenter = typeof Intl.Segmenter === "function"
     ? new Intl.Segmenter(undefined, { granularity: "word" }) : null;
+  const characters = typeof Intl.Segmenter === "function"
+    ? new Intl.Segmenter(undefined, { granularity: "grapheme" }) : null;
 
-  function words(text, options, budget = 100000) {
-    const segments = segmenter ? segmenter.segment(text)
+  function normalize(text, options) {
+    let key = text.replace(/\r\n?/g, "\n");
+    if (options.ignoreWhitespace) key = key.replace(/[^\S\n]+/gu, "");
+    return options.ignoreCase ? key.toLowerCase() : key;
+  }
+
+  function* smartSegments(text) {
+    const pieces = segmenter ? segmenter.segment(text)
       : text.matchAll(/[\p{L}\p{N}\p{M}_]+|[^\S\r\n]+|\r\n|[\s\S]/gu);
+    for (const part of pieces) {
+      const value = part.segment ?? part[0];
+      if (!(part.isWordLike ?? /[\p{L}\p{N}]/u.test(value))) { yield part; continue; }
+      for (const match of value.matchAll(/[\p{L}\p{M}]+|\p{N}+|[\s\S]/gu)) {
+        yield { segment: match[0], index: part.index + match.index };
+      }
+    }
+  }
+
+  function tokenize(text, options, budget = 100000, character = false) {
+    const segments = character ? (characters ? characters.segment(text) : text.matchAll(/\r\n|[\s\S]/gu))
+      : smartSegments(text);
     const tokens = [];
     for (const part of segments) {
       const segment = part.segment ?? part[0], index = part.index;
       if (options.ignoreWhitespace && /^[^\S\r\n]+$/u.test(segment)) continue;
       if (tokens.length >= budget) {
-        throw new Error("Please compare a smaller section (up to 100,000 word, punctuation and whitespace tokens combined).");
+        throw new Error("Please compare a smaller section (up to 100,000 comparison tokens combined).");
       }
-      let key = segment.replace(/\r\n?/g, "\n");
-      if (options.ignoreCase) key = key.toLowerCase();
-      tokens.push({ key, start: index, end: index + segment.length,
-        word: part.isWordLike ?? /[\p{L}\p{N}]/u.test(segment) });
+      tokens.push({ key: normalize(segment, options), start: index, end: index + segment.length,
+        word: character || (part.isWordLike ?? /[\p{L}\p{N}]/u.test(segment)) });
     }
     return tokens;
   }
 
   // Use Myers for nearby edits, with a bounded trace. For larger edit counts,
-  // indexed common tokens keep unchanged sections instead of replacing them all.
-  function diff(a, b) {
+  // unique ordered anchors split larger edits before the indexed fallback.
+  function diff(a, b, depth = 0) {
     let start = 0;
     let endA = a.length;
     let endB = b.length;
@@ -76,23 +95,74 @@
         if (!positions.has(key)) positions.set(key, []);
         positions.get(key).push(j);
       }
-      middle = [];
-      let y = 0;
-      for (let x = 0; x < n; x++) {
-        const matches = positions.get(a[start + x]) || [];
-        let low = 0, high = matches.length;
-        while (low < high) {
-          const mid = (low + high) >>> 1;
-          if (matches[mid] < y) low = mid + 1;
-          else high = mid;
+      const unique = new Map(), candidates = [], tails = [];
+      let width = 1;
+      // Four-token anchors also identify context when individual characters
+      // repeat throughout a long document. Overlapping anchors are skipped.
+      for (const span of depth < 32 ? [1, 4] : []) {
+        const keyAt = (tokens, index) => span === 1 ? tokens[start + index]
+          : JSON.stringify(tokens.slice(start + index, start + index + span));
+        const matchesByKey = span === 1 ? positions : new Map();
+        if (span > 1) {
+          for (let j = 0; j + span <= m; j++) {
+            const key = keyAt(b, j);
+            if (!matchesByKey.has(key)) matchesByKey.set(key, []);
+            matchesByKey.get(key).push(j);
+          }
         }
-        if (low === matches.length) middle.push("delete");
-        else {
-          while (y < matches[low]) { middle.push("insert"); y++; }
-          middle.push("equal"); y++;
+        unique.clear();
+        for (let x = 0; x + span <= n; x++) {
+          const key = keyAt(a, x);
+          unique.set(key, unique.has(key) ? -1 : x);
         }
+        for (const [key, x] of unique) {
+          const matches = matchesByKey.get(key);
+          if (x < 0 || matches?.length !== 1) continue;
+          const y = matches[0];
+          let low = 0, high = tails.length;
+          while (low < high) {
+            const mid = (low + high) >>> 1;
+            if (candidates[tails[mid]].right < y) low = mid + 1;
+            else high = mid;
+          }
+          tails[low] = candidates.length;
+          candidates.push({ left: x, right: y, previous: low ? tails[low - 1] : -1 });
+        }
+        if (tails.length) { width = span; break; }
       }
-      while (y++ < m) middle.push("insert");
+      const anchors = [];
+      for (let i = tails.at(-1) ?? -1; i >= 0; i = candidates[i].previous) anchors.push(candidates[i]);
+      anchors.reverse();
+      if (anchors.length) {
+        const parts = [];
+        let x = 0, y = 0;
+        for (const anchor of [...anchors, { left: n, right: m }]) {
+          if (anchor.left < x || anchor.right < y) continue;
+          parts.push(diff(a.slice(start + x, start + anchor.left), b.slice(start + y, start + anchor.right), depth + 1));
+          if (anchor.left < n) parts.push(Array(width).fill("equal"));
+          x = anchor.left + width; y = anchor.right + width;
+        }
+        middle = parts.flat();
+      }
+      if (!middle) {
+        middle = [];
+        let y = 0;
+        for (let x = 0; x < n; x++) {
+          const matches = positions.get(a[start + x]) || [];
+          let low = 0, high = matches.length;
+          while (low < high) {
+            const mid = (low + high) >>> 1;
+            if (matches[mid] < y) low = mid + 1;
+            else high = mid;
+          }
+          if (low === matches.length) middle.push("delete");
+          else {
+            while (y < matches[low]) { middle.push("insert"); y++; }
+            middle.push("equal"); y++;
+          }
+        }
+        while (y++ < m) middle.push("insert");
+      }
     }
     return [
       ...Array(start).fill("equal"),
@@ -107,11 +177,8 @@
     }
     const split = (text, budget = 20000) => Array.from(text.matchAll(/[^\r\n]*(?:\r\n?|\n)|[^\r\n]+$/g), (match, index) => {
       if (index >= budget) throw new Error("Please compare a smaller section (up to 20,000 lines combined).");
-      let key = match[0].replace(/\r\n?/g, "\n");
-      if (options.ignoreWhitespace) key = key.replace(/[^\S\n]+/gu, "");
-      if (options.ignoreCase) key = key.toLowerCase();
       return { text: match[0], content: match[0].replace(/(?:\r\n?|\n)$/, ""),
-        start: match.index, end: match.index + match[0].length, number: index + 1, key };
+        start: match.index, end: match.index + match[0].length, number: index + 1, key: normalize(match[0], options) };
     });
     const left = split(original), right = split(changed, 20000 - left.length);
     const edits = diff(left.map(line => line.key), right.map(line => line.key));
@@ -131,22 +198,67 @@
       };
       if (!equal) {
         block.index = changes.length;
-        block.rows = [];
-        for (let j = 0; j < Math.max(l - startL, r - startR); j++) {
-          const a = block.leftLines[j], b = block.rightLines[j];
-          const wa = words(a?.text || "", options, budget);
-          const wb = words(b?.text || "", options, budget - wa.length);
-          budget -= wa.length + wb.length;
-          const marks = { left: [], right: [] };
-          let x = 0, y = 0;
-          for (const edit of diff(wa.map(word => word.key), wb.map(word => word.key))) {
-            if (edit === "equal") { x++; y++; }
-            else if (edit === "delete") { marks.left.push(wa[x]); removed += Number(wa[x++].word); }
-            else { marks.right.push(wb[y]); added += Number(wb[y++].word); }
+        const lines = { left: block.leftLines, right: block.rightLines };
+        for (const side of sides) for (const line of lines[side]) line.marks = [];
+        const input = { left: original.slice(...block.left), right: changed.slice(...block.right) };
+        const wa = tokenize(input.left, options, budget);
+        const wb = tokenize(input.right, options, budget - wa.length);
+        budget -= wa.length + wb.length;
+        const operations = diff(wa.map(word => word.key), wb.map(word => word.key));
+        const marked = { left: [], right: [] };
+        let x = 0, y = 0;
+        for (let j = 0; j < operations.length;) {
+          if (operations[j] === "equal") {
+            x++; y++; j++;
+            continue;
           }
-          block.rows.push({ left: a ? { ...a, marks: marks.left } : null,
-            right: b ? { ...b, marks: marks.right } : null });
+          const startX = x, startY = y;
+          while (j < operations.length && operations[j] !== "equal") {
+            if (operations[j++] === "delete") removed += Number(wa[x++].word);
+            else added += Number(wb[y++].word);
+          }
+          let group = { left: wa.slice(startX, x), right: wb.slice(startY, y) };
+          const offset = {}, text = {}, fine = {};
+          for (const side of sides) {
+            offset[side] = group[side][0]?.start ?? 0;
+            text[side] = group[side].length ? input[side].slice(offset[side], group[side].at(-1).end) : "";
+          }
+          // Bound refinement of unusually long tokens; the coarse word result
+          // remains usable without allocating an unbounded character trace.
+          if (text.left.length + text.right.length <= 8192) {
+            for (const side of sides) {
+              fine[side] = tokenize(text[side], options, budget, true);
+              budget -= fine[side].length;
+            }
+            const edits = diff(fine.left.map(t => t.key), fine.right.map(t => t.key));
+            const selected = { left: [], right: [] };
+            let a = 0, b = 0;
+            for (const edit of edits) {
+              if (edit !== "insert") { if (edit === "delete") selected.left.push(fine.left[a]); a++; }
+              if (edit !== "delete") { if (edit === "insert") selected.right.push(fine.right[b]); b++; }
+            }
+            const ratio = Math.max(selected.left.length / Math.max(1, fine.left.length), selected.right.length / Math.max(1, fine.right.length));
+            if ((!text.left.trim() && !text.right.trim()) || ratio < .5) {
+              group = selected;
+              for (const side of sides) {
+                group[side] = group[side].map(t => ({ ...t, start: t.start + offset[side], end: t.end + offset[side] }));
+              }
+            }
+          }
+          for (const side of sides) for (const token of group[side]) marked[side].push(token);
         }
+        for (const side of sides) {
+          let index = 0;
+          for (const token of marked[side]) {
+            const position = token.start + block[side][0];
+            while (index + 1 < lines[side].length && position >= lines[side][index].end) index++;
+            const offset = lines[side][index].start - block[side][0];
+            lines[side][index].marks.push({ ...token, start: token.start - offset, end: token.end - offset });
+          }
+        }
+        block.rows = Array.from({ length: Math.max(lines.left.length, lines.right.length) }, (_, index) => ({
+          left: lines.left[index] ?? null, right: lines.right[index] ?? null
+        }));
         changes.push(block);
       }
       blocks.push(block);
@@ -169,8 +281,21 @@
     return parts.join("");
   }
 
+  function highlightRanges(line) {
+    const ranges = [];
+    for (const token of line.marks) {
+      const start = Math.min(token.start, line.content.length), end = Math.min(token.end, line.content.length);
+      if (end <= start) continue;
+      const previous = ranges.at(-1);
+      if (previous && (start <= previous.end || /^[^\S\r\n]*$/u.test(line.content.slice(previous.end, start)))) {
+        previous.end = Math.max(previous.end, end);
+      } else ranges.push({ start, end });
+    }
+    return ranges;
+  }
+
   // Keep the comparison engine testable without a browser or dependencies.
-  if (typeof module !== "undefined" && module.exports) module.exports = { compare, merge };
+  if (typeof module !== "undefined" && module.exports) module.exports = { compare, merge, highlightRanges };
   if (typeof document === "undefined") return;
 
   // Append text as text nodes, including whitespace and literal HTML.
@@ -187,11 +312,8 @@
     const text = element("pre", { class: "dc-line-text" });
     if (changed && line) {
       let cursor = 0;
-      for (const token of line.marks) {
-        const start = Math.min(token.start, line.content.length);
-        const end = Math.min(token.end, line.content.length);
-        text.append(line.content.slice(cursor, start));
-        if (end > start) text.append(element("mark", {}, line.content.slice(start, end)));
+      for (const { start, end } of highlightRanges(line)) {
+        text.append(line.content.slice(cursor, start), element("mark", {}, line.content.slice(start, end)));
         cursor = end;
       }
       text.append(line.content.slice(cursor));
@@ -227,11 +349,69 @@
     const original = root.querySelector("#dc-original");
     const changed = root.querySelector("#dc-changed");
     const status = root.querySelector(".dc-status");
+    const workspace = root.querySelector(".dc-workspace");
+    const back = root.querySelector('[data-action="edit"]');
     const results = root.querySelector(".dc-results");
     const output = root.querySelector(".dc-comparison");
+    const overview = root.querySelector(".dc-overview");
     const mergeAll = root.querySelectorAll(".dc-actions [data-merge]");
-    let comparison;
+    const headers = document.querySelectorAll(".md-header, .md-tabs");
+    let comparison, pinned = false;
     syncScroll(original, changed);
+
+    function fitWorkspace() {
+      if (results.hidden) return;
+      let top = window.visualViewport?.offsetTop ?? 0;
+      for (const bar of headers) {
+        const rect = bar.getBoundingClientRect();
+        if (["fixed", "sticky"].includes(getComputedStyle(bar).position) && rect.top <= top + 1) {
+          top = Math.max(top, rect.bottom);
+        }
+      }
+      workspace.style.setProperty("--dc-top", `${top}px`);
+      const bottom = (window.visualViewport?.offsetTop ?? 0) + (window.visualViewport?.height ?? window.innerHeight);
+      workspace.style.setProperty("--dc-height", `${Math.max(0, bottom - top)}px`);
+      if (pinned) workspace.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+
+    function updateViewport() {
+      const height = Math.max(1, output.scrollHeight);
+      overview.style.setProperty("--dc-view-top", `${100 * output.scrollTop / height}%`);
+      overview.style.setProperty("--dc-view-height", `${100 * output.clientHeight / height}%`);
+    }
+
+    function drawOverview() {
+      if (!root.isConnected) { resize.disconnect(); events.abort(); return; }
+      overview.hidden = !comparison?.changes.length;
+      if (overview.hidden || results.hidden) { overview.replaceChildren(); return; }
+      const current = overview.querySelector("[aria-current]")?.dataset.go;
+      const top = output.getBoundingClientRect().top - output.scrollTop;
+      const height = Math.max(1, output.scrollHeight);
+      const markers = document.createDocumentFragment();
+      for (const [index, block] of output.querySelectorAll(".dc-block").entries()) {
+        const change = comparison.changes[index];
+        const rect = block.getBoundingClientRect();
+        const label = `Go to change ${index + 1} of ${comparison.changes.length} (original line ${change.leftLines[0]?.number ?? "—"}, changed line ${change.rightLines[0]?.number ?? "—"})`;
+        markers.append(element("button", {
+          type: "button", class: "dc-map-change", "data-go": index, "aria-label": label,
+          "aria-controls": block.id, "aria-current": String(index) === current ? "location" : null, title: label,
+          style: `top:${Math.min(99.25, 100 * (rect.top - top) / height)}%;height:${Math.max(.75, 100 * rect.height / height)}%`
+        }, element("span", { class: change.leftLines.length ? "dc-map-remove" : "", "aria-hidden": "true" }),
+        element("span", { class: change.rightLines.length ? "dc-map-add" : "", "aria-hidden": "true" })));
+      }
+      overview.replaceChildren(markers);
+      updateViewport();
+    }
+    output.addEventListener("scroll", updateViewport, { passive: true });
+    const events = new AbortController();
+    window.addEventListener("scroll", () => {
+      pinned = !results.hidden && Math.abs(workspace.getBoundingClientRect().top - parseFloat(workspace.style.getPropertyValue("--dc-top"))) < 1;
+    }, { passive: true, signal: events.signal });
+    window.addEventListener("resize", fitWorkspace, { signal: events.signal });
+    window.visualViewport?.addEventListener("resize", fitWorkspace, { signal: events.signal });
+    const resize = new ResizeObserver(() => { fitWorkspace(); drawOverview(); });
+    resize.observe(output);
+    headers.forEach(bar => resize.observe(bar));
 
     const navigation = document.querySelector(".md-sidebar--primary");
     const toggle = root.querySelector('[data-action="navigation"]');
@@ -242,8 +422,13 @@
 
     function invalidate(message = "Text or options changed. Find differences to update the results.") {
       results.hidden = true;
+      back.hidden = true;
+      pinned = false;
+      workspace.removeAttribute("data-active");
       comparison = null;
       output.replaceChildren();
+      overview.replaceChildren();
+      overview.hidden = true;
       mergeAll.forEach(button => { button.disabled = true; });
       status.textContent = message;
     }
@@ -264,6 +449,11 @@
         root.dataset.navigation = collapsed ? "collapsed" : "expanded";
         toggle.setAttribute("aria-expanded", String(!collapsed));
         toggle.textContent = collapsed ? "Show navigation" : "Hide navigation";
+      } else if (action === "edit") {
+        pinned = false;
+        form.style.scrollMarginTop = workspace.style.getPropertyValue("--dc-top");
+        form.scrollIntoView({ block: "start", behavior: "instant" });
+        original.focus({ preventScroll: true });
       } else if (action === "swap") {
         [original.value, changed.value] = [changed.value, original.value];
         invalidate("Texts swapped. Find differences to compare.");
@@ -274,8 +464,12 @@
       } else if (go !== undefined) {
         const block = output.querySelector(`#dc-change-${Number(go)}`);
         if (block) {
-          block.scrollIntoView({ block: "start", behavior: "auto" });
+          pinned = true;
+          fitWorkspace();
+          output.scrollTop += block.getBoundingClientRect().top - output.getBoundingClientRect().top;
           block.focus({ preventScroll: true });
+          overview.querySelector("[aria-current]")?.removeAttribute("aria-current");
+          overview.querySelector(`[data-go="${Number(go)}"]`)?.setAttribute("aria-current", "location");
         }
       } else if (target && comparison) {
         const editor = target === "left" ? original : changed;
@@ -331,10 +525,14 @@
         }
         output.replaceChildren(fragment);
         results.hidden = !comparison.left && !comparison.right;
+        back.hidden = results.hidden;
+        workspace.toggleAttribute("data-active", !results.hidden);
         mergeAll.forEach(button => { button.disabled = !changes.length; });
         status.textContent = changes.length
-          ? `${changes.length} changed ${changes.length === 1 ? "block" : "blocks"} · ${removed} removed ${removed === 1 ? "word" : "words"} · ${added} added ${added === 1 ? "word" : "words"}`
+          ? `${changes.length} changed ${changes.length === 1 ? "block" : "blocks"} · ${removed} removed word${removed === 1 ? "" : "s"} · ${added} added word${added === 1 ? "" : "s"}`
           : `No differences${form.elements.ignoreCase.checked || form.elements.ignoreWhitespace.checked ? " with the selected options" : ""}.`;
+        fitWorkspace();
+        drawOverview();
       } catch (error) {
         invalidate(error.message);
       }
@@ -343,6 +541,14 @@
     form.addEventListener("submit", event => {
       event.preventDefault();
       render();
+      if (!results.hidden) {
+        pinned = true;
+        workspace.scrollIntoView({ block: "start", behavior: "instant" });
+        // Sticky headers may settle into a new position after scrolling.
+        fitWorkspace();
+        output.scrollTop = 0;
+        output.focus({ preventScroll: true });
+      }
     });
   }
 

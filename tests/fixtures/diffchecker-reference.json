@@ -1,0 +1,299 @@
+{
+  "source": "https://www.diffchecker.com/",
+  "captured": "2026-10-20",
+  "notes": "Default Smart results observed through the public comparison UI in three batches, with identical CASE/END context lines. Empty DOM highlight spans for line breaks are excluded; exact text and newline preservation are tested separately.",
+  "cases": [
+    {
+      "id": "spelling",
+      "left": "hello world",
+      "right": "hallo world",
+      "expected": {
+        "removed": [
+          "e"
+        ],
+        "added": [
+          "a"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "prose",
+      "left": "running cats",
+      "right": "walking dogs",
+      "expected": {
+        "removed": [
+          "running cats"
+        ],
+        "added": [
+          "walking dogs"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "chinese",
+      "left": "你好，世界！",
+      "right": "你好，美丽世界！",
+      "expected": {
+        "removed": [],
+        "added": [
+          "美丽"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "latex",
+      "left": "\\mu_1 + \\phi",
+      "right": "\\nu_1 + \\phi",
+      "expected": {
+        "removed": [
+          "mu"
+        ],
+        "added": [
+          "nu"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "digits",
+      "left": "value = 12345",
+      "right": "value = 12945",
+      "expected": {
+        "removed": [
+          "3"
+        ],
+        "added": [
+          "9"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "short-two",
+      "left": "ab",
+      "right": "ac",
+      "expected": {
+        "removed": [
+          "ab"
+        ],
+        "added": [
+          "ac"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "short-three",
+      "left": "cat",
+      "right": "car",
+      "expected": {
+        "removed": [
+          "t"
+        ],
+        "added": [
+          "r"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "half-word",
+      "left": "abcd",
+      "right": "abXY",
+      "expected": {
+        "removed": [
+          "abcd"
+        ],
+        "added": [
+          "abXY"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "long-word",
+      "left": "abcdefghij",
+      "right": "abcdXYghij",
+      "expected": {
+        "removed": [
+          "ef"
+        ],
+        "added": [
+          "XY"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "insert-letter",
+      "left": "color",
+      "right": "colour",
+      "expected": {
+        "removed": [],
+        "added": [
+          "u"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "hyphen",
+      "left": "alpha-beta",
+      "right": "alpha-gamma",
+      "expected": {
+        "removed": [
+          "beta"
+        ],
+        "added": [
+          "gamma"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "underscore",
+      "left": "foo_bar",
+      "right": "foo_baz",
+      "expected": {
+        "removed": [
+          "r"
+        ],
+        "added": [
+          "z"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "case",
+      "left": "Alpha",
+      "right": "alpha",
+      "expected": {
+        "removed": [
+          "A"
+        ],
+        "added": [
+          "a"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "split-lines",
+      "left": "The quick brown fox.\nSecond old line.",
+      "right": "The quick\nbrown fox.\nSecond new line.",
+      "expected": {
+        "removed": [
+          " ",
+          "old"
+        ],
+        "added": [
+          "new"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "repeat-lines",
+      "left": "head\nrepeat\nold\nrepeat\ntail",
+      "right": "head\nrepeat\nnew\nrepeat\ntail",
+      "expected": {
+        "removed": [
+          "old"
+        ],
+        "added": [
+          "new"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "spaces",
+      "left": "  alpha  beta\tgamma",
+      "right": " alpha beta gamma  ",
+      "expected": {
+        "removed": [
+          " ",
+          " ",
+          "\t"
+        ],
+        "added": [
+          " ",
+          "  "
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "short-number",
+      "left": "12",
+      "right": "13",
+      "expected": {
+        "removed": [
+          "12"
+        ],
+        "added": [
+          "13"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "unequal-word",
+      "left": "abc",
+      "right": "abXY",
+      "expected": {
+        "removed": [
+          "abc"
+        ],
+        "added": [
+          "abXY"
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "insert-word",
+      "left": "a b",
+      "right": "a x b",
+      "expected": {
+        "removed": [],
+        "added": [
+          "x "
+        ],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "join-word",
+      "left": "a b",
+      "right": "ab",
+      "expected": {
+        "removed": [
+          " "
+        ],
+        "added": [],
+        "blocks": 1
+      }
+    },
+    {
+      "id": "punctuation",
+      "left": "foo(bar), baz.",
+      "right": "foo[baz]; baz!",
+      "expected": {
+        "removed": [
+          "(bar),",
+          "."
+        ],
+        "added": [
+          "[baz];",
+          "!"
+        ],
+        "blocks": 1
+      }
+    }
+  ]
+}

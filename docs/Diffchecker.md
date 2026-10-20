@@ -33,11 +33,19 @@ Compare text word by word and merge changes by block. Text is processed locally 
       <button type="button" class="md-button" data-merge="left" disabled>← Merge all</button>
     </div>
   </form>
-  <p id="dc-hint" class="dc-hint">Ctrl / ⌘ + Enter to compare. Each block contains consecutive changed lines; darker highlights mark changed words. Spaces, indentation and line breaks are preserved. Use → or ← to merge a whole block into the other side. Both sides scroll together. Line endings are treated as equivalent; a final newline counts as a change.</p>
-  <p class="dc-status" role="status" aria-live="polite" aria-atomic="true">Ready to compare.</p>
-  <div class="dc-results" hidden role="region" aria-label="Text comparison results">
-    <div class="dc-result-head"><span>Original</span><span>Changed</span></div>
-    <div class="dc-comparison" tabindex="0" role="region" aria-label="Synchronized text comparison"></div>
+  <p id="dc-hint" class="dc-hint">Ctrl / ⌘ + Enter to compare. Changed words are highlighted automatically, with character-level detail for small edits. Each block contains consecutive changed lines, compared together across line breaks. Spaces, indentation and line breaks are preserved. Use → or ← to merge a whole block, and the markers on the right to jump to a change. Both sides scroll together. Line endings are treated as equivalent; a final newline counts as a change.</p>
+  <div class="dc-workspace">
+    <div class="dc-summary">
+      <p class="dc-status" role="status" aria-live="polite" aria-atomic="true">Ready to compare.</p>
+      <button type="button" class="md-button dc-back" data-action="edit" hidden>↑ Back to inputs</button>
+    </div>
+    <div class="dc-results" hidden role="region" aria-label="Text comparison results">
+      <div class="dc-result-head"><span>Original</span><span>Changed</span></div>
+      <div class="dc-result-body">
+        <div class="dc-comparison" tabindex="0" role="region" aria-label="Synchronized text comparison"></div>
+        <nav class="dc-overview" aria-label="Change overview" hidden></nav>
+      </div>
+    </div>
   </div>
   <noscript>Please enable JavaScript to compare text.</noscript>
 </div>
