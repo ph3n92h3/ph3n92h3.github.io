@@ -266,13 +266,34 @@ test("fallback anchors preserve long repeated-line comparisons", () => {
   }
 });
 
-test("large similar texts and input limits", () => {
+test("large similar texts", () => {
   const a = Array.from({ length: 9000 }, (_, i) => `line ${i}`);
   const b = [...a]; b[4500] = "line changed";
   const result = verify(a.join("\n"), b.join("\n"));
   assert.equal(result.removed, 1);
   assert.equal(result.added, 1);
-  assert.throws(() => compare("x".repeat(1000001), ""), /smaller section/);
-  assert.throws(() => compare("\n".repeat(20001), ""), /smaller section/);
-  assert.throws(() => compare("a ".repeat(100001), ""), /smaller section/);
+});
+
+test("very large texts compare without input limits", () => {
+  const a = Array.from({ length: 100000 }, (_, i) => `row ${i} ${i % 7}`);
+  const b = a.map((line, i) => i % 997 ? line : `${line} edited`);
+  b.splice(50000, 0, "inserted");
+  const result = verify(a.join("\n"), b.join("\n"));
+  assert.equal(result.changes.length, Math.ceil(100000 / 997) + 1);
+  assert.equal(result.added, Math.ceil(100000 / 997) + 1);
+  assert.equal(verify("x".repeat(2000001), "y").changes.length, 1);
+  assert.equal(verify("\n".repeat(50001), "").changes.length, 1);
+});
+
+test("blocks beyond the highlight budget still compare at line level", () => {
+  const huge = verify(`${"a ".repeat(100001)}\nsame\nThe quick fox`, "\nsame\nThe slow fox");
+  assert.equal(huge.changes.length, 2);
+  assert.equal(huge.changes[0].rows[0].left.marks.length, 0);
+  assert.equal(huge.removed, 100002);
+  assert.equal(huge.added, 1);
+  const last = huge.changes[1].rows[0];
+  assert.deepEqual(last.left.marks.map(token => last.left.text.slice(token.start, token.end)), ["quick"]);
+  const lines = Array.from({ length: 3000 }, (_, i) => `line ${i} ${"word ".repeat(30)}`);
+  const many = verify(lines.join("\n"), lines.map((line, i) => i % 2 ? line : `${line}!`).join("\n"));
+  assert.equal(many.changes.length, 1500);
 });

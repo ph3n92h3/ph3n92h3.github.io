@@ -3,10 +3,8 @@
   "use strict";
 
   const sides = ["left", "right"];
-  const segmenter = typeof Intl.Segmenter === "function"
-    ? new Intl.Segmenter(undefined, { granularity: "word" }) : null;
-  const characters = typeof Intl.Segmenter === "function"
-    ? new Intl.Segmenter(undefined, { granularity: "grapheme" }) : null;
+  const segmenter = Intl.Segmenter && new Intl.Segmenter(undefined, { granularity: "word" });
+  const characters = Intl.Segmenter && new Intl.Segmenter(undefined, { granularity: "grapheme" });
 
   function normalize(text, options) {
     let key = text.replace(/\r\n?/g, "\n");
@@ -14,63 +12,111 @@
     return options.ignoreCase ? key.toLowerCase() : key;
   }
 
+  const isWord = value => /[\p{L}\p{N}]/u.test(value);
+
+  // Yield { segment, index, word }, splitting words into letter and digit runs.
   function* smartSegments(text) {
     const pieces = segmenter ? segmenter.segment(text)
       : text.matchAll(/[\p{L}\p{N}\p{M}_]+|[^\S\r\n]+|\r\n|[\s\S]/gu);
     for (const part of pieces) {
       const value = part.segment ?? part[0];
-      if (!(part.isWordLike ?? /[\p{L}\p{N}]/u.test(value))) { yield part; continue; }
+      if (!(part.isWordLike ?? isWord(value))) { yield { segment: value, index: part.index, word: false }; continue; }
       for (const match of value.matchAll(/[\p{L}\p{M}]+|\p{N}+|[\s\S]/gu)) {
-        yield { segment: match[0], index: part.index + match.index };
+        yield { segment: match[0], index: part.index + match.index, word: isWord(match[0]) };
       }
     }
   }
 
-  function tokenize(text, options, budget = 100000, character = false) {
-    const segments = character ? (characters ? characters.segment(text) : text.matchAll(/\r\n|[\s\S]/gu))
-      : smartSegments(text);
+  function* characterSegments(text) {
+    for (const part of characters ? characters.segment(text) : text.matchAll(/\r\n|[\s\S]/gu)) {
+      yield { segment: part.segment ?? part[0], index: part.index, word: true };
+    }
+  }
+
+  // Count words in blocks too large to tokenize. A run of letters in scripts
+  // written without spaces, such as Chinese, counts as one word.
+  const countWords = text => text.match(/[\p{L}\p{M}]+|\p{N}+/gu)?.length ?? 0;
+
+  // Returns null once the budget is spent, so callers can skip highlighting.
+  function tokenize(text, options, budget, character = false) {
     const tokens = [];
-    for (const part of segments) {
-      const segment = part.segment ?? part[0], index = part.index;
+    for (const { segment, index, word } of (character ? characterSegments : smartSegments)(text)) {
       if (options.ignoreWhitespace && /^[^\S\r\n]+$/u.test(segment)) continue;
-      if (tokens.length >= budget) {
-        throw new Error("Please compare a smaller section (up to 100,000 comparison tokens combined).");
-      }
-      tokens.push({ key: normalize(segment, options), start: index, end: index + segment.length,
-        word: character || (part.isWordLike ?? /[\p{L}\p{N}]/u.test(segment)) });
+      if (tokens.length >= budget) return null;
+      tokens.push({ key: normalize(segment, options), start: index, end: index + segment.length, word });
     }
     return tokens;
   }
 
+  // Tokenize both sides within the shared budget, or return null without spending it.
+  function tokenizePair(input, options, budget, character) {
+    const left = tokenize(input.left, options, budget.tokens, character);
+    const right = left && tokenize(input.right, options, budget.tokens - left.length, character);
+    if (!right) return null;
+    budget.tokens -= left.length + right.length;
+    return { left, right };
+  }
+
+  const repeat = (edits, edit, count) => { for (let i = 0; i < count; i++) edits.push(edit); };
+
+  // Return the "equal", "delete" and "insert" edits that turn keys a into b.
+  function diff(a, b) {
+    const edits = [];
+    solve(a, b, 0, a.length, 0, b.length, 0, edits);
+    return edits;
+  }
+
+  // Number equal keys alike, so the fallbacks hash and compare integers.
+  function number(a, b) {
+    const ids = new Map();
+    return [a, b].map(keys => Int32Array.from(keys, key => {
+      let id = ids.get(key);
+      if (id === undefined) ids.set(key, id = ids.size);
+      return id;
+    }));
+  }
+
   // Use Myers for nearby edits, with a bounded trace. For larger edit counts,
   // unique ordered anchors split larger edits before the indexed fallback.
-  function diff(a, b, depth = 0) {
-    let start = 0;
-    let endA = a.length;
-    let endB = b.length;
-    while (start < endA && start < endB && a[start] === b[start]) start++;
-    while (endA > start && endB > start && a[endA - 1] === b[endB - 1]) { endA--; endB--; }
-    const n = endA - start;
-    const m = endB - start;
-    const limit = Math.min(n + m, 512);
-    const offset = limit + 1;
-    const frontier = new Int32Array(2 * limit + 3);
-    const trace = [];
-    let middle = !n || !m ? [...Array(n).fill("delete"), ...Array(m).fill("insert")] : null;
-    frontier.fill(-1);
-    frontier[offset + 1] = 0;
+  // Only the first call sees unnumbered keys; numbering waits until Myers fails.
+  function solve(a, b, startA, endA, startB, endB, depth, edits) {
+    let prefix = 0, suffix = 0;
+    while (startA < endA && startB < endB && a[startA] === b[startB]) { startA++; startB++; prefix++; }
+    while (endA > startA && endB > startB && a[endA - 1] === b[endB - 1]) { endA--; endB--; suffix++; }
+    repeat(edits, "equal", prefix);
+    if (startA === endA || startB === endB) {
+      repeat(edits, "delete", endA - startA);
+      repeat(edits, "insert", endB - startB);
+    } else if (!myers(a, b, startA, endA, startB, endB, edits)) {
+      if (!depth) [a, b] = number(a, b);
+      const positions = new Map();
+      for (let j = startB; j < endB; j++) {
+        if (positions.has(b[j])) positions.get(b[j]).push(j);
+        else positions.set(b[j], [j]);
+      }
+      if (depth >= 32 || !anchored(a, b, startA, endA, startB, endB, depth, edits, positions)) {
+        greedy(a, startA, endA, startB, endB, positions, edits);
+      }
+    }
+    repeat(edits, "equal", suffix);
+  }
 
-    search: for (let d = 0; !middle && d <= limit; d++) {
+  function myers(a, b, startA, endA, startB, endB, edits) {
+    const n = endA - startA, m = endB - startB;
+    const limit = Math.min(n + m, 512), offset = limit + 1;
+    const frontier = new Int32Array(2 * limit + 3).fill(-1), trace = [];
+    frontier[offset + 1] = 0;
+    for (let d = 0; d <= limit; d++) {
       trace.push(frontier.slice());
       for (let k = -d; k <= d; k += 2) {
         const i = offset + k;
         let x = k === -d || (k !== d && frontier[i - 1] < frontier[i + 1])
           ? frontier[i + 1] : frontier[i - 1] + 1;
         let y = x - k;
-        while (x < n && y < m && a[start + x] === b[start + y]) { x++; y++; }
+        while (x < n && y < m && a[startA + x] === b[startB + y]) { x++; y++; }
         frontier[i] = x;
         if (x < n || y < m) continue;
-        middle = [];
+        const path = [];
         for (let depth = d; depth >= 0; depth--) {
           const previous = trace[depth];
           const diagonal = x - y;
@@ -78,192 +124,183 @@
             ? diagonal + 1 : diagonal - 1;
           const previousX = previous[offset + previousK];
           const previousY = previousX - previousK;
-          while (x > previousX && y > previousY) { middle.push("equal"); x--; y--; }
+          while (x > previousX && y > previousY) { path.push("equal"); x--; y--; }
           if (depth > 0) {
-            if (x === previousX) { middle.push("insert"); y--; }
-            else { middle.push("delete"); x--; }
+            if (x === previousX) { path.push("insert"); y--; }
+            else { path.push("delete"); x--; }
           }
         }
-        middle.reverse();
-        break search;
+        for (let j = path.length - 1; j >= 0; j--) edits.push(path[j]);
+        return true;
       }
     }
-    if (!middle) {
-      const positions = new Map();
-      for (let j = 0; j < m; j++) {
-        const key = b[start + j];
-        if (!positions.has(key)) positions.set(key, []);
-        positions.get(key).push(j);
+    return false;
+  }
+
+  // Split at the longest ordered chain of keys found once on each side.
+  // Four-key anchors also identify context when individual characters
+  // repeat throughout a long document. Overlapping anchors are skipped.
+  function anchored(a, b, startA, endA, startB, endB, depth, edits, positions) {
+    for (const span of [1, 4]) {
+      const keyAt = span === 1 ? (keys, index) => keys[index]
+        : (keys, index) => `${keys[index]},${keys[index + 1]},${keys[index + 2]},${keys[index + 3]}`;
+      const matchesByKey = span === 1 ? positions : new Map();
+      if (span > 1) {
+        for (let j = startB; j + span <= endB; j++) {
+          const key = keyAt(b, j);
+          if (matchesByKey.has(key)) matchesByKey.get(key).push(j);
+          else matchesByKey.set(key, [j]);
+        }
       }
       const unique = new Map(), candidates = [], tails = [];
-      let width = 1;
-      // Four-token anchors also identify context when individual characters
-      // repeat throughout a long document. Overlapping anchors are skipped.
-      for (const span of depth < 32 ? [1, 4] : []) {
-        const keyAt = (tokens, index) => span === 1 ? tokens[start + index]
-          : JSON.stringify(tokens.slice(start + index, start + index + span));
-        const matchesByKey = span === 1 ? positions : new Map();
-        if (span > 1) {
-          for (let j = 0; j + span <= m; j++) {
-            const key = keyAt(b, j);
-            if (!matchesByKey.has(key)) matchesByKey.set(key, []);
-            matchesByKey.get(key).push(j);
-          }
-        }
-        unique.clear();
-        for (let x = 0; x + span <= n; x++) {
-          const key = keyAt(a, x);
-          unique.set(key, unique.has(key) ? -1 : x);
-        }
-        for (const [key, x] of unique) {
-          const matches = matchesByKey.get(key);
-          if (x < 0 || matches?.length !== 1) continue;
-          const y = matches[0];
-          let low = 0, high = tails.length;
-          while (low < high) {
-            const mid = (low + high) >>> 1;
-            if (candidates[tails[mid]].right < y) low = mid + 1;
-            else high = mid;
-          }
-          tails[low] = candidates.length;
-          candidates.push({ left: x, right: y, previous: low ? tails[low - 1] : -1 });
-        }
-        if (tails.length) { width = span; break; }
+      for (let x = startA; x + span <= endA; x++) {
+        const key = keyAt(a, x);
+        unique.set(key, unique.has(key) ? -1 : x);
       }
+      for (const [key, x] of unique) {
+        const matches = matchesByKey.get(key);
+        if (x < 0 || matches?.length !== 1) continue;
+        const y = matches[0];
+        let low = 0, high = tails.length;
+        while (low < high) {
+          const mid = (low + high) >>> 1;
+          if (candidates[tails[mid]].right < y) low = mid + 1;
+          else high = mid;
+        }
+        tails[low] = candidates.length;
+        candidates.push({ left: x, right: y, previous: low ? tails[low - 1] : -1 });
+      }
+      if (!tails.length) continue;
       const anchors = [];
-      for (let i = tails.at(-1) ?? -1; i >= 0; i = candidates[i].previous) anchors.push(candidates[i]);
-      anchors.reverse();
-      if (anchors.length) {
-        const parts = [];
-        let x = 0, y = 0;
-        for (const anchor of [...anchors, { left: n, right: m }]) {
-          if (anchor.left < x || anchor.right < y) continue;
-          parts.push(diff(a.slice(start + x, start + anchor.left), b.slice(start + y, start + anchor.right), depth + 1));
-          if (anchor.left < n) parts.push(Array(width).fill("equal"));
-          x = anchor.left + width; y = anchor.right + width;
-        }
-        middle = parts.flat();
+      for (let i = tails.at(-1); i >= 0; i = candidates[i].previous) anchors.push(candidates[i]);
+      anchors.reverse().push({ left: endA, right: endB });
+      let x = startA, y = startB;
+      for (const anchor of anchors) {
+        if (anchor.left < x || anchor.right < y) continue;
+        solve(a, b, x, anchor.left, y, anchor.right, depth + 1, edits);
+        if (anchor.left < endA) repeat(edits, "equal", span);
+        x = anchor.left + span; y = anchor.right + span;
       }
-      if (!middle) {
-        middle = [];
-        let y = 0;
-        for (let x = 0; x < n; x++) {
-          const matches = positions.get(a[start + x]) || [];
-          let low = 0, high = matches.length;
-          while (low < high) {
-            const mid = (low + high) >>> 1;
-            if (matches[mid] < y) low = mid + 1;
-            else high = mid;
-          }
-          if (low === matches.length) middle.push("delete");
-          else {
-            while (y < matches[low]) { middle.push("insert"); y++; }
-            middle.push("equal"); y++;
-          }
-        }
-        while (y++ < m) middle.push("insert");
+      return true;
+    }
+    return false;
+  }
+
+  // Match each key with its next occurrence on the other side.
+  function greedy(a, startA, endA, startB, endB, positions, edits) {
+    let y = startB;
+    for (let x = startA; x < endA; x++) {
+      const matches = positions.get(a[x]) || [];
+      let low = 0, high = matches.length;
+      while (low < high) {
+        const mid = (low + high) >>> 1;
+        if (matches[mid] < y) low = mid + 1;
+        else high = mid;
+      }
+      if (low === matches.length) edits.push("delete");
+      else {
+        while (y < matches[low]) { edits.push("insert"); y++; }
+        edits.push("equal"); y++;
       }
     }
-    return [
-      ...Array(start).fill("equal"),
-      ...middle,
-      ...Array(a.length - endA).fill("equal")
-    ];
+    repeat(edits, "insert", endB - y);
   }
 
   function compare(original, changed, options = {}) {
-    if (original.length + changed.length > 1000000) {
-      throw new Error("Please compare a smaller section (up to 1,000,000 characters combined).");
+    const texts = { left: original, right: changed };
+    const split = text => Array.from(text.matchAll(/[^\r\n]*(?:\r\n?|\n)|[^\r\n]+$/g), (match, index) => ({
+      text: match[0], content: match[0].replace(/(?:\r\n?|\n)$/, ""),
+      start: match.index, end: match.index + match[0].length, number: index + 1, key: normalize(match[0], options)
+    }));
+    const lines = { left: split(original), right: split(changed) };
+    const edits = diff(lines.left.map(line => line.key), lines.right.map(line => line.key));
+    const blocks = [], changes = [], words = { left: 0, right: 0 }, budget = { tokens: 100000 };
+    let l = 0, r = 0;
+
+    // Mark changed words, refined to characters for small edits, on each line.
+    function highlight(block) {
+      const input = {}, marked = { left: [], right: [] };
+      for (const side of sides) {
+        for (const line of block[`${side}Lines`]) line.marks = [];
+        input[side] = texts[side].slice(...block[side]);
+      }
+      const tokens = tokenizePair(input, options, budget);
+      if (!tokens) {
+        // Too large for word highlights: keep the line-level change.
+        for (const side of sides) words[side] += countWords(input[side]);
+        return;
+      }
+      const operations = diff(tokens.left.map(token => token.key), tokens.right.map(token => token.key));
+      let x = 0, y = 0;
+      for (let j = 0; j < operations.length;) {
+        if (operations[j] === "equal") { x++; y++; j++; continue; }
+        const startX = x, startY = y;
+        while (j < operations.length && operations[j] !== "equal") {
+          if (operations[j++] === "delete") words.left += Number(tokens.left[x++].word);
+          else words.right += Number(tokens.right[y++].word);
+        }
+        const group = { left: tokens.left.slice(startX, x), right: tokens.right.slice(startY, y) };
+        const offset = {}, text = {};
+        for (const side of sides) {
+          offset[side] = group[side][0]?.start ?? 0;
+          text[side] = group[side].length ? input[side].slice(offset[side], group[side].at(-1).end) : "";
+        }
+        // Bound refinement of unusually long tokens; the coarse word result
+        // remains usable without allocating an unbounded character trace.
+        const fine = text.left.length + text.right.length <= 8192 && tokenizePair(text, options, budget, true);
+        if (fine) {
+          const selected = { left: [], right: [] };
+          let a = 0, b = 0;
+          for (const edit of diff(fine.left.map(token => token.key), fine.right.map(token => token.key))) {
+            if (edit === "delete") selected.left.push(fine.left[a++]);
+            else if (edit === "insert") selected.right.push(fine.right[b++]);
+            else { a++; b++; }
+          }
+          const ratio = Math.max(...sides.map(side => selected[side].length / Math.max(1, fine[side].length)));
+          if ((!text.left.trim() && !text.right.trim()) || ratio < .5) {
+            for (const side of sides) {
+              group[side] = selected[side].map(token => ({ ...token, start: token.start + offset[side], end: token.end + offset[side] }));
+            }
+          }
+        }
+        for (const side of sides) for (const token of group[side]) marked[side].push(token);
+      }
+      // Move marks from block offsets to offsets within their lines.
+      for (const side of sides) {
+        const lines = block[`${side}Lines`], start = block[side][0];
+        let index = 0;
+        for (const token of marked[side]) {
+          while (index + 1 < lines.length && start + token.start >= lines[index].end) index++;
+          const shift = start - lines[index].start;
+          lines[index].marks.push({ ...token, start: token.start + shift, end: token.end + shift });
+        }
+      }
     }
-    const split = (text, budget = 20000) => Array.from(text.matchAll(/[^\r\n]*(?:\r\n?|\n)|[^\r\n]+$/g), (match, index) => {
-      if (index >= budget) throw new Error("Please compare a smaller section (up to 20,000 lines combined).");
-      return { text: match[0], content: match[0].replace(/(?:\r\n?|\n)$/, ""),
-        start: match.index, end: match.index + match[0].length, number: index + 1, key: normalize(match[0], options) };
-    });
-    const left = split(original), right = split(changed, 20000 - left.length);
-    const edits = diff(left.map(line => line.key), right.map(line => line.key));
-    const blocks = [], changes = [];
-    let l = 0, r = 0, removed = 0, added = 0, budget = 100000;
+
     for (let i = 0; i < edits.length;) {
-      const equal = edits[i] === "equal", startL = l, startR = r;
+      const equal = edits[i] === "equal", from = { left: l, right: r };
       while (i < edits.length && (edits[i] === "equal") === equal) {
         const edit = edits[i++];
         if (edit !== "insert") l++;
         if (edit !== "delete") r++;
       }
-      const block = {
-        left: [left[startL]?.start ?? original.length, l > startL ? left[l - 1].end : left[startL]?.start ?? original.length],
-        right: [right[startR]?.start ?? changed.length, r > startR ? right[r - 1].end : right[startR]?.start ?? changed.length],
-        leftLines: left.slice(startL, l), rightLines: right.slice(startR, r), equal
-      };
+      const block = { equal };
+      for (const [side, end] of [["left", l], ["right", r]]) {
+        const start = lines[side][from[side]]?.start ?? texts[side].length;
+        block[side] = [start, end > from[side] ? lines[side][end - 1].end : start];
+        block[`${side}Lines`] = lines[side].slice(from[side], end);
+      }
+      block.rows = Array.from({ length: Math.max(block.leftLines.length, block.rightLines.length) }, (_, index) => ({
+        left: block.leftLines[index] ?? null, right: block.rightLines[index] ?? null
+      }));
       if (!equal) {
         block.index = changes.length;
-        const lines = { left: block.leftLines, right: block.rightLines };
-        for (const side of sides) for (const line of lines[side]) line.marks = [];
-        const input = { left: original.slice(...block.left), right: changed.slice(...block.right) };
-        const wa = tokenize(input.left, options, budget);
-        const wb = tokenize(input.right, options, budget - wa.length);
-        budget -= wa.length + wb.length;
-        const operations = diff(wa.map(word => word.key), wb.map(word => word.key));
-        const marked = { left: [], right: [] };
-        let x = 0, y = 0;
-        for (let j = 0; j < operations.length;) {
-          if (operations[j] === "equal") {
-            x++; y++; j++;
-            continue;
-          }
-          const startX = x, startY = y;
-          while (j < operations.length && operations[j] !== "equal") {
-            if (operations[j++] === "delete") removed += Number(wa[x++].word);
-            else added += Number(wb[y++].word);
-          }
-          let group = { left: wa.slice(startX, x), right: wb.slice(startY, y) };
-          const offset = {}, text = {}, fine = {};
-          for (const side of sides) {
-            offset[side] = group[side][0]?.start ?? 0;
-            text[side] = group[side].length ? input[side].slice(offset[side], group[side].at(-1).end) : "";
-          }
-          // Bound refinement of unusually long tokens; the coarse word result
-          // remains usable without allocating an unbounded character trace.
-          if (text.left.length + text.right.length <= 8192) {
-            for (const side of sides) {
-              fine[side] = tokenize(text[side], options, budget, true);
-              budget -= fine[side].length;
-            }
-            const edits = diff(fine.left.map(t => t.key), fine.right.map(t => t.key));
-            const selected = { left: [], right: [] };
-            let a = 0, b = 0;
-            for (const edit of edits) {
-              if (edit !== "insert") { if (edit === "delete") selected.left.push(fine.left[a]); a++; }
-              if (edit !== "delete") { if (edit === "insert") selected.right.push(fine.right[b]); b++; }
-            }
-            const ratio = Math.max(selected.left.length / Math.max(1, fine.left.length), selected.right.length / Math.max(1, fine.right.length));
-            if ((!text.left.trim() && !text.right.trim()) || ratio < .5) {
-              group = selected;
-              for (const side of sides) {
-                group[side] = group[side].map(t => ({ ...t, start: t.start + offset[side], end: t.end + offset[side] }));
-              }
-            }
-          }
-          for (const side of sides) for (const token of group[side]) marked[side].push(token);
-        }
-        for (const side of sides) {
-          let index = 0;
-          for (const token of marked[side]) {
-            const position = token.start + block[side][0];
-            while (index + 1 < lines[side].length && position >= lines[side][index].end) index++;
-            const offset = lines[side][index].start - block[side][0];
-            lines[side][index].marks.push({ ...token, start: token.start - offset, end: token.end - offset });
-          }
-        }
-        block.rows = Array.from({ length: Math.max(lines.left.length, lines.right.length) }, (_, index) => ({
-          left: lines.left[index] ?? null, right: lines.right[index] ?? null
-        }));
+        highlight(block);
         changes.push(block);
       }
       blocks.push(block);
     }
-    return { left: original, right: changed, blocks, changes, removed, added };
+    return { left: original, right: changed, blocks, changes, removed: words.left, added: words.right };
   }
 
   function merge(comparison, target, index) {
@@ -308,8 +345,12 @@
     return node;
   }
 
+  // One element per line; CSS draws the line number from data-line.
   function cell(line, side, changed) {
-    const text = element("pre", { class: "dc-line-text" });
+    const text = element("pre", {
+      class: `dc-line${changed ? ` dc-${side === "left" ? "remove" : "add"}-line` : ""}${line ? "" : " dc-gap"}`,
+      "data-line": line?.number
+    });
     if (changed && line) {
       let cursor = 0;
       for (const { start, end } of highlightRanges(line)) {
@@ -321,9 +362,7 @@
         text.append(element("mark", { class: "dc-eol", title: "Line break changed" }, "↵"));
       }
     } else text.textContent = line?.content ?? "";
-    return element("div", {
-      class: `dc-line${changed ? ` dc-${side === "left" ? "remove" : "add"}-line` : ""}${line ? "" : " dc-gap"}`
-    }, element("pre", { class: "dc-line-number", "aria-hidden": "true" }, String(line?.number ?? "")), text);
+    return text;
   }
 
   function syncScroll(a, b) {
@@ -393,11 +432,11 @@
         const rect = block.getBoundingClientRect();
         const label = `Go to change ${index + 1} of ${comparison.changes.length} (original line ${change.leftLines[0]?.number ?? "—"}, changed line ${change.rightLines[0]?.number ?? "—"})`;
         markers.append(element("button", {
-          type: "button", class: "dc-map-change", "data-go": index, "aria-label": label,
+          type: "button", "data-go": index, "aria-label": label,
+          class: `dc-map-change${change.leftLines.length ? " dc-map-remove" : ""}${change.rightLines.length ? " dc-map-add" : ""}`,
           "aria-controls": block.id, "aria-current": String(index) === current ? "location" : null, title: label,
           style: `top:${Math.min(99.25, 100 * (rect.top - top) / height)}%;height:${Math.max(.75, 100 * rect.height / height)}%`
-        }, element("span", { class: change.leftLines.length ? "dc-map-remove" : "", "aria-hidden": "true" }),
-        element("span", { class: change.rightLines.length ? "dc-map-add" : "", "aria-hidden": "true" })));
+        }));
       }
       overview.replaceChildren(markers);
       updateViewport();
@@ -507,9 +546,14 @@
             }
             section.append(title);
           }
-          const rows = block.rows ?? block.leftLines.map((line, index) => ({ left: line, right: block.rightLines[index] }));
-          for (const row of rows) {
-            section.append(element("div", { class: "dc-row" }, cell(row.left, "left", !block.equal), cell(row.right, "right", !block.equal)));
+          // Chunks let the browser skip layout of rows outside the viewport.
+          for (let index = 0; index < block.rows.length; index += 100) {
+            const rows = block.rows.slice(index, index + 100);
+            const chunk = element("div", { class: "dc-chunk", style: `--dc-rows:${rows.length}` });
+            for (const row of rows) {
+              chunk.append(element("div", { class: "dc-row" }, cell(row.left, "left", !block.equal), cell(row.right, "right", !block.equal)));
+            }
+            section.append(chunk);
           }
           if (!block.equal) {
             const actions = element("div", { class: "dc-block-actions" });
