@@ -285,15 +285,21 @@ test("very large texts compare without input limits", () => {
   assert.equal(verify("\n".repeat(50001), "").changes.length, 1);
 });
 
-test("blocks beyond the highlight budget still compare at line level", () => {
-  const huge = verify(`${"a ".repeat(100001)}\nsame\nThe quick fox`, "\nsame\nThe slow fox");
+test("large blocks and later changes retain inline highlights", () => {
+  const removed = "a ".repeat(100001);
+  const huge = verify(`${removed}\nsame\nThe quick fox`, "\nsame\nThe slow fox");
   assert.equal(huge.changes.length, 2);
-  assert.equal(huge.changes[0].rows[0].left.marks.length, 0);
+  assert.deepEqual(highlightRanges(huge.changes[0].rows[0].left), [{ start: 0, end: removed.length }]);
   assert.equal(huge.removed, 100002);
   assert.equal(huge.added, 1);
   const last = huge.changes[1].rows[0];
   assert.deepEqual(last.left.marks.map(token => last.left.text.slice(token.start, token.end)), ["quick"]);
-  const lines = Array.from({ length: 3000 }, (_, i) => `line ${i} ${"word ".repeat(30)}`);
-  const many = verify(lines.join("\n"), lines.map((line, i) => i % 2 ? line : `${line}!`).join("\n"));
+  const lines = Array.from({ length: 3000 }, (_, i) => `line ${i} ${"word ".repeat(30)}1234`);
+  const many = verify(lines.join("\n"), lines.map((line, i) => i % 2 ? line : `${line.slice(0, -1)}5`).join("\n"));
   assert.equal(many.changes.length, 1500);
+  for (const block of many.changes) {
+    const [{ left, right }] = block.rows;
+    assert.deepEqual(left.marks.map(token => token.key), ["4"]);
+    assert.deepEqual(right.marks.map(token => token.key), ["5"]);
+  }
 });

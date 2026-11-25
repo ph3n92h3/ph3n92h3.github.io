@@ -33,28 +33,20 @@
     }
   }
 
-  // Count words in blocks too large to tokenize. A run of letters in scripts
-  // written without spaces, such as Chinese, counts as one word.
-  const countWords = text => text.match(/[\p{L}\p{M}]+|\p{N}+/gu)?.length ?? 0;
-
-  // Returns null once the budget is spent, so callers can skip highlighting.
-  function tokenize(text, options, budget, character = false) {
+  function tokenize(text, options, character) {
     const tokens = [];
     for (const { segment, index, word } of (character ? characterSegments : smartSegments)(text)) {
       if (options.ignoreWhitespace && /^[^\S\r\n]+$/u.test(segment)) continue;
-      if (tokens.length >= budget) return null;
       tokens.push({ key: normalize(segment, options), start: index, end: index + segment.length, word });
     }
     return tokens;
   }
 
-  // Tokenize both sides within the shared budget, or return null without spending it.
-  function tokenizePair(input, options, budget, character) {
-    const left = tokenize(input.left, options, budget.tokens, character);
-    const right = left && tokenize(input.right, options, budget.tokens - left.length, character);
-    if (!right) return null;
-    budget.tokens -= left.length + right.length;
-    return { left, right };
+  function tokenizePair(input, options, character = false) {
+    return {
+      left: tokenize(input.left, options, character),
+      right: tokenize(input.right, options, character)
+    };
   }
 
   const repeat = (edits, edit, count) => { for (let i = 0; i < count; i++) edits.push(edit); };
@@ -214,7 +206,7 @@
     }));
     const lines = { left: split(original), right: split(changed) };
     const edits = diff(lines.left.map(line => line.key), lines.right.map(line => line.key));
-    const blocks = [], changes = [], words = { left: 0, right: 0 }, budget = { tokens: 100000 };
+    const blocks = [], changes = [], words = { left: 0, right: 0 };
     let l = 0, r = 0;
 
     // Mark changed words, refined to characters for small edits, on each line.
@@ -224,12 +216,7 @@
         for (const line of block[`${side}Lines`]) line.marks = [];
         input[side] = texts[side].slice(...block[side]);
       }
-      const tokens = tokenizePair(input, options, budget);
-      if (!tokens) {
-        // Too large for word highlights: keep the line-level change.
-        for (const side of sides) words[side] += countWords(input[side]);
-        return;
-      }
+      const tokens = tokenizePair(input, options);
       const operations = diff(tokens.left.map(token => token.key), tokens.right.map(token => token.key));
       let x = 0, y = 0;
       for (let j = 0; j < operations.length;) {
@@ -247,7 +234,7 @@
         }
         // Bound refinement of unusually long tokens; the coarse word result
         // remains usable without allocating an unbounded character trace.
-        const fine = text.left.length + text.right.length <= 8192 && tokenizePair(text, options, budget, true);
+        const fine = text.left.length + text.right.length <= 8192 && tokenizePair(text, options, true);
         if (fine) {
           const selected = { left: [], right: [] };
           let a = 0, b = 0;
@@ -535,16 +522,26 @@
             section.id = `dc-change-${block.index}`;
             section.tabIndex = -1;
             section.setAttribute("aria-label", label);
-            const title = element("div", { class: "dc-block-title" }, element("span", {}, label));
-            for (const [step, label, arrow] of [[-1, "Previous change", "↑"], [1, "Next change", "↓"]]) {
+            const actions = element("div", { class: "dc-block-merge" });
+            for (const target of ["right", "left"]) {
+              const toChanged = target === "right";
+              const mergeLabel = `Merge block ${block.index + 1} from ${toChanged ? "original to changed" : "changed to original"}`;
+              const text = element("span", { class: "dc-control-label" }, "Merge block");
+              actions.append(element("button", {
+                type: "button", class: "md-button dc-merge", "data-merge": target, "data-change": block.index,
+                "aria-label": mergeLabel, title: mergeLabel
+              }, ...(toChanged ? [text, "→"] : ["←", text])));
+            }
+            const jump = element("div", { class: "dc-block-nav" });
+            for (const [step, navLabel, arrow] of [[-1, "Previous change", "↑"], [1, "Next change", "↓"]]) {
               const target = block.index + step;
               const disabled = target < 0 || target >= changes.length;
-              title.append(element("button", {
+              jump.append(element("button", {
                 type: "button", class: "md-button dc-change-nav", "data-go": target, disabled,
-                "aria-label": label, "aria-controls": disabled ? null : `dc-change-${target}`
-              }, `${arrow} ${label}`));
+                "aria-label": navLabel, title: navLabel, "aria-controls": disabled ? null : `dc-change-${target}`
+              }, arrow, element("span", { class: "dc-control-label" }, navLabel)));
             }
-            section.append(title);
+            section.append(element("div", { class: "dc-block-title" }, element("span", {}, label), actions, jump));
           }
           // Chunks let the browser skip layout of rows outside the viewport.
           for (let index = 0; index < block.rows.length; index += 100) {
@@ -554,16 +551,6 @@
               chunk.append(element("div", { class: "dc-row" }, cell(row.left, "left", !block.equal), cell(row.right, "right", !block.equal)));
             }
             section.append(chunk);
-          }
-          if (!block.equal) {
-            const actions = element("div", { class: "dc-block-actions" });
-            for (const target of ["right", "left"]) {
-              actions.append(element("button", {
-                type: "button", class: "md-button dc-merge", "data-merge": target, "data-change": block.index,
-                "aria-label": `Merge block ${block.index + 1} from ${target === "right" ? "original to changed" : "changed to original"}`
-              }, target === "right" ? "Merge block →" : "← Merge block"));
-            }
-            section.append(actions);
           }
           fragment.append(section);
         }
